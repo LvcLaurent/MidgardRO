@@ -1,0 +1,40 @@
+-- Original translation works of zackdreaver: https://github.com/zackdreaver/ROenglishRE
+-- Continuated by llchrisll at https://github.com/llchrisll/ROenglishRE
+-- This file only works if used in combination with the
+-- `System/Sign_Data_EN.lub` (Translated Strings) which comes with this project
+-- and the `Custom Lua Support`
+-- Last updated: 20231006
+
+-- Format:
+-- { "map", x, y, Height, Icon ID, "Path", "Content", "Char Color" },
+--
+-- Icon ID:
+-- IT_BMP > Only displays the bmp 
+-- IT_SIGNBOARD > Displays the text and image in a box
+-- IT_SPRITE > Not sure, even kRO doesn't use it at the moment
+--
+-- Path: File Path of the .bmp file (Note: "유저인터페이스" can be skipped)
+--       Example: "유저인터페이스\\item\\suffragium.bmp" or "item\\suffragium.bmp"
+-- Content: What should be written in your signboard
+-- Char Color: I'm unsure myself, but default used by kRO is: "#0x00FFFFFF"
+
+IT_NONE = 0
+IT_BMP = 1
+IT_SPRITE = 2
+IT_SIGNBOARD = 3
+SignBoardList_CLS = {
+	
+}
+
+function MergeSign(size)
+	local ct = size
+	for _, v in pairs(SignBoardList_CLS) do
+		ct = ct + 1
+		if(v ~= nil) then
+			if( SignBoardList[ct] == nil) then
+				SignBoardList[ct] = v
+			end
+		end
+	end
+	return 1
+end

@@ -1,0 +1,68 @@
+3 Chat Flood Remove Limit
+5 Enable Proxy Support
+8 Custom Window Title
+9 Disable 1rag1 type parameters (Recommended)
+13 Disable Ragexe Filename Check (Recommended)
+14 Disable Hallucination Wavy Screen (Recommended)
+16 Disable Swear Filter
+18 Skip Service Selection Screen
+19 Legacy: Enable Title Bar Menu
+20 Extend Chat Box
+21 Extend Chat Room Box
+22 Extend PM Box
+23 Enable /who command (Recommended)
+24 Fix Camera Angles (Recommended)
+28 Increase Headgear ViewID
+30 Increase Zoom Out 50%
+34 Enable /showname (Recommended)
+36 Always read msgstringtable.txt (Recommended)
+38 Remove Gravity Ads (Recommended)
+39 Remove Gravity Logo (Recommended)
+41 Disable Nagle Algorithm (Recommended)
+43 Always Use Email for Char Deletion
+44 Translate Client (Recommended)
+46 Use Normal Guild Brackets (Recommended)
+47 Use Ragnarok Icon
+48 Use Plain Text Descriptions (Recommended)
+49 Enable Multiple GRFs (Recommended)
+50 Skip License Screen
+53 Use Ascii on All LangTypes (Recommended)
+64 @ Bug Fix (Recommended)
+65 Load Custom lua file instead of iteminfo*.lub (Recommended)
+71 Ignore Resource Errors
+72 Ignore Missing Palette Error
+73 Remove Hourly Announce (Recommended)
+76 Enforce Official Login Background
+84 Remove Serial Display (Recommended)
+90 Enable DNS Support (Recommended)
+100 Disable Multiple Windows
+212 Restore Roulette
+213 Disable Help Message on Login (Recommended)
+227 Change Walk To Delay.
+230 Always load Korea ExternalSettings lua file (Recommended)
+231 Remove hardcoded address/port (Recommended)
+232 Restore old login packet (Recommended)
+234 Ignore Lua Errors
+242 Disable kRO Site Launch
+256 Use Default Web Browser In Cashshop
+270 Change AchievementList*.lub path
+271 Change MonsterSizeEffect*.lub path
+272 Change Towninfo*.lub path
+273 Change PetEvolutionCln*.lub path
+274 Change Tipbox*.lub path
+275 Change CheckAttendance*.lub path
+276 Change OngoingQuestInfoList*.lub path
+277 Change RecommendedQuestInfoList*.lub path
+278 Change PrivateAirplane*.lub path
+290 Hide build info in client (Recommended)
+291 Hide packets from peek (Recommended)
+313 Change MapInfo*.lub path
+317 Ignore Quest Errors
+323 Restore Songs Effect
+326 Disable OTP Login Packet (Recommended)
+338 Additional client validation (Recommended)
+348 Send client flags to server (Recommended)
+404 Use borderless mode in full screen (Recommended)
+427 Check is servertype in xml file was set to correct value (Recommended)
+432 Disable Game Guard (NProtect) (Recommended)
+473 Increase human hair style limit in game
