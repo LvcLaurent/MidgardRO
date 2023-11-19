@@ -1721,19 +1721,19 @@ SKILL_DESCRIPT = {
 		"Each cast requires 1 ^00BB00Red Gemstone^777777.^000000"
 	},
 	[SKID.NV_FIRSTAID] = {
-		"Premiers soins",
-		"^CC3399Condition : Terminer la quete^000000",
-		"Forme de compétence : ^339900de support^000000",
-		"Cible : ^777777Soi-meme^000000",
-		"Description : ^777777Utilise 3 SP pour restaurer 5 HP.^000000"
+		"First Aid",
+		"^CC3399Requirement: Finish Quest^000000",
+		"Skill Form: ^339900Supportive^000000",
+		"Target: ^777777Self^000000",
+		"Description: ^777777Use 3 SP to restore 5 HP.^000000"
 	},
 	[SKID.NV_TRICKDEAD] = {
-		"Feindre la mort",
-		"^CC3399Condition : Terminer la quete, reserve aux Novices^000000",
-		"Forme de competence : ^339900de support^000000",
-		"Description : ^777777Simulez la mort pour eviter la menace",
-		"des ennemis proches. L'etat de feinte de la mort est",
-		"annule en lançant à nouveau cette competence.^000000"
+		"Play Dead",
+		"^CC3399Requirement: Finish Quest, Novice Only^000000",
+		"Skill Form: ^339900Supportive^000000",
+		"Description: ^777777Feign death to avoid the menace",
+		"of nearby enemies. The Play Dead status is",
+		"cancelled by casting this skill again.^000000"
 	},
 	[SKID.SM_MOVINGRECOVERY] = {
 		"Moving HP Recovery",

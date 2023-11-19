@@ -2808,7 +2808,7 @@ SKILL_DESCRIPT = {
 	[SKID.NV_FIRSTAID] = {
 		"Premiers soins",
 		"^CC3399Condition : Terminer la quete^000000",
-		"Forme de competence : ^3F0099Active^000000",
+		"Forme de compétence : ^3F0099Active^000000",
 		"Type : ^339900Retablissement^000000",
 		"Cible : ^6666CCCaster^000000",
 		"Description : ^777777Utilise 3 ^CC6600SP^777777 pour restaurer 5 ^CC6600HP.^000000"

@@ -5108,7 +5108,7 @@ QuestInfoList = {
 		Title = "Un nouveau compagnon",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Allez sur le champ à 9 heures d'Izlude et parlez a <NAVI>[Poring]<INFO>prt_fild08.gat,362,272,0,101,0</INFO></NAVI>."
+			"Go to Izlude's 9 o'clock field and talk to <NAVI>[Poring]<INFO>prt_fild08.gat,362,272,0,101,0</INFO></NAVI>."
 		},
 		Summary = ""
 	},
