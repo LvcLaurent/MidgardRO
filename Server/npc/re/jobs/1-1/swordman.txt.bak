@@ -1,0 +1,125 @@
+//===== rAthena Script ======================================= 
+//= Renewal Swordman Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Swordman Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//============================================================ 
+izlude_in,74,172,4	script	Swordman#swd	119,{
+	if (Upper == 1) {
+		if (Class == Job_Novice_High && (ADVJOB == Job_Lord_Knight || ADVJOB == Job_Paladin)) {
+			mes "[Épéiste]";
+			mes "Cela...";
+			mes "Ne peut pas être...";
+			mes "Tu as renaître, n'est-ce pas ?";
+			next;
+			mes "[Épéiste]";
+			mes "Je vois que tu retraces le chemin de l'Épéiste ! Une fois que tu as pris l'habitude de brandir une épée, tu ne peux jamais revenir en arrière !!";
+			next;
+			if (!callfunc("F_CanChangeJob")) {
+				mes "[Épéiste]";
+				mes "Hmm ? Ah, tu dois d'abord maîtriser les Compétences de base avant de pouvoir devenir un Épéiste.";
+				next;
+				mes "[Épéiste]";
+				mes "Reviens me voir quand tu auras fini d'apprendre les Compétences de base du Novice.";
+				close;
+			}
+			mes "[Épéiste]";
+			mes "Excellent ! Permettez-moi de vous promouvoir immédiatement au rang d'Épéiste !";
+			next;
+			skill "NV_TRICKDEAD",0,SKILL_PERM;
+			jobchange Job_Swordman_High;
+			skill "SM_MOVINGRECOVERY",1,SKILL_PERM;
+			skill "SM_FATALBLOW",1,SKILL_PERM;
+			skill "SM_AUTOBERSERK",1,SKILL_PERM;
+			mes "[Épéiste]";
+			mes "Hmm... Tu as l'air d'être un Épéiste bien expérimenté. Cependant, je suis sûr que tu dois t'entraîner pour améliorer tes compétences et gagner en force !";
+			close;
+		} else {
+			mes "[Épéiste]";
+			mes "Hm...?";
+			mes "Tu es un guerrier réincarné, n'est-ce pas ?";
+			next;
+			mes "[Épéiste]";
+			mes "Hmmm...";
+			mes "Il semble que le fait";
+			mes "d'être un Épéiste ne fait pas";
+			mes "partie de ton destin. Je suis désolé,";
+			mes "mais il semble qu'il n'y a rien";
+			mes "que je puisse faire pour toi.";
+			close;
+		}
+	}
+	mes "[Membre de la guilde des Épéistes]";
+	mes "C'est la guilde des Épéistes.";
+	mes "Pourquoi es-tu ici ?";
+	next;
+	switch(select("Parle-moi d'être un Épéiste.:Je veux être un Épéiste.:Rien.")) {
+	case 1:
+		mes "[Membre de la guilde des Épéistes]";
+		mes "Alors, tu veux en savoir plus sur le puissant Épéiste ? D'accord !";
+		next;
+		mes "[Membre de la guilde des Épéistes]";
+		mes "La caractéristique la plus distinctive de l'Épéiste est que l'Épéiste peut nous montrer ses véritables capacités au combat rapproché.";
+		mes "Il y a trois raisons !";
+		next;
+		mes "[Membre de la guilde des Épéistes]";
+		mes "Premièrement, l'Épéiste a plus de HP que les autres jobs.";
+		mes "Deuxièmement, sauf pour les arcs et les bâtons, l'Épéiste peut utiliser toutes les autres armes, ce qui lui permet de combattre à sa capacité optimale.";
+		mes "Et troisièmement, la plupart des compétences de l'Épéiste procurent des attaques physiques puissantes.";
+		next;
+		mes "[Membre de la guilde des Épéistes]";
+		mes "Bien que je t'aie donné une explication simple, je pense que tu comprends la signification fondamentale de ce qu'est être un Épéiste.";
+		mes "À mon avis, l'Épéiste est le meilleur job de tous les temps !";
+		close;
+	case 2:
+		mes "[Membre de la guilde des Épéistes]";
+		if (BaseJob != Job_Novice) {
+			if (BaseJob == Job_Swordman) {
+				mes "Tu es déjà un excellent Épéiste, n'est-ce pas ?";
+				mes "Dévoue-toi simplement à devenir un grand Épéiste.";
+			} else {
+				mes "Tu as déjà l'un des autres jobs, n'est-ce pas ?";
+				mes "Tu es allé trop loin avec cette blague.";
+			}
+			close;
+		} else {
+			if (!callfunc("F_CanChangeJob")) {
+				mes "Je suis désolé de te dire cela, mais pour être un Épéiste, tu dois atteindre au moins le niveau de job ^4A4AFF10^000000.";
+				mes "et le niveau de compétence de base ^4A4AFF9^000000.";
+				next;
+				mes "[Membre de la guilde des Épéistes]";
+				mes "Veux-tu être un Épéiste sans avoir la condition minimale ?";
+				mes "Penses-tu que devenir un Épéiste est aussi facile ?";
+				close;
+			}
+			mes "Hmm, ton niveau de job et ton niveau de compétence de base sont en ordre.";
+			mes "Bien. Veux-tu être un Épéiste tout de suite ?";
+			next;
+			if (select("Oui, je le veux.:Je vais y réfléchir à nouveau.") == 2) {
+				mes "[Membre de la guilde des Épéistes]";
+				mes "Ouais. Une décision prudente est nécessaire pour choisir un job.";
+				mes "Mais je suis désolé... que tu y réfléchisses à nouveau après avoir surmonté toutes les épreuves....";
+				close;
+			}
+			mes "[Membre de la guilde des Épéistes]";
+			mes "Félicitations ! Désormais, tu vas vivre la vie d'un Épéiste !";
+			mes "Faisons-le tout de suite !";
+			next;
+			mes "[Membre de la guilde des Épéistes]";
+			mes "Félicitations encore d'être devenu un Épéiste et j'espère que tu participeras à de nombreuses activités pour la relance de notre guilde.";
+			callfunc "Job_Change", Job_Swordman;
+			getitem 13415, 1; // N_Falchion
+			close;
+		}
+	case 3:
+		close;
+	}
+}

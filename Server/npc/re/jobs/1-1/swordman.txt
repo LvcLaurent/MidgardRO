@@ -15,109 +15,108 @@
 izlude_in,74,172,4	script	Swordman#swd	119,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Lord_Knight || ADVJOB == Job_Paladin)) {
-			mes "[Swordman]";
-			mes "It...";
-			mes "Can't be...";
-			mes "You've been reborn, haven't you?";
+			mes "[Épéiste]";
+			mes "Cela...";
+			mes "Ne peut pas être...";
+			mes "Tu as renaître, n'est-ce pas ?";
 			next;
-			mes "[Swordman]";
-			mes "I see you're retreading the path of the Swordman! Once you've gotten used to brandishing a sword, you can never go back!!";
+			mes "[Épéiste]";
+			mes "Je vois que tu retraces le chemin de l'Épéiste ! Une fois que tu as pris l'habitude de brandir une épée, tu ne peux jamais revenir en arrière !!";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
-				mes "[Swordman]";
-				mes "Hmm? Ah, you must first master the Basic Skills before you are ready to become a Swordman.";
+				mes "[Épéiste]";
+				mes "Hmm ? Ah, tu dois d'abord maîtriser les Compétences de base avant de pouvoir devenir un Épéiste.";
 				next;
-				mes "[Swordman]";
-				mes "Come back to me when you have finished learning the Basic Novice Skills.";
+				mes "[Épéiste]";
+				mes "Reviens me voir quand tu auras fini d'apprendre les Compétences de base du Novice.";
 				close;
 			}
-			mes "[Swordman]";
-			mes "Excellent! Let me promote you to a Swordman right away!";
+			mes "[Épéiste]";
+			mes "Excellent ! Permettez-moi de vous promouvoir immédiatement au rang d'Épéiste !";
 			next;
 			skill "NV_TRICKDEAD",0,SKILL_PERM;
 			jobchange Job_Swordman_High;
 			skill "SM_MOVINGRECOVERY",1,SKILL_PERM;
 			skill "SM_FATALBLOW",1,SKILL_PERM;
 			skill "SM_AUTOBERSERK",1,SKILL_PERM;
-			mes "[Swordman]";
-			mes "Hmm... You look like a well-experienced Swordman. Still, I'm sure that you must train to improve your skills and gain strength!";
+			mes "[Épéiste]";
+			mes "Hmm... Tu as l'air d'être un Épéiste bien expérimenté. Cependant, je suis sûr que tu dois t'entraîner pour améliorer tes compétences et gagner en force !";
 			close;
-		}else{
-			mes "[Swordman]";
+		} else {
+			mes "[Épéiste]";
 			mes "Hm...?";
-			mes "You're a reborn";
-			mes "warrior, aren't you?";
+			mes "Tu es un guerrier réincarné, n'est-ce pas ?";
 			next;
-			mes "[Swordman]";
+			mes "[Épéiste]";
 			mes "Hmmm...";
-			mes "It seems that being";
-			mes "a Swordman is not part";
-			mes "of your destiny. I'm sorry,";
-			mes "but it seems there is nothing";
-			mes "I can do for you.";
+			mes "Il semble que le fait";
+			mes "d'être un Épéiste ne fait pas";
+			mes "partie de ton destin. Je suis désolé,";
+			mes "mais il semble qu'il n'y a rien";
+			mes "que je puisse faire pour toi.";
 			close;
 		}
 	}
-	mes "[Swordman Guildsman]";
-	mes "This is the Swordman Guild.";
-	mes "Why are you here?";
+	mes "[Membre de la guilde des Épéistes]";
+	mes "C'est la guilde des Épéistes.";
+	mes "Pourquoi es-tu ici ?";
 	next;
-	switch(select("Tell me about being a Swordman.:I want to be a Swordman.:Nothing.")) {
+	switch(select("Parle-moi d'être un Épéiste.:Je veux être un Épéiste.:Rien.")) {
 	case 1:
-		mes "[Swordman Guildsman]";
-		mes "So you wish to know more about the mighty Swordman? Okay!";
+		mes "[Membre de la guilde des Épéistes]";
+		mes "Alors, tu veux en savoir plus sur le puissant Épéiste ? D'accord !";
 		next;
-		mes "[Swordman Guildsman]";
-		mes "The most distinctive feature of the Swordman is that the Swordman can show us his/her real abilities in close combat.";
-		mes "There are three reasons!";
+		mes "[Membre de la guilde des Épéistes]";
+		mes "La caractéristique la plus distinctive de l'Épéiste est que l'Épéiste peut nous montrer ses véritables capacités au combat rapproché.";
+		mes "Il y a trois raisons !";
 		next;
-		mes "[Swordman Guildsman]";
-		mes "First, Swordman has higher HP than other jobs.";
-		mes "Second, except for Bows and Rods, Swordman can use all other weapons so they can fight at their optimal ability.";
-		mes "And third, most of the skills of the Swordman give powerful physical attacks.";
+		mes "[Membre de la guilde des Épéistes]";
+		mes "Premièrement, l'Épéiste a plus de HP que les autres jobs.";
+		mes "Deuxièmement, sauf pour les arcs et les bâtons, l'Épéiste peut utiliser toutes les autres armes, ce qui lui permet de combattre à sa capacité optimale.";
+		mes "Et troisièmement, la plupart des compétences de l'Épéiste procurent des attaques physiques puissantes.";
 		next;
-		mes "[Swordman Guildsman]";
-		mes "Though I gave you a simple explanation, I believe you understand the core meaning of what it is to be a Swordman.";
-		mes "In my opinion, Swordman is the best job ever!";
+		mes "[Membre de la guilde des Épéistes]";
+		mes "Bien que je t'aie donné une explication simple, je pense que tu comprends la signification fondamentale de ce qu'est être un Épéiste.";
+		mes "À mon avis, l'Épéiste est le meilleur job de tous les temps !";
 		close;
 	case 2:
-		mes "[Swordman Guildsman]";
-		if(BaseJob != Job_Novice) {
-			if(BaseJob == Job_Swordman) {
-				mes "You are already an excellent Swordman, aren't you?";
-				mes "Just devote yourself to be a great Swordman.";
-			}else{
-				mes "You already have one of the other jobs, don't you?";
-				mes "You've gone too far with that joke.";
+		mes "[Membre de la guilde des Épéistes]";
+		if (BaseJob != Job_Novice) {
+			if (BaseJob == Job_Swordman) {
+				mes "Tu es déjà un excellent Épéiste, n'est-ce pas ?";
+				mes "Dévoue-toi simplement à devenir un grand Épéiste.";
+			} else {
+				mes "Tu as déjà l'un des autres jobs, n'est-ce pas ?";
+				mes "Tu es allé trop loin avec cette blague.";
 			}
 			close;
-		}else{
+		} else {
 			if (!callfunc("F_CanChangeJob")) {
-				mes "I'm sorry to tell you this but to be a Swordman, you must reach at least ^4A4AFFJob Level 10^000000.";
-				mes "and ^4A4AFFBasic Skill Level 9^000000.";
+				mes "Je suis désolé de te dire cela, mais pour être un Épéiste, tu dois atteindre au moins le niveau de job ^4A4AFF10^000000.";
+				mes "et le niveau de compétence de base ^4A4AFF9^000000.";
 				next;
-				mes "[Swordman Guildsman]";
-				mes "Want to be a Swordman without having the minimum requirement?";
-				mes "Do you think being a Swordman is that easy?";
+				mes "[Membre de la guilde des Épéistes]";
+				mes "Veux-tu être un Épéiste sans avoir la condition minimale ?";
+				mes "Penses-tu que devenir un Épéiste est aussi facile ?";
 				close;
 			}
-			mes "Hmm, both your Job Level and Basic Skill Level check out.";
-			mes "Good. Do you want to be a Swordman right away?";
+			mes "Hmm, ton niveau de job et ton niveau de compétence de base sont en ordre.";
+			mes "Bien. Veux-tu être un Épéiste tout de suite ?";
 			next;
-			if(select("Yes, I do.:I'll consider it again.") == 2) {
-				mes "[Swordman Guildsman]";
-				mes "Yeah. Prudent decision is needed for choosing a job.";
-				mes "But I feel sorry... that you consider it again after overcoming all the hardships....";
+			if (select("Oui, je le veux.:Je vais y réfléchir à nouveau.") == 2) {
+				mes "[Membre de la guilde des Épéistes]";
+				mes "Ouais. Une décision prudente est nécessaire pour choisir un job.";
+				mes "Mais je suis désolé... que tu y réfléchisses à nouveau après avoir surmonté toutes les épreuves....";
 				close;
 			}
-			mes "[Swordman Guildsman]";
-			mes "Congratulations! From now on, you are going to live a Swordman's life!";
-			mes "Let's do it right now!";
+			mes "[Membre de la guilde des Épéistes]";
+			mes "Félicitations ! Désormais, tu vas vivre la vie d'un Épéiste !";
+			mes "Faisons-le tout de suite !";
 			next;
-			mes "[Swordman Guildsman]";
-			mes "Congratulations again for being a Swordman and I hope that you participate in many activities for the revival of our guild.";
-			callfunc "Job_Change",Job_Swordman;
-			getitem 13415,1; // N_Falchion
+			mes "[Membre de la guilde des Épéistes]";
+			mes "Félicitations encore d'être devenu un Épéiste et j'espère que tu participeras à de nombreuses activités pour la relance de notre guilde.";
+			callfunc "Job_Change", Job_Swordman;
+			getitem 13415, 1; // N_Falchion
 			close;
 		}
 	case 3:

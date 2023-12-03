@@ -1162,46 +1162,46 @@ QuestInfoList = {
 		Summary = "Talk to Professor Worm"
 	},
 	[1229] = {
-		Title = "Swordsman training",
+		Title = "Entrainement Swordsman",
 		Description = {
-			"Start the Swordsman training. Equip the Swordsman Manual and test the skills."
+			"Commencez l entraînement de l Epeiste. Equipez le Manuel de l Epéiste et testez les competences."
 		},
-		Summary = "Talk to trainer Adric"
+		Summary = "Parlez a l entraineur Adric"
 	},
 	[1230] = {
-		Title = "Swordsman training",
+		Title = "Entrainement Swordsman",
 		Description = {
-			"You heard the explanations about the Swordsman Class. Ask about the other courses from trainer Adric."
+			"Vous avez entendu les explications sur la classe d Epéiste. Renseignez vous sur les autres cours aupres de l'instructeur Adric."
 		},
-		Summary = "Talk to trainer Adric"
+		Summary = "Parlez a l entraineur Adric"
 	},
 	[1233] = {
-		Title = "Swordsman training",
+		Title = "Entrainement Swordsman",
 		Description = {
-			"The Swordsman training with the Swordsman Ecarto of Izlude Swordsman guild."
+			"L entrainement de l Epeiste avec l Epeiste Ecarto de la guilde des Epeistes d Izlude."
 		},
-		Summary = "Talk to Swordsman Ecarto"
+		Summary = "Parlez avec le Swordsman Ecarto"
 	},
 	[1234] = {
-		Title = "Swordsman training",
+		Title = "Entrainement Swordsman",
 		Description = {
-			"The Swordsman training with the Swordsman Ecarto! Go into the advanced course"
+			"Passez au cours avance."
 		},
-		Summary = "Talk to Swordsman Ecarto"
+		Summary = "Parlez avec le Swordsman Ecarto"
 	},
 	[1235] = {
-		Title = "Swordsman training",
+		Title = "Entrainement Swordsman",
 		Description = {
-			"After hunting 10 Tarous at the underground waterway of the west of Prontera, report to the Swordsman Ecarto."
+			"Apres avoir chassez 10 Tarous dans le reseau souterrain a l ouest de Prontera, faites votre rapport a l Epeiste Ecarto."
 		},
-		Summary = "Talk to Swordsman Ecarto"
+		Summary = "Parlez avec le Swordsman Ecarto"
 	},
 	[1236] = {
-		Title = "Swordsman training",
+		Title = "Entrainement Swordsman",
 		Description = {
-			"After hunting 10 Tarous at the underground waterway of the west of Prontera, report to the Swordsman Ecarto."
+			"Apres avoir chassez 10 Tarous dans le reseau souterrain a l ouest de Prontera, faites votre rapport a l Epeiste Ecarto."
 		},
-		Summary = "Talk to Swordsman Ecarto"
+		Summary = "Parlez avec le Swordsman Ecarto"
 	},
 	[1237] = {
 		Title = "Guide des boutiques",
@@ -5108,7 +5108,7 @@ QuestInfoList = {
 		Title = "Un nouveau compagnon",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Go to Izlude's 9 o'clock field and talk to <NAVI>[Poring]<INFO>prt_fild08.gat,362,272,0,101,0</INFO></NAVI>."
+			"Allez sur le champ à 9 heures d'Izlude et parlez a <NAVI>[Poring]<INFO>prt_fild08.gat,362,272,0,101,0</INFO></NAVI>."
 		},
 		Summary = ""
 	},
@@ -9274,9 +9274,9 @@ QuestInfoList = {
 		Summary = ""
 	},
 	[4268] = {
-		Title = "Ninja trainer",
+		Title = "Ninja",
 		Description = {
-			"Meet with the ninja trainer"
+			"Rencontrez l instructeur de ninja."
 		},
 		Summary = ""
 	},
@@ -10890,78 +10890,78 @@ QuestInfoList = {
 		Summary = "Defeat the target \"Clan Secret\"!!"
 	},
 	[5147] = {
-		Title = "Gunslinger Basic Training(1)",
+		Title = "Entrainement Gunslinger Basic(1)",
 		Description = {
-			"Louie will train the basic of gunslinger. Let's take the lesson"
+			"Louie va enseigner les bases du maitre d armes a feu. Suivons le cours."
 		},
-		Summary = "Talk to Louie"
+		Summary = "Parlez a Louie"
 	},
 	[5148] = {
-		Title = "Gunslinger Basic Training(2)",
+		Title = "Entrainement Gunslinger Basic(2)",
 		Description = {
-			"Let's take the battle training from Lusa working at the Criatura academy in Izlude via the Airship."
+			"Prenons l entraînement au combat avec Lusa qui travaille a l'Academie Criatura a Izlude via le dirigeable."
 		},
-		Summary = "Talk to Lusa"
+		Summary = "Parlez a Lusa"
 	},
 	[5149] = {
-		Title = "<Combat Training Request A>",
+		Title = "<Demande d entrainement au combat A>",
 		Description = {
-			"Town kid's request: To play with no worry outside, ask for hunting Hornets."
+			"Demande de l enfant du village : Pour jouer sans soucis dehors, il vous demande de chasser des Hornets."
 		},
-		Summary = "Hunt 10 Hornets"
+		Summary = "Chassez 10 Hornets"
 	},
 	[5150] = {
-		Title = "<Combat Training Request B>",
+		Title = "<Demande d entrainement au combat B>",
 		Description = {
-			"Resident H's request: He can't work as he sleeps well due to the croaking sound of frogs."
+			"Demande du Resident H : Il ne peut pas travailler car il dort mal en raison du son de coassement des grenouilles."
 		},
-		Summary = "Hunt 10 Roda Frogs"
+		Summary = "Chassez 10 Roda Frogs"
 	},
 	[5151] = {
-		Title = "<Combat Training Request C>",
+		Title = "<Demande d entrainement au combat C>",
 		Description = {
-			"Request from the taming applicant: Ask to catch Savage Bebe so he can try to tame one."
+			"Demande du candidat au dressage : Demandez de capturer un Savage Bebe afin qu il puisse essayer de l apprivoiser."
 		},
-		Summary = "Hunt 10 Savage Bebe"
+		Summary = "Chassez 10 Savage Bebe"
 	},
 	[5152] = {
-		Title = "<Combat Training Request D>",
+		Title = "<Demande d entrainement au combat D>",
 		Description = {
-			"Request from a singer wannabe: being requested to remove Rocker who sing better than him."
+			"Demande d un aspirant chanteur : Il demande de chassez les Rocker qui chante mieux que lui."
 		},
-		Summary = "Hunt 10 Rockers"
+		Summary = "Chassez 10 Rockers"
 	},
 	[5153] = {
-		Title = "Refining Tutorial_01",
+		Title = "Tutoriel sur le raffinage_01",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Free coupon enabling you to refine weapons from level 1 to +7 by the refining machine, Wagjak."
+			"Coupon gratuit vous permettant de raffiner les armes du niveau 1 à +7 a la machine de raffinage, Wagjak."
 		},
-		Summary = "Free coupon to use the refining service"
+		Summary = "Coupon gratuit pour utiliser le service de raffinage."
 	},
 	[5154] = {
-		Title = "Refining Tutorial_02",
+		Title = "Tutoriel sur le raffinage_02",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Come back after taking the explanations about the weapon levels and safety refining from Mr. Tadde working at the Izlude Refinery."
+			"Revenez apres avoir entendu les explications sur les niveaux d arme et le raffinage securise aupres de M. Tadde travaillant a la raffinerie d Izlude."
 		},
-		Summary = "Explanations about the weapon level and saftey refining"
+		Summary = "Explications sur le niveau de l arme et le raffinage securise."
 	},
 	[5155] = {
-		Title = "Refining Tutorial_03",
+		Title = "Tutoriel sur le raffinage_03",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Come back after taking the explanations about the refining effect and expenses from Mr. Locas working at the Izlude smeltery."
+			"Revenez apres avoir entendu les explications sur l effet du raffinage et les frais aupres de M. Locas travaillant a la fonderie d Izlude."
 		},
-		Summary = "Explanations about the refining effect and expenses"
+		Summary = "Explications sur l effet du raffinage et les frais associes."
 	},
 	[5156] = {
-		Title = "Refining Tutorial_04",
+		Title = "Tutoriel sur le raffinage_04",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Refining tutorial completed."
+			"Completez le tutoriel sur le raffinage."
 		},
-		Summary = "Refining tutorial completed"
+		Summary = "Tutoriel sur le raffinage completer"
 	},
 	[5157] = {
 		Title = "Enchant Tutorial_01",
@@ -20226,18 +20226,18 @@ QuestInfoList = {
 		Summary = ""
 	},
 	[7480] = {
-		Title = "Regarding Thief job",
+		Title = "Concernant la classe de Voleur.",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Ask about stats and skills from Vicente and Vercassel."
+			"Demandez des informations sur les statistiques et les competences a Vicente et Vercassel."
 		},
-		Summary = "Talk to Vicente & Vercassel"
+		Summary = "Parlez a Vicente & Vercassel"
 	},
 	[7481] = {
 		Title = "Vicente's Class",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"I heard about stats from Vicente."
+			"J ai entendu parler des statistiques de la part de Vicente."
 		},
 		Summary = ""
 	},
@@ -20245,49 +20245,49 @@ QuestInfoList = {
 		Title = "Vercassel's Class",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"I heard about the Thief skills from Vercassel."
+			"J ai entendu parler des competences de Voleur de la part de Vercassel."
 		},
 		Summary = ""
 	},
 	[7483] = {
-		Title = "Use the Thief Manual",
+		Title = "Utilisez le manuel des voleurs",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Use the manual to complete the assignments from Vicente and Vercassel."
+			"Utilisez le manuel pour accomplir les missions de Vicente et Vercassel."
 		},
-		Summary = "Assignments of Vicente and Vercassel"
+		Summary = "Les missions de Vicente et Vercassel."
 	},
 	[7484] = {
-		Title = "Shop owner! Order to steal!",
+		Title = "Proprietaire du magasin ! Ordre de voler !",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"As for the assignment use the Thief Manual, you have to steal a Stone from a Poring monster."
+			"En ce qui concerne la mission avec le Manuel du Voleur, vous devez voler une pierre a un monstre Poring."
 		},
-		Summary = "Steal 1 Stone"
+		Summary = "Volez 1 Pierre"
 	},
 	[7485] = {
-		Title = "Assassin! Use Envenom",
+		Title = "Utilisez unvenom",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"As for the assignment to use the Thief Manual. Defeat a Poring in the Poring cage by using Envenom."
+			"En ce qui concerne la mission avec le Manuel du Voleur, battez un Poring dans la cage a Poring en utilisant Envenom."
 		},
-		Summary = "Defeat a Poring"
+		Summary = "battez le Poring"
 	},
 	[7486] = {
-		Title = "Lumin and...",
+		Title = "Lumin et...",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"Talk about your future."
+			"Parlez du futur."
 		},
 		Summary = ""
 	},
 	[7487] = {
-		Title = "30 second duel",
+		Title = "30 secondes de duel",
 		IconName = "ico_gq.bmp",
 		Description = {
-			"I made a bet with Lumin. Within 30 seconds, defeat 4 Porings in the Poring cage by using Envenom and speak to Lumin."
+			"J ai parie avec Lumin. Dans les 30 secondes, battez 4 Porings dans la cage a Poring en utilisant Envenom, puis parlez à Lumin."
 		},
-		Summary = "Defeat 4 Porings within 30 seconds"
+		Summary = "battez 4 Porings en 30 secondes"
 	},
 	[7488] = {
 		Title = "Trio set of Fire Elements",
@@ -28707,11 +28707,11 @@ QuestInfoList = {
 		Summary = "Collect 100 jellopy and go back to errand man"
 	},
 	[9028] = {
-		Title = "Strange Hydra",
+		Title = "Etrange Hydra",
 		Description = {
-			"Strange Hydra have appeared in ^993399Brasilis^000000. Use the <ITEM>Hydra Ball<INFO>12408</INFO></ITEM> from ^0000FFLucia^000000 to capture a ^0000FFStrange Hydra^000000."
+			"D etranges Hydras sont apparues a ^993399Brasilis^000000. Utilisez la <ITEM>Hydra Ball<INFO>12408</INFO></ITEM> de ^0000FFLucia^000000 pour capturer une ^0000FFStrange Hydra^000000."
 		},
-		Summary = "Capture a Strange Hydra"
+		Summary = "Capturer une Hydra"
 	},
 	[9029] = {
 		Title = "Strange Hydra : present conditions",
@@ -29562,23 +29562,23 @@ QuestInfoList = {
 		Summary = ""
 	},
 	[9264] = {
-		Title = "Job change to Mage",
+		Title = "Devenir Mage",
 		Description = {
-			"At ^8B4513Geffen field^000000, find and talk to^0000FF Mage Guild Info Staff^000000."
+			"A ^8B4513Geffen field^000000, trouvez et parlez au ^0000FFpersonnel d information de la Guilde des Mages^000000."
 		},
 		Summary = ""
 	},
 	[9265] = {
-		Title = "Job change to Mage",
+		Title = "Devenir Mage",
 		Description = {
-			"At the ^8B4513entrance to Geffen^000000, find and talk to ^0000FF Mage Guild Info Staff^000000."
+			"A l entree de ^8B4513Geffen^000000, trouvez et parlez au ^0000FFpersonnel d information de la Guilde des Mages^000000."
 		},
 		Summary = ""
 	},
 	[9266] = {
-		Title = "Job change to Mage",
+		Title = "Devenir Mage",
 		Description = {
-			"In the^8B4513 Mage Guild in the 11 o'clock direction of Geffen^000000, find and talk to ^0000FF Mage Guild Info Staff^000000."
+			"Dans la ^8B4513Guilde des Mages, dans la direction 11 heures de Geffen^000000, trouvez et parlez au ^0000FFpersonnel d information de la Guilde des Mages^000000."
 		},
 		Summary = ""
 	},
@@ -34299,37 +34299,37 @@ QuestInfoList = {
 		Summary = "Talk to Du's group"
 	},
 	[11338] = {
-		Title = "Talk to Subino",
+		Title = "Parlez Subino",
 		Description = {
-			"Talk to Subino in charge of hunting quests at the Criatura Academy."
+			"Parlez a Subino, responsable des quetes de chasse à l'Academie Criatura."
 		},
-		Summary = "Talk to Subino"
+		Summary = "Parlez Subino"
 	},
 	[11339] = {
-		Title = "The most delicious on earth",
+		Title = "Le plus delicieux sur terre.",
 		Description = {
-			"Hunt 10 Porings and 5 Jellopy. Meet Subino waiting in the Criatura Academy. Porings can be found in the field just west of Izlude"
+			"Chassez 10 Porings et 5 Jellopy. Retrouvez Subino qui vous attend a l Academie Criatura. Les Porings peuvent etre trouves dans le champ juste à l'ouest d'Izlude."
 		},
 		Summary = "Porings(10), Jellopy(5)"
 	},
 	[11340] = {
-		Title = "Carrots are delicious!",
+		Title = "Les delicieuse carottes!",
 		Description = {
-			"Hunt 10 Lunatics and get a healthy and tasty carrot, then bring it to Subino. Lunatics can be found in the field just west of Izlude."
+			"chassez 10 Lunatics et obtenez une carotte saine et savoureuse, puis apportez-la a Subino. Les Lunatics peuvent etre trouves dans le champ juste à l ouest d Izlude."
 		},
 		Summary = "Lunatics(10), Carrot(1)"
 	},
 	[11341] = {
-		Title = "Rolling Fabre's clothing",
+		Title = "Les vetements du Fabre.",
 		Description = {
-			"Come back to Subino by hunting 10 Fabres and 3 Fluff. Fabres can be easily found in the field just west of Izlude."
+			"Revenez aupres de Subino en chassant 10 Fabres et 3 Fluffs. Les Fabres peuvent etre facilement trouves dans le champ juste à l'ouest d Izlude."
 		},
 		Summary = "Fabres(10), Fluff(3)"
 	},
 	[11342] = {
 		Title = "Antidote Material~",
 		Description = {
-			"Return to Subino after hunting 10 Hornets, which is the material for antidote, and finding 3 Bee Stings. Hornets can be easily found in the field west of Prontera."
+			"Revenez voir Subino apres avoir chasse 10 Hornets, pour trouvez les materiaux pour l antidote, et trouve 3 Bee Stings. Les Hornets peuvent etre facilement trouves dans le champ a l ouest de Prontera."
 		},
 		Summary = "Hornets(10), Bee's Sting(3)"
 	},
@@ -34341,9 +34341,9 @@ QuestInfoList = {
 		Summary = "Parlez a Alice"
 	},
 	[11344] = {
-		Title = "Barrier!!",
+		Title = "Barriere!!",
 		Description = {
-			"Attaching the handles on the Pupa shell... Return to Subino after hunting 5 Pupas and finding 2 Shells. Pupa can be found in the field west of Izlude."
+			"Recuperation sur la coquille de Pupa... Retournez voir Subino apres avoir chasse 5 Pupas et trouve 2 coquilles. Les Pupas peuvent etre trouves dans le champ a l ouest d Izlude."
 		},
 		Summary = "Pupas(5), Shells(2)"
 	},
@@ -40483,44 +40483,44 @@ QuestInfoList = {
 	[12302] = {
 		Title = "Salim Hamid",
 		Description = {
-			"Talked with a merchant trainer named Salim Hamid."
+			"Parler a Salim Hamid pour en savoir plus sur les marchands."
 		},
-		Summary = "Talk to the merchant trainer"
+		Summary = "Parlez a l entraineur de marchand"
 	},
 	[12303] = {
-		Title = "Applicant for trader",
+		Title = "Demandeur pour le metier de commercant.",
 		Description = {
-			"They say the only person with 100 Zeny is entiled to take Salim Hamid's famous merchant lesson. It isn't that much Zeny so you need to find and sell some items."
+			"On dit que seule les personne avec 100 Zeny ont le droit de suivre la celebre lecon du marchand Salim Hamid. Ce n est pas beaucoup de Zeny, alors vous devez trouver et vendre quelques objets."
 		},
-		Summary = "Obtain 100 Zeny"
+		Summary = "Obtenez 100 Zeny"
 	},
 	[12304] = {
-		Title = "Introduction to merchantology",
+		Title = "Introduction a la mercatique.",
 		Description = {
-			"Merchants have various skills to make money legally. Listen to the explanations from the steward next to Salim Hamid."
+			"Les marchands ont diverses competences pour gagner de l argent legalement. Ecoutez les explications du steward a cote de Salim Hamid."
 		},
 		Summary = "Secret of negotiation"
 	},
 	[12305] = {
-		Title = "About the capability figure",
+		Title = "A propos de la figure de competence.",
 		Description = {
-			"Merchants also have the main element status. Simply study each status' capability figure. Of course, it's up to you..."
+			"Les marchands ont egalement des statistiques elementaires principales. Etudiez simplement le chiffre de competence de chaque statistique. Bien sur, cela depend de vous..."
 		},
-		Summary = "It is not pushing you to do"
+		Summary = "Cela ne vous pousse pas a le faire."
 	},
 	[12306] = {
-		Title = "Experience of disounts",
+		Title = "Experience des reductions.",
 		Description = {
-			"Go to the noisy vending machine in merchant classroom, come back after checking discounted prices of Garlets and Zargons. To check the discounted prices, you must equip the merchant manual."
+			"Allez a la machine distributrice bruyante dans la salle de classe des marchands, revenez apres avoir verifie les prix réduits des Garlets et des Zargons. Pour verifier les prix réduits, vous devez equiper le manuel du marchand."
 		},
-		Summary = "See discounts by wearing the Merchant Manual"
+		Summary = "Equipez le manuel, et voyez les reductions"
 	},
 	[12307] = {
-		Title = "Way to the Merchant",
+		Title = "Devenir Merchant",
 		Description = {
-			"According to Salim Hamid, to change to a Merchant, you should go to the town of Alberta. Go to the refinery building in the 5 o'clock direction."
+			"Selon Salim Hamid, pour devenir Marchand, vous devriez vous rendre a la ville d Alberta. Dirigez-vous vers le batiment de la raffinerie dans la direction 5 heures."
 		},
-		Summary = "Travel Alberta"
+		Summary = "Direction Alberta"
 	},
 	[12308] = {
 		Title = "Removal of Worm Tails",
@@ -43183,14 +43183,14 @@ QuestInfoList = {
 		CoolTimeQuest = 1
 	},
 	[13101] = {
-		Title = "The way of Taekwon",
+		Title = "La voie du Taekwon",
 		Description = {
-			"Go to the Taekwon trainer to the north of Payon"
+			"Rendez vous chez l instructeur de Taekwon au nord de Payon."
 		},
-		Summary = "Travel to Payon"
+		Summary = "Allez a Payon"
 	},
 	[13102] = {
-		Title = "Spinning kick",
+		Title = "kick",
 		Description = {
 			""
 		},
@@ -44106,11 +44106,11 @@ QuestInfoList = {
 		Summary = "Obtain the items!"
 	},
 	[14142] = {
-		Title = "To the Archer's town!",
+		Title = "Vers la ville des archers",
 		Description = {
-			"Finish the lesson by going to the Archer's Guild by going to Payon and traveling north."
+			"Terminez la lecon en vous rendant a la Guilde des Archers en allant a Payon et en voyageant vers le nord."
 		},
-		Summary = "Travel to the Archer's town"
+		Summary = "Allez dans la ville des archers"
 	},
 	[14143] = {
 		Title = "Application for the Archer's job change",
@@ -44218,11 +44218,11 @@ QuestInfoList = {
 		Summary = "Trouver les ingredients"
 	},
 	[14158] = {
-		Title = "Presentation of the Archer manual",
+		Title = "Presentation du manuel de l Archer",
 		Description = {
-			"Presentation of the guide to experience the archer's skill"
+			"Presentation du guide pour experimenter les competences de l archer."
 		},
-		Summary = "Presentation of the Archer's manual"
+		Summary = "Presentation du manuel de l Archer"
 	},
 	[14159] = {
 		Title = "Met with the PR staff",
