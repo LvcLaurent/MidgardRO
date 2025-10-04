@@ -36,6 +36,7 @@ izlude_in,74,172,4	script	Swordman#swd	119,{
 			next;
 			skill "NV_TRICKDEAD",0,SKILL_PERM;
 			jobchange Job_Swordman_High;
+			atcommand "@joblvlup 5";
 			skill "SM_MOVINGRECOVERY",1,SKILL_PERM;
 			skill "SM_FATALBLOW",1,SKILL_PERM;
 			skill "SM_AUTOBERSERK",1,SKILL_PERM;
@@ -116,6 +117,7 @@ izlude_in,74,172,4	script	Swordman#swd	119,{
 			mes "[Membre de la guilde des Épéistes]";
 			mes "Félicitations encore d'être devenu un Épéiste et j'espère que tu participeras à de nombreuses activités pour la relance de notre guilde.";
 			callfunc "Job_Change", Job_Swordman;
+			atcommand "@joblvlup 5";
 			getitem 13415, 1; // N_Falchion
 			close;
 		}

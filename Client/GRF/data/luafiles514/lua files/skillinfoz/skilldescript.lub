@@ -6,7 +6,7 @@
 
 SKILL_DESCRIPT = {
 	[SKID.NV_BASIC] = {
-		"Basic Skill",
+		"Basic Skill 514 pour connaitre quel fichier",
 		"Max Level: 9",
 		"Skill Form: ^6666CCPassive^000000",
 		"Description: ^777777Enables the use of Basic",

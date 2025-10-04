@@ -20,97 +20,102 @@
 // prt_castle,48,161,3	script	Middle-aged Gentleman#rg	57,{
 prt_cas,172,275,5	script	Middle-aged Gentleman#rg	1_M_LIBRARYMASTER,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "- Your pack is too heavy. -";
-		mes "- Lighten your body first -";
-		mes "- and please try again. -";
+		mes "- Votre sac est trop lourd. -";
+		mes "- Allégez votre corps d'abord -";
+		mes "- et réessayez, s'il vous plaît. -";
 		close;
 	}
+
 	if (Class == Job_Royal_Guard || Class == Job_Royal_Guard_T || Class == Job_Baby_Royal_Guard) {
-		mes "[Middle-aged Gentleman]";
-		mes "Uh? What am I doing? I came here for an errand...";
+		mes "[Gentleman d'âge moyen]";
+		mes "Eh bien ? Que suis-je en train de faire ici ? Je suis venu pour une mission...";
 		next;
-		mes "^000099Maybe my feeling has moved to another body.^000000";
+		mes "^000099Peut-être que mon esprit a migré vers un autre corps.^000000";
 		close;
 	}
+
 	if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
-		mes "[Middle-aged Gentleman]";
-		mes "Oh you are so young. Keep working hard.";
+		mes "[Gentleman d'âge moyen]";
+		mes "Oh, vous êtes si jeune. Continuez à travailler dur.";
 		close;
 	}
+
 	if (checkriding() || checkcart() || checkfalcon()) {
-		mes "[Middle-aged Gentleman]";
-		mes "You are dragging something. If you're riding something you better dismount it before proceeding.";
+		mes "[Gentleman d'âge moyen]";
+		mes "Vous traînez quelque chose. Si vous êtes monté sur quelque chose, il vaut mieux en descendre avant de continuer.";
 		close;
 	}
+
 	if (BaseJob != Job_Crusader) {
-		mes "[Middle-aged Gentleman]";
-		mes "I don't have anything to say to you. Find another person.";
+		mes "[Gentleman d'âge moyen]";
+		mes "Je n'ai rien à vous dire. Trouvez une autre personne.";
 		close;
 	}
+
 	if (job_royal == 0) {
-		mes "[Middle-aged Gentleman]";
-		mes "What was I saying... (mumble) the remaining segment is in Glast Heim around 13.......";
+		mes "[Gentleman d'âge moyen]";
+		mes "Que disais-je... (marmonnant) le segment restant se trouve à Glast Heim, vers 13 heures...";
 		next;
-		mes "[Middle-aged Gentleman]";
-		mes "Uhh?";
-		mes "Did you need something?";
+		mes "[Gentleman d'âge moyen]";
+		mes "Euh ?";
+		mes "Avez-vous besoin de quelque chose ?";
 		next;
-		select("I haven't seen you before.");
-		mes "[Middle-aged Gentleman]";
-		mes "Hehehe, don't worry about me.";
+		select("Je ne vous ai jamais vu avant.");
+		mes "[Gentleman d'âge moyen]";
+		mes "Hehehe, ne vous inquiétez pas pour moi.";
 		next;
-		mes "[Middle-aged Gentleman]";
-		mes "If you don't have business with me, just keep going my friend.";
+		mes "[Gentleman d'âge moyen]";
+		mes "Si vous n'avez pas d'affaires avec moi, continuez votre chemin, mon ami.";
 		next;
-		select("You don't look like a Knight...");
-		mes "[Middle-aged Gentleman]";
-		mes "You're a curious one. Who are you? What do you want?";
+		select("Vous ne ressemblez pas à un Chevalier...");
+		mes "[Gentleman d'âge moyen]";
+		mes "Vous êtes curieux. Qui êtes-vous ? Que voulez-vous ?";
 		next;
-		select("Just looking around!:This is my office!:Who am I? Who are you?");
-		mes "[Middle-aged Gentleman]";
-		mes "Do you want to argue with me? Do you know who I am?";
+		select("Je regarde autour de moi !:C'est mon bureau !:Qui suis-je ? Qui êtes-vous ?");
+		mes "[Gentleman d'âge moyen]";
+		mes "Vous voulez vous disputer avec moi ? Savez-vous qui je suis ?";
 		next;
-		if(select("Not really, who are you?:Sorry, I won't hurt your feelings.") == 2) {
+		if(select("Pas vraiment, qui êtes-vous ?:Désolé, je ne veux pas vous froisser.") == 2) {
 			mes "["+strcharinfo(0)+"]";
-			mes "Sorry. I had to be sure. I didn't know that you are from the royal palace.";
+			mes "Désolé. Je devais être sûr. Je ne savais pas que vous veniez du palais royal.";
 			next;
-			mes "[Middle-aged Gentleman]";
-			mes "That's enough. Don't make this mistake again.";
+			mes "[Gentleman d'âge moyen]";
+			mes "C'est assez. Ne refaites pas cette erreur.";
 			close;
 		}
 		mes "["+strcharinfo(0)+"]";
-		mes "I'm a member here and have the authority to find out what your business is here.";
+		mes "Je suis membre ici et j'ai l'autorité pour savoir ce que vous faites ici.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "You are a stranger and I'm not sure if you belong here.";
+		mes "Vous êtes un étranger et je ne suis pas sûr que vous ayez votre place ici.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "If you tell me your identity, I will apologize.";
+		mes "Si vous me dites votre identité, je m'excuserai.";
 		next;
-		mes "[Middle-aged Gentleman]";
-		mes "You are so persistent.";
-		mes "If you really want, I will introduce myself.";
+		mes "[Gentleman d'âge moyen]";
+		mes "Vous êtes si persévérant.";
+		mes "Si vous le souhaitez vraiment, je me présenterai.";
 		next;
-		mes "[Middle-aged Gentleman]";
-		mes "I am Heinrich.";
-		mes "I'm collecting information about King Schmidtz's trace which has disappeared.";
+		mes "[Gentleman d'âge moyen]";
+		mes "Je suis Heinrich.";
+		mes "Je recueille des informations sur la trace du roi Schmidtz, qui a disparu.";
 		next;
-		select("Schmidzt's trace? Is it a treasure?");
+		select("La trace de Schmidtz ? Est-ce un trésor ?");
 		mes "[Heinrich]";
-		mes "Most archaeologists are eager to get treasure. I'm looking for traces of the ^000099Royal Guard^000000 and their sons who belong to the Schmidtz line.";
+		mes "La plupart des archéologues sont impatients de trouver des trésors. Je cherche des traces de la ^000099Garde Royale^000000 et de leurs fils, qui appartiennent à la lignée Schmidtz.";
 		next;
-		select("Royal Guard?");
+		select("Garde Royale ?");
 		mes "[Heinrich]";
-		mes "Sounds interesting doesn't it? I can't really say but their history and files are under strict security.";
+		mes "Ça semble intéressant, n'est-ce pas ? Je ne peux pas vraiment en dire plus, mais leur histoire et leurs dossiers sont sous haute sécurité.";
 		next;
-		select("Can't you tell me?");
+		select("Vous ne pouvez pas me le dire ?");
 		mes "[Heinrich]";
-		mes "I can't really talk about the Royal Guard to just anyone who asks about them.";
+		mes "Je ne peux pas vraiment parler de la Garde Royale à n'importe qui qui les interroge.";
 		next;
 		mes "[Heinrich]";
-		mes "BUT!! I want to believe you...";
+		mes "MAIS !! J'ai envie de vous croire...";
 		next;
-		switch(select("I want to know more.:Stop talking.")) {
+		switch(select("Je veux en savoir plus.:Arrêtez de parler.")) {
 		case 1:
 			if (VIP_SCRIPT) {
 				callfunc "VIP_Third_Class";
@@ -119,327 +124,327 @@ prt_cas,172,275,5	script	Middle-aged Gentleman#rg	1_M_LIBRARYMASTER,{
 				next;
 			}
 			mes "[Heinrich]";
-			mes "You are impetuous.";
+			mes "Vous êtes impatient.";
 			next;
 			mes "[Heinrich]";
-			mes "It's not a simple story to tell a person like you. Go back.";
+			mes "Ce n'est pas une histoire simple à raconter à quelqu'un comme vous. Retournez en arrière.";
 			set job_royal,1;
 			setquest 12090;
 			close;
 		case 2:
 			mes "[Heinrich]";
-			mes "Good idea.";
+			mes "Bonne idée.";
 			next;
 			mes "[Heinrich]";
-			mes "Just forget it and let your mind do more worthy things.";
+			mes "Oubliez simplement ça et laissez votre esprit s'occuper de choses plus dignes.";
 			close;
 		}
 	}
 	mes "[Heinrich]";
 	if (job_royal == 1) {
 		mes "[Heinrich]";
-		mes "You are persistent friend.";
-		mes "Do you have more things to talk to me about?";
+		mes "Vous êtes persévérant, mon ami.";
+		mes "Avez-vous d'autres choses à me dire ?";
 		next;
-		select("If you can't trust me, test me pal.");
+		select("Si vous ne me faites pas confiance, testez-moi.");
 		mes "[Heinrich]";
-		mes "Test?";
-		mes "Did you say the test? Huhu!";
-		next;
-		mes "[Heinrich]";
-		mes "Friend, you have shown your interest about my job, are you sure? Or are you kidding me?";
-		next;
-		select("I'm serious!");
-		mes "[Heinrich]";
-		mes "Really?";
-		mes "Good. You might have the wrong idea about what a Royal Guard is. So, in your opinion, what do you think is the key to being a Royal Guard?";
-		next;
-		select("Decision and Bravery:Calm Judgment:Sharp wisdom:Benevolent spirit");
-		mes "[Heinrich]";
-		mes "Good choice.";
-		mes "Actually, the other 3 are also needed to have the Royal Guard spirit, friend.";
+		mes "Test ?";
+		mes "Avez-vous dit test ? Huhu !";
 		next;
 		mes "[Heinrich]";
-		mes "But according to research documents about the Royal Guard, the best belief is 'asceticism and endurance'.";
+		mes "Ami, vous avez montré de l'intérêt pour mon travail, en êtes-vous sûr ? Ou vous me faites une blague ?";
+		next;
+		select("Je suis sérieux !");
+		mes "[Heinrich]";
+		mes "Vraiment ?";
+		mes "Bien. Vous pourriez avoir une mauvaise idée de ce qu'est un Garde Royal. Alors, à votre avis, quelle est la clé pour devenir un Garde Royal ?";
+		next;
+		select("Décision et bravoure : Jugement calme : Sagesse aiguisée : Esprit bienveillant");
+		mes "[Heinrich]";
+		mes "Bon choix.";
+		mes "En réalité, les trois autres sont également nécessaires pour avoir l'esprit du Garde Royal, mon ami.";
 		next;
 		mes "[Heinrich]";
-		mes "Did you get it?";
-		mes "Asceticism and Endurance young one. It is a bit different from what you answered.";
+		mes "Mais selon les documents de recherche sur les Gardes Royaux, la meilleure croyance est 'ascétisme et endurance'.";
 		next;
 		mes "[Heinrich]";
-		mes "You seem to have a large interest about this story but I can't tell you more.";
+		mes "Avez-vous compris ?";
+		mes "Ascétisme et endurance, jeune. C'est un peu différent de ce que vous avez répondu.";
 		next;
 		mes "[Heinrich]";
-		mes "Only those who have qualification can hear the Royal Guard history.";
-		next;
-		select("What can I do to hear that story?");
-		mes "^000099Heinrich has an agonized look on his face. Then he looked like he fell asleep. Finally he says with reckless abandon.^000000";
+		mes "Vous semblez avoir un grand intérêt pour cette histoire, mais je ne peux pas vous en dire plus.";
 		next;
 		mes "[Heinrich]";
-		mes "You are too stubborn.";
-		mes "If so I will test you to see your asceticism and endurance.";
+		mes "Seules les personnes qualifiées peuvent entendre l'histoire des Gardes Royaux.";
+		next;
+		select("Que puis-je faire pour entendre cette histoire ?");
+		mes "^000099Heinrich a un air tourmenté sur le visage. Puis il a l'air de s'endormir. Enfin, il dit avec une abandon irréfléchi.^000000";
 		next;
 		mes "[Heinrich]";
-		mes "Long ago King Schmidtz gave a title to a brave soldier who come back with 100 Sacred Marks.";
+		mes "Vous êtes trop obstiné.";
+		mes "Dans ce cas, je vais vous tester pour voir votre ascétisme et votre endurance.";
 		next;
 		mes "[Heinrich]";
-		mes "If you want to hear more story, you have to show me your similar attitude.";
+		mes "Il y a longtemps, le roi Schmidtz a donné un titre à un brave soldat qui est revenu avec 100 Marques Sacrées.";
 		next;
-		if(select("That's an unfair demand.:I will try.") == 1) {
+		mes "[Heinrich]";
+		mes "Si vous voulez en savoir plus, vous devez me montrer une attitude similaire.";
+		next;
+		if(select("C'est une demande injuste. : Je vais essayer.") == 1) {
 			mes "[Heinrich]";
-			mes "Good idea, it would better to find something more worthy.";
+			mes "Bonne idée, il vaudrait mieux trouver quelque chose de plus digne.";
 			close;
 		}
 		mes "[Heinrich]";
-		mes "Ok, let's do it this way. Actually it's too difficult to collect 100 Sacred Marks, just show your ambition by collecting 100 Burning Hearts.";
+		mes "D'accord, faisons comme ça. En réalité, il est trop difficile de collecter 100 Marques Sacrées. Montrez simplement votre ambition en collectant 100 Cœurs Brûlants.";
 		next;
 		mes "[Heinrich]";
-		mes "If you bring them I can tell you more of the story. That means you show your endurance to me.";
+		mes "Si vous les apportez, je pourrai vous en dire plus sur l'histoire. Cela signifie que vous montrez votre endurance envers moi.";
 		next;
 		mes "[Heinrich]";
-		mes "Don't forget to bring the 100 Burning Hearts.";
+		mes "N'oubliez pas d'apporter les 100 Cœurs Brûlants.";
 		set job_royal,2;
 		changequest 12090,12091;
 		close;
 	} else if (job_royal == 2) {
 		if (countitem(7097) < 100) {
-			mes "Don't forget to bring 100 Burning Heart.";
+			mes "N'oubliez pas d'apporter 100 Cœurs Brûlants.";
 			close;
 		}
-		mes "Did you get all of them?";
-		mes "Most people just ignore me or give up the mission.";
+		mes "Les avez-vous tous obtenus ?";
+		mes "La plupart des gens m'ignorent simplement ou abandonnent la mission.";
 		next;
 		mes "[Heinrich]";
-		mes "Wait while I arrange the stuff that you brought.";
-		delitem 7097,100; //Burning_Heart
+		mes "Attendez pendant que je range les choses que vous avez apportées.";
+		delitem 7097,100; //Cœur_Brûlant
 		set job_royal,3;
 		changequest 12091,12092;
 		close;
 	} else if (job_royal == 3) {
 		mes "...";
-		mes "Good. I can feel truth from your heart. Now I can tell you more of the story.";
+		mes "Bien. Je peux sentir la vérité dans votre cœur. Maintenant je peux vous en dire plus sur l'histoire.";
 		next;
-		select("Ok tell me more.");
+		select("D'accord, racontez-moi la suite.");
 		mes "[Heinrich]";
-		mes "The best members of the Crusader and Paladin classes can gain the qualification of the Royal Guard.";
-		next;
-		mes "[Heinrich]";
-		mes "They are agents of the divine order and judge with swift punishment.";
+		mes "Les meilleurs membres des classes Crusader et Paladin peuvent obtenir la qualification de Garde Royal.";
 		next;
 		mes "[Heinrich]";
-		mes "We still have many opinions about how they could have survived. Surely someone had to have believed that their history was not false.";
-		next;
-		select("Are there still documents?");
-		mes "[Heinrich]";
-		mes "Hmm, documents you say...";
+		mes "Ce sont des agents de l'ordre divin et jugent avec une punition rapide.";
 		next;
 		mes "[Heinrich]";
-		mes "Unfortunately after King Schmidtz disappeared, traces of the Royal Guard disappeared.";
+		mes "Nous avons encore de nombreuses opinions sur la manière dont ils ont pu survivre. Il est certain que quelqu'un a dû croire que leur histoire n'était pas fausse.";
+		next;
+		select("Y a-t-il encore des documents ?");
+		mes "[Heinrich]";
+		mes "Hmm, des documents, dites-vous...";
 		next;
 		mes "[Heinrich]";
-		mes "Their history, belief, vision and fighting skill seemingly disappeared without any of the documents being saved.";
+		mes "Malheureusement, après la disparition du roi Schmidtz, les traces de la Garde Royale ont disparu.";
 		next;
 		mes "[Heinrich]";
-		mes "It's like it disappeared with the king.";
-		next;
-		select("So the reason of finding their traces...");
-		mes "[Heinrich]";
-		mes "I was worried about past Royal Guards that might not have been able to pass down their history.";
+		mes "Leur histoire, leur croyance, leur vision et leur compétence au combat semblent avoir disparu sans que les documents aient été sauvegardés.";
 		next;
 		mes "[Heinrich]";
-		mes "The mysterious power... can't appear anymore in the world. How disappointing is it~!";
+		mes "C'est comme si cela avait disparu avec le roi.";
+		next;
+		select("Donc, la raison de rechercher leurs traces...");
+		mes "[Heinrich]";
+		mes "Je m'inquiétais pour les anciens Gardes Royaux qui n'ont peut-être pas pu transmettre leur histoire.";
 		next;
 		mes "[Heinrich]";
-		mes "That's why I'm concentrating to revive their job.";
-		next;
-		select("How much progress have you made?");
-		mes "[Heinrich]";
-		mes "Fortunately, I excavated most of the treasures and interpreted them. I just have one trace left to find.";
-		next;
-		select("The rest of the traces?");
-		mes "[Heinrich]";
-		mes "The Royal Guard carved the mark of King Schmidtz on their clothes. The trace of this custom is the last clue.";
+		mes "Le pouvoir mystérieux... ne peut plus apparaître dans le monde. C'est décevant~!";
 		next;
 		mes "[Heinrich]";
-		mes "According to reports from other cities the last trace possibly exists in a monastery inside of Glass Heim.";
+		mes "C'est pourquoi je me concentre sur la réanimation de leur métier.";
+		next;
+		select("À quel point avez-vous progressé ?");
+		mes "[Heinrich]";
+		mes "Heureusement, j'ai excavé la plupart des trésors et les ai interprétés. Il me reste juste une trace à trouver.";
+		next;
+		select("Et le reste des traces ?");
+		mes "[Heinrich]";
+		mes "La Garde Royale gravait la marque du roi Schmidtz sur leurs vêtements. La trace de cette coutume est le dernier indice.";
 		next;
 		mes "[Heinrich]";
-		mes "But it is too dangerous for me there so I almost gave up.";
+		mes "Selon les rapports d'autres villes, la dernière trace existe peut-être dans un monastère à l'intérieur de Glass Heim.";
 		next;
 		mes "[Heinrich]";
-		mes "Now I can't tell you why the trace is there.";
+		mes "Mais c'est trop dangereux pour moi là-bas, alors j'ai presque abandonné.";
 		next;
-		if(select("Interesting. Can I go there?:Seems really dangerous.") == 2) {
+		mes "[Heinrich]";
+		mes "Maintenant, je ne peux pas vous dire pourquoi la trace se trouve là-bas.";
+		next;
+		if(select("Intéressant. Puis-je y aller ? : Ça semble vraiment dangereux.") == 2) {
 			mes "[Heinrich]";
-			mes "Good idea, that's useless work to explore there.";
+			mes "Bonne idée, c'est un travail inutile d'explorer là-bas.";
 			close;
 		}
 		mes "[Heinrich]";
-		mes "Are you kidding?";
-		mes "You shouldn't treat it like it's just some normal chore.";
+		mes "Vous plaisantez ?";
+		mes "Vous ne devriez pas traiter cela comme une simple corvée.";
 		next;
-		select("I'm not kidding. I'm serious.");
+		select("Je ne plaisante pas. Je suis sérieux.");
 		mes "[Heinrich]";
-		mes "If you say it like that I don't have any more options.";
+		mes "Si vous le dites comme ça, je n'ai plus d'autres options.";
 		next;
 		mes "[Heinrich]";
-		mes "I don't know if it will be helpful or not. I will write an explanation in detail.";
+		mes "Je ne sais pas si cela sera utile ou non. Je vais rédiger une explication détaillée.";
 		next;
-		mes "^000099Here's the last trace of the Royal Guard. Open the quest window and check the position.^000000";
+		mes "^000099Voici la dernière trace de la Garde Royale. Ouvrez la fenêtre des quêtes et vérifiez la position.^000000";
 		set job_royal,4;
 		changequest 12092,12093;
 		close;
 	} else if (job_royal == 4) {
 		if (countitem(6274) == 0) {
-			mes "Our staff has already left to find the last trace, so don't work too hard.";
+			mes "Notre personnel est déjà parti pour trouver la dernière trace, alors ne travaillez pas trop dur.";
 			close;
 		}
-		mes "No, it's not the correct one that I want.";
+		mes "Non, ce n'est pas celle que je veux.";
 		next;
 		mes "[Hainrich]";
-		mes "You surprised me. How did you get it? So far no one could get it.";
+		mes "Vous m'avez surpris. Comment l'avez-vous obtenu ? Jusqu'à présent, personne n'a pu l'obtenir.";
 		next;
 		mes "[Heinrich]";
-		mes "Thank you so much.";
-		mes "Thanks to your effort I can find the last clue. How amazing~!";
+		mes "Merci beaucoup.";
+		mes "Grâce à vos efforts, je peux trouver le dernier indice. C'est incroyable~!";
 		next;
-		mes "^000099Heinrich hesitated and brought an old shield from the side of the office.^000000";
-		next;
-		mes "[Heinrich]";
-		mes "Our staff excavated it. They assumed that King Schmidtz used it. But it wasn't used by him.";
-		next;
-		select("Sure it's wasn't used by the King?");
-		mes "[Heinrich]";
-		mes "I can't be entirely sure.";
-		mes "Maybe you are right but, according to when we did the initial identification we can be sure it wasn't used.";
+		mes "^000099Heinrich hésita et apporta un vieux bouclier du côté du bureau.^000000";
 		next;
 		mes "[Heinrich]";
-		mes "But it's an old treasure so, somehow it will be useful. I might know how to use it.";
+		mes "Notre personnel l'a excavé. Ils ont supposé que le roi Schmidtz l'utilisait. Mais il ne l'a pas utilisé.";
 		next;
-		select("Can I keep it?");
+		select("Es-tu sûr qu'il n'a pas été utilisé par le roi ?");
 		mes "[Heinrich]";
-		mes "Of course.";
-		mes "Someday it might be useful to you.";
-		next;
-		mes "^000099You get the shield from Heinrich. There are some letters carved on the inside of the shield.^000000 ";
-		next;
-		mes "^000099If you want to see the letters, please check the quest window.^000000";
+		mes "Je ne peux pas en être totalement sûr.";
+		mes "Peut-être que vous avez raison, mais selon notre première identification, nous pouvons être sûrs qu'il n'a pas été utilisé.";
 		next;
 		mes "[Heinrich]";
-		mes "Ok~~ now.";
-		mes "I'll be deciphering the cloth for now so I will be very busy!";
-		delitem 6274,1; //Saint_Cloth_Piece
-		getitem 6275,1; //King_Shield
+		mes "Mais c'est un vieux trésor, donc, d'une manière ou d'une autre, il sera utile. Je pourrais savoir comment l'utiliser.";
+		next;
+		select("Puis-je le garder ?");
+		mes "[Heinrich]";
+		mes "Bien sûr.";
+		mes "Un jour, il pourrait vous être utile.";
+		next;
+		mes "^000099Vous obtenez le bouclier de Heinrich. Il y a quelques lettres gravées à l'intérieur du bouclier.^000000 ";
+		next;
+		mes "^000099Si vous voulez voir les lettres, veuillez vérifier la fenêtre de quête.^000000";
+		next;
+		mes "[Heinrich]";
+		mes "D'accord~~ maintenant.";
+		mes "Je vais déchiffrer le tissu pour le moment, donc je vais être très occupé !";
+		delitem 6274,1; //Morceau_de_tissu_saint
+		getitem 6275,1; //Bouclier_du_roi
 		set job_royal,5;
 		changequest 12093,12094;
 		close;
 	} else if (job_royal == 5) {
 		if (countitem(6275) == 0) {
-			mes "What? Did you lose the shield? What is the one on your back?";
-			getitem 6275,1; //King_Shield
+			mes "Quoi ? Avez-vous perdu le bouclier ? Qu'est-ce que celui que vous avez dans le dos ?";
+			getitem 6275,1; //Bouclier_du_roi
 			close;
 		}
-		mes "Thanks to your help I can finish the excavation work. Thanks a lot.";
+		mes "Grâce à votre aide, je peux terminer le travail de fouilles. Merci beaucoup.";
 		close;
 	}
 }
 
 glast_01,240,366,5	script	Memory of King Schmidtz	844,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "- Your pack is too heavy. -";
-		mes "- Lighten your body first -";
-		mes "- and please try again. -";
+		mes "- Votre sac est trop lourd. -";
+		mes "- Allégez votre corps d'abord -";
+		mes "- et essayez à nouveau. -";
 		close;
 	}
 	if (ismounting() || checkriding()) {
-		mes " Please unequip your riding pet and try again!";
+		mes "Veuillez déséquiper votre monture et réessayez !";
 		close;
 	}
 	if (BaseJob == Job_Crusader && job_royal == 5) {
 		if (countitem(6275) == 0) {
-			mes "^000099You seem to have lost the shield. Go back to Heinrich and ask for help^000000.";
+			mes "^000099Il semble que vous ayez perdu le bouclier. Retournez voir Heinrich et demandez de l'aide^000000.";
 			close;
 		}
-		mes "[Memory of King Schmidtz]";
-		mes "Who are you?";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Qui êtes-vous ?";
 		next;
-		select("I brought a relic...");
-		mes "[Memory of King Schmidtz]";
-		mes "My relic?";
+		select("J'ai apporté un relique...");
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Ma relique ?";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "Too bad. Here is one more friend who has been cheated by Heinrich.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Dommage. Voici un autre ami qui a été trompé par Heinrich.";
 		next;
-		select("Do you know Heinrich?");
-		mes "[Memory of King Schmidtz]";
-		mes "He was my faithful adjutant. And he has continued to be so for hundreds of years.";
+		select("Connaissez-vous Heinrich ?");
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "C'était mon fidèle adjoint. Et il l'est resté pendant des centaines d'années.";
 		next;
-		select("How has he lived for hundreds...");
-		mes "[Memory of King Schmidtz]";
-		mes "Maybe his body is just a cast. He found a way to move from body to body in order to stay alive.";
+		select("Comment a-t-il vécu pendant des centaines...");
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Peut-être que son corps n'est qu'un moule. Il a trouvé un moyen de passer d'un corps à l'autre pour rester en vie.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "He doesn't want to accept my death and wanders the world, continuing to find Royal Guards.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Il ne veut pas accepter ma mort et erre dans le monde, cherchant toujours les Gardes Royaux.";
 		next;
-		select("What's the meaning of this shield?");
-		mes "[Memory of King Schmidtz]";
-		mes "The shield from Heinrich is our contract before I died.";
+		select("Quelle est la signification de ce bouclier ?");
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Le bouclier de Heinrich est notre contrat avant ma mort.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "Heinrich was charged with finding the proper people to become Royal Guards, the shield was to be the contract.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Heinrich avait pour mission de trouver les bonnes personnes pour devenir des Gardes Royaux, le bouclier devait être le contrat.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "To him, this was the last order that I gave to him.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Pour lui, c'était le dernier ordre que je lui ai donné.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "Now he doesn't need to do it anymore, but will remain as a fool whom can't forget his King's final order.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Maintenant, il n'a plus besoin de le faire, mais il restera comme un fou qui ne peut pas oublier le dernier ordre de son roi.";
 		next;
-		select("So what now? Can I leave?");
-		mes "[Memory of King Schmidtz]";
-		mes "Sorry but I can't send you now.";
+		select("Alors, que faire maintenant ? Puis-je partir ?");
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Désolé, mais je ne peux pas vous laisser partir maintenant.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "This is a contract with Heinrich so I have to keep it. You look faithful and brave.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "C'est un contrat avec Heinrich, alors je dois le respecter. Vous avez l'air fidèle et courageux.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "Now, it's time to keep the promise with Heinrich. It's up to you.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Maintenant, c'est le moment de tenir la promesse faite à Heinrich. C'est à vous de jouer.";
 		next;
-		mes "[Memory of King Schmidtz]";
-		mes "I'm planning to accept you as a member of the Royal Guard to continue their lost traditions. Are you ready to do it?";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "J'ai l'intention de vous accepter comme membre de la Garde Royale pour perpétuer leurs traditions perdues. Êtes-vous prêt à le faire ?";
 		next;
-		if(select("Sure, of course:Not yet") == 2) {
-			mes "[Memory of King Schmidtz]";
-			mes "Umm, maybe Heinrich had wrong judgement.";
+		if(select("Bien sûr, bien sûr : Pas encore") == 2) {
+			mes "[Mémoire du Roi Schmidtz]";
+			mes "Euh, peut-être que Heinrich s'est trompé dans son jugement.";
 			close;
 		}
-		mes "[Memory of King Schmidtz]";
-		mes "If so, I will proceed to making you a Royal Guard.";
+		mes "[Mémoire du Roi Schmidtz]";
+		mes "Dans ce cas, je vais procéder à votre transformation en Garde Royal.";
 		next;
-		if(select("Great.:Not yet.") == 2) {
-			mes "[Memory of King Schmidtz]";
-			mes "Perhaps Heinrich had the wrong image of you.";
+		if(select("Super. : Pas encore.") == 2) {
+			mes "[Mémoire du Roi Schmidtz]";
+			mes "Peut-être que Heinrich avait une mauvaise image de vous.";
 			close;
 		}
-		mes "[Memory of King Schmidtz]";
+		mes "[Mémoire du Roi Schmidtz]";
 		if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
-			mes "Look at your body before that!";
+			mes "Regardez votre corps avant cela !";
 			next;
-			mes "[Memory of King Schmidtz]";
-			mes "Are still sentimentally attached to yourself?";
-			mes "You cannot inherit the Royal Guard!";
+			mes "[Mémoire du Roi Schmidtz]";
+			mes "Êtes-vous encore sentimentalement attaché à vous-même ?";
+			mes "Vous ne pouvez pas hériter de la Garde Royale !";
 			close;
 		}
-		mes "Congratulations! Young Royal Guard.";
-		mes "Be a symbol of honor and continue the great tradition of your new name.";
+		mes "Félicitations ! Jeune Garde Royal.";
+		mes "Soyez un symbole d'honneur et continuez la grande tradition de votre nouveau nom.";
 		close2;
 		specialeffect2 EF_MAPPILLAR;
 		progressbar "FFFF00",7;
 		specialeffect2 EF_LORD;
-		delitem 6275,1; //King_Shield
+		delitem 6275,1; //Bouclier_du_roi
 		erasequest 12094;
 		jobchange roclass(eaclass()|EAJL_THIRD);
-		getitem 5757,1; //Schmidt_Helm
-		getitem 2795,1; //Green_Apple_Ring
+		getitem 5757,1; //Casque_de_Schmidt
+		getitem 2795,1; //Anneau_Pomme_Verte
 		end;
 	}
 	end;
@@ -450,17 +455,17 @@ gl_church,173,88,0	script	Delicate trace#01	844,{
 		progressbar "ffff00",5;
 		set .@roy_ran, rand(1,70);
 		if (.@roy_ran < 6)
-			getitem 6274,1; //Saint_Cloth_Piece
+			getitem 6274,1; //Pièce d'Étoffe Sainte
 		else if (.@roy_ran > 5 && .@roy_ran < 66)
-			getitem 7049,1; //Stone
+			getitem 7049,1; //Pierre
 		else {
-			mes "While investigating, the topography breaks. It would be better to dig other places for a while.";
+			mes "En enquêtant, la topographie s'effondre. Il vaudrait mieux creuser ailleurs pendant un moment.";
 			disablenpc();
 			initnpctimer;
 			close;
 		}
 	}
-	mes "There is a trace that someone has already dug here.";
+	mes "Il y a une trace que quelqu'un a déjà creusée ici.";
 	close;
 OnTimer60000:
 	enablenpc();
@@ -491,7 +496,7 @@ gl_church,158,100,0	script	#Clue of traces	111,4,4,{
 OnTouch_:
 	if (job_royal == 4 && countitem(6274) == 0) {
 		specialeffect2 EF_FREEZE;
-		mes "I can feel strong power around here. It would be better to explore around here.";
+		mes "Je peux sentir une puissante énergie ici. Il serait préférable d'explorer cette région.";
 		viewpoint 1,173,88 ,1, 0xFFFF00;
 		viewpoint 1,158,103,2, 0xFFFF00;
 		viewpoint 1,139,90 ,3, 0xFFFF00;
@@ -509,42 +514,42 @@ OnTouch_:
 
 sec_in02,12,43,3	script	sorcereryal	57,1,1,{
 	callfunc "F_GM_NPC";
-	switch(select("Royal Guard:Rune Knight:Sorcerer")) {
-	case 1:
-		mes "1~5";
-		input .@input;
-		next;
-		if (.@input < 1 || .@input > 5) {
-			mes "Set item to adjust the Royal Guard";
-			mes "You can only set a number between 1 to 5.";
-		} else {
-			set job_royal, .@input;
-			mes "Completed";
-		}
-		close;
-	case 2:
-		mes "1~24";
-		input .@input;
-		next;
-		if (.@input < 1 || .@input > 24) {
-			mes "Set item to adjust the Rune Knight";
-			mes "You can only set a nbumber between 1 to 24.";
-		} else {
-			set job_rune_edq, .@input;
-			mes "Completed";
-		}
-		close;
-	case 3:
-		mes "1~5";
-		input .@input;
-		next;
-		if (.@input < 1 || .@input > 5) {
-			mes "Set item to adjust the Sorcerer";
-			mes "You can only set a number between 1 to 5.";
-		} else {
-			set job_soc, .@input;
-			mes "Completed";
-		}
-		close;
+	switch(select("Garde Royale:Chevalier Runique:Sorcier")) {
+		case 1:
+			mes "1~5";
+			input .@input;
+			next;
+			if (.@input < 1 || .@input > 5) {
+				mes "Définissez l'élément pour ajuster la Garde Royale.";
+				mes "Vous ne pouvez définir qu'un nombre entre 1 et 5.";
+			} else {
+				set job_royal, .@input;
+				mes "Terminé";
+			}
+			close;
+		case 2:
+			mes "1~24";
+			input .@input;
+			next;
+			if (.@input < 1 || .@input > 24) {
+				mes "Définissez l'élément pour ajuster le Chevalier Runique.";
+				mes "Vous ne pouvez définir qu'un nombre entre 1 et 24.";
+			} else {
+				set job_rune_edq, .@input;
+				mes "Terminé";
+			}
+			close;
+		case 3:
+			mes "1~5";
+			input .@input;
+			next;
+			if (.@input < 1 || .@input > 5) {
+				mes "Définissez l'élément pour ajuster le Sorcier.";
+				mes "Vous ne pouvez définir qu'un nombre entre 1 et 5.";
+			} else {
+				set job_soc, .@input;
+				mes "Terminé";
+			}
+			close;
 	}
 }

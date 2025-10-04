@@ -21,62 +21,62 @@
 //============================================================
 
 prt_in,162,24,3	script	Splendid-Looking Knight	470,2,2,{
-	mes "[Rune Knight Manuel]";
+	mes "[Manuel, Chevalier Runique]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "You are now a member of our select brethren. I can still remember when I first met you.";
+		mes "Vous êtes maintenant membre de notre confrérie sélectionnée. Je me souviens encore de notre première rencontre.";
 		next;
-		mes "[Rune Knight Manuel]";
-		mes "Strive to live the way of the sword with honor...";
+		mes "[Manuel, Chevalier Runique]";
+		mes "Efforcez-vous de vivre la voie de l'épée avec honneur...";
 		next;
-		mes "[Rune Knight Manuel]";
-		mes "Cheers to our new future...";
+		mes "[Manuel, Chevalier Runique]";
+		mes "À notre nouvel avenir...";
 		close;
 	}
 	if (job_rune_edq == 0) {
-		mes "There are many paths one can take in the world. Most people can see their path but don't really follow it...";
+		mes "Il y a de nombreux chemins dans le monde. La plupart des gens voient leur chemin mais ne le suivent pas vraiment...";
 		next;
-		mes "[Rune Knight Manuel]";
-		mes "Anyway the drinks here are really good. Would you like to have one?";
+		mes "[Manuel, Chevalier Runique]";
+		mes "De toute façon, les boissons ici sont vraiment bonnes. Voulez-vous en prendre une ?";
 		next;
-		if(select("Sure, let's have a drink.:I refuse.") == 2) {
-			mes "[Rune Knight Manuel]";
-			mes "Are you sure? You don't know the true elegance of these drinks...";
+		if(select("Bien sûr, prenons un verre.:Je refuse.") == 2) {
+			mes "[Manuel, Chevalier Runique]";
+			mes "Êtes-vous sûr ? Vous ne connaissez pas la vraie élégance de ces boissons...";
 			close;
 		}
-		mes "[Rune Knight Manuel]";
+		mes "[Manuel, Chevalier Runique]";
 		if (BaseJob == Job_Knight) {
-			mes "You walk the way of sword too don't you? Then we can understand each other. Drinks taste better when it's with a fellow Swordman.";
+			mes "Vous suivez aussi la voie de l'épée, n'est-ce pas ? Alors nous pouvons nous comprendre. Les boissons ont meilleur goût quand on est avec un compagnon épéiste.";
 			next;
-			mes "[Rune Knight Manuel]";
-			mes "I'll buy this round.";
-			mes "A toast to friendship~";
+			mes "[Manuel, Chevalier Runique]";
+			mes "C'est moi qui offre cette tournée.";
+			mes "À l'amitié~";
 			next;
-			mes "[Rune Knight Manuel]";
+			mes "[Manuel, Chevalier Runique]";
 			if (BaseLevel > 98 && JobLevel > 49) {
-				mes "In my opinion you seem to be ready to start a new way...";
+				mes "À mon avis, vous semblez prêt à commencer un nouveau chemin...";
 				next;
-				mes "[Rune Knight Manuel]";
-				mes "Walking the way of the sword is a perpetual battle. From now on you may have a rough journey ahead of you...";
+				mes "[Manuel, Chevalier Runique]";
+				mes "Suivre la voie de l'épée est une bataille perpétuelle. Désormais, un chemin difficile peut vous attendre...";
 				next;
-				mes "[Rune Knight Manuel]";
-				mes "If you want to walk on your new way and surpass your current limits, I'm willing to help you.";
+				mes "[Manuel, Chevalier Runique]";
+				mes "Si vous voulez suivre votre nouveau chemin et dépasser vos limites actuelles, je suis prêt à vous aider.";
 				next;
-				mes "[Rune Knight Manuel]";
-				mes "The true way of a Swordman who learned harmony to break the limit of a sword is a Rune Knight.";
+				mes "[Manuel, Chevalier Runique]";
+				mes "La vraie voie d'un Épéiste qui a appris l'harmonie pour briser la limite de l'épée est celle d'un Chevalier Runique.";
 				next;
-				mes "[Rune Knight Manuel]";
-				mes "Won't you join our brethren? You look like you're fully qualified to become one of us.";
+				mes "[Manuel, Chevalier Runique]";
+				mes "Ne voulez-vous pas rejoindre nos rangs ? Vous semblez parfaitement qualifié pour devenir l'un des nôtres.";
 				next;
-				mes "[Rune Knight Manuel]";
-				mes "If you are interested, I'll introduce you to the masters who will guide you to the way of the Rune Knight with my recommendation.";
+				mes "[Manuel, Chevalier Runique]";
+				mes "Si cela vous intéresse, je vous présenterai aux maîtres qui vous guideront sur la voie du Chevalier Runique avec ma recommandation.";
 				next;
-				switch(select("I am not ready yet.:I'm ready to be a Rune Knight.")) {
+				switch(select("Je ne suis pas encore prêt.:Je suis prêt à devenir un Chevalier Runique.")) {
 				case 1:
-					mes "[Rune Knight Manuel]";
-					mes "Right. Every challenge always needs preparation. Okay, I'll wait for you.";
+					mes "[Manuel, Chevalier Runique]";
+					mes "Bien. Chaque défi nécessite toujours une préparation. D'accord, je vous attends.";
 					next;
-					mes "[Rune Knight Manuel]";
-					mes "Of course, I would only accept you if you are one hundred percent sure of your conviction to become a Rune Knight.";
+					mes "[Manuel, Chevalier Runique]";
+					mes "Bien sûr, je ne vous accepterai que si vous êtes absolument sûr de votre conviction à devenir un Chevalier Runique.";
 					close;
 				case 2:
 					if (VIP_SCRIPT) {
@@ -85,71 +85,71 @@ prt_in,162,24,3	script	Splendid-Looking Knight	470,2,2,{
 						setquest 3200;
 						next;
 					}
-					mes "[Rune Knight Manuel]";
-					mes "You're sure now?";
-					mes "Let me send a dispatch to my comrades that you are willing to join our ranks.";
+					mes "[Manuel, Chevalier Runique]";
+					mes "Vous êtes sûr maintenant ?";
+					mes "Je vais envoyer un message à mes camarades que vous souhaitez rejoindre nos rangs.";
 					next;
 					set job_rune_edq,1;
 					setquest 3200;
-					mes "[Rune Knight Manuel]";
-					mes "You know the place called Glast Heim? There's a Rune Knight waiting for you there, he will guide you to the entrance of Glast Heim Tower.";
+					mes "[Manuel, Chevalier Runique]";
+					mes "Vous connaissez l'endroit appelé Glast Heim ? Il y a un Chevalier Runique qui vous attend là-bas, il vous guidera à l'entrée de la Tour de Glast Heim.";
 					next;
-					mes "[Rune Knight Manuel]";
-					mes "My name is Manuel. I am called the Rune Knight of Brilliance. When you tell him that you are a Rune Knight candidate with my recommendation, he will handle the rest.";
+					mes "[Manuel, Chevalier Runique]";
+					mes "Mon nom est Manuel. On m'appelle le Chevalier Runique de la Brillance. Lorsque vous lui direz que vous êtes un candidat Chevalier Runique avec ma recommandation, il s'occupera du reste.";
 					next;
-					mes "[Rune Knight Manuel]";
-					mes "I will wait for the day that you become our comrade as a true Rune Knight.";
+					mes "[Manuel, Chevalier Runique]";
+					mes "J'attendrai le jour où vous deviendrez notre camarade en tant que véritable Chevalier Runique.";
 					close;
 				}
 			}
-			mes "If you continually walk the way of the sword, you will eventually feel the limits of your powers. Like myself before...";
+			mes "Si vous continuez à suivre la voie de l'épée, vous sentirez éventuellement les limites de vos pouvoirs. Comme moi auparavant...";
 			next;
-			mes "[Rune Knight Manuel]";
-			mes "When the time comes there will be a way to help you surpass that limit. Until the day that your strength has grown comes, we can at least still have a drink together.";
+			mes "[Manuel, Chevalier Runique]";
+			mes "Quand le moment viendra, il y aura un moyen de vous aider à dépasser cette limite. Jusqu'au jour où votre force aura grandi, nous pouvons au moins prendre un verre ensemble.";
 			next;
-			mes "[Rune Knight Manuel]";
-			mes "A toast to the day that your strength can withstand the powers of a Rune Knight!";
+			mes "[Manuel, Chevalier Runique]";
+			mes "À la journée où votre force pourra supporter les pouvoirs d'un Chevalier Runique !";
 			close;
 		}
-		mes "I believe that the wind of change is not always a good one.";
+		mes "Je pense que le vent du changement n'est pas toujours bon.";
 		next;
-		mes "[Rune Knight Manuel]";
-		mes "Just like the taste of this drink. I wish the taste of this drink is kept here forever.";
+		mes "[Manuel, Chevalier Runique]";
+		mes "Tout comme le goût de cette boisson. J'espère que le goût de cette boisson restera ici pour toujours.";
 		close;
 	} else if (job_rune_edq == 1) {
-		mes "The Rune Knight is waiting for you at Glast Heim. He will guide you to the entrance of Glast Heim Tower.";
+		mes "Le Chevalier Runique vous attend à Glast Heim. Il vous guidera à l'entrée de la Tour de Glast Heim.";
 		next;
-		mes "[Rune Knight Manuel]";
-		mes "Tell him that you are a candidate to be a Rune Knight and he will handle the rest.";
+		mes "[Manuel, Chevalier Runique]";
+		mes "Dites-lui que vous êtes un candidat pour devenir un Chevalier Runique et il s'occupera du reste.";
 		next;
-		mes "[Rune Knight Manuel]";
-		mes "I will wait for the day you become our comrade as a true Rune Knight.";
+		mes "[Manuel, Chevalier Runique]";
+		mes "J'attendrai le jour où vous deviendrez notre camarade en tant que véritable Chevalier Runique.";
 		close;
 	}
-	mes "Don't you have things to do right now?";
+	mes "N'avez-vous pas des choses à faire en ce moment ?";
 	next;
-	mes "[Rune Knight Manuel]";
-	mes "No? Well then never mind.";
-	mes "Don't you love the smell of alcohol?";
+	mes "[Manuel, Chevalier Runique]";
+	mes "Non ? Eh bien, alors ne vous en faites pas.";
+	mes "N'aimez-vous pas l'odeur de l'alcool ?";
 	close;
 }
 
 glast_01,44,363,3	script	Rune Leader Jungberg	468,2,2,{
-	mes "[Rune Leader Jungberg]";
+	mes "[Chef des Runes Jungberg]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "Oh, you must be "+strcharinfo(0)+".";
-		mes "Welcome.";
+		mes "Oh, vous devez être "+strcharinfo(0)+".";
+		mes "Bienvenue.";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "We are looking forward to you helping the Rune Knights spread honor throughout the world.";
+		mes "[Chef des Runes Jungberg]";
+		mes "Nous attendons avec impatience votre aide pour que les Chevaliers Runiques diffusent l'honneur dans le monde.";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "So, What can I help you with?";
+		mes "[Chef des Runes Jungberg]";
+		mes "Alors, comment puis-je vous aider ?";
 		next;
-		switch(select("I want to go to the gathering place.:Nothing.")) {
+		switch(select("Je veux aller au lieu de rassemblement.:Rien.")) {
 		case 1:
-			mes "[Rune Leader Jungberg]";
-			mes "Right. I'll send you right now. I'll see you soon.";
+			mes "[Chef des Runes Jungberg]";
+			mes "D'accord. Je vais vous envoyer tout de suite. À bientôt.";
 			close2;
 			warp "job3_rune01",80,65;
 			end;
@@ -158,72 +158,72 @@ glast_01,44,363,3	script	Rune Leader Jungberg	468,2,2,{
 		}
 	}
 	if (BaseJob != Job_Knight) {
-		mes "I am the only knight who's keeping the way of the Swordsman in this cursed place Glast Heim.";
+		mes "Je suis le seul chevalier qui garde la voie de l'Épéiste dans cet endroit maudit qu'est Glast Heim.";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "Since you don't walk the way of the Sword, you wouldn't understand our spirit. I can manage by myself. Follow your own path.";
+		mes "[Chef des Runes Jungberg]";
+		mes "Puisque vous ne suivez pas la voie de l'Épée, vous ne comprendriez pas notre esprit. Je peux me débrouiller seul. Suivez votre propre chemin.";
 		close;
 	}
 	if (job_rune_edq < 2) {
-		mes "Are you a cursed ghost of this place? Or are you an ignorant adventurer?";
+		mes "Êtes-vous un fantôme maudit de cet endroit ? Ou êtes-vous un aventurier ignorant ?";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "If you are a breathing human, then listen to me carefully. I wouldn't risk my life here by hesitating to talk to just anyone.";
+		mes "[Chef des Runes Jungberg]";
+		mes "Si vous êtes un humain vivant, alors écoutez-moi attentivement. Je ne risquerais pas ma vie ici en hésitant à parler à n'importe qui.";
 		next;
 		if (job_rune_edq == 0) {
-			switch(select("Who are you?:What are you doing here?:Cancel.")) {
+			switch(select("Qui êtes-vous ?:Que faites-vous ici ?:Annuler.")) {
 			case 1:
-				mes "[Rune Leader Jungberg]";
-				mes "I am the only knight who's keeping the way of the Swordsman in this cursed place Glast Heim.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Je suis le seul chevalier qui garde la voie de l'Épéiste dans cet endroit maudit qu'est Glast Heim.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "If you also follow the way of the Swordsman our paths will most certainly cross again when you have reached your full potential.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Si vous suivez également la voie de l'Épéiste, nos chemins se croiseront certainement à nouveau lorsque vous aurez atteint votre plein potentiel.";
 				close;
 			case 2:
-				mes "[Rune Leader Jungberg]";
-				mes "I am a man walking the way of the Sword. But I'm not exactly the same as the likes of you, Rune-Midgarts knight.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Je suis un homme qui suit la voie de l'Épée. Mais je ne suis pas exactement comme vous, chevalier de Rune-Midgarts.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "We are not like the other Knights who are absorbed with pomp and circumstance so you may not know of us yet.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Nous ne sommes pas comme les autres Chevaliers absorbés par les apparences, donc vous ne nous connaissez peut-être pas encore.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "We are the Rune Knights. A group that leads the true power as well as the physical strength to the righteous way of the Sword.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Nous sommes les Chevaliers Runiques. Un groupe qui mène la véritable puissance ainsi que la force physique vers la juste voie de l'Épée.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "We have been living in secret here in the deep of Glast Heim for a half century but it's time to let the world know our purpose.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Nous avons vécu en secret ici dans les profondeurs de Glast Heim pendant un demi-siècle mais il est temps de faire connaître notre objectif au monde.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "Now there are many instructors who are looking for talented Sword wielders in various places of Rune-Midgarts. They are looking for a people who will join the true way of the Sword.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Désormais, il y a de nombreux instructeurs qui cherchent des manieurs de l'épée talentueux en divers endroits de Rune-Midgarts. Ils recherchent des personnes qui rejoindront la véritable voie de l'Épée.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "If you wish to join the Rune Knights. Please get a recommendation from one of the guides and come to me again.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Si vous souhaitez rejoindre les Chevaliers Runiques. Veuillez obtenir une recommandation de l'un des guides et revenez me voir.";
 				close;
 			case 3:
 				close;
 			}
 		} else if (job_rune_edq == 1) {
-			switch(select("I came to be a Rune Knight.:Cancel.")) {
+			switch(select("Je suis venu pour devenir un Chevalier Runique.:Annuler.")) {
 			case 1:
-				mes "[Rune Leader Jungberg]";
-				mes "Um... Are you the Rune Knight candidate that Manuel talked about?";
+				mes "[Chef des Runes Jungberg]";
+				mes "Hum... Êtes-vous le candidat Chevalier Runique dont Manuel a parlé ?";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "Your name is "+strcharinfo(0)+", right? I can see clearly that you are qualified to become our comrade.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Votre nom est "+strcharinfo(0)+", n'est-ce pas ? Je vois clairement que vous êtes qualifié pour devenir notre camarade.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "Good. I don't have to ask any more about your qualification to join our brethren....1.S... Now I'll give you your first assignment.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Bien. Je n'ai pas besoin de demander davantage sur votre qualification pour rejoindre nos frères....1.S... Maintenant, je vais vous donner votre première mission.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "Find our Rune Knight gathering place hidden inside of Glast Heim.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Trouvez notre lieu de rassemblement des Chevaliers Runiques caché à l'intérieur de Glast Heim.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "There's a place that leads to the Rune Knight's secret gathering room inside the Glast Heim Chivalry. Find that place by yourself.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Il y a un endroit qui mène à la salle de rassemblement secrète des Chevaliers Runiques à l'intérieur de la Chevalerie de Glast Heim. Trouvez cet endroit par vous-même.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "If you can find it, there'll be a person waiting to greet you, so let's start.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Si vous pouvez le trouver, il y aura une personne qui vous attendra pour vous accueillir, alors commençons.";
 				next;
-				mes "[Rune Leader Jungberg]";
-				mes "Of course your life might be at risk by the ghosts of Glast Heim... but overcoming the risk shouldn't be hard for a Rune Knight candidate.";
+				mes "[Chef des Runes Jungberg]";
+				mes "Bien sûr, votre vie pourrait être en danger à cause des fantômes de Glast Heim... mais surmonter le risque ne devrait pas être difficile pour un candidat Chevalier Runique.";
 				set job_rune_edq,2;
 				changequest 3200,3201;
 				close;
@@ -232,24 +232,24 @@ glast_01,44,363,3	script	Rune Leader Jungberg	468,2,2,{
 			}
 		}
 	} else if (job_rune_edq == 2) {
-		mes "The 1st assignment is to find out our Rune Knight gathering place hidden inside of Glast Heim.";
+		mes "La 1ère mission est de trouver notre lieu de rassemblement des Chevaliers Runiques caché à l'intérieur de Glast Heim.";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "There's a place that leads to the Rune Knights' secret gathering place inside Glast Heim Chivalry. Find that place by yourself.";
+		mes "[Chef des Runes Jungberg]";
+		mes "Il y a un endroit qui mène à la salle de rassemblement secrète des Chevaliers Runiques à l'intérieur de la Chevalerie de Glast Heim. Trouvez cet endroit par vous-même.";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "If you can find it, there'll be a person waiting to greet you, so let's start.";
+		mes "[Chef des Runes Jungberg]";
+		mes "Si vous pouvez le trouver, il y aura une personne qui vous attendra pour vous accueillir, alors commençons.";
 		next;
-		mes "[Rune Leader Jungberg]";
-		mes "Of course your life might be at risk by the ghosts of Glast Heim... but overcoming the risk shouldn't be hard for a Rune Knight candidate.";
+		mes "[Chef des Runes Jungberg]";
+		mes "Bien sûr, votre vie pourrait être en danger à cause des fantômes de Glast Heim... mais surmonter le risque ne devrait pas être difficile pour un candidat Chevalier Runique.";
 		close;
 	}
-	mes "It seems that you are still taking the test. Do your best and pass all the tests.";
+	mes "Il semble que vous passiez encore le test. Faites de votre mieux et réussissez tous les tests.";
 	next;
-	switch(select("I want to go to the gathering place.:Quit the conversation.")) {
+	switch(select("Je veux aller au lieu de rassemblement.:Quitter la conversation.")) {
 	case 1:
-		mes "[Rune Leader Jungberg]";
-		mes "All right. I'll send you right away. I'll check you later.";
+		mes "[Chef des Runes Jungberg]";
+		mes "D'accord. Je vais vous envoyer tout de suite. Je vérifierai plus tard.";
 		close2;
 		warp "job3_rune01",80,65;
 		end;
@@ -259,20 +259,20 @@ glast_01,44,363,3	script	Rune Leader Jungberg	468,2,2,{
 }
 
 gl_knt02,150,55,3	script	Rune Knight Staff	83,2,2,{
-	mes "[Rune Knight Staff]";
+	mes "[Personnel des Chevaliers Runiques]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "Welcome, "+strcharinfo(0)+". Are you going to the gathering place?";
+		mes "Bienvenue, "+strcharinfo(0)+". Allez-vous au lieu de rassemblement ?";
 		next;
-		switch(select("Yes, take me there.:I'm on other business.:Cancel.")) {
+		switch(select("Oui, emmenez-moi là-bas.:Je suis en mission.:Annuler.")) {
 		case 1:
-			mes "[Rune Knight Staff]";
-			mes "Okay, come in. I'll guide you.";
+			mes "[Personnel des Chevaliers Runiques]";
+			mes "D'accord, entrez. Je vais vous guider.";
 			close2;
 			warp "job3_rune01",80,65;
 			end;
 		case 2:
-			mes "[Rune Knight Staff]";
-			mes "Oh, really? Then, keep on your work. I'll continue with my mission.";
+			mes "[Personnel des Chevaliers Runiques]";
+			mes "Oh, vraiment ? Alors, continuez votre travail. Je vais continuer ma mission.";
 			close;
 		case 3:
 			close;
@@ -280,336 +280,336 @@ gl_knt02,150,55,3	script	Rune Knight Staff	83,2,2,{
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq == 1) {
-			mes "Ah... this area is off limits, you are prohibited to be here. Please do not do anything to hinder our efforts.";
+			mes "Ah... cette zone est interdite, vous n'êtes pas autorisé à être ici. Veuillez ne rien faire pour entraver nos efforts.";
 			next;
-			mes "[Rune Knight Staff]";
-			mes "Although... you seem to have the potential to become a companion to those who follow the path of the sword.";
+			mes "[Personnel des Chevaliers Runiques]";
+			mes "Cependant... vous semblez avoir le potentiel pour devenir un compagnon de ceux qui suivent la voie de l'épée.";
 			next;
-			mes "[Rune Knight Staff]";
-			mes "I'm sure we'll be crossing paths before long. I believe we will meet again.";
+			mes "[Personnel des Chevaliers Runiques]";
+			mes "Je suis sûr que nos chemins se croiseront bientôt. Je crois que nous nous reverrons.";
 			close;
 		} else if (job_rune_edq > 1) {
-			mes "You found this place correctly. Jungberg sent me to send you to the gathering place.";
+			mes "Vous avez trouvé cet endroit correctement. Jungberg m'a envoyé pour vous amener au lieu de rassemblement.";
 			next;
-			mes "[Rune Knight Staff]";
-			mes "When you get into the gathering place, talk to Captain Tigris. He's always waiting for new members to show up.";
+			mes "[Personnel des Chevaliers Runiques]";
+			mes "Lorsque vous arrivez au lieu de rassemblement, parlez au Capitaine Tigris. Il attend toujours de nouveaux membres.";
 			next;
-			mes "[Rune Knight Staff]";
-			mes "Well, please follow me.";
+			mes "[Personnel des Chevaliers Runiques]";
+			mes "Bien, suivez-moi, s'il vous plaît.";
 			close2;
 			warp "job3_rune01",80,65;
 			end;
 		}
 	}
-	mes "Wait! This place is prohibited. I don't mind you wandering about but, don't ever disturb me again.";
+	mes "Attendez ! Cet endroit est interdit. Je ne vous dérange pas de vous promener, mais ne me dérangez plus jamais.";
 	close;
 }
 
 job3_rune01,80,60,3	script	Rune Knight Captain	470,2,2,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "You've got too many things. You cannot proceed anymore. Please try again after losing some weight.";
+		mes "Vous avez trop de choses. Vous ne pouvez plus continuer. Veuillez réessayer après avoir allégé votre charge.";
 		close;
 	}
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "[Captain Tigris]";
+		mes "[Capitaine Tigris]";
 		if (job_rune_edq == 23) {
-			mes "Oh, I see... Please wait a moment.";
+			mes "Oh, je vois... Veuillez patienter un moment.";
 			next;
-			mes "[Captain Tigris]";
-			mes "I forgot to check if you are qualified to get the celebration gift for changing your job...";
+			mes "[Capitaine Tigris]";
+			mes "J'ai oublié de vérifier si vous êtes qualifié pour recevoir le cadeau de célébration pour avoir changé de job...";
 			next;
-			mes "[Captain Tigris]";
-			mes "Let me check the report from the instructors who took care of your tests.";
+			mes "[Capitaine Tigris]";
+			mes "Laissez-moi vérifier le rapport des instructeurs qui se sont occupés de vos tests.";
 			next;
-			mes "[Captain Tigris]";
+			mes "[Capitaine Tigris]";
 			if (job_rune_edq3 == 0) {
-				mes "Hm... This is perfect. You've come here with very rare good records.";
+				mes "Hm... C'est parfait. Vous êtes venu ici avec de très bons résultats rares.";
 				set .@item,2140; //Energy_Rune_Guard
 			} else if (job_rune_edq3 > 2 && job_rune_edq3 < 6) {
-				mes "Hmm... This is great. You've come here with decent records.";
+				mes "Hmm... C'est génial. Vous êtes venu ici avec de bons résultats.";
 				set .@item,2794; //Magic_Stone_Ring
 			} else {
-				mes "Hmm, not bad. It's not a great record but you tried your best.";
+				mes "Hmm, pas mal. Ce n'est pas un excellent résultat, mais vous avez fait de votre mieux.";
 				set .@item,15002; //Rune_Plate
 			}
 			next;
-			mes "[Captain Tigris]";
-			mes "Here, take this. It's a gift that I like to give to the younger generation like yourself.";
+			mes "[Capitaine Tigris]";
+			mes "Voici, prenez ceci. C'est un cadeau que j'aime offrir à la jeune génération comme la vôtre.";
 			getitem .@item,1; //Energy_Rune_Guard
 			set job_rune_edq,24;
 			close;
 		}
-		mes "Hey, long time no see, "+strcharinfo(0)+". I don't think you've got any important matters to discuss but make yourself comfortable.";
+		mes "Salut, ça fait longtemps, "+strcharinfo(0)+". Je ne pense pas que vous ayez des affaires importantes à discuter, mais mettez-vous à l'aise.";
 		close;
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq == 2) {
-			mes "A man wearing glorious armor and passion in his eyes is standing in front of me.";
+			mes "Un homme vêtu d'une armure glorieuse et avec la passion dans les yeux se tient devant moi.";
 			next;
-			mes "He stares at me with an absent look and after a while he begins to talk.";
+			mes "Il me regarde d'un air absent et après un moment, il commence à parler.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Hey, are you the Rune Knight candidate that Manuel recommended? I am Captain Tigris from the Rune Knights, and your name is?";
+			mes "[Capitaine Tigris]";
+			mes "Hé, es-tu le candidat Chevalier Runique que Manuel a recommandé ? Je suis le Capitaine Tigris des Chevaliers Runiques, et ton nom est ?";
 			next;
-			mes "[Captain Tigris]";
-			mes "Oh, I've heard it before but I've forgotten it. Right, were you "+strcharinfo(0)+"? I truly welcome you from the heart for coming here.";
+			mes "[Capitaine Tigris]";
+			mes "Oh, je l'ai entendu auparavant mais je l'ai oublié. C'est bien toi, "+strcharinfo(0)+" ? Je te souhaite vraiment la bienvenue de tout cœur pour être venu ici.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Let's see. How many candidates have come to this room? Hey, Lunarea, which candidate is this one here?";
+			mes "[Capitaine Tigris]";
+			mes "Voyons voir. Combien de candidats sont venus dans cette salle ? Hé, Lunarea, c'est quel candidat, celui-ci ?";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "... 172nd.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "... 172e.";
 			next;
-			mes "[Captain Tigris]";
-			mes "She says so my friend. Actually I don't want to see the next one. So please do well.";
+			mes "[Capitaine Tigris]";
+			mes "Elle dit ça mon ami. En fait, je ne veux pas voir le prochain. Alors, s'il te plaît, fais de ton mieux.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Let me see... Manual and Jungberg must have finished the basic verification, then let's start the test right away.";
+			mes "[Capitaine Tigris]";
+			mes "Voyons... Manuel et Jungberg doivent avoir terminé la vérification de base, alors commençons le test tout de suite.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Lunarea, proceed with the first test.";
+			mes "[Capitaine Tigris]";
+			mes "Lunarea, procède au premier test.";
 			next;
-			mes "[Rune Knight, Lunarea]";
+			mes "[Chevalier Runique, Lunarea]";
 			mes "...";
 			next;
-			mes "This pale-skinned female Rune Knight called Lunarea is nodding her head quietly and watching me.";
+			mes "Cette Chevalière Runique à la peau pâle appelée Lunarea acquiesce tranquillement de la tête et me regarde.";
 			next;
-			mes "[Captain Tigris]";
-			mes "The test begins now. First, you'll get the 1st test from that beautiful icy lady, so please try your best.";
+			mes "[Capitaine Tigris]";
+			mes "Le test commence maintenant. D'abord, tu passeras le 1er test avec cette belle dame de glace, alors s'il te plaît, fais de ton mieux.";
 			next;
-			mes "[Captain Tigris]";
-			mes "When the test is done, talk to me. Anyway you'll need to care about the tests progressing with other people.";
+			mes "[Capitaine Tigris]";
+			mes "Lorsque le test sera terminé, parle-moi. De toute façon, tu devras faire attention à la progression des tests avec les autres personnes.";
 			next;
 			set job_rune_edq,3;
 			changequest 3201,3202;
-			mes "[Captain Tigris]";
-			mes "Well then, I'll be waiting here so take the test.";
+			mes "[Capitaine Tigris]";
+			mes "Eh bien, je t'attends ici, alors passe le test.";
 			close;
 		} else if (job_rune_edq == 3) {
-			mes "[Captain Tigris]";
-			mes "Now the test begins. First, you'll get the 1st test from that beautiful icy lady, so please try your best.";
+			mes "[Capitaine Tigris]";
+			mes "Le test commence maintenant. D'abord, tu passeras le 1er test avec cette belle dame de glace, alors s'il te plaît, fais de ton mieux.";
 			next;
-			mes "[Captain Tigris]";
-			mes "When the test is done, talk to me... anyway you'll need to care about the tests progressing with other people.";
+			mes "[Capitaine Tigris]";
+			mes "Lorsque le test sera terminé, parle-moi... de toute façon, tu devras faire attention à la progression des tests avec les autres personnes.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Well then, I'll be waiting here so take the test.";
+			mes "[Capitaine Tigris]";
+			mes "Eh bien, je t'attends ici, alors passe le test.";
 			close;
 		} else if (job_rune_edq > 3 && job_rune_edq < 6) {
-			mes "[Captain Tigris]";
-			mes "Hey you, weren't you testing? Lunarea, what happened? Is the test all done?";
+			mes "[Capitaine Tigris]";
+			mes "Hé toi, n'étais-tu pas en train de passer un test ? Lunarea, qu'est-ce qui s'est passé ? Le test est-il terminé ?";
 			next;
-			mes "[Rune Knight, Lunarea]";
+			mes "[Chevalier Runique, Lunarea]";
 			mes "......";
 			next;
-			mes "She just shakes her head without saying any word, and stares at me. She has piercing eyes.";
+			mes "Elle se contente de secouer la tête sans dire un mot, et me regarde. Elle a des yeux perçants.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Okay Lunarea. Hey, listen to me carefully. Lunarea is a poor talker and quiet but you shouldn't ignore her.";
+			mes "[Capitaine Tigris]";
+			mes "D'accord Lunarea. Hé, écoute-moi attentivement. Lunarea parle peu et est calme mais tu ne devrais pas l'ignorer.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Even for me... no, any one of us who upsets her wouldn't be able to deal with that.";
+			mes "[Capitaine Tigris]";
+			mes "Même pour moi... non, aucun d'entre nous qui la contrarie ne serait capable de gérer ça.";
 			next;
-			mes "[Rune Knight, Lunarea]";
+			mes "[Chevalier Runique, Lunarea]";
 			mes "......";
 			next;
-			mes "[Captain Tigris]";
-			mes "Whoa don't look at me like that. Okay, you see that? Aspiring Rune Knight. Go back to Lunarea and take the test as she says. That'll be good for you.";
+			mes "[Capitaine Tigris]";
+			mes "Whoa ne me regarde pas comme ça. D'accord, tu vois ça ? Futur Chevalier Runique. Retourne voir Lunarea et passe le test comme elle le dit. Ça sera mieux pour toi.";
 			close;
 		} else if (job_rune_edq == 6) {
-			mes "[Captain Tigris]";
-			mes "Umm, it seems that you've passed Lunarea's test? I guess I won't have to test more for the basics.";
+			mes "[Capitaine Tigris]";
+			mes "Euh, il semble que tu aies passé le test de Lunarea ? Je suppose que je n'aurai pas à tester plus pour les bases.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Undeniably our Rune Knights have some differences but we should not forget our Swordsman roots.";
+			mes "[Capitaine Tigris]";
+			mes "Indéniablement, nos Chevaliers Runiques ont quelques différences mais nous ne devrions pas oublier nos racines d'Épéiste.";
 			next;
-			mes "[Captain Tigris]";
-			mes "From now on, this will be the real test as a Rune Knight that you want to be. You'll need to prepare to take next test.";
+			mes "[Capitaine Tigris]";
+			mes "À partir de maintenant, ce sera le vrai test en tant que Chevalier Runique que tu souhaites être. Tu devras te préparer pour passer le prochain test.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Renoa, I know that you've been waiting for a long time but it's your turn.";
+			mes "[Capitaine Tigris]";
+			mes "Renoa, je sais que tu as attendu longtemps mais c'est ton tour.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "It really has been such a long time but Lunarea's test and mine differ like the sky to the earth. I hope you won't be just a muscle-headed fool.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Ça a vraiment été très long mais le test de Lunarea et le mien diffèrent comme le ciel de la terre. J'espère que tu ne seras pas qu'un simple brute.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Hahaha. you heard that? It won't be easy this time. I hope you get through it my friend.";
+			mes "[Capitaine Tigris]";
+			mes "Hahaha. tu as entendu ça ? Ça ne sera pas facile cette fois. J'espère que tu vas y arriver mon ami.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Go to that fiery lady in the library room to get the next test done and come back.";
+			mes "[Capitaine Tigris]";
+			mes "Va voir cette dame ardente dans la salle de la bibliothèque pour passer le prochain test et reviens.";
 			set job_rune_edq,7;
 			changequest 3204,3205;
 			close;
 		} else if (job_rune_edq > 6 && job_rune_edq < 16) {
-			mes "[Captain Tigris]";
-			mes "Now, this will be the real test as a Rune Knight. You've got to prepare to take the next test.";
+			mes "[Capitaine Tigris]";
+			mes "Maintenant, ce sera le vrai test en tant que Chevalier Runique. Tu dois te préparer pour passer le prochain test.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Renoa, I know that you've been waiting for a long time but it's your turn.";
+			mes "[Capitaine Tigris]";
+			mes "Renoa, je sais que tu as attendu longtemps mais c'est ton tour.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "It really has been such a long time but Lunarea's test and mine differ like the sky to the earth. I hope you won't be just a muscle-headed fool.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Ça a vraiment été très long mais le test de Lunarea et le mien diffèrent comme le ciel de la terre. J'espère que tu ne seras pas qu'un simple brute.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Hahaha. you heard that? It won't be easy this time. I hope you get through it my friend.";
+			mes "[Capitaine Tigris]";
+			mes "Hahaha. tu as entendu ça ? Ça ne sera pas facile cette fois. J'espère que tu vas y arriver mon ami.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Go to that fiery lady in the library room to get the next test done and come back.";
+			mes "[Capitaine Tigris]";
+			mes "Va voir cette dame ardente dans la salle de la bibliothèque pour passer le prochain test et reviens.";
 			close;
-		} else if (job_rune_edq == 16) {
-			mes "[Captain Tigris]";
-			mes "Oh, I heard that you've passed Renoa's test which only few people could pass.";
+		}else if (job_rune_edq == 16) {
+			mes "[Capitaine Tigris]";
+			mes "Oh, j'ai entendu dire que tu as réussi le test de Renoa, que seuls quelques personnes ont pu passer.";
 			next;
-			mes "[Captain Tigris]";
-			mes "I heard that the number of candidates who've given up while taking Renoa's test has been high.";
+			mes "[Capitaine Tigris]";
+			mes "J'ai entendu dire que le nombre de candidats ayant abandonné pendant le test de Renoa était élevé.";
 			next;
-			mes "[Captain Tigris]";
-			mes "You have to understand. I think it was the test that shows exactly the test instructor's personality. Hmm...";
+			mes "[Capitaine Tigris]";
+			mes "Tu dois comprendre. Je pense que c'était le test qui reflète exactement la personnalité de l'instructeur du test. Hmm...";
 			next;
-			mes "[Captain Tigris]";
-			mes "Now, there's only the last test left. When you pass this, you will be on your way to officially becoming a Rune Knight.";
+			mes "[Capitaine Tigris]";
+			mes "Maintenant, il ne reste plus que le dernier test. Quand tu le réussiras, tu seras officiellement sur la voie pour devenir un Chevalier Runique.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Take the final test from the Rune Knight Velpino who is at the arsenal's right side.";
+			mes "[Capitaine Tigris]";
+			mes "Passe le test final auprès du Chevalier Runique Velpino qui se trouve à droite de l'arsenal.";
 			next;
-			mes "[Captain Tigris]";
-			mes "I'm not kidding, I am really looking forward to your new start as a Rune Knight.";
-			mes "So please do your best.";
+			mes "[Capitaine Tigris]";
+			mes "Je ne plaisante pas, j'attends vraiment ton nouveau départ en tant que Chevalier Runique.";
+			mes "Alors s'il te plaît, fais de ton mieux.";
 			set job_rune_edq,17;
 			changequest 3215,3216;
 			close;
 		} else if (job_rune_edq > 16 && job_rune_edq < 22) {
-			mes "[Captain Tigris]";
-			mes "Take the final test from the Rune Knight Velpino who is at the arsenal's right side.";
+			mes "[Capitaine Tigris]";
+			mes "Passe le test final auprès du Chevalier Runique Velpino qui se trouve à droite de l'arsenal.";
 			next;
-			mes "[Captain Tigris]";
-			mes "I'm not kidding, I am really looking forward to your new start as a Rune Knight. So please do your best.";
+			mes "[Capitaine Tigris]";
+			mes "Je ne plaisante pas, j'attends vraiment ton nouveau départ en tant que Chevalier Runique. Alors s'il te plaît, fais de ton mieux.";
 			close;
 		} else if (job_rune_edq == 22) {
-			mes "[Captain Tigris]";
-			mes "Congratulations. Now you've passed all the tests and can walk the way of a Rune Knight.";
+			mes "[Capitaine Tigris]";
+			mes "Félicitations. Maintenant, tu as passé tous les tests et tu peux suivre la voie d'un Chevalier Runique.";
 			next;
-			mes "[Captain Tigris]";
-			mes "I'm happy from the bottom of my heart. I'm very proud of you.";
+			mes "[Capitaine Tigris]";
+			mes "Je suis heureux du fond du cœur. Je suis très fier de toi.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Now you can be yourself around us and stand proud as one of us.";
+			mes "[Capitaine Tigris]";
+			mes "Maintenant, tu peux être toi-même parmi nous et te tenir fier en tant que l'un des nôtres.";
 			next;
-			mes "[Captain Tigris]";
-			mes "There's the evaluations from Lunarea, Renoa and Velpino who took care of your tests.";
+			mes "[Capitaine Tigris]";
+			mes "Voici les évaluations de Lunarea, Renoa et Velpino qui se sont occupés de tes tests.";
 			next;
-			mes "[Captain Tigris]";
-			mes "It's not much but there are some gifts for new Rune Knights who got good scores on the tests.";
+			mes "[Capitaine Tigris]";
+			mes "Ce n'est pas grand-chose mais il y a quelques cadeaux pour les nouveaux Chevaliers Runiques qui ont obtenu de bons scores aux tests.";
 			next;
-			mes "[Captain Tigris]";
-			mes "There will be a difference depending on the scores, but they are all helpful for anyone who is a Rune Knight.";
+			mes "[Capitaine Tigris]";
+			mes "Il y aura une différence en fonction des scores, mais ils sont tous utiles pour quiconque est un Chevalier Runique.";
 			next;
-			mes "[Captain Tigris]";
-			mes "Lastly, there are several things to be aware of as a Knight who's experienced a job change to a Lord Knight in Valhalla.";
+			mes "[Capitaine Tigris]";
+			mes "Enfin, il y a plusieurs choses à savoir en tant que Chevalier ayant changé de job pour un Seigneur Chevalier à Valhalla.";
 			next;
 			callsub L_Warning;
-			mes "[Captain Tigris]";
-			mes "Well, my job is done now. Would you like to start your new life as a Rune Knight?";
+			mes "[Capitaine Tigris]";
+			mes "Eh bien, mon travail est maintenant terminé. Es-tu prêt à commencer ta nouvelle vie en tant que Chevalier Runique ?";
 			next;
-			switch(select("Every preparation is done.:I need more time to think.")) {
+			switch(select("Tout est prêt.:J'ai besoin de plus de temps pour réfléchir.")) {
 			case 1:
 				if (SkillPoint != 0 || checkriding()) {
-					mes "[Captain Tigris]";
-					mes "Weren't you listening?";
+					mes "[Capitaine Tigris]";
+					mes "Tu n'écoutais pas ?";
 					next;
 					callsub L_Warning;
-					mes "[Captain Tigris]";
-					mes "If you understood, then make your preparations and come back.";
+					mes "[Capitaine Tigris]";
+					mes "Si tu as compris, alors prépare-toi et reviens.";
 					close;
 				}
 				if (BaseLevel < 99 || JobLevel < 50) {
-					mes "[Captain Tigris]";
-					mes "It seems not enough?";
+					mes "[Capitaine Tigris]";
+					mes "Ça semble insuffisant ?";
 					close;
 				}
 				if (ismounting()) {
-					mes "[Captain Tigris]";
-					mes "Please unequip your mount and come back again.";
+					mes "[Capitaine Tigris]";
+					mes "Veuillez retirer votre monture et revenir.";
 					close;
 				}
-				mes "[Captain Tigris]";
-				mes "Our Master, Beljeve... and the Great Sage, Serpeone...";
+				mes "[Capitaine Tigris]";
+				mes "Notre Maître, Beljeve... et le Grand Sage, Serpeone...";
 				next;
-				mes "[Captain Tigris]";
-				mes "This Knight is going to walk the way of the Rune Knights with us, so please give your blessing.";
+				mes "[Capitaine Tigris]";
+				mes "Ce Chevalier va suivre la voie des Chevaliers Runiques avec nous, alors s'il vous plaît, donnez votre bénédiction.";
 				next;
-				getitem 5746,1; //Rune_Circlet
-				getitem 2795,1; //Green_Apple_Ring
+				getitem 5746,1; //Cercle Runique
+				getitem 2795,1; //Anneau de Pomme Verte
 				set job_rune_edq,23;
 				completequest 3219;
 				jobchange roclass(eaclass()|EAJL_THIRD);
-				mes "[Captain Tigris]";
-				mes "Congratulations.";
-				mes "You are now an honorable Rune Knight.";
-				mes "Remember this day from this day forth!";
+				mes "[Capitaine Tigris]";
+				mes "Félicitations.";
+				mes "Tu es maintenant un honorable Chevalier Runique.";
+				mes "Souviens-toi de ce jour à partir de maintenant !";
 				next;
-				mes "[Captain Tigris]";
-				mes "There's a royal gift from the Rune-Midgarts Kingdom for all new Rune Knights.";
+				mes "[Capitaine Tigris]";
+				mes "Il y a un cadeau royal du Royaume de Rune-Midgarts pour tous les nouveaux Chevaliers Runiques.";
 				next;
-				mes "[Captain Tigris]";
-				mes "Give me a second to get the royal gift and talk to me again.";
-				close;
+				mes "[Capitaine Tigris]";
+			mes "Donne-moi une seconde pour obtenir le cadeau royal et reviens me parler.";
+			close;
 			case 2:
 				close;
 			}
 		}
 	}
-	mes "[Captain Tigris]";
-	mes "I don't know how you were able to get here. But it looks like you've come to a place where you shouldn't be.";
+	mes "[Capitaine Tigris]";
+	mes "Je ne sais pas comment tu as pu arriver ici. Mais il semble que tu sois venu à un endroit où tu ne devrais pas être.";
 	next;
-	mes "[Captain Tigris]";
-	mes "Go back to where you belong.";
+	mes "[Capitaine Tigris]";
+	mes "Retourne là où tu appartiens.";
 	close2;
 	warp "gl_knt02",150,55;
 	end;
 L_Warning:
-	mes "[Captain Tigris]";
-	mes "If there's any equipment that you are wearing now, or anything you're holding. Please empty it for your job change moment.";
+	mes "[Capitaine Tigris]";
+	mes "S'il y a un équipement que tu portes actuellement, ou quoi que ce soit que tu tiens. S'il te plaît, vide-le pour le moment de ton changement de job.";
 	next;
-	mes "[Captain Tigris]";
-	mes "Talk to the Kafra Employee to use the storage.";
+	mes "[Capitaine Tigris]";
+	mes "Parle à l'employé de Kafra pour utiliser le stockage.";
 	next;
-	mes "[Captain Tigris]";
-	mes "You might know already, if you are riding a Peco Peco, you should have left it behind. If you brought it, leave it and come again.";
+	mes "[Capitaine Tigris]";
+	mes "Tu le sais peut-être déjà, si tu chevauches un Peco Peco, tu aurais dû le laisser derrière. Si tu l'as amené, laisse-le et reviens.";
 	next;
-	mes "[Captain Tigris]";
-	mes "One more thing. If you have any remaining skill-points, use it all and learn the skills. You won't be able to change jobs if you have any more skill points.";
+	mes "[Capitaine Tigris]";
+	mes "Encore une chose. Si tu as des points de compétence restants, utilise-les tous et apprends les compétences. Tu ne pourras pas changer de job si tu as encore des points de compétence.";
 	next;
 	return;
 }
 
 job3_rune01,90,50,3	script	Rune Knight Lunarea	469,2,2,{
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "She holds up her chin quietly, nods lightly and notices me.";
+		mes "Elle lève tranquillement son menton, acquiesce légèrement et me remarque.";
 		next;
-		mes "Then after a moment she puts her face down and seems absorbed with other thoughts.";
+		mes "Puis, après un moment, elle baisse son visage et semble absorbée par d'autres pensées.";
 		close;
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq == 3) {
-			mes "She finally opens her mouth and begins to talk.";
+			mes "Elle ouvre finalement la bouche et commence à parler.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "5 minutes... When you endure and get rid of all, you succeed.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "5 minutes... Quand tu endures et te débarrasses de tout, tu réussis.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "In this test, Captain Tigris, Renoa, Velpino and I will visit together.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Dans ce test, le Capitaine Tigris, Renoa, Velpino et moi-même viendrons ensemble.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "If you want to, you can ask help from one of us. But don't think that we will always help.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Si tu le souhaites, tu peux demander de l'aide à l'un d'entre nous. Mais ne pense pas que nous t'aiderons toujours.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "Since it's a test, getting help from us is completely your choice. It doesn't matter if you take the test with our help or all by yourself.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Comme c'est un test, demander notre aide est entièrement ton choix. Peu importe si tu passes le test avec notre aide ou tout seul.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "When you are ready to go to the test field talk to me.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Quand tu es prêt à aller sur le terrain de test, parle-moi.";
 			next;
-			switch(select("Move to the test field now.:Give me time to get ready.")) {
+			switch(select("Aller maintenant sur le terrain de test.:Donnez-moi du temps pour me préparer.")) {
 			case 1:
 				callsub L_Test,0;
 				close;
@@ -617,26 +617,26 @@ job3_rune01,90,50,3	script	Rune Knight Lunarea	469,2,2,{
 				close;
 			}
 		} else if (job_rune_edq == 4) {
-			mes "[Rune Knight, Lunarea]";
-			mes "Did you fail? But, there's no limitation to the number of times you can try.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "As-tu échoué ? Mais, il n'y a pas de limite au nombre de fois où tu peux essayer.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "If you want to take the test again. I can send you to the test field.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Si tu veux repasser le test. Je peux t'envoyer sur le terrain de test.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "5 minutes... When you endure and get rid of all, you succeed.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "5 minutes... Quand tu endures et te débarrasses de tout, tu réussis.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "If you are ready to move to the test field talk to me.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Si tu es prêt à aller sur le terrain de test, parle-moi.";
 			next;
-			switch(select("Move to the test field now.:Please give me time to prepare.")) {
+			switch(select("Aller maintenant sur le terrain de test.:S'il vous plaît, donnez-moi du temps pour me préparer.")) {
 			case 1:
 				if (checkquest(3220,PLAYTIME) == 1) {
-					mes "[Rune Knight, Lunarea]";
-					mes "Once someone enters into the test field you cannot enter directly. The test is taken one by one.";
+					mes "[Chevalier Runique, Lunarea]";
+					mes "Une fois que quelqu'un entre sur le terrain de test, tu ne peux pas entrer directement. Le test se passe un par un.";
 					next;
-					mes "[Rune Knight, Lunarea]";
-					mes "When it's your turn to enter you will be sent there directly.";
+					mes "[Chevalier Runique, Lunarea]";
+					mes "Quand ce sera ton tour d'entrer, tu seras envoyé là-bas directement.";
 					close;
 				}
 				callsub L_Test,1;
@@ -645,29 +645,29 @@ job3_rune01,90,50,3	script	Rune Knight Lunarea	469,2,2,{
 				close;
 			}
 		} else if (job_rune_edq == 5) {
-			mes "[Rune Knight, Lunarea]";
-			mes "Was your test successful?";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Ton test a-t-il été un succès ?";
 			next;
-			mes "She shows a small smile which is barely visible and looks at me.";
+			mes "Elle montre un petit sourire à peine visible et me regarde.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "This portion of the test is over. Go talk to Captain Tigris.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Cette partie du test est terminée. Va parler au Capitaine Tigris.";
 			set job_rune_edq,6;
 			changequest 3203,3204;
 			close;
 		} else if (job_rune_edq > 5) {
-			mes "[Rune Knight, Lunarea]";
-			mes "This portion of the test is over. Go talk to Captain Tigris.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Cette partie du test est terminée. Va parler au Capitaine Tigris.";
 			next;
-			mes "[Rune Knight, Lunarea]";
-			mes "There are other tests you need to complete. I hope you do a good job.";
+			mes "[Chevalier Runique, Lunarea]";
+			mes "Il y a d'autres tests que tu dois compléter. J'espère que tu feras du bon travail.";
 			close;
 		}
 	}
-	mes "This pale-skinned absent-looking female Rune Knight doesn't seem to care. Of course she doesn't seem interested with my existence";
+	mes "Cette Chevalière Runique à la peau pâle et au regard absent ne semble pas se soucier. Bien sûr, elle ne semble pas intéressée par mon existence";
 	close;
 L_Test:
-	mes "She nods her head and reaches out her hand lightly. Then she draws her sword and makes a signal.";
+	mes "Elle acquiesce de la tête et tend légèrement la main. Puis elle dégaine son épée et fait un signe.";
 	if ($@job_rune_test1 == 0) {
 		if (getarg(0) == 0) {
 			set job_rune_edq,4;
@@ -682,356 +682,356 @@ L_Test:
 		warp "job3_rune02",38,40;
 		end;
 	}
-	// Custom translation
+	// Traduction personnalisée
 	next;
-	mes "But her expression suddenly changed a bit as she looked at to speak.";
+	mes "Mais son expression a soudainement changé un peu lorsqu'elle m'a regardé pour parler.";
 	next;
-	mes "[Rune Knight, Lunarea]";
-	mes "Now... the testing room is currently occupied...";
+	mes "[Chevalier Runique, Lunarea]";
+	mes "Maintenant... la salle de test est actuellement occupée...";
 	next;
-	mes "[Rune Knight, Lunarea]";
-	mes "You'll have to wait... it is regulation that the test must take place one by one.";
+	mes "[Chevalier Runique, Lunarea]";
+	mes "Tu devras attendre... c'est la règle que le test se déroule un par un.";
 	next;
-	mes "[Rune Knight, Lunarea]";
-	mes "Just wait 5 minutes and it should be your turn.";
+	mes "[Chevalier Runique, Lunarea]";
+	mes "Attends juste 5 minutes et ce devrait être ton tour.";
 	close;
 }
 
 job3_rune01,55,50,3	script	Rune Knight, Renoa	469,2,2,{
-	mes "[Rune Knight, Renoa]";
+	mes "[Chevalier Runique, Renoa]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "Congratulations for becoming one of us. Junior Rune Knight, "+strcharinfo(0)+".";
+		mes "Félicitations pour être devenu l'un des nôtres. Jeune Chevalier Runique, "+strcharinfo(0)+".";
 		next;
-		mes "[Rune Knight, Renoa]";
-		mes "Soon you'll see the way we need to go clearly.";
+		mes "[Chevalier Runique, Renoa]";
+		mes "Bientôt, tu verras clairement la voie que nous devons suivre.";
 		next;
-		mes "[Rune Knight, Renoa]";
-		mes "Until then, I'll be here to discover more candidates just like you.";
+		mes "[Chevalier Runique, Renoa]";
+		mes "D'ici là, je serai ici pour découvrir plus de candidats comme toi.";
 		close;
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq < 7) {
-			mes "Are you the one who wants to be a Rune Knight? There have been so many today.";
+			mes "Es-tu celui qui veut devenir un Chevalier Runique ? Il y a eu tant de candidats aujourd'hui.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "It's too bad that there haven't been many candidates that have made it to my part of the test yet so I'm just taking a bit of a rest.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "C'est dommage qu'il n'y ait pas eu beaucoup de candidats qui soient arrivés à ma partie du test, alors je prends juste un peu de repos.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "If you are taking the Rune Knight test I hope that you try your best. This won't be as easy to pass as Lunarea's test ok?";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Si tu passes le test de Chevalier Runique, j'espère que tu feras de ton mieux. Ce ne sera pas aussi facile à réussir que le test de Lunarea, d'accord ?";
 			close;
 		} else if (job_rune_edq == 7) {
-			mes "Finally! Is it my turn? I'm so happy.";
+			mes "Enfin ! C'est mon tour ? Je suis tellement heureuse.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "There have been so many candidates failing Lunarea's test that I've given up counting.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Il y a eu tellement de candidats échouant au test de Lunarea que j'ai arrêté de compter.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "I am Renoa. I am in charge of the teaching and testing of runes and magic for Rune Knight candidates.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Je suis Renoa. Je suis en charge de l'enseignement et du test des runes et de la magie pour les candidats Chevaliers Runiques.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Thank you for all of your trouble taking the test so far. Okay, anyway.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Merci pour tous tes efforts jusqu'à présent. Bon, de toute façon.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Well first, I'll give you an assignment. Let's start by studying. Go to the library and study these books.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "D'abord, je vais te donner une mission. Commençons par étudier. Va à la bibliothèque et étudie ces livres.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Umm, ^0000FFRunes and Rune Knights^000000, ^0000FFThe Principles of Runes^000000, ^0000FFThe Making and use of Runes^000000. Start with these 3...";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Euh, ^0000FFRunes et Chevaliers Runiques^000000, ^0000FFLes Principes des Runes^000000, ^0000FFLa Fabrication et l'Utilisation des Runes^000000. Commence par ces 3...";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Read the book thoroughly and come back. If you are the type of person who doesn't like reading and studying then it won't be easy for you to live as a Rune Knight.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Lis le livre attentivement et reviens. Si tu es le genre de personne qui n'aime pas lire et étudier, il ne sera pas facile pour toi de vivre en tant que Chevalier Runique.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Don't worry, you won't be required to have the same knowledge as the magicians of Geffen or Juno. But you can't be an idiot either.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Ne t'inquiète pas, tu ne seras pas obligé d'avoir les mêmes connaissances que les magiciens de Geffen ou de Juno. Mais tu ne peux pas être un idiot non plus.";
 			set job_rune_edq,8;
 			changequest 3205,3206;
 			close;
 		} else if (job_rune_edq > 7 && job_rune_edq < 11) {
-			mes "Well first, I'll give you an assignment. Let's start by studying. Go to the library and study these books.";
+			mes "D'abord, je vais te donner une mission. Commençons par étudier. Va à la bibliothèque et étudie ces livres.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Umm, ^0000FFRunes and Rune Knights^000000, ^0000FFThe Principles of Runes^000000, ^0000FFThe Making and use of Runes^000000. Start with these 3...";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Euh, ^0000FFRunes et Chevaliers Runiques^000000, ^0000FFLes Principes des Runes^000000, ^0000FFLa Fabrication et l'Utilisation des Runes^000000. Commence par ces 3...";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Read the book thoroughly and come back. If you are the type of person who doesn't like reading and studying then it won't be easy for you to live as a Rune Knight.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Lis le livre attentivement et reviens. Si tu es le genre de personne qui n'aime pas lire et étudier, il ne sera pas facile pour toi de vivre en tant que Chevalier Runique.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Don't worry, you won't be required to have the same knowledge as the magicians of Geffen or Juno. But you can't be an idiot either.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Ne t'inquiète pas, tu ne seras pas obligé d'avoir les mêmes connaissances que les magiciens de Geffen ou de Juno. Mais tu ne peux pas être un idiot non plus.";
 			close;
 		} else if (job_rune_edq == 11) {
-			mes "Have you read all the books from the library? It won't be easy to read but if you are determined to be a Rune Knight, you have to have this kind of basic knowledge.";
+			mes "As-tu lu tous les livres de la bibliothèque ? Il ne sera pas facile de lire mais si tu es déterminé à être un Chevalier Runique, tu dois avoir ce genre de connaissances de base.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Basically, the power of magic cannot be used without training to draw out the power of nature and the elements.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "En gros, le pouvoir de la magie ne peut être utilisé sans formation pour puiser dans le pouvoir de la nature et des éléments.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Therefore, jobs such as Wizard and Sage have come out and the magic became their own sacred field.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "C'est pourquoi des métiers comme Magicien et Sage ont vu le jour et la magie est devenue leur propre domaine sacré.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "The leader of the Rune Knights, Beljeve, is known to have been in touch with the fairies even before the dimensional door of the Ash-Vacuum was made when Satan Morocc resurrected.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Le leader des Chevaliers Runiques, Beljeve, est connu pour avoir été en contact avec les fées bien avant que la porte dimensionnelle de l'Aspirateur de Cendres ne soit créée lors de la résurrection de Satan Morocc.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "I heard a story from the magical scholars about the technology that can substantialize the essence of magic. I began a study to substantialize it to a rune by getting their help.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "J'ai entendu une histoire des érudits magiques sur la technologie qui peut matérialiser l'essence de la magie. J'ai commencé une étude pour la matérialiser en rune en obtenant leur aide.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Our Rune Knight's were born from the result of that study, which enables practicing both the power of the sword and magic by using runes.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Nos Chevaliers Runiques sont nés du résultat de cette étude, qui permet de pratiquer à la fois le pouvoir de l'épée et de la magie en utilisant des runes.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "You look like you don't understand why I'm repeating the teaching of the story already written in the book.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Tu sembles ne pas comprendre pourquoi je répète l'enseignement de l'histoire déjà écrite dans le livre.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "So for the second test, you need to visit the Laphine magical scholars who had given the direct help to the birth of Rune Knights at Ash-Vacuum.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Donc pour le deuxième test, tu dois rendre visite aux érudits magiques Laphine qui ont directement aidé à la naissance des Chevaliers Runiques à l'Aspirateur de Cendres.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Find the sage, Serpeone who's been studying and helping the Rune Knights who are out in the Midgard's camp at Ash-Vacuum.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Trouve le sage Serpeone qui étudie et aide les Chevaliers Runiques qui sont dans le camp de Midgard à l'Aspirateur de Cendres.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "The sage has already been in touch with us for a long time so you don't need to worry about understanding Serpeone's language.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Le sage est déjà en contact avec nous depuis longtemps, donc tu n'as pas à t'inquiéter de comprendre la langue de Serpeone.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "If you are ready I'll guide you to the warp that moves you directly to Serpeone. Meet her and get instructions from her.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Si tu es prêt, je vais te guider vers le warp qui te mène directement à Serpeone. Rencontre-la et reçois ses instructions.";
 			set job_rune_edq_book,0;
 			set job_rune_edq,12;
 			changequest 3206,3207;
 			close;
 		} else if (job_rune_edq > 11 && job_rune_edq < 14) {
-			mes "If you are ready I'll open the way to the sage, Serpeone who's in the Midgard post at Ash-Vacuum. Are you prepared?";
+			mes "Si tu es prêt, je vais ouvrir le chemin vers le sage Serpeone qui se trouve au poste de Midgard à l'Aspirateur de Cendres. Es-tu préparé ?";
 			next;
-			switch(select("Yes, I am prepared.:Not yet.")) {
+			switch(select("Oui, je suis prêt.:Pas encore.")) {
 			case 1:
-				mes "[Rune Knight, Renoa]";
-				mes "Good. Then I'll send you there now. But, there's one thing I need to tell you.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Bien. Alors je vais t'y envoyer maintenant. Mais, il y a une chose que je dois te dire.";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "You will be sent to the Ash-Vacuum. The people dispatched to the Midgard post are certified adventurers and officials.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Tu seras envoyé à l'Aspirateur de Cendres. Les personnes dépêchées au poste de Midgard sont des aventuriers certifiés et des officiels.";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "Beljeve has an agreement with the other alliance countries that the free behavior of our Rune Knights is guaranteed but...";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Beljeve a un accord avec les autres pays de l'alliance selon lequel le comportement libre de nos Chevaliers Runiques est garanti mais...";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "If you want to move freely through all of Ash-Vacuum, you'll have to go through the normal route which is acquiring qualification with the Midgard alliance. It has nothing to do with us.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Si tu veux te déplacer librement dans tout l'Aspirateur de Cendres, tu devras passer par la voie normale qui consiste à acquérir la qualification avec l'alliance de Midgard. Ça n'a rien à voir avec nous.";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "The agreement only allows us to send candidates to the Midgard camp and nowhere else.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "L'accord ne nous permet que d'envoyer des candidats au camp de Midgard et nulle part ailleurs.";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "Good luck.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Bonne chance.";
 				close2;
 				warp "mid_camp",235,250;
 				end;
 			case 2:
-				mes "[Rune Knight, Renoa]";
-				mes "If you are ready talk to me again. I'm free anytime.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Si tu es prêt, parle-moi à nouveau. Je suis disponible à tout moment.";
 				close;
 			}
 		} else if (job_rune_edq == 14) {
-			mes "Umm, you're back? How's it like in the Ash-Vacuum?";
+			mes "Euh, tu es de retour ? Comment c'était à l'Aspirateur de Cendres ?";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Well, a person of your strength must have been there already no?";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Eh bien, une personne de ta force y a sûrement déjà été, non ?";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "Now it's time to take the test concerning runes. I know that you have been through quite a complicated process.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Il est maintenant temps de passer le test concernant les runes. Je sais que tu as traversé un processus assez compliqué.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "I am going to give you a test that allows you to deal with runes directly.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Je vais te donner un test qui te permettra de traiter directement avec les runes.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "In this test you will be making a rune stone yourself which will also be used for your last test.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Dans ce test, tu fabriqueras toi-même une pierre runique qui sera également utilisée pour ton dernier test.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "If you remember what you read in the library just before, you'll be able to produce a rune stone here without my explanation.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Si tu te souviens de ce que tu as lu à la bibliothèque juste avant, tu seras capable de produire une pierre runique ici sans mon explication.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "If you succeed in making the rune stone it will automatically become the rune stone you'll use for yourself when you become a Rune Knight, so try your best.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Si tu réussis à fabriquer la pierre runique, elle deviendra automatiquement la pierre runique que tu utiliseras pour toi-même lorsque tu deviendras un Chevalier Runique, alors fais de ton mieux.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "The total number of rune stones you need to make is 20.";
-			mes "Remember that well.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Le nombre total de pierres runiques que tu dois fabriquer est de 20.";
+			mes "Retiens-le bien.";
 			set job_rune_edq,15;
 			changequest 3213,3214;
 			close;
 		} else if (job_rune_edq == 15) {
-			mes "In this test you will be making a rune stone yourself which is going to be used for your last test.";
+			mes "Dans ce test, tu vas fabriquer toi-même une pierre runique qui sera utilisée pour ton dernier test.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "If you remember the books you've read in the library just before, you'll be able to produce a rune stone here without my explanation.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Si tu te souviens des livres que tu as lus à la bibliothèque juste avant, tu seras capable de produire une pierre runique ici sans mon explication.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "If you succeed in making the rune stone automatically it becomes the rune stone you'll use for yourself when you succeed, and it's delivered to Captain Tigris...so try hard.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Si tu réussis à fabriquer la pierre runique, elle deviendra automatiquement la pierre runique que tu utiliseras pour toi-même quand tu auras réussi, et elle sera livrée au Capitaine Tigris... alors essaie fort.";
 			next;
-			mes "[Rune Knight, Renoa]";
-			mes "The number of total rune stones you need to make is exactly 20. Remember that well.";
+			mes "[Chevalier Runique, Renoa]";
+			mes "Le nombre total de pierres runiques que tu dois fabriquer est exactement de 20. Retiens-le bien.";
 			next;
-			switch(select("Check number of made runes?:I've made all the 20 rune stones.")) {
+			switch(select("Vérifier le nombre de runes fabriquées ?:J'ai fabriqué toutes les 20 pierres runiques.")) {
 			case 1:
-				mes "[Rune Knight, Renoa]";
-				mes "The number of rune stones made 'til now is " + job_rune_edq2 + ".";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Le nombre de pierres runiques fabriquées jusqu'à maintenant est de " + job_rune_edq2 + ".";
 				close;
 			case 2:
 				if (job_rune_edq2 < 20) {
-					mes "[Rune Knight, Renoa]";
-					mes "Hey! I think I told you to make at least 20.";
+					mes "[Chevalier Runique, Renoa]";
+					mes "Hé ! Je pense t'avoir dit de fabriquer au moins 20.";
 					close;
 				}
 				if (job_rune_edq2 == 20) {
-					mes "[Rune Knight, Renoa]";
-					mes "You've brought just the right amount. I'll hand over all the finished rune stones to Captain Tigris.";
+					mes "[Chevalier Runique, Renoa]";
+					mes "Tu as apporté juste la bonne quantité. Je vais remettre toutes les pierres runiques finies au Capitaine Tigris.";
 					next;
 				} else {
-					mes "[Rune Knight, Renoa]";
-					mes "Wow! What's this? You've made over 20. It's ok for now but remember to follow directions next time.";
-					mes "I'll hand over all the made rune stones to Captain Tigris.";
+					mes "[Chevalier Runique, Renoa]";
+					mes "Wow ! Qu'est-ce que c'est ? Tu en as fabriqué plus de 20. C'est bon pour cette fois mais souviens-toi de suivre les instructions la prochaine fois.";
+					mes "Je vais remettre toutes les pierres runiques fabriquées au Capitaine Tigris.";
 					next;
 				}
-				mes "[Rune Knight, Renoa]";
-				mes "Because there is a test waiting for you that uses these rune stones.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Parce qu'il y a un test qui t'attend et qui utilise ces pierres runiques.";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "Here, you've passed. Go back to Captain Tigris and complete the next test.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Voilà, tu as réussi. Retourne voir le Capitaine Tigris et termine le prochain test.";
 				next;
-				mes "[Rune Knight, Renoa]";
-				mes "Ha! You did a good job considering how difficult my test is. If you were nervous, you can relax now.";
+				mes "[Chevalier Runique, Renoa]";
+				mes "Ha ! Tu t'en es bien sorti considérant la difficulté de mon test. Si tu étais nerveux, tu peux te détendre maintenant.";
 				set job_rune_edq,16;
 				if (job_rune_edq2 == 20)
 					changequest 3214,3215;
 				close;
 			}
 		}
-		mes "Become a proud Rune Knight.";
+		mes "Deviens un fier Chevalier Runique.";
 		close;
 	}
-	mes "How... how did you get in here?! Captain, we have a spy!";
+	mes "Comment... comment es-tu entré ici ?! Capitaine, nous avons un espion !";
 	next;
-	mes "[Captain Tigris]";
-	mes "Ah? What are you talking about, Renoa? Don't talk in such a manner! You make us sound like criminals.";
+	mes "[Capitaine Tigris]";
+	mes "Ah ? De quoi parles-tu, Renoa ? Ne parle pas de cette manière ! Tu nous fais passer pour des criminels.";
 	next;
-	mes "[Rune Knight, Renoa]";
-	mes "Well, there is an unidentified person here.";
+	mes "[Chevalier Runique, Renoa]";
+	mes "Eh bien, il y a une personne non identifiée ici.";
 	next;
-	mes "[Captain Tigris]";
-	mes "Ah... hey, friend, come over here and let us talk for a minute...";
+	mes "[Capitaine Tigris]";
+	mes "Ah... hé, ami, viens ici et parlons un instant...";
 	close;
 }
 
 job3_rune01,58,51,1	script	Rune Furnace	844,{
 	if (job_rune_edq < 15) {
-		mes "[Rune Knight Renoa]";
-		mes "You don't want to touch that thing. Believe me, I'm not kidding.";
+		mes "[Chevalier Runique Renoa]";
+		mes "Tu ne voudras pas toucher à ça. Crois-moi, je ne plaisante pas.";
 		close;
 	} else if (job_rune_edq == 15) {
-		mes "I can see a hole under the huge Rune Stone Statue behind Renoa. Clearly this is a mass-produced rune heating furnace that I read in the book.";
+		mes "Je vois un trou sous la statue de la Rune Stone géante derrière Renoa. Clairement, c'est un four de chauffage de runes fabriqué en série dont j'ai lu dans le livre.";
 		next;
-		if(select("Use the Rune Heating Furnace:Stop.") == 2) close;
+		if(select("Utiliser le four de chauffage de runes:Arrêter.") == 2) close;
 		switch(rand(24)) {
-			case 0: setarray .@str$[0],"Ehwaz","This red hot spiral is..."; break;
-			case 1: setarray .@str$[0],"Osilia","The rune flashing with this violet oblique line shape is..."; break;
-			case 2: setarray .@str$[0],"Mannaz","This live emerald diamond rune is..."; break;
-			case 3: setarray .@str$[0],"Ansuz","The rune flashing with an emerald round shape is..."; break;
-			case 4: setarray .@str$[0],"Hagalas","The rune flashing with this sky-blue star shape is..."; break;
-			case 5: setarray .@str$[0],"Kano","The rune flashing with a red diamond shape is..."; break;
-			case 6: setarray .@str$[0],"Rhydo","The rune flashing with this sky-blue oblique line shape is..."; break;
-			case 7: setarray .@str$[0],"Turisus","The rune flashing with this yellow round shape is..."; break;
-			case 8: setarray .@str$[0],"Dagaz","The rune flashing with this emerald spiral line shape is..."; break;
-			case 9: setarray .@str$[0],"Sowilo","The rune flashing with this sky-blue fan-shape is..."; break;
-			case 10: setarray .@str$[0],"Laguz","The rune flashing with this yellow diamond shape is..."; break;
-			case 11: setarray .@str$[0],"Isia","The rune flashing with this violet spiral line is..."; break;
-			case 12: setarray .@str$[0],"Pertz","The rune flashing with this silver spiral shape is..."; break;
-			case 13: setarray .@str$[0],"Verkana","The rune flashing with this gold star shape is..."; break;
-			case 14: setarray .@str$[0],"Gebo","The rune flashing with this yellow cone shape is..."; break;
-			case 15: setarray .@str$[0],"Algiz","The rune flashing with this emerald oblique line is..."; break;
-			case 16: setarray .@str$[0],"Arwez","The rune flashing with this gray diamond is..."; break;
-			case 17: setarray .@str$[0],"Teiwaz","The rune flashing with this gold sphere is..."; break;
-			case 18: setarray .@str$[0],"Wunjo","The rune flashing with this emerald star shape is..."; break;
-			case 19: setarray .@str$[0],"Jera","The rune flashing with this yellow sphere is..."; break;
-			case 20: setarray .@str$[0],"Nosiege","The rune flashing with this yellow fan-shape is..."; break;
-			case 21: setarray .@str$[0],"Ingz","The rune flashing with this violet diamond shape is..."; break;
-			case 22: setarray .@str$[0],"Fehu","The rune flashing with this silver round shape is..."; break;
-			case 23: setarray .@str$[0],"Urj","The rune flashing with this violet spiral is..."; break;
+			case 0: setarray .@str$[0], "Ehwaz", "Cette spirale rouge ardente est..."; break;
+			case 1: setarray .@str$[0], "Osilia", "La rune qui clignote avec cette forme de ligne oblique violette est..."; break;
+			case 2: setarray .@str$[0], "Mannaz", "Cette rune en diamant émeraude vivante est..."; break;
+			case 3: setarray .@str$[0], "Ansuz", "La rune qui clignote avec une forme ronde émeraude est..."; break;
+			case 4: setarray .@str$[0], "Hagalas", "La rune qui clignote avec cette forme d'étoile bleu ciel est..."; break;
+			case 5: setarray .@str$[0], "Kano", "La rune qui clignote avec une forme de diamant rouge est..."; break;
+			case 6: setarray .@str$[0], "Rhydo", "La rune qui clignote avec cette forme de ligne oblique bleu ciel est..."; break;
+			case 7: setarray .@str$[0], "Turisus", "La rune qui clignote avec cette forme ronde jaune est..."; break;
+			case 8: setarray .@str$[0], "Dagaz", "La rune qui clignote avec cette forme de ligne en spirale émeraude est..."; break;
+			case 9: setarray .@str$[0], "Sowilo", "La rune qui clignote avec cette forme d'éventail bleu ciel est..."; break;
+			case 10: setarray .@str$[0], "Laguz", "La rune qui clignote avec cette forme de diamant jaune est..."; break;
+			case 11: setarray .@str$[0], "Isia", "La rune qui clignote avec cette forme de ligne en spirale violette est..."; break;
+			case 12: setarray .@str$[0], "Pertz", "La rune qui clignote avec cette forme en spirale argentée est..."; break;
+			case 13: setarray .@str$[0], "Verkana", "La rune qui clignote avec cette forme d'étoile dorée est..."; break;
+			case 14: setarray .@str$[0], "Gebo", "La rune qui clignote avec cette forme de cône jaune est..."; break;
+			case 15: setarray .@str$[0], "Algiz", "La rune qui clignote avec cette forme de ligne oblique émeraude est..."; break;
+			case 16: setarray .@str$[0], "Arwez", "La rune qui clignote avec ce diamant gris est..."; break;
+			case 17: setarray .@str$[0], "Teiwaz", "La rune qui clignote avec cette sphère dorée est..."; break;
+			case 18: setarray .@str$[0], "Wunjo", "La rune qui clignote avec cette forme d'étoile émeraude est..."; break;
+			case 19: setarray .@str$[0], "Jera", "La rune qui clignote avec cette sphère jaune est..."; break;
+			case 20: setarray .@str$[0], "Nosiege", "La rune qui clignote avec cette forme d'éventail jaune est..."; break;
+			case 21: setarray .@str$[0], "Ingz", "La rune qui clignote avec cette forme de diamant violette est..."; break;
+			case 22: setarray .@str$[0], "Fehu", "La rune qui clignote avec cette forme ronde argentée est..."; break;
+			case 23: setarray .@str$[0], "Urj", "La rune qui clignote avec cette spirale violette est..."; break;
 		}
 		progressbar "ffff00",5;
-		mes "The magical power of the rune pitches and tosses while it is getting shaped.";
+		mes "La puissance magique de la rune monte et descend pendant qu'elle prend forme.";
 		next;
 		mes .@str$[1];
 		next;
 		input .@inputstr$;
 		if (.@inputstr$ == .@str$[0]) {
-			mes "[Rune Knight Renoa]";
-			mes "Wow! This is great. The image of the rune stone in my head and the modeled rune stone match perfectly. It's well made.";
+			mes "[Chevalier Runique Renoa]";
+			mes "Wow ! C'est super. L'image de la pierre runique dans ma tête et la pierre runique modelée correspondent parfaitement. Elle est bien faite.";
 			next;
-			mes "[Rune Knight Renoa]";
-			mes "1 "+.@str$[0]+" rune was created normally.";
+			mes "[Chevalier Runique Renoa]";
+			mes "1 rune "+.@str$[0]+" a été créée normalement.";
 			set job_rune_edq2, job_rune_edq2+1;
 			close;
 		}
 		if (rand(1,(6 + job_rune_edq3)) == 3) {
-			mes "[Rune Knight Renoa]";
-			mes "I was lucky. The image of the rune stone in my head and the modelled rune stone didn't match but it's made normally. This case is rare.";
+			mes "[Chevalier Runique Renoa]";
+			mes "J'ai eu de la chance. L'image de la pierre runique dans ma tête et la pierre runique modelée ne correspondaient pas mais elle est faite normalement. Ce cas est rare.";
 			next;
-			mes "[Rune Knight Renoa]";
-			mes "1 "+.@str$[0]+" rune was created normally.";
+			mes "[Chevalier Runique Renoa]";
+			mes "1 rune "+.@str$[0]+" a été créée normalement.";
 			set job_rune_edq2, job_rune_edq2+1;
 			close;
 		}
-		mes "[Rune Knight Renoa]";
-		mes "It's a natural result. The image of the rune stone in my head and the modeled rune stone didn't match so the success rate just got lower.";
+		mes "[Chevalier Runique Renoa]";
+		mes "C'est un résultat naturel. L'image de la pierre runique dans ma tête et la pierre runique modelée ne correspondaient pas, donc le taux de succès vient de baisser.";
 		next;
-		mes "[Rune Knight Renoa]";
-		mes "Refining the rune stone has failed... Please try again.";
+		mes "[Chevalier Runique Renoa]";
+		mes "La raffinerie de la pierre runique a échoué... Veuillez réessayer.";
 		set job_rune_edq3, job_rune_edq3+1;
 		close;
 	}
-	mes "[Rune Knight Renoa]";
-	mes "You don't want to touch that thing. Believe me, I'm not kidding.";
+	mes "[Chevalier Runique Renoa]";
+	mes "Tu ne voudras pas toucher à ça. Crois-moi, je ne plaisante pas.";
 	close;
 }
 
 job3_rune01,40,54,1	script	Runes and Rune Knights	844,{
 	if (job_rune_edq < 8) {
-		mes "[Rune Knight Renoa]";
-		mes "Besides touching stuff in this place without permission. Would you be able to understand the contents of the book?";
+		mes "[Chevalier Runique Renoa]";
+		mes "En plus de toucher des choses dans cet endroit sans permission. Serait-il possible que tu comprennes le contenu du livre ?";
 		next;
-		mes "[Captain Tigris]";
-		mes "Hey Renoa, go easy on that Knight. You there too, you'd better stop touching stuff here without permission.";
+		mes "[Capitaine Tigris]";
+		mes "Hé Renoa, sois plus indulgente avec ce Chevalier. Toi aussi, tu ferais mieux d'arrêter de toucher des choses ici sans permission.";
 		close;
 	}
 	while(1) {
-		switch(select("The birth of Rune Knights:Runes and Magic Energy:Stop Reading")) {
+		switch(select("La naissance des Chevaliers Runiques:Runes et Énergie Magique:Arrêter de lire")) {
 		case 1:
 			set .@book1,1;
-			mes "Rune Knights are the gathering of evolved swordmen who have achieved the harmony of sword and magic.";
+			mes "Les Chevaliers Runiques sont le rassemblement d'épéistes évolués qui ont atteint l'harmonie entre l'épée et la magie.";
 			next;
-			mes "It had been achieved by the legendary swordsman Beljeve who's been known as a Sword Master and a founder of dispensable expenditure.";
+			mes "Cela a été réalisé par le légendaire épéiste Beljeve, connu comme un Maître d'Épée et fondateur de dépenses indispensables.";
 			next;
-			mes "Rune Knights use rune stones as a medium for magic power rather than using the magical energy made directly within the body.";
+			mes "Les Chevaliers Runiques utilisent des pierres runiques comme médium pour le pouvoir magique plutôt que d'utiliser l'énergie magique directement créée dans le corps.";
 			next;
-			mes "Magic power could only previously be used by those who can harness magic power within their bodies through a long time of research";
+			mes "Auparavant, le pouvoir magique ne pouvait être utilisé que par ceux capables de maîtriser l'énergie magique dans leur corps après une longue période de recherche";
 			next;
-			mes "However, for the direct research on the rune magical power which had broken the human's normal concept is now ongoing.";
+			mes "Cependant, la recherche directe sur le pouvoir magique des runes qui a brisé le concept humain normal est en cours.";
 			next;
-			mes "It's known that the Sword Master Beljeve felt the limit of his power, so he studied the way to overcome the physical limitation of mortals.";
+			mes "On sait que le Maître d'Épée Beljeve a ressenti la limite de son pouvoir, alors il a étudié la façon de surmonter la limitation physique des mortels.";
 			next;
-			mes "We guess he had been already in touch with the Laphine tribe long before the dimensional rift was discovered to get to the Ash-Vacuum.";
+			mes "Nous supposons qu'il était déjà en contact avec la tribu des Laphines bien avant la découverte de la faille dimensionnelle pour accéder à l'Aspirateur de Cendres.";
 			next;
-			mes "The Laphine tribe are the fairies from the Ash-Vacuum and are known to have a close relationship to the birth of the Rune Knights.";
+			mes "La tribu des Laphines sont les fées de l'Aspirateur de Cendres et sont connues pour avoir une relation étroite avec la naissance des Chevaliers Runiques.";
 			next;
-			mes "Now it's possible for those who are normally unsuited to using magic power to carry a medium that can carry magic that normal mortals could not wield before.";
+			mes "Il est désormais possible pour ceux normalement inaptes à utiliser le pouvoir magique de porter un médium qui peut contenir une magie que les mortels normaux ne pouvaient pas manier auparavant.";
 			next;
-			mes "The result of studying these techniques are the rune stones tuned in harmony with the physical power of swords.";
+			mes "Le résultat de l'étude de ces techniques sont les pierres runiques accordées en harmonie avec le pouvoir physique des épées.";
 			next;
-			mes "Beljeve's disciples who started to learn the way to imbue their swords with rune stones became known as Rune Knights.";
+			mes "Les disciples de Beljeve qui ont commencé à apprendre à imprégner leurs épées de pierres runiques sont devenus connus sous le nom de Chevaliers Runiques.";
 			next;
 			break;
 		case 2:
 			set .@book2,1;
-			mes "A jewel called as a Rune is a medium that contains the formless existence, the magical power and the essence of it can be used directly.";
+			mes "Un joyau appelé Rune est un médium qui contient l'existence sans forme, le pouvoir magique et l'essence de celui-ci peut être utilisé directement.";
 			next;
-			mes "The Laphine Sage, Serpeone and the founder of Rune Knights Beljeve co-researched runes and the result of their research has only recently become to be known to the world.";
+			mes "Le Sage Laphine, Serpeone, et le fondateur des Chevaliers Runiques, Beljeve, ont co-recherché les runes et le résultat de leur recherche n'est connu du monde que récemment.";
 			next;
-			mes "It's a limitless alternative energy source and research on them is still ongoing. ";
+			mes "C'est une source d'énergie alternative illimitée et la recherche à leur sujet est toujours en cours.";
 			next;
-			mes "Unlike humans, the living things in the Ash-Vacuum preserve magical energy by holding it in their bodies.";
+			mes "Contrairement aux humains, les êtres vivants de l'Aspirateur de Cendres préservent l'énergie magique en la retenant dans leur corps.";
 			next;
-			mes "The discovery of transferring this magical power into runes was refined by Beljeve and Serpeone and shared with the Rune Knights.";
+			mes "La découverte du transfert de ce pouvoir magique dans les runes a été affinée par Beljeve et Serpeone et partagée avec les Chevaliers Runiques.";
 			next;
 			break;
 		case 3:
@@ -1046,37 +1046,37 @@ job3_rune01,40,54,1	script	Runes and Rune Knights	844,{
 
 job3_rune01,43,44,1	script	The Principles of Runes	844,{
 	if (job_rune_edq < 8) {
-		mes "[Rune Knight Renoa]";
-		mes "Besides touching stuff in this place without permission. Would you be able to understand the contents of the book?";
+		mes "[Chevalier Runique Renoa]";
+		mes "En plus de toucher des choses dans cet endroit sans permission. Serait-il possible que tu comprennes le contenu du livre ?";
 		next;
-		mes "[Captain Tigris]";
-		mes "Hey Renoa, go easy on that Knight. You there too, you'd better stop touching stuff here without permission.";
+		mes "[Capitaine Tigris]";
+		mes "Hé Renoa, sois plus indulgente avec ce Chevalier. Toi aussi, tu ferais mieux d'arrêter de toucher des choses ici sans permission.";
 		close;
 	}
 	while(1) {
-		switch(select("The principle use of Runes:The types of Runes:Stop Reading")) {
+		switch(select("L'utilisation principale des Runes:Les types de Runes:Arrêter de lire")) {
 		case 1:
 			set .@book1,1;
-			mes "A rune is a kind of symbol that's been used on the Midgard continent since ancient times. Up until now it has only been used by occult circles.";
+			mes "Une rune est un type de symbole qui a été utilisé sur le continent de Midgard depuis l'antiquité. Jusqu'à maintenant, elle n'a été utilisée que par des cercles occultes.";
 			next;
-			mes "Runes are used as a symbol system, however, by the story handed down orally, it's known to be used for fortune-telling or used to draw out the human sub consciousness.";
+			mes "Les runes sont utilisées comme un système de symboles, cependant, d'après l'histoire transmise oralement, elles sont connues pour être utilisées pour la divination ou pour révéler la subconscience humaine.";
 			next;
-			mes "Runes have their own system and types and can draw out various powers according to how they are arranged. But their power level can't currently be measured by known means.";
+			mes "Les runes ont leur propre système et types et peuvent révéler divers pouvoirs selon la manière dont elles sont arrangées. Mais leur niveau de puissance ne peut actuellement pas être mesuré par des moyens connus.";
 			next;
-			mes "It is fortunate that the Rune Knights discovered their use for positive means. Runes have not been used for dark magic but it is certainly possible for their power to be misused if in the wrong hands.";
+			mes "C'est une chance que les Chevaliers Runiques aient découvert leur utilisation à des fins positives. Les runes n'ont pas été utilisées pour la magie noire, mais il est certain que leur pouvoir peut être mal utilisé s'il tombe entre de mauvaises mains.";
 			next;
 			break;
 		case 2:
 			set .@book2,1;
-			mes "The runes are created from a a total of 25 small stones and they are very fragile to physical shock. So they require special care when being handled.";
+			mes "Les runes sont créées à partir d'un total de 25 petites pierres et elles sont très fragiles aux chocs physiques. Elles nécessitent donc un soin particulier lors de leur manipulation.";
 			next;
-			mes "The 25 stones have different meanings and among these, 14 when counter-positioned can have entirely different power and meaning from the original so it's essential to study the exceptional aspects.";
+			mes "Les 25 pierres ont des significations différentes et parmi celles-ci, 14, lorsqu'elles sont contre-positionnées, peuvent avoir un pouvoir et une signification totalement différents de l'original, il est donc essentiel d'étudier les aspects exceptionnels.";
 			next;
-			mes "The other 11 runes have consistent power, not influenced by any position so if you don't master all 11 ordinary runes and the 14 inverse runes, you cannot draw out all the complete power.";
+			mes "Les 11 autres runes ont un pouvoir constant, non influencé par leur position, donc si tu ne maîtrises pas les 11 runes ordinaires et les 14 runes inverses, tu ne peux pas déployer toute leur puissance complète.";
 			next;
-			mes "Among the 11 ordinary runes, the blank rune is an exception.";
+			mes "Parmi les 11 runes ordinaires, la rune blanche est une exception.";
 			next;
-			mes "The names of the 25 rune stones are the following:";
+			mes "Les noms des 25 pierres runiques sont les suivants :";
 			next;
 			mes "Ehwaz, Osilia, Mannaz, Ansuz, Hagalas, Kano, Rhydo, Turisus, Dagaz, Sowilo, Laguz, Isia, Pertz, Verkana, Gebo, Algiz, Arwez, Teiwaz, Wunjo, Jera, Nosiege, Ingz, Fehu, Urj.";
 			next;
@@ -1093,87 +1093,87 @@ job3_rune01,43,44,1	script	The Principles of Runes	844,{
 
 job3_rune01,50,36,1	script	Runes, Make & Use	844,{
 	if (job_rune_edq < 8) {
-		mes "[Rune Knight Renoa]";
-		mes "Besides touching stuff in this place without permission. Would you be able to understand the contents of the book?";
+		mes "[Chevalier Rune Renoa]";
+		mes "En plus de toucher des choses ici sans permission. Seriez-vous capable de comprendre le contenu du livre ?";
 		next;
-		mes "[Captain Tigris]";
-		mes "Hey Renoa, go easy on that Knight. You there too, you'd better stop touching stuff here without permission.";
+		mes "[Capitaine Tigris]";
+		mes "Hé Renoa, sois indulgent avec ce Chevalier. Toi aussi, tu ferais mieux d'arrêter de toucher des choses ici sans permission.";
 		close;
 	}
 	while(1) {
-		switch(select("The Making of Rune Stones:Rune Stone Ability Details:Stop Reading")) {
+		switch(select("La Fabrication des Pierres Runiques:Détails des Capacités des Pierres Runiques:Arrêter de Lire")) {
 		case 1:
 			set .@book1,1;
-			mes "The making of Rune stones is achieved through a skill called rune mastery which is learned when one becomes a Rune Knight.";
+			mes "La fabrication des pierres runiques est réalisée grâce à une compétence appelée maîtrise des runes, qui est apprise lorsqu'on devient un Chevalier Rune.";
 			next;
-			mes "Rune Mastery is like a code that's been put into the body as a mark of a Rune Knight.";
+			mes "La Maîtrise des Runes est comme un code qui a été inséré dans le corps comme une marque d'un Chevalier Rune.";
 			next;
-			mes "Ordinary people can also learn this skill and it needs its own machine called a Rune Furnace.";
+			mes "Les gens ordinaires peuvent également apprendre cette compétence et elle nécessite sa propre machine appelée un Fourneau à Runes.";
 			next;
-			mes "When you making a Rune stone with a Rune Furnace, the type of rune is determined by the magical energy put into it, and it cannot be changed.";
+			mes "Lorsque vous fabriquez une pierre runique avec un Fourneau à Runes, le type de rune est déterminé par l'énergie magique insérée, et cela ne peut pas être changé.";
 			next;
-			mes "When making a rune stone by using Rune Mastery, it can be made into the rune property that you want but it's classified as a Rune Knights' own ability.";
+			mes "Lors de la fabrication d'une pierre runique en utilisant la Maîtrise des Runes, elle peut être faite dans la propriété de rune que vous souhaitez mais elle est classifiée comme une capacité propre aux Chevaliers Runes.";
 			next;
-			mes "When you operate the Rune Furnace, the magical energy of the body gets concentrated through it and it enables the change into a Rune Stone.";
+			mes "Lorsque vous opérez le Fourneau à Runes, l'énergie magique du corps est concentrée à travers celui-ci et cela permet le changement en Pierre Runique.";
 			next;
 			break;
 		case 2:
 			set .@book2,1;
-			switch(select("Chapter One:Chapter Two:Chapter Three:Chapter Four:Stop Reading")) {
+			switch(select("Chapitre Un:Chapitre Deux:Chapitre Trois:Chapitre Quatre:Arrêter de Lire")) {
 			case 1:
-				mes "Ehwaz - This rune means the enhancement of luck and positive power. It shapes the source in the form of a red spiral in a Rune Furnace.";
+				mes "Ehwaz - Cette rune signifie l'amélioration de la chance et du pouvoir positif. Elle forme la source sous la forme d'une spirale rouge dans un Fourneau à Runes.";
 				next;
-				mes "Osilia - This rune is an equivalent exchange which means that you lose one and you gain one, and it also means the power that needs a cost. This is shaped into the form of a violet oblique line in a Rune Furnace.";
+				mes "Osilia - Cette rune est un échange équivalent ce qui signifie que vous perdez un et vous gagnez un, et cela signifie aussi le pouvoir qui nécessite un coût. Ceci est formé sous la forme d'une ligne oblique violette dans un Fourneau à Runes.";
 				next;
-				mes "Mannaz - This rune means hope and a new start and also the positive power that can reverse a desperate situation. This is shaped into the form of an emerald diamond in a Rune Furnace.";
+				mes "Mannaz - Cette rune signifie l'espoir et un nouveau départ et aussi le pouvoir positif qui peut renverser une situation désespérée. Ceci est formé sous la forme d'un diamant émeraude dans un Fourneau à Runes.";
 				next;
-				mes "Ansuz - This rune means preparation or arrangement and the power that can overcome the uneasiness of the coming future. This is shaped into the form of an emerald round in a Rune Furnace. ";
+				mes "Ansuz - Cette rune signifie préparation ou arrangement et le pouvoir qui peut surmonter l'angoisse du futur à venir. Ceci est formé sous la forme d'un rond émeraude dans un Fourneau à Runes.";
 				next;
-				mes "Hagalas - This rune means the freedom and the power that resists restraint. This is shaped into the form of a sky-blue colored star-shape in a Rune Furnace.";
+				mes "Hagalas - Cette rune signifie la liberté et le pouvoir qui résiste à la contrainte. Ceci est formé sous la forme d'une étoile de couleur bleu ciel dans un Fourneau à Runes.";
 				next;
-				mes "Kano - This rune means flame and passion, and the power that ends everything. The source of it is shaped into the form of a red diamond in a Rune Furnace.";
+				mes "Kano - Cette rune signifie flamme et passion, et le pouvoir qui termine tout. La source en est formée sous la forme d'un diamant rouge dans un Fourneau à Runes.";
 				next;
 				break;
 			case 2:
-				mes "Rhydo - This rune means the combination and recombination and the power of completion. This is shaped into the sky-blue oblique line in a Rune Furnace.";
+				mes "Rhydo - Cette rune signifie la combinaison et la recombinaison et le pouvoir de l'achèvement. Ceci est formé sous la forme d'une ligne oblique bleu ciel dans un Fourneau à Runes.";
 				next;
-				mes "Turisus - This rune means the border and the power of limitation. This is shaped into a yellow round in a Rune Furnace.";
+				mes "Turisus - Cette rune signifie la frontière et le pouvoir de limitation. Ceci est formé sous la forme d'un rond jaune dans un Fourneau à Runes.";
 				next;
-				mes "Dagaz - This rune means the talent and the power of enduring adversity. This is shaped into an emerald spiral in a Rune Furnace.";
+				mes "Dagaz - Cette rune signifie le talent et le pouvoir de supporter l'adversité. Ceci est formé sous la forme d'une spirale émeraude dans un Fourneau à Runes.";
 				next;
-				mes "Sowilo - This rune means victory and success and the power of arrangement and cessation. This is shaped into the form of a sky-blue fan-shape in a Rune Furnace.";
+				mes "Sowilo - Cette rune signifie victoire et succès et le pouvoir d'arrangement et de cessation. Ceci est formé sous la forme d'un éventail bleu ciel dans un Fourneau à Runes.";
 				next;
-				mes "Laguz -This rune means uncertainty and the power that protects the inside. This is shaped into a form of a yellow diamond in a Rune Furnace.";
+				mes "Laguz - Cette rune signifie l'incertitude et le pouvoir qui protège l'intérieur. Ceci est formé sous la forme d'un diamant jaune dans un Fourneau à Runes.";
 				next;
-				mes "Isia - This rune means the power that stops everything. This is shaped into a violet spiral in a Rune Furnace.";
+				mes "Isia - Cette rune signifie le pouvoir qui arrête tout. Ceci est formé sous la forme d'une spirale violette dans un Fourneau à Runes.";
 				next;
 				break;
 			case 3:
-				mes "Pertz - This rune means revelation and the power of chance. This is shaped into the form of silver spiral in a Rune Furnace.";
+				mes "Pertz - Cette rune signifie révélation et le pouvoir du hasard. Ceci est formé sous la forme d'une spirale argentée dans un Fourneau à Runes.";
 				next;
-				mes "Verkana - This rune means richness, birth and the power of defense and protection. This is shaped into the form of a gold-color star in a Rune Furnace.";
+				mes "Verkana - Cette rune signifie richesse, naissance et le pouvoir de défense et de protection. Ceci est formé sous la forme d'une étoile de couleur or dans un Fourneau à Runes.";
 				next;
-				mes "Gebo - This rune means cooperation and the power of harmony. This is shaped into the form of a yellow cone in a Rune Furnace.";
+				mes "Gebo - Cette rune signifie coopération et le pouvoir de l'harmonie. Ceci est formé sous la forme d'un cône jaune dans un Fourneau à Runes.";
 				next;
-				mes "Algiz - This rune means chance and the power of challenge. This is shaped into the form of an emerald oblique line in a Rune Furnace.";
+				mes "Algiz - Cette rune signifie chance et le pouvoir du défi. Ceci est formé sous la forme d'une ligne oblique émeraude dans un Fourneau à Runes.";
 				next;
-				mes "Arwez - This rune means change, convulsion and the power of movement. This is shaped into the form of a gray diamond in a Rune Furnace.";
+				mes "Arwez - Cette rune signifie changement, convulsion et le pouvoir du mouvement. Ceci est formé sous la forme d'un diamant gris dans un Fourneau à Runes.";
 				next;
-				mes "Teiwaz - This rune means perfect victory and the power of absolute solution. This is shaped into the form of a gold round in a Rune Furnace.";
+				mes "Teiwaz - Cette rune signifie victoire parfaite et le pouvoir de solution absolue. Ceci est formé sous la forme d'un rond or dans un Fourneau à Runes.";
 				next;
 				break;
 			case 4:
-				mes "Wunjo - This rune means intelligence and the power of wisdom. This is shaped into the form of an emerald star in a Rune Furnace.";
+				mes "Wunjo - Cette rune signifie intelligence et le pouvoir de la sagesse. Ceci est formé sous la forme d'une étoile émeraude dans un Fourneau à Runes.";
 				next;
-				mes "Jera - This rune means comfort and the power of rest. This is shaped into the form of a yellow round in a Rune Furnace.";
+				mes "Jera - Cette rune signifie confort et le pouvoir du repos. Ceci est formé sous la forme d'un rond jaune dans un Fourneau à Runes.";
 				next;
-				mes "Nosiege - This rune means weakness and the power of attenuating. This is shaped into the form of a yellow fan-shape in a Rune Furnace.";
+				mes "Nosiege - Cette rune signifie faiblesse et le pouvoir d'atténuation. Ceci est formé sous la forme d'un éventail jaune dans un Fourneau à Runes.";
 				next;
-				mes "Ingz - This rune means disruption and the power of separation. This is shaped into the form of a violet diamond in a Rune Furnace.";
+				mes "Ingz - Cette rune signifie perturbation et le pouvoir de séparation. Ceci est formé sous la forme d'un diamant violet dans un Fourneau à Runes.";
 				next;
-				mes "Fehu - This rune means attainment and the power of materialization. This is shaped into the form of a silver round in a Rune Furnace.";
+				mes "Fehu - Cette rune signifie réalisation et le pouvoir de matérialisation. Ceci est formé sous la forme d'un rond argenté dans un Fourneau à Runes.";
 				next;
-				mes "Urj - This rune means destiny and the power of restriction. This is shaped into the form of a violet spiral line in a Rune Furnace.";
+				mes "Urj - Cette rune signifie destin et le pouvoir de restriction. Ceci est formé sous la forme d'une ligne spirale violette dans un Fourneau à Runes.";
 				next;
 				break;
 			case 5:
@@ -1191,58 +1191,58 @@ job3_rune01,50,36,1	script	Runes, Make & Use	844,{
 }
 
 mid_camp,238,250,3	script	Rune Knight Sage Guard	468,2,2,{
-	mes "[Rune Knight Sage Guard]";
+	mes "[Garde Sage Chevalier Rune]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "The sage Serpeone is the one who has been with us since the beginning of the Rune Knights.";
+		mes "Le sage Serpeone est celui qui est avec nous depuis le début des Chevaliers Rune.";
 		next;
-		mes "[Rune Knight Sage Guard]";
-		mes "I am very proud as a Rune Knight to serve beside her.";
+		mes "[Garde Sage Chevalier Rune]";
+		mes "Je suis très fier en tant que Chevalier Rune de servir à ses côtés.";
 		close;
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq < 11) {
-			mes "You might be walking the way of the sword but you are not a Rune Knight yet. Don't wander around here too much if you know what I mean.";
+			mes "Vous pourriez suivre la voie de l'épée mais vous n'êtes pas encore un Chevalier Rune. Ne traînez pas trop par ici si vous voyez ce que je veux dire.";
 			close;
 		}
-		mes "Splendide is the land of the Laphine. We are offering a convenience by an agreement between the Rune Knights and the expeditionary team.";
+		mes "Splendide est la terre des Laphines. Nous offrons une commodité par un accord entre les Chevaliers Rune et l'équipe d'expédition.";
 		next;
-		mes "[Rune Knight Sage Guard]";
-		mes "Our agents are opening the way to Splendide only for the trainees who are taking the Rune Knight job change test.";
+		mes "[Garde Sage Chevalier Rune]";
+		mes "Nos agents ouvrent la voie vers Splendide uniquement pour les apprentis qui passent le test de changement de métier de Chevalier Rune.";
 		next;
-		mes "[Rune Knight Sage Guard]";
-		mes "But when you become a Rune Knight, you'll need to make sure that you join the expeditionary team in order to fully explore the Ash-Vacuum.";
+		mes "[Garde Sage Chevalier Rune]";
+		mes "Mais lorsque vous devenez un Chevalier Rune, vous devrez vous assurer de rejoindre l'équipe d'expédition pour explorer pleinement l'Ash-Vacuum.";
 		close;
 	}
-	mes "Hanging around this man won't be good for you. Keep going the way you were heading.";
+	mes "Traîner autour de cet homme ne sera pas bon pour vous. Continuez sur la voie sur laquelle vous étiez.";
 	close;
 }
 
 mid_camp,13,138,3	script	Dispatched Rune Knight#1	83,2,2,{
-	mes "[Dispatched Rune Knight]";
+	mes "[Chevalier Rune Détaché]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "Thanks for your work. We will continue our mission for the Rune Knight testers.";
+		mes "Merci pour votre travail. Nous continuerons notre mission pour les testeurs de Chevalier Rune.";
 		close;
 	}
 	if (BaseJob == Job_Knight && job_rune_edq > 10) {
-		mes "I've been waiting for you Rune Knight candidate. I'm helping the candidates as a favor to Ms. Serpeone.";
+		mes "Je vous attendais, candidat Chevalier Rune. J'aide les candidats en faveur de Mme Serpeone.";
 		next;
-		mes "[Dispatched Rune Knight]";
+		mes "[Chevalier Rune Détaché]";
 		if (strnpcinfo(0) == "Dispatched Rune Knight#1") {
-			mes "Do you want to go out to the Splendide field?";
+			mes "Voulez-vous sortir dans le champ de Splendide ?";
 			next;
-			if(select("Move to Splendide field:Cancel.") == 1)
+			if(select("Se déplacer vers le champ de Splendide :Annuler.") == 1)
 				warp "spl_fild01",355,325;
 			close;
 		} else if (strnpcinfo(0) == "Dispatched Rune Knight#2") {
-			mes "Do you want to go back to the expeditionary team's post?";
+			mes "Voulez-vous retourner au poste de l'équipe d'expédition ?";
 			next;
-			if(select("Yes please.:Not yet.") == 1)
+			if(select("Oui s'il vous plaît. :Pas encore.") == 1)
 				warp "mid_camp",50,153;
 			close;
 		}
 		close;
 	}
-	mes "Shh... Our mission is not something to be revealed to the public. Please just move along.";
+	mes "Chut... Notre mission n'est pas quelque chose à révéler au public. Veuillez simplement continuer votre chemin.";
 	close;
 }
 spl_fild01,361,327,3	duplicate(Dispatched Rune Knight#1)	Dispatched Rune Knight#2	83,2,2
@@ -1251,13 +1251,13 @@ spl_fild02,13,241,0	script	#Barricade1	139,10,10,{
 	end;
 OnTouch:
 	if (job_rune_edq > 0 && job_rune_edq < 23) {
-		mes "- Whispers of the sage Serpeone are delivered to my mind. -";
+		mes "- Les murmures du sage Serpeone parviennent à mon esprit. -";
 		next;
 		mes "[Sage Serpeone]";
-		mes "Until you become an honorable Rune Knight I cannot help you control your powers in Midgard.";
+		mes "Jusqu'à ce que vous deveniez un Chevalier Rune honorable, je ne peux pas vous aider à contrôler vos pouvoirs en Midgard.";
 		next;
 		mes "[Sage Serpeone]";
-		mes "Please understand this and be devoted to this test.";
+		mes "Veuillez comprendre cela et vous consacrer à ce test.";
 		close2;
 		warp "spl_fild02",25,245;
 		end;
@@ -1268,78 +1268,78 @@ OnTouch:
 mid_camp,235,250,3	script	Sage Serpeone	435,2,2,{
 	mes "[Sage Serpeone]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "Finally you are an honorable Rune Knight. I'm happy to help you.";
+		mes "Enfin, vous êtes un Chevalier Rune honorable. Je suis heureuse de pouvoir vous aider.";
 		next;
 		mes "[Sage Serpeone]";
-		mes "The power of Runes are not perfect and more research still needs to be done to make it perfectly safe. It is up to me and other Rune Knights like you to make sure to continue that research.";
+		mes "Le pouvoir des Runes n'est pas parfait et il faut encore plus de recherches pour le rendre parfaitement sûr. C'est à moi et à d'autres Chevaliers Rune comme vous de veiller à poursuivre cette recherche.";
 		next;
 		mes "[Sage Serpeone]";
-		mes "Please be devoted to the Runes and hopefully your life will be illuminated by it.";
+		mes "Veuillez vous consacrer aux Runes et, espérons-le, votre vie sera éclairée par celles-ci.";
 		close;
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq < 12) {
-			mes "It must be surprising that I, a Laphine, am here in your people's base.";
+			mes "Cela doit être surprenant qu'une Laphine comme moi soit ici dans la base de votre peuple.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "Some of us have been in contact with humans in special situations since even before the dimensional rift opened up.";
+			mes "Certains d'entre nous ont été en contact avec les humains dans des situations spéciales même avant que la faille dimensionnelle ne s'ouvre.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "I have been having correspondences with humans for a number of years now. It was for mutual interests. Anyway, that's how I learned your language.";
+			mes "Je correspondais avec les humains depuis plusieurs années maintenant. C'était pour des intérêts mutuels. De toute façon, c'est ainsi que j'ai appris votre langue.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "Maybe there needs to be a machine that can translate the Laphine language to make it easier for humans to understand us.";
+			mes "Peut-être qu'il faudrait une machine pour traduire la langue Laphine afin de faciliter la compréhension par les humains.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "More than that... I cannot tell you more. I cannot speak carelessly since I'm speaking for my people here and I am on a special pass to be allowed in your camp.";
+			mes "Plus que cela... je ne peux pas vous en dire plus. Je ne peux pas parler à la légère puisque je représente mon peuple ici et que je suis en laissez-passer spécial pour être autorisée dans votre camp.";
 			close;
 		} else if (job_rune_edq == 12) {
-			mes "Welcome, you are the one taking the job training test of the Rune Knights. I am Serpeone.";
+			mes "Bienvenue, vous êtes celui qui passe le test de formation au métier de Chevalier Rune. Je suis Serpeone.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "All Rune Knights that you've met so far are the disciples who were taught by me and Beljeve. Now you are on your way to joining them.";
+			mes "Tous les Chevaliers Rune que vous avez rencontrés jusqu'à présent sont les disciples qui ont été enseignés par moi et Beljeve. Maintenant, vous êtes en chemin pour les rejoindre.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "I think you've already heard a basic explanation and instructions from Renoa. Now it seems that it's my turn to help you out.";
+			mes "Je pense que vous avez déjà entendu une explication de base et des instructions de la part de Renoa. Maintenant, il semble que ce soit mon tour de vous aider.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "The magical power that the Rune Knights use are not technically the same as the magical power made in the human world.";
+			mes "Le pouvoir magique que les Chevaliers Rune utilisent n'est pas techniquement le même que le pouvoir magique créé dans le monde humain.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "Right this place... our sphere where you call as Ash-Vacuum...it's the magical power made with";
+			mes "Juste cet endroit... notre sphère que vous appelez le Vide-Cendre... c'est le pouvoir magique créé avec";
 			next;
 			mes "[Sage Serpeone]";
-			mes "The living things in this place have been preserving the magical energy in our bodies unlike the living things in the human world.";
+			mes "Les êtres vivants de cet endroit ont préservé l'énergie magique dans nos corps contrairement aux êtres vivants du monde humain.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "The power of the rune stones is the way of shaping the magical power in our bodies into runes which take place of our bodies as a medium.";
+			mes "Le pouvoir des pierres runiques est la façon de modeler le pouvoir magique dans nos corps en runes qui prennent place de nos corps comme un médium.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "So to use the rune stone you need a direct understanding of the other sphere's living things.";
+			mes "Donc, pour utiliser la pierre runique, vous avez besoin d'une compréhension directe des êtres vivants de l'autre sphère.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "But, it must be too much for you to extract the magical energy from the living things in this land yet.";
+			mes "Mais, il doit être trop difficile pour vous d'extraire l'énergie magique des êtres vivants de cette terre pour l'instant.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "Now I'll cast a magic spell on your body so you can gather magic energy from other living things.";
+			mes "Maintenant, je vais lancer un sortilège sur votre corps afin que vous puissiez rassembler l'énergie magique d'autres êtres vivants.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "Temporarily you'll able to extract magic energy from evil creatures in the human world. Of course you won't be able to use the energy directly...";
+			mes "Temporairement, vous pourrez extraire l'énergie magique de créatures maléfiques dans le monde humain. Bien sûr, vous ne pourrez pas utiliser directement l'énergie...";
 			next;
 			mes "[Sage Serpeone]";
-			mes "If you store up the energy by getting rid of evil creatures in the human world, I'll convert it to the energy that you can use.";
+			mes "Si vous accumulez de l'énergie en vous débarrassant de créatures maléfiques dans le monde humain, je la convertirai en énergie que vous pourrez utiliser.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "The vicious souls that they keep even after being dead is the great source of magical powers.";
+			mes "Les âmes vicieuses qu'elles conservent même après leur mort sont une grande source de pouvoirs magiques.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "Please get rid of ^0000FF10 Dullahan^000000, ^0000FF10 Disguise^000000, ^0000FF10 Quve^000000, ^0000FF10 Heirozoist^000000 and gather their energy.";
+			mes "Veuillez vous débarrasser de ^0000FF10 Dullahan^000000, ^0000FF10 Disguise^000000, ^0000FF10 Quve^000000, ^0000FF10 Heirozoist^000000 et rassembler leur énergie.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "I am telling you beforehand but I don't test or judge your qualification. A Rune Knight will be the judge of that.";
+			mes "Je vous le dis à l'avance, mais je ne teste pas ou ne juge pas votre qualification. Un Chevalier Rune sera le juge de cela.";
 			next;
 			mes "[Sage Serpeone]";
-			mes "If you have any problems or any questions, please talk to me.";
+			mes "Si vous avez des problèmes ou des questions, veuillez me parler.";
 			set job_rune_edq,13;
 			changequest 3207,3208;
 			setquest 3209;
@@ -1347,26 +1347,26 @@ mid_camp,235,250,3	script	Sage Serpeone	435,2,2,{
 			setquest 3211;
 			setquest 3212;
 			close;
-		} else if (job_rune_edq == 13) {
-			mes "Are you gathering enough magical energy? Or do you have any questions?";
+		}else if (job_rune_edq == 13) {
+			mes "Rassemblez-vous suffisamment d'énergie magique ? Ou avez-vous des questions ?";
 			next;
-			switch(select("I've gathered enough energy.:To the gathering place.:Stop the conversation.")) {
+			switch(select("J'ai rassemblé assez d'énergie. :Vers le lieu de rassemblement. :Arrêter la conversation.")) {
 			case 1:
 				mes "[Sage Serpeone]";
-				mes "Is it so? Then let's check this out.";
+				mes "Est-ce vrai ? Alors vérifions cela.";
 				next;
 				if (checkquest(3209,HUNTING) == 2 && checkquest(3210,HUNTING) == 2 && checkquest(3211,HUNTING) == 2 && checkquest(3212,HUNTING) == 2) {
 					mes "[Sage Serpeone]";
-					mes "Umm, this is great. Enough amount of living body magical energy has accumulated in your body.";
+					mes "Hmm, c'est excellent. Une quantité suffisante d'énergie magique du corps vivant s'est accumulée dans votre corps.";
 					next;
 					mes "[Sage Serpeone]";
-					mes "Rune Knight Renoa will tell you the way of using rune stones.";
+					mes "Le Chevalier Rune Renoa vous apprendra la manière d'utiliser les pierres runiques.";
 					next;
 					mes "[Sage Serpeone]";
-					mes "Now I think my part is all over. I hope you will become an honorable Rune Knight.";
+					mes "Maintenant, je pense que ma partie est terminée. J'espère que vous deviendrez un Chevalier Rune honorable.";
 					next;
 					mes "[Sage Serpeone]";
-					mes "If you have any business here, I'll send you to the Rune Knight gathering place. If you are ready, please tell me.";
+					mes "Si vous avez des affaires ici, je vous enverrai au lieu de rassemblement des Chevaliers Rune. Si vous êtes prêt, dites-le moi.";
 					set job_rune_edq,14;
 					changequest 3208,3213;
 					completequest 3209;
@@ -1376,190 +1376,190 @@ mid_camp,235,250,3	script	Sage Serpeone	435,2,2,{
 					close;
 				}
 				mes "[Sage Serpeone]";
-				mes "You haven't collected enough magical energy yet.";
+				mes "Vous n'avez pas encore rassemblé assez d'énergie magique.";
 				next;
 				mes "[Sage Serpeone]";
-				mes "Please brace yourself and gather enough energy by dispatching those monsters.";
+				mes "Courage, et rassemblez suffisamment d'énergie en éliminant ces monstres.";
 				close;
 			case 2:
 				mes "[Sage Serpeone]";
-				mes "You want to go back to the gathering place? If you want I'll send you back there immediately. But to continue the test you'll need to come and see me again.";
+				mes "Vous voulez retourner au lieu de rassemblement ? Si vous voulez, je peux vous y envoyer immédiatement. Mais pour continuer le test, vous devrez revenir me voir.";
 				next;
 				mes "[Sage Serpeone]";
-				mes "Do you want to go back the Rune Knight gathering place?";
+				mes "Voulez-vous retourner au lieu de rassemblement des Chevaliers Rune ?";
 				next;
-				if(select("I want to go back.:I want to cancel.") == 1)
+				if(select("Je veux y retourner. :Je veux annuler.") == 1)
 					warp "job3_rune01",80,65;
 				close;
 			case 3:
 				close;
 			}
 		} else if (job_rune_edq == 14) {
-			mes "Are you ready to go back to the Rune Knight gathering place?";
+			mes "Êtes-vous prêt à retourner au lieu de rassemblement des Chevaliers Rune ?";
 			next;
-			if(select("I want to go back now.:I am not ready yet.") == 1)
+			if(select("Je veux y retourner maintenant. :Je ne suis pas encore prêt.") == 1)
 				warp "job3_rune01",80,65;
 			close;
 		}
-		mes "Are the preparations going well?";
+		mes "Les préparatifs se déroulent-ils bien ?";
 		next;
 		mes "[Sage Serpeone]";
-		mes "Aren't you in the wrong state right now?";
+		mes "N'êtes-vous pas dans le mauvais état actuellement ?";
 		next;
 		mes "[Sage Serpeone]";
-		mes "Then I'll send you to the Rune Knight gathering place where you should be.";
+		mes "Alors je vous enverrai au lieu de rassemblement des Chevaliers Rune où vous devriez être.";
 		next;
-		if(select("I'll go back now.:I'll stay.") == 1)
+		if(select("Je vais y retourner maintenant. :Je vais rester.") == 1)
 			warp "job3_rune01",80,65;
 		close;
 	}
-	mes "It must be surprising that I, a Laphine, am here in your people's base.";
+	mes "Cela doit être surprenant qu'une Laphine comme moi soit ici dans la base de votre peuple.";
 	next;
 	mes "[Sage Serpeone]";
-	mes "Some of us have been in contact with humans in special situations since even before the dimensional rift opened up.";
+	mes "Certains d'entre nous ont été en contact avec les humains dans des situations spéciales même avant que la faille dimensionnelle ne s'ouvre.";
 	next;
 	mes "[Sage Serpeone]";
-	mes "I have been having correspondences with humans for a number of years now. It was for mutual interests. Anyway, that's how I learned your language.";
+	mes "Je correspondais avec les humains depuis plusieurs années maintenant. C'était pour des intérêts mutuels. De toute façon, c'est ainsi que j'ai appris votre langue.";
 	next;
 	mes "[Sage Serpeone]";
-	mes "Maybe there needs to be a machine that can translate the Laphine language to make it easier for humans to understand us.";
+	mes "Peut-être qu'il faudrait une machine pour traduire la langue Laphine afin de faciliter la compréhension par les humains.";
 	next;
 	mes "[Sage Serpeone]";
-	mes "More than that... I cannot tell you more. I cannot speak carelessly since I'm speaking for my people here and I am on a special pass to be allowed in your camp.";
+	mes "Plus que cela... je ne peux pas vous en dire plus. Je ne peux pas parler à la légère puisque je représente mon peuple ici et que je suis en laissez-passer spécial pour être autorisée dans votre camp.";
 	close;
 }
 
 job3_rune01,114,50,3	script	Rune Knight Velpino	468,{
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "[Rune Knight Velpino]";
-		mes "You still smell like a fledging. Bring honor to the Rune Knights and raise your power...";
+		mes "[Chevalier Rune Velpino]";
+		mes "Vous sentez encore comme un débutant. Apportez de l'honneur aux Chevaliers Rune et augmentez votre puissance...";
 		close;
 	}
 	if (BaseJob == Job_Knight) {
 		if (job_rune_edq < 17) {
-			mes "A very cold feeling Rune Knight dressed in black from head to toe is scowling at me.";
+			mes "Un Chevalier Rune très froid, habillé de noir de la tête aux pieds, me regarde de travers.";
 			next;
-			mes "Why are all of the Rune Knights blabberers or uncommunicative and combative...?";
+			mes "Pourquoi tous les Chevaliers Rune sont-ils soit bavards, soit taciturnes et belliqueux... ?";
 			next;
-			mes "[Captain Tigris]";
-			mes "Hey... What about me? I'm not like that!";
+			mes "[Capitaine Tigris]";
+			mes "Hé... Et moi alors ? Je ne suis pas comme ça !";
 			close;
 		} else if (job_rune_edq == 17) {
-			mes "[Rune Knight Velpino]";
-			mes "I didn't think that a candidate would make it to me today...";
+			mes "[Chevalier Rune Velpino]";
+			mes "Je ne pensais pas qu'un candidat arriverait jusqu'à moi aujourd'hui...";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "Congratulations! You are at the long-waited final test... I think you've mastered the basics now.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Félicitations ! Vous êtes enfin arrivé au test tant attendu... Je pense que vous avez maintenant maîtrisé les bases.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "The final test is relatively simple. Everything ends when you get rid of all the magical monsters in this Glast Heim...";
+			mes "[Chevalier Rune Velpino]";
+			mes "Le test final est relativement simple. Tout se termine lorsque vous aurez éliminé tous les monstres magiques de ce Glast Heim...";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "The only condition is that you have to get rid of these monsters by using the rune stones you made at the former test.";
+			mes "[Chevalier Rune Velpino]";
+			mes "La seule condition est que vous devez vous débarrasser de ces monstres en utilisant les pierres runiques que vous avez fabriquées lors du test précédent.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "For this test, only a one-hand weapon, a shield or a two-handed weapon can be equipped.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Pour ce test, vous ne pouvez être équipé que d'une arme à une main, d'un bouclier ou d'une arme à deux mains.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "The only set of weapons you can use should be within the weight limit of 400. Rune stones to be provided are 30 attack-only rune stones and 30 defense-only rune stones.";
+			mes "[Chevalier Rune Velpino]";
+			mes "L'ensemble d'armes que vous pouvez utiliser doit être dans la limite de poids de 400. Les pierres runiques fournies seront 30 pierres runiques d'attaque et 30 pierres runiques de défense.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "To use these runes, I will cast a special buff spell over you.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Pour utiliser ces runes, je vais vous lancer un sort de buff spécial.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "The magical monsters are the 3 kinds of magic monsters from Glast Heim that you might already know... It won't be an easy fight but if you just undergo this final suffering, you'll walk the path of a Rune Knight.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Les monstres magiques sont les 3 types de monstres magiques de Glast Heim que vous connaissez peut-être déjà... Ce ne sera pas un combat facile, mais si vous endurez cette dernière épreuve, vous suivrez la voie d'un Chevalier Rune.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "To help the preparation we've made a contract with the Kafra headquarters in Al De Baran by employing a Kafra Employee especially for this gathering place. So it would be good to visit her.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Pour aider à la préparation, nous avons passé un contrat avec le siège de Kafra à Al De Baran en employant un Employé Kafra spécialement pour ce lieu de rassemblement. Donc, il serait bon de lui rendre visite.";
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "If you are ready just talk to me again.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Si vous êtes prêt, parlez-moi à nouveau.";
 			set job_rune_edq,18;
 			changequest 3216,3217;
 			close;
 		} else if (job_rune_edq > 17 && job_rune_edq < 21) {
-			if (countitem(12388)+countitem(12389)+countitem(12390) == 0) {
-				mes "[Rune Knight Velpino]";
-				mes "If all of your preparations are done, I'll send you to the final test field.";
+			if (countitem(12388) + countitem(12389) + countitem(12390) == 0) {
+				mes "[Chevalier Rune Velpino]";
+				mes "Si toutes vos préparations sont terminées, je vous enverrai sur le terrain du test final.";
 				set job_rune_edq,18;
 				next;
-				if(select("Enter the final test field.:I'm not ready yet.") == 2) close;
+				if (select("Entrer dans le champ de test final.:Je ne suis pas encore prêt.") == 2) close;
 				if (getequipisequiped(EQI_HEAD_TOP) || getequipisequiped(EQI_ARMOR) || getequipisequiped(EQI_GARMENT) || getequipisequiped(EQI_SHOES) ||
-				    getequipisequiped(EQI_ACC_L) || getequipisequiped(EQI_ACC_R) || getequipisequiped(EQI_HEAD_MID) || getequipisequiped(EQI_HEAD_LOW)) {
-					mes "[Rune Knight Velpino]";
-					mes "For this test, only a one-hand weapon, a shield or a two-handed weapon can be equipped. Keep your other equipments with the Kafra Employee in the center.";
+					getequipisequiped(EQI_ACC_L) || getequipisequiped(EQI_ACC_R) || getequipisequiped(EQI_HEAD_MID) || getequipisequiped(EQI_HEAD_LOW)) {
+					mes "[Chevalier Rune Velpino]";
+					mes "Pour ce test, vous ne pouvez être équipé que d'une arme à une main, d'un bouclier ou d'une arme à deux mains. Gardez vos autres équipements avec l'Employé Kafra au centre.";
 					close;
 				}
-				if (checkquest(3220,PLAYTIME) == 1) {
-					mes "[Rune Knight Velpino]";
-					mes "Haven't you failed at the test... If you fail once, you cannot enter again for 10 minutes.";
+				if (checkquest(3220, PLAYTIME) == 1) {
+					mes "[Chevalier Rune Velpino]";
+					mes "N'avez-vous pas échoué au test... Si vous échouez une fois, vous ne pouvez pas réessayer pendant 10 minutes.";
 					next;
-					mes "[Rune Knight Velpino]";
-					mes "It's a consideration for the other testers who are waiting for the test, just like you, so come back after the designated time.";
+					mes "[Chevalier Rune Velpino]";
+					mes "C'est une considération pour les autres testeurs qui attendent le test, tout comme vous, alors revenez après le temps désigné.";
 					close;
 				}
 				if ($@job_rune_test1 == 0) {
 					if (Weight < 4001) {
 						set $@job_rune_test1,1;
 						sc_start SC_INCINT,300000,40;
-						getitem 12389,30; //Runstone_Storm
-						getitem 12390,30; //Runstone_Millennium
+						getitem 12389,30; //Pierre_Rune_Orage
+						getitem 12390,30; //Pierre_Rune_Millénaire
 						if (checkquest(3220) > -1) erasequest 3220;
 						setquest 3220;
 						warp "job3_rune02",38,40;
 						end;
 					}
-					mes "[Rune Knight Velpino]";
-					mes "The only set of weapons you can use should be within the weight limit of 400. Rune stones to be provided are 30 attack-only rune stones and 30 defense-only rune stones.";
+					mes "[Chevalier Rune Velpino]";
+					mes "L'ensemble d'armes que vous pouvez utiliser doit être dans la limite de poids de 400. Les pierres runiques fournies sont 30 pierres runiques d'attaque et 30 pierres runiques de défense.";
 					next;
-					mes "[Rune Knight Velpino]";
-					mes "The remaining stuff you are holding should be kept by the Kafra employee in the middle.";
+					mes "[Chevalier Rune Velpino]";
+					mes "Les objets restants que vous avez en votre possession doivent être confiés à l'Employé Kafra au centre.";
 					close;
 				}
-				// Custom translation
-				mes "[Rune Knight Velpino]";
-				mes "Looks like there is already an applicant in the test room.";
+				// Traduction personnalisée
+				mes "[Chevalier Rune Velpino]";
+				mes "Il semble qu'il y ait déjà un candidat dans la salle de test.";
 				next;
-				mes "[Rune Knight Velpino]";
-				mes "Be patient and wait your turn.";
+				mes "[Chevalier Rune Velpino]";
+				mes "Soyez patient et attendez votre tour.";
 				close;
 			}
-			mes "[Rune Knight Velpino]";
-			mes "Wait, I'll collect all the rune stones provided before. There's a certain limit on using the rune stones that's made for the test.";
-			if (countitem(12388)) delitem 12388,countitem(12388); //Runstone_Crush
-			if (countitem(12389)) delitem 12389,countitem(12389); //Runstone_Storm
-			if (countitem(12390)) delitem 12390,countitem(12390); //Runstone_Millennium
+			mes "[Chevalier Rune Velpino]";
+			mes "Attendez, je vais collecter toutes les pierres runiques fournies précédemment. Il y a une limite d'utilisation des pierres runiques conçue pour le test.";
+			if (countitem(12388)) delitem 12388,countitem(12388); //Pierre_Rune_Broyage
+			if (countitem(12389)) delitem 12389,countitem(12389); //Pierre_Rune_Orage
+			if (countitem(12390)) delitem 12390,countitem(12390); //Pierre_Rune_Millénaire
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "I'll get new rune stones so if your preparation is all done, please talk to me again.";
+			mes "[Chevalier Rune Velpino]";
+			mes "Je vais obtenir de nouvelles pierres runiques, donc si vos préparatifs sont terminés, veuillez me parler à nouveau.";
 			close;
-		} else if (job_rune_edq == 21) {
-			mes "[Rune Knight Velpino]";
-			mes "You've been very successful up to the last test.";
+		}else if (job_rune_edq == 21) {
+			mes "[Chevalier Rune Velpino]";
+			mes "Vous avez été très réussi jusqu'au dernier test.";
 			next;
-			if (countitem(12388)+countitem(12389)+countitem(12390) == 0) {
-				mes "[Rune Knight Velpino]";
-				mes "Now all the tests you need to take are over. Go back to Captain Tigris and inform him of this test result, and then feel the deep emotion of being born again as a Rune Knight.";
+			if (countitem(12388) + countitem(12389) + countitem(12390) == 0) {
+				mes "[Chevalier Rune Velpino]";
+				mes "Maintenant, tous les tests que vous devez passer sont terminés. Retournez voir le Capitaine Tigris et informez-le du résultat de ce test, puis ressentez l'émotion profonde de renaître en tant que Chevalier Rune.";
 				next;
-				mes "[Rune Knight Velpino]";
-				mes "Congratulations!";
-				mes "Well I'd better go now for the remaining candidates.";
+				mes "[Chevalier Rune Velpino]";
+				mes "Félicitations !";
+				mes "Eh bien, je ferais mieux de partir maintenant pour les candidats restants.";
 				set job_rune_edq,22;
 				changequest 3218,3219;
 				close;
 			}
-			mes "[Rune Knight Velpino]";
-			mes "Wait, I'll collect all the rune stones provided before. There's a certain limit on using the rune stones that's made for the test.";
-			if (countitem(12388)) delitem 12388,countitem(12388); //Runstone_Crush
-			if (countitem(12389)) delitem 12389,countitem(12389); //Runstone_Storm
-			if (countitem(12390)) delitem 12390,countitem(12390); //Runstone_Millennium
+			mes "[Chevalier Rune Velpino]";
+			mes "Attendez, je vais collecter toutes les pierres runiques fournies précédemment. Il y a une limite d'utilisation des pierres runiques conçue pour le test.";
+			if (countitem(12388)) delitem 12388,countitem(12388); //Pierre_Rune_Broyage
+			if (countitem(12389)) delitem 12389,countitem(12389); //Pierre_Rune_Orage
+			if (countitem(12390)) delitem 12390,countitem(12390); //Pierre_Rune_Millénaire
 			next;
-			mes "[Rune Knight Velpino]";
-			mes "I'll need to re-use these unused rune stones. Talk to me again once I have taken all the test rune stones.";
+			mes "[Chevalier Rune Velpino]";
+			mes "J'aurai besoin de réutiliser ces pierres runiques inutilisées. Parlez-moi à nouveau une fois que j'aurai récupéré toutes les pierres runiques du test.";
 			close;
 		}
 	}
-	mes "A very cold feeling Rune Knight dressed in black from head to toe is scowling at me.";
+	mes "Un Chevalier Rune au ressenti glacial, vêtu de noir de la tête aux pieds, me regarde avec sévérité.";
 	close;
 }
 
@@ -1611,16 +1611,16 @@ OnDisable:
 	disablenpc "job_rune_edq#1st_tb";
 	end;
 OnTimer5000:
-	mapannounce "job3_rune02","I'll start the first test of the Rune Knight Job Change.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Je vais commencer le premier test du changement de poste de Rune Knight.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer8000:
-	mapannounce "job3_rune02","The content of the test is to get rid of all the monsters for 5 minutes and survive.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Le contenu du test est de se débarrasser de tous les monstres pendant 5 minutes et de survivre.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer11000:
-	mapannounce "job3_rune02","If you fail to survive or cannot get rid of all the monsters within the time limit, I'll consider it a failure.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Si vous ne parvenez pas à survivre ou si vous ne parvenez pas à vous débarrasser de tous les monstres dans le délai imparti, je considérerai cela comme un échec.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer14000:
-	mapannounce "job3_rune02","Now let's start the test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Commençons maintenant le test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	donpcevent "job_rune_edq#1st_tc::OnEnable";
 	donpcevent "job_rune_edq#1st_tb::OnDisable";
 	end;
@@ -1643,7 +1643,7 @@ OnDisable:
 	end;
 OnTimer300000:
 	killmonster "job3_rune02","job_rune_edq#1st_tc::OnMyMobDead";
-	mapannounce "job3_rune02","You reached the limit time so I'll consider the test as a failure.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Vous avez atteint le temps limite, je considère donc le test comme un échec.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer305000:
 	donpcevent "#RK Test Hidden Portal 1::OnDisable";
@@ -1750,7 +1750,7 @@ OnMyMobDead:
 		set job_rune_edq,5;
 		erasequest 3220;
 		killmonster "job3_rune02","job_rune_edq#1st_tcmc2::OnMyMobDead";
-		mapannounce "job3_rune02","Congratulations. You've passed the first test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Toutes nos félicitations. Vous avez réussi le premier test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		mapwarp "job3_rune02","job3_rune01",80,65;
 		donpcevent "job_rune_edq#1st_tb::OnDisable";
 		donpcevent "job_rune_edq#1st_tc::OnDisable";
@@ -1784,7 +1784,7 @@ OnDisable:
 	disablenpc "job_rune_edq#1st_tcnc";
 	end;
 OnUse:
-	mapannounce "job3_rune02","Captain Tigris : Gentlemen, let's watch the test for a while.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Capitaine Tigris : Messieurs, regardons le test un moment.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	stopnpctimer;
 	set $@job_rune_test2,0;
 	donpcevent "Captain Tigris#jrt1::OnDisable";
@@ -1794,14 +1794,14 @@ OnUse:
 	donpcevent "job_rune_edq#1st_tcnc::OnEnable";
 	end;
 OnTimer30000:
-	mapannounce "job3_rune02","Captain Tigris : Rune Knight Candidates... If you want to borrow our power talk to one of us.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Capitaine Tigris : Candidats Rune Knight... Si vous souhaitez emprunter notre pouvoir, parlez-en à l'un de nous.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	donpcevent "Captain Tigris#jrt1::OnEnable";
 	donpcevent "Rune Knight Lunarea#jrt1::OnEnable";
 	donpcevent "Rune Knight Renoa#jrt1::OnEnable";
 	donpcevent "Rune Knight Velpino#jrt1::OnEnable";
 	end;
 OnTimer60000:
-	mapannounce "job3_rune02","Captain Tigris : It seems you don't need our help... Let's watch the test for a while.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Capitaine Tigris : Il semblerait que vous n'ayez pas besoin de notre aide... Regardons le test un moment.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	stopnpctimer;
 	donpcevent "Captain Tigris#jrt1::OnDisable";
 	donpcevent "Rune Knight Lunarea#jrt1::OnDisable";
@@ -1818,25 +1818,25 @@ job3_rune02,34,46,5	script	Captain Tigris#jrt1	470,2,2,{
 	}
 	switch(rand(6)) {
 	case 0:
-		mapannounce "job3_rune02","Captain Tigris : May Beljeve bless you!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Capitaine Tigris : Que Beljeve vous bénisse !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_BLESSING",1,0,0;
 		break;
 	case 1:
 	case 2:
-		mapannounce "job3_rune02","Captain Tigris : The Spark of life... may flame again.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Capitaine Tigris : L'étincelle de la vie... pourrait à nouveau s'allumer.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_HEAL",8,70,99;
 		break;
 	case 3:
-		mapannounce "job3_rune02","Captain Tigris : Evil demons! I will send you back to your graves!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Capitaine Tigris : Des démons maléfiques ! Je vous renverrai dans vos tombes !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		specialeffect2 EF_METEORSTORM;
 		donpcevent "job_rune_edq#1st_tcmc::OnReset";
 		break;
 	case 4:
-		mapannounce "job3_rune02","Captain Tigris : For a Rune Knight, this kind of ordeal is nothing!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Capitaine Tigris : Pour un Chevalier Rune, ce genre d'épreuve n'est rien !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_STUN,10000,0;
 		break;
 	case 5:
-		mapannounce "job3_rune02","Captain Tigris : For a Rune Knight, this kind of ordeal is nothing!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Capitaine Tigris : Pour un Chevalier Rune, ce genre d'épreuve n'est rien !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_BLEEDING,10000,0;
 		break;
 	}
@@ -1864,20 +1864,20 @@ job3_rune02,43,46,3	script	Rune Knight Lunarea#jrt1	469,2,2,{
 	}
 	switch(rand(6)) {
 	case 0:
-		mapannounce "job3_rune02","Rune Knight Lunarea : Quickly... find and strike at the enemy's weakness!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Lunarea : Vite... trouvez et frappez la faiblesse de l'ennemi !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_INCAGI",1,0,0;
 		break;
 	case 1:
 	case 2:
-		mapannounce "job3_rune02","Rune Knight Lunarea : It's not over... you need more power...",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Lunarea : Ce n'est pas fini... vous avez besoin de plus de puissance...",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_HEAL",8,60,90;
 		break;
 	case 3:
-		mapannounce "job3_rune02","Rune Knight Lunarea : Everything starts from the beginning!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Lunarea : Tout commence depuis le début !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_CURE",1,0,0;
 		break;
 	case 4:
-		mapannounce "job3_rune02","Rune Knight Lunarea : There can't be growth without a trial.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Lunarea : Il ne peut y avoir de croissance sans épreuve.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_POISON,30000,0;
 		break;
 	case 5:
@@ -1909,25 +1909,25 @@ job3_rune02,43,34,1	script	Rune Knight Renoa#jrt1	469,2,2,{
 	}
 	switch(rand(6)) {
 	case 0:
-		mapannounce "job3_rune02","Rune Knight Renoa : The rune of Wind! May it give you strength!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Renoa : La rune du Vent ! Puisse-t-il vous donner de la force !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_INCAGI",1,0,0;
 		break;
 	case 1:
 	case 2:
-		mapannounce "job3_rune02","Rune Knight Renoa : The rune of Birth! May give you the power of life!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Renoa : La rune de Naissance ! Peut vous donner le pouvoir de la vie !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_HEAL",8,60,90;
 		break;
 	case 3:
-		mapannounce "job3_rune02","Rune Knight Renoa : I am faster than all of them! Different then the others!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Renoa : Je suis plus rapide qu'eux tous ! Différent des autres !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		specialeffect2 EF_PIERCESELF;
 		donpcevent "job_rune_edq#1st_tcmc::OnReset";
 		break;
 	case 4:
-		mapannounce "job3_rune02","Rune Knight Renoa : For a Rune Knight, this kind of ordeal is nothing!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Renoa : Pour un Rune Knight, ce genre d'épreuve n'est rien !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_POISON,30000,0;
 		break;
 	case 5:
-		mapannounce "job3_rune02","Rune Knight Renoa : For a Rune Knight, this kind of ordeal is nothing!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Renoa : Pour un Rune Knight, ce genre d'épreuve n'est rien !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_CURSE,30000,0;
 		break;
 	}
@@ -1955,24 +1955,24 @@ job3_rune02,34,34,7	script	Rune Knight Velpino#jrt1	468,2,2,{
 	}
 	switch(rand(6)) {
 	case 0:
-		mapannounce "job3_rune02","Rune Knight Velpino : You are not one who gets to fall down in this kind of place.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Velpino : Vous n'êtes pas du genre à tomber dans ce genre d'endroit.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_HEAL",8,60,90;
 		break;
 	case 1:
 	case 2:
-		mapannounce "job3_rune02","Rune Knight Velpino : Move on! There are obstacles to overcome.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Chevalier runique Velpino : Continuez ! Il y a des obstacles à surmonter.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_INCAGI",1,0,0;
 		break;
 	case 3:
-		mapannounce "job3_rune02","Rune Knight Velpino : You are not alone. We are by your side.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Velpino : Vous n'êtes pas seul. Nous sommes à vos côtés.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		npcskill "AL_BLESSING",1,0,0;
 		break;
 	case 4:
-		mapannounce "job3_rune02","Rune Knight Velpino : Fight and win! Don't give in to the pain!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Velpino : Combattez et gagnez ! Ne cédez pas à la douleur !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_FREEZE,10000,0;
 		break;
 	case 5:
-		mapannounce "job3_rune02","Rune Knight Velpino : It's not a big trial for a true Rune Knight!",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Rune Knight Velpino : Ce n'est pas une grande épreuve pour un vrai Rune Knight !",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		sc_start SC_SLEEP,10000,0;
 		break;
 	}
@@ -2007,16 +2007,16 @@ OnDisable:
 	disablenpc "job_rune_edq#3rd_tb";
 	end;
 OnTimer5000:
-	mapannounce "job3_rune02","I'll start the last test of the Rune Knight Job change.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Je vais commencer le dernier test du changement de Job Rune Knight.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer8000:
-	mapannounce "job3_rune02","Get rid of monsters appearing here within 8 minutes by using the provided rune stones.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Débarrassez-vous des monstres apparaissant ici dans les 8 minutes en utilisant les pierres runiques fournies.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer11000:
-	mapannounce "job3_rune02","If you die or can't get rid of all the monsters within the time limit, I'll consider the try as a failure.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Si vous mourez ou ne parvenez pas à vous débarrasser de tous les monstres dans le temps imparti, je considérerai votre tentative comme un échec.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer14000:
-	mapannounce "job3_rune02","Now I'll start the test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Maintenant, je vais commencer le test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	donpcevent "job_rune_edq#3rd_tc::OnEnable";
 	donpcevent "job_rune_edq#3rd_tb::OnDisable";
 	end;
@@ -2041,7 +2041,7 @@ OnDisable:
 	end;
 OnTimer480000:
 	killmonster "job3_rune02","job_rune_edq#3rd_tc::OnMyMobDead";
-	mapannounce "job3_rune02","You reached the limit time so I'll consider the test as a failure.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	mapannounce "job3_rune02","Vous avez atteint le temps limite, je considère donc le test comme un échec.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer482000:
 	mapwarp "job3_rune02","job3_rune01",80,65;
@@ -2126,7 +2126,7 @@ OnMyMobDead:
 		changequest 3217,3218;
 		erasequest 3220;
 		killmonster "job3_rune02","job_rune_edq#3rd_tc3::OnMyMobDead";
-		mapannounce "job3_rune02","Congratulations. You've passed the test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mapannounce "job3_rune02","Toutes nos félicitations. Vous avez réussi le test.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
 		mapwarp "job3_rune02","job3_rune01",80,65;
 		donpcevent "job_rune_edq#1st_tb::OnDisable";
 		donpcevent "job_rune_edq#1st_tc::OnDisable";
@@ -2145,19 +2145,19 @@ OnMyMobDead:
 
 sec_in02,34,167,3	script	R.Knight Job Manager	470,1,1,{
 	callfunc "F_GM_NPC";
-	mes "Enter the Password.";
+	mes "Entrez le mot de passe.";
 	next;
 	if (callfunc("F_GM_NPC","1854",1) == 1) {
-		mes "Rune Knight Job Change Managing Module Start";
+		mes "Module de Gestion du Changement de Classe Chevalier Rune Démarré";
 		next;
-		switch(select("GlobalVar check:GlobalVar Oneshot Modification")) {
+		switch(select("Vérification GlobalVar: Modification GlobalVar Oneshot")) {
 		case 1:
-			mes "Rune Knight Job Change GlobalVar right now is " + $@job_rune_test1 + ".";
-			mes "The number of Rune Knight Test field right now is... " + getmapusers("job3_rune02") + ".";
+			mes "Actuellement, la valeur GlobalVar du Changement de Classe Chevalier Rune est de " + $@job_rune_test1 + ".";
+			mes "Le nombre de joueurs actuellement dans le champ de test Chevalier Rune est de... " + getmapusers("job3_rune02") + ".";
 			close;
 		case 2:
 			set $@job_rune_test1,0;
-			mes "Rune Knight Job Change GlobalVar is modified to 0. The use of the test field is now available.";
+			mes "La valeur GlobalVar du Changement de Classe Chevalier Rune a été modifiée à 0. L'utilisation du champ de test est désormais disponible.";
 			close;
 		}
 	}

@@ -40,135 +40,134 @@
 //= 3.1 Added Izlude Renewal coordinates.
 //============================================================ 
 
-valkyrie,48,86,4	script	Valkyrie#	811,{
+valkyrie,48,86,4	script	Valkyrie#fr	811,{
 	if (ADVJOB != 0 || Upper == 1) {
 		mes "[Valkyrie]";
-		mes "Welcome";
-		mes "to Valhalla,";
-		mes "the Hall of Honor.";
+		mes "Bienvenue";
+		mes "à Valhalla,";
+		mes "la Salle de l'Honneur.";
 		next;
 		mes "[Valkyrie]";
-		mes "Please make";
-		mes "yourself comfortable";
-		mes "while you are here.";
-		mes "Honor to the warriors!";
+		mes "S'il te plaît,";
+		mes "sois à l'aise";
+		mes "pendant ton séjour ici.";
+		mes "Honneur aux guerriers !";
 		close;
 	}
 	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		mes "[Valkyrie]";
-		mes "Welcome";
-		mes "to Valhalla,";
-		mes "the Hall of Honor.";
+		mes "Bienvenue";
+		mes "à Valhalla,";
+		mes "la Salle de l'Honneur.";
 		next;
 		mes "[Valkyrie]";
-		mes "You will now end";
-		mes "your present life and";
-		mes "begin an entirely new life.";
-		mes "Honor to the warriors!";
+		mes "Ton moment est venu";
+		mes "de mettre fin à ta vie actuelle";
+		mes "et de commencer une toute";
+		mes "nouvelle vie.";
+		mes "Honneur aux guerriers !";
 		next;
 		if (Weight > 0 || Zeny > 0 || checkcart() != 0 || checkfalcon() != 0 || checkriding() != 0) {
 			mes "[Valkyrie]";
-			mes "There are a few things you must";
-			mes "do before we start. You must";
-			mes "first empty your mind and body.";
-			mes "Honor comes when you abandon";
-			mes "all your selfish desires...";
+			mes "Il y a quelques choses que tu dois";
+			mes "faire avant de commencer. Tu dois";
+			mes "d'abord vider ton esprit et ton corps.";
+			mes "L'honneur vient quand tu abandonnes";
+			mes "tous tes désirs égoïstes...";
 			next;
 			mes "[Valkyrie]";
-			mes "You cannot take anything with you to the next life. Your items, zeny, pets and Pushcart all have to be left behind.";
+			mes "Tu ne peux rien emporter avec toi dans la vie suivante. Tes objets, zeny, familiers et chariot doivent tous être laissés derrière.";
 			next;
 			mes "[Valkyrie]";
-			mes "When you are ready";
-			mes "please return to me,";
-			mes "brave adventurer.";
+			mes "Quand tu seras prêt,";
+			mes "reviens vers moi,";
+			mes "brave aventurier.";
 			close2;
 			warp "yuno_in02",93,205;
 			end;
 		}
 		else {
 			mes "[Valkyrie]";
-			mes "I see you've already";
-			mes "released yourself from";
-			mes "all worldy attachments,";
+			mes "Je vois que tu as déjà";
+			mes "te libérer de toutes";
+			mes "tes attaches terrestres,";
 			mes ""+ strcharinfo(0) +".";
 			next;
 			mes "[Valkyrie]";
-			mes "That's an admirable attitude for an adventurer such as yourself. Honor comes when you abandon all personal desires for the sake of mankind.";
+			mes "C'est une attitude admirable pour un aventurier comme toi. L'honneur vient lorsque tu abandonnes tous tes désirs personnels pour le bien de l'humanité.";
 			next;
 			if (SkillPoint) {
 				mes "[Valkyrie]";
-				mes "Hmm... I sense that you have";
-				mes "some lingering attachment or";
-				mes "unfinished business in your";
-				mes "current life. Take care of that,";
-				mes "and bring closure to your present life.";
+				mes "Hmm... Je sens que tu as";
+				mes "quelque attachement persistant ou";
+				mes "des affaires inachevées dans ta";
+				mes "vie actuelle. Prends-en soin,";
+				mes "et mets fin à ta vie actuelle.";
 				close2;
 				warp "yuno_in02",93,205;
 				end;
 			}
 			mes "[Valkyrie]";
-			mes "Now, let me remove all";
-			mes "of your present memories...";
-			mes "However, you will be able to";
-			mes "remember the most honorable";
-			mes "moments of this life.";
+			mes "Maintenant, laisse-moi effacer";
+			mes "tous tes souvenirs actuels...";
+			mes "Cependant, tu te souviendras des";
+			mes "moments les plus honorables de cette vie.";
 			next;
 			mes "[Valkyrie]";
-			mes "With one,";
-			mes "I will ask the";
-			mes "goddess Urd to remove";
-			mes "all of your present";
-			mes "memories.";
+			mes "Avec un,";
+			mes "je demanderai à la";
+			mes "déesse Urd d'effacer";
+			mes "tous tes souvenirs actuels.";
 			next;
 			mes "[Valkyrie]";
-			mes "With two,";
-			mes "I will ask the";
-			mes "goddess Verdandi to keep";
-			mes "and record the most honorable moments of your present life.";
+			mes "Avec deux,";
+			mes "je demanderai à la";
+			mes "déesse Verdandi de conserver";
+			mes "et d'enregistrer les moments les plus honorables de ta vie actuelle.";
 			next;
 			mes "[Valkyrie]";
-			mes "With three,";
-			mes "I will ask the";
-			mes "goddess Skuld to";
-			mes "guide you to your";
-			mes "next life.";
+			mes "Avec trois,";
+			mes "je demanderai à la";
+			mes "déesse Skuld de";
+			mes "te guider vers ta";
+			mes "prochaine vie.";
 			next;
 			mes "[Valkyrie]";
-			mes "One...";
+			mes "Un...";
 			callfunc "F_ClearJobVar";
 			next;
 			mes "[Valkyrie]";
-			mes "One...";
-			mes "Two......";
+			mes "Un...";
+			mes "Deux......";
 			next;
 			mes "[Valkyrie]";
-			mes "One...";
-			mes "Two......";
-			mes "And Three.";
-			set ADVJOB, Class+Job_Novice_High; //memo the target 3rd Job ID
+			mes "Un...";
+			mes "Deux......";
+			mes "Et Trois.";
+			set ADVJOB, Class+Job_Novice_High; //mémorise l'ID du 3e Job cible
 			if(ADVJOB == Job_Lord_Knight2) set ADVJOB,Job_Lord_Knight;
 			if(ADVJOB == Job_Paladin2) set ADVJOB,Job_Paladin;
 			jobchange Job_Novice_High;
 			resetlvl(1);
-			set MISC_QUEST,MISC_QUEST & ~1024;//<-reset Skill Reset Event
+			set MISC_QUEST,MISC_QUEST & ~1024; //<--réinitialise l'événement de réinitialisation des compétences
 			skill "NV_FIRSTAID",1,SKILL_PERM;
 			skill "NV_TRICKDEAD",1,SKILL_PERM;
 			completequest 1000;
 			next;
 			mes "[Valkyrie]";
-			mes "Congratulations.";
-			mes "You are now reborn";
-			mes "into a brand new life.";
-			mes "Please take these small gifts";
-			mes "in preparation for your new adventures.";
-			getitem 1202,1; //Knife_
-			getitem 2302,1; //Cotton_Shirt_
+			mes "Félicitations.";
+			mes "Tu es maintenant réincarné";
+			mes "dans une toute nouvelle vie.";
+			mes "Prends ces petits cadeaux";
+			mes "en préparation de tes nouvelles aventures.";
+			getitem 1202,1; //Couteau_
+			getitem 2302,1; //Chemise_en_coton_
 			next;
 			mes "[Valkyrie]";
-			mes "I wish that the release the goddess Urd has granted you proves to be a blessing. I hope that the memories Verdandi has recorded will always honor you.";
+			mes "Je souhaite que la libération que la déesse Urd t'a accordée soit une bénédiction. J'espère que les souvenirs que Verdandi a enregistrés t'honoreront toujours.";
 			next;
 			mes "[Valkyrie]";
-			mes "And I pray that the new life to which the goddess Skuld will guide you will be even more honorable than your last.";
+			mes "Et je prie pour que la nouvelle vie vers laquelle la déesse Skuld te guidera soit encore plus honorable que la précédente.";
 			close2;
 			switch (ADVJOB) {
 			case 4008:
@@ -200,12 +199,14 @@ valkyrie,48,86,4	script	Valkyrie#	811,{
 	}
 	else {
 		mes "[Valkyrie]";
-		mes "Welcome";
-		mes "to Valhalla,";
-		mes "the Hall of Honor.";
+		mes "Bienvenue";
+		mes "à Valhalla,";
+		mes "la Salle de l'Honneur.";
 		next;
 		mes "[Valkyrie]";
-		mes "Unfortunately, you have not yet been invited here. I ask you to leave immediately. Honor to the warriors!";
+		mes "Malheureusement, tu n'as pas encore";
+		mes "été invité ici. Je te demande de partir";
+		mes "immédiatement. Honneur aux guerriers !";
 		close2;
 		warp "yuno_in02",93,205;
 		end;
@@ -216,131 +217,129 @@ yuno_in02,88,164,5	script	Metheus Sylphe#Library	742,{
 	if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q == 0) {
 			mes "[Metheus Sylphe]";
-			mes "Welcome to the Library of the Schweicherbil Magic Academy.";
-			mes "I assume you have come here";
-			mes "to read the 'Book of Ymir.'";
+			mes "Bienvenue à la Bibliothèque de l'Académie de Magie de Schweicherbil.";
+			mes "Je suppose que vous êtes venu ici";
+			mes "pour lire le 'Livre d'Ymir.'";
 			next;
 			mes "[Metheus Sylphe]";
-			mes "Unfortunately, the original copy of the book has been damaged over time. We currently only allow the public to view a copy of the book.";
+			mes "Malheureusement, la copie originale du livre a été endommagée au fil du temps. Nous autorisons actuellement le public à consulter une copie du livre.";
 			next;
 			mes "[Metheus Sylphe]";
-			mes "Also, in order to preserve the original 'Book of Ymir,' we have decided to accept donations from people who wish to read the copy we have provided.";
+			mes "De plus, afin de préserver le 'Livre d'Ymir' original, nous avons décidé d'accepter des dons de personnes souhaitant lire la copie que nous avons fournie.";
 			next;
 			mes "[Metheus Sylphe]";
-			mes "The suggested";
-			mes "donation amount is";
-			mes "1,285,000 zeny.";
+			mes "Le montant de donation suggéré est";
+			mes "1 285 000 zeny.";
 			next;
-			if (select("Donate.:Cancel.") == 1) {
+			if (select("Faire un don.:Annuler.") == 1) {
 				if (Zeny >= 1285000) {
 					set Zeny, Zeny-1285000;
 					set valkyrie_Q,1;
 					mes "[Metheus Sylphe]";
-					mes "Thank you, your donation will be used for a good cause. You may";
-					mes "now go in and read the book.";
+					mes "Merci, votre don sera utilisé à bon escient. Vous pouvez";
+					mes "maintenant entrer et lire le livre.";
 					close;
 				}
 				mes "[Metheus Sylphe]";
-				mes "Unfortunately, you don't seem to possess enough zeny at the moment. Please check your funds and come back again.";
+				mes "Malheureusement, vous ne semblez pas posséder suffisamment de zeny pour le moment. Veuillez vérifier vos fonds et revenir plus tard.";
 				close;
 			}
 			mes "[Metheus Sylphe]";
-			mes "Take your time, and";
-			mes "enjoy your travels.";
+			mes "Prenez votre temps, et";
+			mes "profitez de vos voyages.";
 			close;
 		}
 		mes "[Metheus Sylphe]";
-		mes "Once again, thank you for your generous donation. Feel free to read a carbon copy of the 'Book of Ymir' at your leisure.";
+		mes "Encore une fois, merci pour votre généreuse donation. N'hésitez pas à lire une copie carbone du 'Livre d'Ymir' à votre guise.";
 		close;
 	}
 	mes "[Metheus Sylphe]";
-	mes "Welcome to the Library of the Schweicherbil Magic Academy.";
-	mes "Here, we have a countless number of books. Please take your time and look around.";
+	mes "Bienvenue à la Bibliothèque de l'Académie de Magie de Schweicherbil.";
+	mes "Ici, nous avons un nombre incalculable de livres. Prenez votre temps et regardez autour de vous.";
 	close;
 }
 
 yuno_in02,93,207,1	script	Book of Ymir	111,{
 	if (ADVJOB != 0 || Upper == 1) {
-		mes "[The Book of Ymir]";
-		mes "...The entrance to the Hall of Honor is open to anyone who has moved forward into their next life. It is there to help heroes decide what they want to do, and can lead them to anywhere in this world.";
+		mes "[Le Livre d'Ymir]";
+		mes "...L'entrée du Hall d'Honneur est ouverte à quiconque a progressé dans sa vie suivante. Elle est là pour aider les héros à décider de ce qu'ils veulent faire et peut les mener n'importe où dans ce monde.";
 		next;
-		mes "[The Book of Ymir]";
-		mes "In the Hall of Honor, everything is prepared for heroes. It is rumored that any wish that cannot be fulfilled in our reality can be realized in the Hall of Honor.";
+		mes "[Le Livre d'Ymir]";
+		mes "Dans le Hall d'Honneur, tout est préparé pour les héros. On dit que tout souhait qui ne peut être réalisé dans notre réalité peut être exaucé dans le Hall d'Honneur.";
 		next;
-		if (select("Stop reading.:Continue reading.") == 1) {
-			mes "[The Book of Ymir]";
+		if (select("Arrêter de lire.:Continuer à lire.") == 1) {
+			mes "[Le Livre d'Ymir]";
 			mes ".....";
 			close;
 		}
-		mes "[The Book of Ymir]";
-		mes "There is a forgotten path which leads to the Hall of Honor, the closest place to the heavens. The ordinary will never discover this place...";
+		mes "[Le Livre d'Ymir]";
+		mes "Il existe un chemin oublié qui mène au Hall d'Honneur, l'endroit le plus proche du ciel. Les gens ordinaires ne découvriront jamais cet endroit...";
 		close2;
 		warp "valkyrie",48,8;
 		end;
 	}
 	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q != 0) {
-			mes "[The Book of Ymir]";
-			mes "...Therefore, ancient heroes were";
-			mes "always in anguish, knowing that";
-			mes "eventually, they were mortal and";
-			mes "would pass from this realm...";
+			mes "[Le Livre d'Ymir]";
+			mes "...C'est pourquoi, les anciens héros étaient";
+			mes "toujours tourmentés, sachant qu'à la fin,";
+			mes "ils étaient mortels et";
+			mes "passeraient de ce royaume...";
 			next;
-			mes "[The Book of Ymir]";
-			mes "There were no documents,";
-			mes "songs, or remaining folklore that had any information on life after death. However, I recently uncovered an old scroll";
-			mes "about Valkyrie...";
+			mes "[Le Livre d'Ymir]";
+			mes "Il n'y avait aucun document,";
+			mes "chanson, ou folklore restant qui contenait des informations sur la vie après la mort. Cependant, j'ai récemment découvert un vieux parchemin";
+			mes "sur les Valkyries...";
 			next;
-			mes "[The Book of Ymir]";
+			mes "[Le Livre d'Ymir]";
 			mes "Valkyrie...";
-			mes "The legendary";
-			mes "guardian angel.";
-			mes "Angel of Ragnarok.";
+			mes "La légendaire";
+			mes "ange gardien.";
+			mes "Ange de Ragnarok.";
 			next;
-			mes "[The Book of Ymir]";
-			mes "Adventurers of great strength";
-			mes "and bravery will be lead by";
-			mes "Valkyrie to Valhalla, the Hall";
-			mes "of Honor. There, they will be";
-			mes "given a new life.";
+			mes "[Le Livre d'Ymir]";
+			mes "Les aventuriers d'une grande force";
+			mes "et bravoure seront guidés par";
+			mes "Valkyrie vers Valhalla, le Hall";
+			mes "d'Honneur. Là, ils auront une";
+			mes "nouvelle vie.";
 			next;
-			mes "[The Book of Ymir]";
-			mes "Reborn, they will live again as";
-			mes "even greater heroes that will";
-			mes "brighten the world. Bodies that";
-			mes "were exhausted will be filled";
-			mes "with energy...";
+			mes "[Le Livre d'Ymir]";
+			mes "Renaissants, ils vivront à nouveau";
+			mes "en tant que héros encore plus grands";
+			mes "qui éclaireront le monde. Les corps";
+			mes "épuisés seront remplis d'énergie...";
 			next;
-			mes "[The Book of Ymir]";
-			mes "And their souls will be given abilities with the heart of Ymir. However, the heart of Ymir was totally destroyed and scattered all over the world after the battle for Rune-Midgarts.";
+			mes "[Le Livre d'Ymir]";
+			mes "Et leurs âmes se verront conférer des capacités avec le cœur d'Ymir. Cependant, le cœur d'Ymir a été totalement détruit et dispersé partout dans le monde après la bataille pour Rune-Midgarts.";
 			next;
-			mes "[The Book of Ymir]";
-			mes "I have found a small amount of";
-			mes "Ymir heart pieces over a long";
-			mes "long period of time. But I can't";
-			mes "confirm if the story of Valkyrie";
-			mes "and Valhalla is true just";
-			mes "through scientific tests.";
+			mes "[Le Livre d'Ymir]";
+			mes "J'ai trouvé une petite quantité";
+			mes "de morceaux du cœur d'Ymir sur";
+			mes "une très longue période. Mais je ne peux pas";
+			mes "confirmer si l'histoire de Valkyrie";
+			mes "et de Valhalla est vraie juste";
+			mes "à travers des tests scientifiques.";
 			next;
-			mes "[The Book of Ymir]";
-			mes "So, I am leaving this record in hope that someone in the future";
-			mes "can confirm that Valkyrie and Valhalla actually exist...";
+			mes "[Le Livre d'Ymir]";
+			mes "Ainsi, je laisse cet enregistrement dans l'espoir que quelqu'un, à l'avenir,";
+			mes "pourra confirmer que Valkyrie et Valhalla existent réellement...";
 			next;
 			set valkyrie_Q,2;
 			if(checkquest(1000) == -1) {
 				setquest 1000;
 			}
-			mes "[The Book of Ymir]";
-			mes "Let the heroes live new lives";
-			mes "so they can protect the world";
-			mes "from danger. And then...";
+			mes "[Le Livre d'Ymir]";
+			mes "Que les héros vivent de nouvelles vies";
+			mes "afin de protéger le monde";
+			mes "du danger. Et ensuite...";
 			close;
 		}
-		mes "[The Book of Ymir]";
+		mes "[Le Livre d'Ymir]";
 		mes "...";
 		close;
 	}
-	mes "[The Book of Ymir]";
+	mes "[Le Livre d'Ymir]";
 	mes "...";
 	close;
 }
@@ -356,22 +355,21 @@ valkyrie,44,33,5	script	Teleporter	124,{
 	if (Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
-			mes "[Teleporter]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "[Téléporteur]";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
-		mes "[Teleporter]";
-		mes "Please refrain";
-		mes "from touching any";
-		mes "of the exhibitions.";
+		mes "[Téléporteur]";
+		mes "Veuillez vous abstenir";
+		mes "de toucher aux expositions.";
 		mes "..........";
 		close;
 	}
 	else {
-		mes "[Teleporter]";
-		mes "Honorable one,";
-		mes "which place do you wish to go?";
+		mes "[Téléporteur]";
+		mes "Honoré,";
+		mes "vers quel endroit souhaitez-vous aller ?";
 		next;
 		switch(select("Prontera:Morocc:Payon:Geffen:Alberta:Izlude:Al De Baran:Comodo:Juno")) {
 		case 1: callsub S_Warpchar,"prontera",116,72;
@@ -387,9 +385,10 @@ valkyrie,44,33,5	script	Teleporter	124,{
 		case 9: callsub S_Warpchar,"yuno",328,101;
 		}
 	}
+	
 S_WarpChar:
-	mes "[Teleporter]";
-	mes "Have a nice trip.";
+	mes "[Téléporteur]";
+	mes "Bon voyage.";
 	close2;
 	savepoint getarg(0),getarg(1),getarg(2),1,1;
 	warp getarg(0),getarg(1),getarg(2);

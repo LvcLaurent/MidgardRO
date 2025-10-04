@@ -17,69 +17,70 @@
 
 valkyrie,53,39,3	script	Paladin#Valkyrie	752,{
 	if (ADVJOB == 0 || Upper != 1) {
-		set .@karma_d,rand(1,10);
+		set .@karma_d, rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Paladin]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		mes "[Paladin]";
-		mes "Do not forget";
-		mes "that the Holy War";
-		mes "is fast approaching!";
-		mes "We must ready ourselves!";
-		mes "May the light of justice";
-		mes "always brighten our path!";
+		mes "N'oubliez pas";
+		mes "que la Sainte Guerre";
+		mes "approche rapidement !";
+		mes "Nous devons nous préparer !";
+		mes "Que la lumière de la justice";
+		mes "éclaire toujours notre chemin !";
 		close;
 	}
 	else if (ADVJOB == Job_Paladin && Class == Job_Swordman_High && JobLevel > 39) {
 		mes "[Paladin]";
-		mes "The Holy War will";
-		mes "be upon us before we";
-		mes "know it. More than ever,";
-		mes "we have need of strong men";
-		mes "and women to fight for what";
-		mes "is good and right.";
+		mes "La Sainte Guerre";
+		mes "sera bientôt sur nous.";
+		mes "Plus que jamais,";
+		mes "nous avons besoin d'hommes forts";
+		mes "et de femmes pour lutter pour ce";
+		mes "qui est bon et juste.";
 		next;
 		mes "[Paladin]";
-		mes "Will you fight on";
-		mes "the side of righteousness";
-		mes "as a Paladin?";
+		mes "Voudrez-vous combattre";
+		mes "du côté de la droiture";
+		mes "en tant que Paladin ?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("Non.:Oui.") == 1) {
 			mes "[Paladin]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+			mes "Quand vous serez prêt,";
+			mes "n'hésitez pas à revenir.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Paladin]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "Il vous est encore possible d'apprendre d'autres compétences. Veuillez utiliser";
+			mes "tous vos points de compétence restants avant de revenir me voir.";
 			close;
 		}
 		jobchange Job_Paladin;
-		set ADVJOB,0;
+		set ADVJOB, 0;
+		atcommand "@joblvlup 5";
 		mes "[Paladin]";
-		mes "Congratulations.";
-		mes "As a Paladin, I hope";
-		mes "you will protect those";
-		mes "weaker than you, and bring";
-		mes "us victory in the upcoming";
-		mes "war between good and evil.";
+		mes "Félicitations.";
+		mes "En tant que Paladin, j'espère";
+		mes "que vous protégerez ceux";
+		mes "qui sont plus faibles que vous, et apporterez";
+		mes "la victoire dans la prochaine";
+		mes "guerre entre le bien et le mal.";
 		close;
 	}
 	mes "[Paladin]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
 	mes "[Paladin]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "S'il vous plaît,";
+	mes "faites comme chez vous";
+	mes "pendant que vous êtes ici.";
+	mes "Honneur aux guerriers !";
 	close;
 }

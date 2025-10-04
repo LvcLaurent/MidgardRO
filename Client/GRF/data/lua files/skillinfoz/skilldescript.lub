@@ -1,6 +1,6 @@
 SKILL_DESCRIPT = {
 	[SKID.NV_BASIC] = {
-		"Basic Skill",
+		"Basic Skill lua files",
 		"Max Level: 9 ",
 		"^777777Enables the use of Basic Interface Skills.^000000",
 		"[Lv 1]: Enables Trading",

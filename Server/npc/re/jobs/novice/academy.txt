@@ -2764,10 +2764,10 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 				close;
 			}
 		case 2:
-			switch (select("Qu'y a-t-il au 1er étage", "Qu'y a-t-il au 2e étage", "Explication sur les villes", "Fin de la conversation")) {
+			switch (select("Qu'y a-t-il au Rdc", "Qu'y a-t-il au RdC", "Explication sur les villes", "Fin de la conversation")) {
 			case 1:
 				mes "[Réceptionniste]";
-				mes "Le premier étage est équipé d'instructeurs qui vous donnent des leçons sur le fonctionnement du monde ici à Midgard.";
+				mes "Le Rdc est équipé d'instructeurs qui vous donnent des leçons sur le fonctionnement du monde ici à Midgard.";
 				next;
 				mes "[Réceptionniste]";
 				mes "Tout d'abord, à la pharmacie, vous pouvez apprendre comment récupérer votre force physique et apprendre une compétence pour guérir votre HP.";
@@ -2781,7 +2781,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 				break;
 			case 2:
 				mes "[Réceptionniste]";
-				mes "Au 2e étage, il y a des entraîneurs qui vous enseigneront les différentes classes de métiers dans le monde.";
+				mes "Au RdC, il y a des entraîneurs qui vous enseigneront les différentes classes de métiers dans le monde.";
 				next;
 				mes "[Réceptionniste]";
 				mes "Écoutez les entraîneurs et décidez par vous-même quelle classe convient à votre style personnel.";
@@ -4656,7 +4656,7 @@ iz_ac01,59,83,3	script	Battle Instructor#08	4_M_NOV_HUNT,{
 				mes "Je ne vous arrêterai même pas si vous restez immobile...";
 				next;
 				mes "[Instructeur de combat Subino]";
-				mes "Essayez de parler à ^ff0000chaque instructeur de job^000000 au 2e étage de l'Académie si vous n'êtes pas sûr du job que vous voulez.";
+				mes "Essayez de parler à ^ff0000chaque instructeur de job^000000 au 1er étage de l'Académie si vous n'êtes pas sûr du job que vous voulez.";
 				for (set .@i,0; .@i < 6; set .@i,.@i+1) {
 					set .@quest_id,11339+.@i;
 					setarray .@bexp[0],90,90,135,200,0,120;
@@ -4799,7 +4799,7 @@ iz_ac01,59,83,3	script	Battle Instructor#08	4_M_NOV_HUNT,{
 		mes "Visitez le ^ff0000support de la guilde de classe (niveau 10~20) ou consultez le groupe Eden (niveau 15~100)^000000.";
 		next;
 		mes "[Instructeur de combat Subino]";
-		mes "^ff0000Demandez au personnel de chaque job au deuxième étage pour connaître l'emplacement de chaque guilde de classe^000000 et vous trouverez le ^ff0000Quartier général du groupe Eden^000000 où vous pouvez trouver des quêtes de chasse faciles.";
+		mes "^ff0000Demandez au personnel de chaque job au premier étage pour connaître l'emplacement de chaque guilde de classe^000000 et vous trouverez le ^ff0000Quartier général du groupe Eden^000000 où vous pouvez trouver des quêtes de chasse faciles.";
 		next;
 		mes "[Instructeur de combat Subino]";
 		mes "C'est ^ff0000affiché sur la carte à droite de l'écran^000000, alors recherchez-le.";
@@ -5515,7 +5515,7 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 						next;
 						mes "[Kafra Guide Trainer]";
 						mes "C'est déjà fait. Facile, non ?";
-						savepoint "izlude", 128, 98, 1, 1;
+						savepoint "iz_ac02", 210, 110, 1, 1;
 						next;
 						mes "[Kafra Guide Trainer]";
 						mes "Maintenant, lorsque vous utilisez un ^006400Butterfly Wing^000000, il vous renverra à l'emplacement enregistré pour la dernière fois.";
@@ -5580,7 +5580,7 @@ iz_ac01,95,46,5	script	Kafra Guide Trainer#ac	4_F_KAFRA1,{
 						mes "Alors, vous feriez bien de vous y habituer, d'accord ?";
 						break;
 					} else {
-						switch(select("Hall principal de l'Académie, 1er étage", "Bureau du directeur de l'Académie, 2e étage", "Entrée sud d'Izlude", "Utiliser plus tard")) {
+						switch(select("Hall principal de l'Académie, Rdc", "Bureau du directeur de l'Académie, 1er étage", "Entrée sud d'Izlude", "Utiliser plus tard")) {
 							case 1:
 								cutin "", 255;
 								warp "iz_ac01", 97, 86;
@@ -7502,7 +7502,7 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 	if (Class == Job_Novice) {
 		if (isbegin_quest(4269) != 2) {
 			mes "[Lusa]";
-			mes "Oh ! Je suis désolée, mais pour suivre la classe, vous devez d'abord vous inscrire. Revenez ici après vous être inscrit au comptoir du 1er étage, d'accord ?";
+			mes "Oh ! Je suis désolée, mais pour suivre la classe, vous devez d'abord vous inscrire. Revenez ici après vous être inscrit au comptoir du RdC, d'accord ?";
 			close2;
 			// Consommer l'objet spécial Inspector_Certificate_
 			cutin "", 255;
@@ -8593,7 +8593,7 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 								mes "^FF0000Vent chaud^000000 est la compétence pour changer la caractéristique des attaques. C'est la compétence essentielle pour un ^FF0000Taekwon incapable d'utiliser des armes^000000.";
 								next;
 								mes "[Arang]";
-								mes "Pendant la quête, découvre les compétences d'un Taekwon ! Tu pourrais rencontrer un formateur compétent au 1er étage.";
+								mes "Pendant la quête, découvre les compétences d'un Taekwon ! Tu pourrais rencontrer un formateur compétent au RdC.";
 								next;
 							}
 						}
@@ -8619,7 +8619,7 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 								next;
 								setquest 13101;
 								cutin "", 255;
-								warp "pay_fild08", 148, 76;
+								warp "payon_in01", 55, 13;
 								end;
 							}
 						} else {
@@ -8627,7 +8627,7 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 							mes "Pour suivre la voie du Taekwon, tu dois atteindre le niveau de job 10. Pour devenir un Taekwon, entraîne-toi jusqu'à atteindre le niveau de job 10 !";
 							next;
 							mes "[Arang]";
-							mes "Si tu trouves difficile de t'entraîner seul, rends visite au formateur au 1er étage.";
+							mes "Si tu trouves difficile de t'entraîner seul, rends visite au formateur au RdC.";
 							next;
 						}
 						break;
@@ -8683,7 +8683,7 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 			}
 		} else {
 			mes "[Arang]";
-			mes "Tu as l'air d'un débutant naïf ? Si tu veux entrer dans la classe, viens après t'être enregistré au 1er étage.";
+			mes "Tu as l'air d'un débutant naïf ? Si tu veux entrer dans la classe, viens après t'être enregistré au RdC.";
 			close2;
 			cutin "", 255;
 			end;
@@ -8897,7 +8897,7 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 							mes "Pour utiliser les compétences, clique sur l'icône de compétence dans la fenêtre des compétences. Puis fais glisser et enregistre-la dans la ^0000cdfenêtre des raccourcis^000000 pour l'utiliser facilement.";
 							next;
 							mes "[Marlbron]";
-							mes "Iras-tu trouver un enseignant de chasse au 1er étage ? Si tu ne veux pas, alors pas besoin.";
+							mes "Iras-tu trouver un enseignant de chasse au RdC ? Si tu ne veux pas, alors pas besoin.";
 							next;
 							mes "[Marlbron]";
 							mes "Mais il peut t'entraîner avec beaucoup de compétences de chasse utiles pour toi.";
@@ -8945,27 +8945,6 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 									mes "[Marlbron]";
 									mes "Je vais te conduire aux portes de Payon.";
 									mes "J'aimerais t'accompagner jusqu'au bout, mais tu dois le faire seul.";
-									mes "Je te donnerai les indications que tu dois mémoriser.";
-									next;
-									cutin "paymap1.bmp", 3;
-									mes "[Marlbron]";
-									mes "Voici où je vais te renvoyer.";
-									mes "Une fois arrivé, tu verras la zone marquée par ce ^0000cdCercle Rouge^000000. Passe par là, puis...";
-									next;
-									cutin "paymap2.bmp", 3;
-									mes "[Marlbron]";
-									mes "Tu arriveras au village de Payon.";
-									mes "Suis la direction de la ^0000cdFlèche Rouge^000000, tu entreras dans ^0000cdArcher Village^000000.";
-									next;
-									cutin "paymap3.bmp", 3;
-									mes "[Marlbron]";
-									mes "Une fois là-bas, dirige-toi vers la ^0000cdZone Cerclée^000000. Ici, tu trouveras la ^0000cdGuilde de Changement de Job des Archers^000000.";
-									mes "Compris ? Facile à trouver, non ?";
-									next;
-									cutin "gnor.bmp", 2;
-									mes "[Marlbron]";
-									mes "Grâce à la navigation par satellite, tu ne devrais pas t'inquiéter de te perdre.";
-									mes "Cependant, si tu es toujours inquiet, tu peux demander au ^0000cdGuide^000000 local où aller.";
 									next;
 									mes "[Marlbron]";
 									mes "Tu peux me trouver après ta visite à la guilde.";
@@ -8976,7 +8955,7 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 									cutin "", 255;
 									nov_3_archer = 1;
 									setquest 14142;
-									warp "pay_fild01", 339, 346;
+									warp "pay_in02", 64, 65;
 									end;
 								}
 								cutin "gnor.bmp", 2;
@@ -8993,7 +8972,7 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 								next;
 								mes "[Marlbron]";
 								mes "Visite <NAVI>^4D4DFF[Entraîneur de bataille Subino]^000000<INFO>iz_ac01,59,83,</INFO></NAVI>";
-								mes "à l'Armurerie au 1er étage.";
+								mes "à l'Armurerie au RdC.";
 								close2;
 								cutin "", 255;
 								end;
@@ -9036,7 +9015,7 @@ iz_ac02,65,109,5	script	Archer Teacher#ac	4_M_ARCHER,{
 			cutin "gnor.bmp", 2;
 			mes "[Marlbron]";
 			mes "Es-tu venu directement ici sans faire de demande d'entrée à l'Académie Critura ?";
-			mes "Tu es trop pressé. Va te rendre au 1er étage pour la demande, puis reviens me voir.";
+			mes "Tu es trop pressé. Va te rendre au RdC pour la demande, puis reviens me voir.";
 			close2;
 			cutin "", 255;
 			end;
@@ -9078,7 +9057,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 		mes "Si vous voulez suivre la classe, vous devez vous inscrire.";
 		next;
 		mes "[Entraîneur Adric]";
-		mes "Allez vous inscrire au comptoir au 1er étage !";
+		mes "Allez vous inscrire au comptoir au RdC !";
 		cutin "", 255;
 		close;
 	}
@@ -9208,7 +9187,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 			if (JobLevel < 10) {
 				mes "[Instructeur Adric]";
 				mes "Utilisez le Manuel d'épéiste que je vous ai donné pour vous entraîner en chassant des monstres.";
-				mes "Allez voir l'instructeur de combat Subino au premier étage, dans la salle de l'Armurerie.";
+				mes "Allez voir l'instructeur de combat Subino au RdC, dans la salle de l'Armurerie.";
 				next;
 				mes "[Instructeur Adric]";
 				mes "Augmentez votre niveau jusqu'au ^006400niveau de job 10^000000 et atteignez le ^006400niveau de compétence débutant 9^000000, revenez ici ensuite.";
@@ -9239,7 +9218,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 						mes "[Instructeur Adric]";
 						mes "Si vous avez besoin d'un entraînement supplémentaire,";
 						mes "Allez voir l'instructeur de combat Subino";
-						mes "au premier étage, dans la salle de l'Armurerie.";
+						mes "au RdC, dans la salle de l'Armurerie.";
 						next;
 						switch (select("C'est très fastidieux.", "J'ai besoin de plus d'entraînement.", "Je veux devenir un épéiste tout de suite !")) {
 							case 1:
@@ -9249,7 +9228,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 								close;
 							case 2:
 								mes "[Instructeur Adric]";
-								mes "Allez voir l'instructeur de combat Subino au premier étage, dans la salle de l'Armurerie.";
+								mes "Allez voir l'instructeur de combat Subino au RdC, dans la salle de l'Armurerie.";
 								mes "Si vous pensez être prêt, revenez ici.";
 								mes "Vous devez changer pour devenir épéiste bientôt !";
 								nov_3_swordman = 3;
@@ -9296,7 +9275,7 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 				mes "Vous n'avez toujours pas assez pour devenir un Épéiste.";
 				next;
 				mes "[Instructeur Adric]";
-				mes "Si vous avez besoin d'un entraînement au combat, trouvez Subino au premier étage de l'Armurerie de l'Académie.";
+				mes "Si vous avez besoin d'un entraînement au combat, trouvez Subino au RdC de l'Armurerie de l'Académie.";
 				cutin "", 255;
 				close;
 			} else {
@@ -9705,7 +9684,7 @@ iz_ac02,148,110,3	script	Mage Chuck#ac	4_M_JOB_WIZARD,{
 									next;
 									setquest 9264;
 									savepoint "geffen",120,38,1,1;
-									warp "gef_fild07", 88, 205;
+									warp "geffen_in", 160, 123;
 									end;
 								}
 							}
@@ -9727,7 +9706,7 @@ iz_ac02,148,110,3	script	Mage Chuck#ac	4_M_JOB_WIZARD,{
 		} else {
 			mes "[Mage Chuck]";
 			mes "D'abord, tu dois compléter ton ^8B4513enregistrement^000000 au bureau d'accueil de l'Académie.";
-			mes "Si tu vas au 1er étage de l'académie, quelqu'un t'aidera à t'inscrire.";
+			mes "Si tu vas au RdC de l'académie, quelqu'un t'aidera à t'inscrire.";
 		}
 	} else {
 		mes "[Mage Chuck]";
@@ -9901,10 +9880,6 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 		mes "[Salim Hamid]";
 		mes "Bien~ Alors, je vais te téléporter à la ville d'Alberta. Là-bas, tu pourras devenir un marchand.";
 		next;
-		mes "[Salim Hamid]";
-		mes "N'aille pas ailleurs, entre immédiatement dans la ville.";
-		mes "Trouve la <NAVI>[Forge]<INFO>alberta_in,75 48</INFO></NAVI>.";
-		next;
 		if (select("Pas encore prêt.", "Je suis prêt !") == 1) {
 			mes "[Salim Hamid]";
 			mes "Oui, je comprends. Quand tu seras prêt, reviens me voir.";
@@ -9916,7 +9891,7 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 			mes "Bien~ S'il te plaît, va à la Forge et retrouve-moi.";
 			close2;
 			setquest 12307;
-			warp "pay_fild03", 388, 68;
+			warp "alberta_in", 58, 43;
 			end;
 		}
 	}
@@ -10244,7 +10219,7 @@ iz_ac02,50,169,3	script	Salim Hamid#ac	1_M_MERCHANT,{
 	next;
 	mes "[Salim Hamid]";
 	mes "Quand vous voulez tester les autres compétences de combat dans le Manuel du Marchand,";
-	mes "visitez <NAVI>[Entraîneur de combat Subino]<INFO>iz_ac01,59,83</INFO></NAVI> au 1er étage.";
+	mes "visitez <NAVI>[Entraîneur de combat Subino]<INFO>iz_ac01,59,83</INFO></NAVI> au RdC.";
 	next;
 	mes "[Salim Hamid]";
 	mes "Vous pouvez pleinement expérimenter la pratique liée au combat à travers lui.";
@@ -10622,7 +10597,7 @@ iz_ac02,52,136,3	script	Guest Lecturer Mayssel#0	4_F_MAYSEL,{
 					cutin "gc_mayssel01.bmp", 1;
 					mes "[Mayssel]";
 					mes "As-tu compris ce que cela signifie d'être un Voleur ?";
-					mes "Si tu veux utiliser des compétences comme l'attaque double, rends visite à ^4d4dffM. Subino au 1er étage^000000.";
+					mes "Si tu veux utiliser des compétences comme l'attaque double, rends visite à ^4d4dffM. Subino au RdC^000000.";
 					next;
 					mes "[Mayssel]";
 					mes "<NAVI>[Entraîneur de combat Subino]<INFO>iz_ac01,59,83</INFO></NAVI> te donnera plusieurs missions de combat.";
@@ -10722,7 +10697,7 @@ iz_ac02,52,136,3	script	Guest Lecturer Mayssel#0	4_F_MAYSEL,{
 							mes "^4d4dffTrouve la Pyramide^000000 dans le ^4d4dffNord-Ouest^000000 de Morocc.";
 							close2;
 							cutin "", 255;
-							warp "morocc", 30, 290;
+							warp "moc_prydb1", 47, 125;
 							end;
 						} else {
 							mes "[Mayssel]";
@@ -12326,7 +12301,7 @@ iz_ac02,156,169,5	script	Acolyte Leader Alice#2	4_F_ACOLYTE,{
 				completequest 11343;
 			next;
 		}
-		if (Class == Job_Novice) {
+		if (Class == Job_Novice || Class == Job_Novice_High) {
 			mes "[Alice Yisha]";
 			mes "Si tu n'as pas choisi Acolyte comme job, pourquoi n'en apprends-tu pas davantage à son sujet ?";
 			cutin "acact_01.bmp", 2;
@@ -12437,15 +12412,7 @@ iz_ac02,156,169,5	script	Acolyte Leader Alice#2	4_F_ACOLYTE,{
 				mes "Veux-tu vraiment devenir un serviteur de Dieu ?";
 				mes "Voyons voir si tu es prêt ou non... Hmm...";
 				next;
-				if (BaseLevel > 14) {
-					mes "[Alice Yisha]";
-					mes "S'il te plaît, visite ^ff0000Père Mareusis^000000 à l'église dans le ^ff0000coin nord-est^000000 de ^ff0000Prontera.^000000";
-					mes "À ^ff0000Job Level 10^000000, tu pourras rejoindre le ministère.";
-					cutin "acact_01.bmp", 2;
-					close2;
-					cutin "", 255;
-					end;
-				} else if (JobLevel < 10) {
+				if (JobLevel < 10) {
 					mes "[Alice Yisha]";
 					mes "Oh mon Dieu ! Tu n'as pas encore accompli la pratique de base ?! Tu as encore du chemin à parcourir ! Reviens après avoir augmenté ton niveau de job !";
 					close2;
@@ -12455,7 +12422,6 @@ iz_ac02,156,169,5	script	Acolyte Leader Alice#2	4_F_ACOLYTE,{
 					mes "[Alice Yisha]";
 					mes "Magnifique ! Je vais te transférer au ministère local à Prontera.";
 					mes "^ff0000Visite Père Mareusis à l'église dans le coin nord-est de Prontera.^000000";
-					mes "À ^ff0000Job Level 10^000000, tu pourras rejoindre le ministère.";
 					cutin "acact_01.bmp", 2;
 					next;
 					if (select("Aller sur le terrain au sud de Prontera", "Fin de la conversation") == 2) {
@@ -12470,7 +12436,7 @@ iz_ac02,156,169,5	script	Acolyte Leader Alice#2	4_F_ACOLYTE,{
 					mes "Allons-y~";
 					close2;
 					cutin "", 255;
-					warp "prt_fild08", 170, 369;
+					warp "prt_church", 184, 34;
 					end;
 				}
 			case 5:
@@ -12745,14 +12711,11 @@ iz_ac02,140,139,5	script	Ninja Guide#ac	4_M_NINJA_BLUE,{
 					mes "[Guide Ninja]";
 					mes "Là-bas, tu rencontreras quelqu'un qui te guidera pour devenir un Ninja.";
 					next;
-					mes "[Guide Ninja]";
-					mes "Si tu te perds dans la ville, eh bien, il n'y a pas de solution... Être ninja nécessite un niveau d'observation élevé.";
-					next;
-					mes "-Sélectionne ^ff0000Confirmer^000000 pour aller à Amatsu.";
+					mes "-Sélectionne ^ff0000Confirmer^000000 pour aller dans cette maison.";
 					cutin "", 255;
 					next;
 					if (select("Confirmer", "Annuler") == 1)
-						warp "amatsu", 112, 141;
+						warp "que_ng", 26, 67;
 					mes "[Guide Ninja]";
 					mes "............";
 					close2;
@@ -14540,3 +14503,1051 @@ new_5-2,161,182,5	duplicate(Training Instructor#1a)	Training Instructor#5d	4_F_0
 new_5-2,33,172,4	duplicate(Training Instructor#1a)	Training Instructor#5e	4_F_03
 new_5-3,96,30,4	duplicate(Training Instructor#1a)	Training Instructor#5f	4_F_03
 new_5-4,100,29,1	duplicate(Training Instructor#1a)	Training Instructor#5g	4_F_03
+
+
+//=================================================================
+//== Gestion Stat (Office Academi) ===================================
+//============== Gestion de stat
+//=================================================================
+
+iz_ac02,92,210,3	script	Stat Instructor#1a	4_F_03,{
+
+	mes "[Manager Stat]";
+	mes "Bonjour aventurier ! Je suis le Gestionnaire de Statut.";
+	mes "Je suis ici pour vous aider à gérer vos points de statut.";
+	next;
+	while(1) {
+		switch(select("En fait rien", "dépasser la limite des status +10", "ou +100", "reset stat")) {
+		case 1:
+			mes "[Manager Stat]";
+			mes "Salut";
+			close;
+		case 2:
+			mes "[Manager Stat]";
+			mes "selectionnez la stat à augmenté de 10";
+			next;
+			.@s = select("Str","Agi","Vit","Int","Dex","Luk") -1;
+			for (.@i = 0; .@i < 10; ++.@i) {
+				if (readparam(.stat[.@s]) == 1)
+					break;
+				if (StatusPoint - needed_status_point(.stat[.@s], 1) < 0 )
+					break;
+				statusup2 .stat[.@s], +1;
+				StatusPoint -= needed_status_point(.stat[.@s], 1);
+			}
+			
+			next;
+			continue;
+		case 3:
+			mes "[Manager Stat]";
+			mes "selectionnez la stat à augmenté de 100";
+			next;
+			.@s = select("Str","Agi","Vit","Int","Dex","Luk") -1;
+			for (.@i = 0; .@i < 100; ++.@i) {
+				if (readparam(.stat[.@s]) == 1)
+					break;
+				if (StatusPoint - needed_status_point(.stat[.@s], 1) < 0 )
+					break;
+				statusup2 .stat[.@s], +1;
+				StatusPoint -= needed_status_point(.stat[.@s], 1);
+			}
+			
+			next;
+			continue;
+		case 4:
+			mes "[Manager Stat]";
+			mes "c'est fait";
+			atcommand "@resetstat";
+			next;
+			continue;
+		}
+	}
+OnInit:
+	setarray .stat, bStr, bAgi, bVit, bInt, bDex, bLuk;
+	end;
+}
+
+iz_ac02_a,92,210,3	duplicate(Stat Instructor#1a)	Stat Instructor#1a_a	4_F_03
+iz_ac02_b,92,210,3	duplicate(Stat Instructor#1a)	Stat Instructor#1a_b	4_F_03
+iz_ac02_c,92,210,3	duplicate(Stat Instructor#1a)	Stat Instructor#1a_c	4_F_03
+iz_ac02_d,92,210,3	duplicate(Stat Instructor#1a)	Stat Instructor#1a_d	4_F_03
+
+//=================================================================
+//== Gestion Job (Office Academi) ===================================
+//============== Gestion de Job et skill
+//=================================================================
+
+iz_ac02,106,209,3	script	Job Instructor#1a	4_4JOB_SILLA,{
+	mes "[Silla]";
+	mes "Bonjour je suis ici la maitresse de tout les métiers du monde";
+	next;
+	mes "[Silla]";
+	mes "Je vais jugé ton niveau pour savoir si tu mérites que j'aumente ton niveau de métier";
+	next;
+	// Pour les premiers metiers et leur renaissance
+	if ((Class >= 1 && Class <= 6) || (Class >= 4002 && Class <= 4007) ){
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <10 && BaseLevel >= 20) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 4";
+			next;
+		} 
+		//Pour atteindre le niveau 20 en job
+		if (JobLevel <20 && BaseLevel >= 30) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 30 en job
+		if (JobLevel <30 && BaseLevel >= 40) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 40 en job
+		if (JobLevel <40 && BaseLevel >= 50) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 50 en job
+		if (JobLevel <50 && BaseLevel >= 60) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+	}
+	// Pour les High novice
+	if ( Class == 4001 ){
+		//Pour atteindre le niveau 4 en job
+		if (JobLevel <4 && BaseLevel >= 1) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 3";
+			next;
+		} 
+		//Pour atteindre le niveau 7 en job
+		if (JobLevel <7 && BaseLevel >= 7) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 3";
+			next;
+		} 
+		//Pour atteindre le niveau 8 en job
+		if (JobLevel <8 && BaseLevel >= 10) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 1";
+			next;
+		} 
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <10 && BaseLevel >= 12) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 2";
+			next;
+		} 
+	}
+	// Pour les seconds métiers sans renaissance
+	if ((Class >= 7 && Class <= 20)){
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <10 && BaseLevel >= 70) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 4";
+			next;
+		} 
+		//Pour atteindre le niveau 20 en job
+		if (JobLevel <20 && BaseLevel >= 75) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 30 en job
+		if (JobLevel <30 && BaseLevel >= 85) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 40 en job
+		if (JobLevel <40 && BaseLevel >= 90) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 50 en job
+		if (JobLevel <50 && BaseLevel >= 95) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+	}
+	// Pour les seconds métiers avec renaissance
+	if ((Class >= 4008 && Class <= 4021) ){
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <10 && BaseLevel >= 70) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 4";
+			next;
+		} 
+		//Pour atteindre le niveau 20 en job
+		if (JobLevel <20 && BaseLevel >= 75) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 30 en job
+		if (JobLevel <30 && BaseLevel >= 85) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 40 en job
+		if (JobLevel <40 && BaseLevel >= 90) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 50 en job
+		if (JobLevel <50 && BaseLevel >= 95) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		} 
+		//Pour atteindre le niveau 70 en job
+		if (JobLevel <70 && BaseLevel >= 99) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 20";
+			next;
+		} 
+	}
+	// Pour les troisième métiers
+	if ((Class >= 4060 && Class <= 4079) ){
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <10 && BaseLevel >= 99) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 9";
+			next;
+		} 
+		//Pour atteindre le niveau 20 en job
+		if (JobLevel <20 && BaseLevel >= 110) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 30 en job
+		if (JobLevel <30 && BaseLevel >= 120) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 40 en job
+		if (JobLevel <40 && BaseLevel >= 140) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 50 en job
+		if (JobLevel <50 && BaseLevel >= 160) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <60 && BaseLevel >= 180) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 70 en job
+		if (JobLevel <70 && BaseLevel >= 199) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup10";
+			next;
+		}
+	}
+	// Pour les quatrièmes métiers
+	if ((Class >= 4252 && Class <= 4264) ){
+		//Pour atteindre le niveau 10 en job
+		if (JobLevel <10 && BaseLevel >= 200) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 9";
+			next;
+		}
+		//Pour atteindre le niveau 20 en job
+		if (JobLevel <20 && BaseLevel >= 210) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 30 en job
+		if (JobLevel <30 && BaseLevel >= 220) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 40 en job
+		if (JobLevel <40 && BaseLevel >= 230) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+		//Pour atteindre le niveau 50 en job
+		if (JobLevel <50 && BaseLevel >= 240) {
+			mes "[Silla]";
+			mes "Tu as atteins le niveau requis pour que je te donnes certaine compétence suplémentaire";
+			atcommand "@joblvlup 10";
+			next;
+		}
+	}
+	mes "[Silla]";
+	mes "Je ne peux rien faire de plus pour toi.";
+	mes "Hors de ma vue";
+	close;
+	
+}
+
+
+
+iz_ac02_a,95,210,3	duplicate(Job Instructor#1a)	Job Instructor#1a_a	4_F_03
+iz_ac02_b,95,210,3	duplicate(Job Instructor#1a)	Job Instructor#1a_b	4_F_03
+iz_ac02_c,95,210,3	duplicate(Job Instructor#1a)	Job Instructor#1a_c	4_F_03
+iz_ac02_d,95,210,3	duplicate(Job Instructor#1a)	Job Instructor#1a_d	4_F_03
+
+//=================================================================
+//== Styliste (Office Academi) ===================================
+//============== Pour changé de style
+//=================================================================
+iz_ac02,89,208,3	script	Stylist#custom_stylist	122,{
+	setarray .@Styles[1],
+		getbattleflag("max_cloth_color"),
+		getbattleflag("max_hair_style"),
+		getbattleflag("max_hair_color");
+	setarray .@Look[1],
+		LOOK_CLOTHES_COLOR,
+		LOOK_HAIR,
+		LOOK_HAIR_COLOR;
+	set .@s, select(" ~ Couleur des vêtements : ~ Coiffure : ~ Couleur des cheveux");
+	set .@Revert, getlook(.@Look[.@s]);
+	set .@Style,1;
+	while(1) {
+		setlook .@Look[.@s], .@Style;
+		message strcharinfo(0),"C'est le style n°"+.@Style+".";
+		set .@menu$, " ~ Suivant (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000): ~ Précédent (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000): ~ Aller à...: ~ Revenir à l'original (^0055FF"+.@Revert+"^000000)";
+		switch(select(.@menu$)) {
+		case 1:
+			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
+			break;
+		case 2:
+			set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
+			break;
+		case 3:
+			message strcharinfo(0),"Choisissez un style entre 1 et "+.@Styles[.@s]+".";
+			input .@Style,0,.@Styles[.@s];
+			if (!.@Style)
+				set .@Style, rand(1,.@Styles[.@s]);
+			break;
+		case 4:
+			set .@Style, .@Revert;
+			setlook .@Look[.@s], .@Revert;
+			break;
+		}
+	}
+}
+
+iz_ac02_a,89,208,3	duplicate(Stylist#custom_stylist)	Stylist#custom_stylist_a	122
+iz_ac02_b,89,208,3	duplicate(Stylist#custom_stylist)	Stylist#custom_stylist_b	122
+iz_ac02_c,89,208,3	duplicate(Stylist#custom_stylist)	Stylist#custom_stylist_c	122
+iz_ac02_d,89,208,3	duplicate(Stylist#custom_stylist)	Stylist#custom_stylist_d	122
+
+//=================================================================
+//== Gadget (Office Academi) ===================================
+//============== cart, faucon, monture
+//=================================================================
+iz_ac02,122,202,4	script	Inspecteur Get#Academie	726,{
+	if (ismounting()) {
+		message strcharinfo(0),"Vous devez d'abord descendre de votre monture.";
+		end;
+	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_RANGER) && !countitem(6124)) {
+		if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) {
+			if(select(" ~ Faucon : ~ Warg")==1) setfalcon;
+			else getitem 6124,1; // Sifflet du Loup
+		} else getitem 6124,1; // Sifflet du Loup
+	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
+		if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) {
+			if(select(" ~ Chariot : ~ Mado")==1) setcart;
+			else setmadogear;
+		} else setcart;
+	} else if (!checkcart() && getskilllv("MC_PUSHCART")) setcart;
+	else if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) setfalcon;
+	else if (!checkriding() && !checkdragon() && getskilllv("KN_RIDING")) {
+		if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) setdragon;
+		else setriding;
+	} else if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) setmadogear;
+	else {
+		message strcharinfo(0),"Vous ne remplissez pas les conditions nécessaires pour louer.";
+		end;
+	}
+	specialeffect2 EF_TEIHIT3;
+	end;
+}
+
+iz_ac02_a,122,202,4	duplicate(Inspecteur Get#Academie)	Inspecteur Get#Academie_a	726
+iz_ac02_b,122,202,4	duplicate(Inspecteur Get#Academie)	Inspecteur Get#Academie_b	726
+iz_ac02_c,122,202,4	duplicate(Inspecteur Get#Academie)	Inspecteur Get#Academie_c	726
+iz_ac02_d,122,202,4	duplicate(Inspecteur Get#Academie)	Inspecteur Get#Academie_d	726
+
+//=================================================================
+//== Gadget (Office Academi) ===================================
+//============== cart, faucon, monture
+//=================================================================
+
+iz_ac02,114,201,4	script	Sakura Carto#eAcustom	78,{
+
+	set .zenycost,200000;    // coût de base des services de retrait de carte (en Zeny)
+	set .percardcost,25000;  // coût par carte des services de retrait de carte (en Zeny)
+	set .faildestroy,1;      // le retrait de carte doit-il avoir une chance d'échec qui détruit les objets ? (1=oui, 0=non)
+
+	disable_items;
+	mes "[Vieille Femme Sage]";
+	mes "Bonjour, jeune personne. J'ai le pouvoir de retirer les cartes que vous avez insérées dans votre équipement. Cela vous plaît-il ?";
+	next;
+	switch(select("Oui, ça me plaît.:Quels sont vos tarifs ? :Non merci.")) {
+	case 1:
+		mes "[Vieille Femme Sage]";
+		mes "Très bien. Quel objet souhaitez-vous que j'examine pour vous ?";
+		next;
+
+		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
+			if( getequipisequiped(.@indices[.@i]) )
+				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part, .@indices[ select(.@menu$) ];
+		if(!getequipisequiped(.@part)) {
+			mes "[Vieille Femme Sage]";
+			mes "Jeune personne... Vous ne portez rien à cet endroit que je puisse retirer de cartes.";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[Vieille Femme Sage]";
+			mes "Jeune personne... Il n'y a pas de cartes insérées sur cet objet. Je ne peux rien en faire, je le crains.";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "^3355FFUn instant s'il vous plaît !";
+			mes "Je ne peux vous offrir aucun de mes";
+			mes "services car vous transportez trop";
+			mes "de choses. Mettez vos objets en trop";
+			mes "dans le Kafra Storage et revenez~";
+			close;
+		}
+		mes "[Vieille Femme Sage]";
+		mes "Cet objet a " + .@cardcount + " cartes insérées. Pour accomplir ma magie, j'aurai besoin de " + (.zenycost+(.@cardcount * .percardcost)) + " Zeny, d'une ^0000FFStar Crumb^000000 et d'une ^0000FFYellow Gemstone^000000.";
+		next;
+		if(select("Très bien. Faites-le.:Peu importe.") == 2) {
+			mes "[Vieille Femme Sage]";
+			mes "Très bien. Revenez vite si vous souhaitez mes services.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
+			mes "[Vieille Femme Sage]";
+			mes "Vous n'avez pas tous les objets nécessaires pour que je travaille ma magie, mon enfant. Revenez quand vous les aurez.";
+			close;
+		}
+		mes "[Vieille Femme Sage]";
+		mes "Avant de commencer, je dois vous avertir : je peux échouer. Si c'est le cas, je peux détruire les cartes, l'objet, ou les deux. Je ne fais pas de remboursements. Cela étant dit, que préférez-vous : les cartes ou l'objet ?";
+		next;
+		switch(select("J'ai changé d'avis à ce sujet.:L'objet.:Les cartes.")) {
+		case 1:
+			mes "[Vieille Femme Sage]";
+			mes "Très bien. Revenez vite si vous souhaitez mes services.";
+			close;
+		case 2:
+			set .@failtype,1;
+			break;
+		case 3:
+			set .@failtype,2;
+		}
+		mes "[Vieille Femme Sage]";
+		mes "Très bien. Je vais commencer.";
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		delitem 1000,1; // Star_Crumb
+		delitem 715,1; // Yellow_Gemstone
+		
+		// Remplacez les constantes dans les 3 prochaines lignes par des valeurs de chance d'échec définies dans refine_db.txt
+		// Première valeur = Chance d'échec totale (objet et cartes détruits)
+		// Deuxième valeur = Chance d'échec partielle (l'un ou l'autre est détruit, le joueur décide lequel est préservé)
+		// Troisième valeur = Chance d'échec sans conséquences (tout ce qui est perdu est votre investissement)
+		set .@failchance,rand(100);
+		if (.faildestroy==1) {
+			if(.@failchance < 2) {
+				next;
+				failedremovecards .@part,0;
+				mes "[Vieille Femme Sage]";
+				mes "Le processus a été un échec total. Je crains que l'objet et les cartes aient été détruits.";
+				close;
+			}
+
+			if(.@failchance < 8) {
+				if (.@failtype == 1) {
+					next;
+					failedremovecards .@part,1;
+					mes "[Vieille Femme Sage]";
+					mes "Bien que j'aie réussi à retirer les cartes de l'objet, elles ont été détruites dans le processus. L'objet, cependant, est intact.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					failedremovecards .@part,2;
+					mes "[Vieille Femme Sage]";
+					mes "Très malheureux. J'ai réussi à retirer les cartes, mais l'objet lui-même a été détruit dans le processus.";
+					close;
+				}
+			}
+		}
+
+		if(.@failchance < 10) {
+			next;
+			failedremovecards .@part,3;
+			mes "[Vieille Femme Sage]";
+			mes "J'ai échoué à retirer les cartes. Heureusement, cependant, l'objet et les cartes sont toujours intacts.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[Vieille Femme Sage]";
+		mes "Le processus a été un succès. Voici vos cartes et votre objet. Adieu.";
+		close;
+	case 2:
+		mes "[Vieille Femme Sage]";
+		mes "Je facture un tarif fixe de "+callfunc("F_InsertComma",.zenycost)+" Zeny, plus "+callfunc("F_InsertComma",.percardcost)+" Zeny pour chaque carte que je retire de l'objet. De plus, j'ai besoin d'une star crumb et d'une yellow gemstone pour travailler ma magie.";
+		close;
+	case 3:
+		mes "[Vieille Femme Sage]";
+		mes "Très bien. Revenez vite si vous souhaitez mes services.";
+		close;
+	}
+}
+
+iz_ac02_a,114,201,4	duplicate(Sakura Carto#eAcustom)	Sakura Carto#eAcustom_a	726
+iz_ac02_b,114,201,4	duplicate(Sakura Carto#eAcustom)	Sakura Carto#eAcustom_b	726
+iz_ac02_c,114,201,4	duplicate(Sakura Carto#eAcustom)	Sakura Carto#eAcustom_c	726
+iz_ac02_d,114,201,4	duplicate(Sakura Carto#eAcustom)	Sakura Carto#eAcustom_d	726
+
+
+//=================================================================
+//== Assasin, Stalker, metier 2  ===================================
+//============== Pour devenir assasin à l'academi
+//=================================================================
+
+iz_ac02,60,147,4	script	Assasin Carla#LSICustom	4_F_JOB_ASSASSIN,{
+	mes "[Carla]";
+	mes "Si tu es un bon voleurs je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Assassin, un Assassin Cross ou un Guillotine Cross";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 6) {
+				mes "[Carla]";
+				mes "Je t'envoie pour devenir Assasin";
+				next;
+				warp "in_moc_16", 17, 30; 
+				end;
+			} else if (JobLevel >39 && Class == 4007) {
+				mes "[Carla]";
+				mes "Je t'envoie pour devenir Assasin Cross";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >50 && Class == 4013) {
+				mes "[Carla]";
+				mes "Je t'envoie pour devenir Guillotine Cross";
+				next;
+				warp "que_job01", 73, 97; 
+				end;
+			} else {
+				mes "[Carla]";
+				mes "Euh... mais pourquoi...";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Carla]";
+			mes "Très bien. Pourquoi me faire ch....  Allez salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02_a,60,147,4	duplicate(Assasin Carla#LSICustom)	Assasin Carla#LSICustom_a	4_F_JOB_ASSASSIN
+iz_ac02_b,60,147,4	duplicate(Assasin Carla#LSICustom)	Assasin Carla#LSICustom_b	4_F_JOB_ASSASSIN
+iz_ac02_c,60,147,4	duplicate(Assasin Carla#LSICustom)	Assasin Carla#LSICustom_c	4_F_JOB_ASSASSIN
+iz_ac02_d,60,147,4	duplicate(Assasin Carla#LSICustom)	Assasin Carla#LSICustom_d	4_F_JOB_ASSASSIN
+
+iz_ac02,57,147,4	script	Rogue Milia#LSICustom	4_F_ROGUE,{
+	mes "[Milia]";
+	mes "Si tu es un bon voleurs je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Rogue, un Stalker ou Shadow Chaser";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 6) {
+				mes "[Milia]";
+				mes "Je t'envoie pour devenir Rogue";
+				next;
+				warp "in_rogue", 364, 116; 
+				end;
+			} else if (JobLevel >39 && Class == 4007) {
+				mes "[Milia]";
+				mes "Je t'envoie pour devenir Stalker";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >69 && Class == 4018) {
+				mes "[Milia]";
+				mes "Je t'envoie pour devenir Shadow Chaser";
+				next;
+				warp "morocc", 158, 68; 
+				end;
+			} else {
+				mes "[Milia]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Milia]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02_a,57,147,4	duplicate(Rogue Milia#LSICustom)	Rogue Milia#LSICustom_a	4_F_ROGUE
+iz_ac02_b,57,147,4	duplicate(Rogue Milia#LSICustom)	Rogue Milia#LSICustom_b	4_F_ROGUE
+iz_ac02_c,57,147,4	duplicate(Rogue Milia#LSICustom)	Rogue Milia#LSICustom_c	4_F_ROGUE
+iz_ac02_d,57,147,4	duplicate(Rogue Milia#LSICustom)	Rogue Milia#LSICustom_d	4_F_ROGUE
+
+iz_ac02,56,58,4	script	Knight Val#LSICustom	1_M_KNIGHTMASTER,{
+	mes "[Val]";
+	mes "Si tu es un bon Epeiste je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Knight, Lord Knight ou Rune Knight";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 1) {
+				mes "[Val]";
+				mes "Je t'envoie pour devenir Knight";
+				next;
+				warp "prt_in", 84, 103; 
+				end;
+			} else if (JobLevel >39 && Class == 4002) {
+				mes "[Val]";
+				mes "Je t'envoie pour devenir Lord Knight";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >69 && Class == 4008) {
+				mes "[Val]";
+				mes "Je t'envoie pour devenir Rune Knight";
+				next;
+				warp "prt_in", 165, 25; 
+				end;
+			} else {
+				mes "[Val]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Val]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02_a,56,58,4	duplicate(Knight Val#LSICustom)	Knight Val#LSICustom_a	1_M_KNIGHTMASTER
+iz_ac02_b,56,58,4	duplicate(Knight Val#LSICustom)	Knight Val#LSICustom_b	1_M_KNIGHTMASTER
+iz_ac02_c,56,58,4	duplicate(Knight Val#LSICustom)	Knight Val#LSICustom_c	1_M_KNIGHTMASTER
+iz_ac02_d,56,58,4	duplicate(Knight Val#LSICustom)	Knight Val#LSICustom_d	1_M_KNIGHTMASTER
+
+iz_ac02,157,115,4	script	Wizard Klide#LSICustom	1_M_WIZARD,{
+	mes "[Klide]";
+	mes "Si tu es un bon Mage je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Wizard, High Wizard ou Warlock";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 2) {
+				mes "[Klide]";
+				mes "Je t'envoie pour devenir Wizard";
+				next;
+				warp "gef_tower", 111, 33; 
+				end;
+			} else if (JobLevel >39 && Class == 4003) {
+				mes "[Klide]";
+				mes "Je t'envoie pour devenir High Wizard";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >69 && Class == 4010) {
+				mes "[Klide]";
+				mes "Je t'envoie pour devenir Warlock";
+				next;
+				warp "spl_in02", 79, 105; 
+				end;
+			} else {
+				mes "[Klide]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Klide]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02,142,117,4	script	Prof Takius#LSICustom	4_TOWER_07,{
+	mes "[Takius]";
+	mes "Si tu es un bon Mage je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Sage, Prof ou Sorcerer";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 2) {
+				mes "[Takius]";
+				mes "Je t'envoie pour devenir Sage";
+				next;
+				warp "yuno_in02", 41, 59; 
+				end;
+			} else if (JobLevel >39 && Class == 4003) {
+				mes "[Takius]";
+				mes "Je t'envoie pour devenir Professor";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >69 && Class == 4017) {
+				mes "[Takius]";
+				mes "Je t'envoie pour devenir Sorcerer";
+				next;
+				warp "gef_tower", 104, 32; 
+				end;
+			} else {
+				mes "[Takius]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Takius]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02,156,175,4	script	Prêtresse Yuna#LSICustom	4_F_ACOLYTE,{
+	mes "[Yuna]";
+	mes "Si tu es un bon Acolyte je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Prètre, Haut Prètre ou un Arc Bishop";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 4) {
+				mes "[Yuna]";
+				mes "Je t'envoie pour devenir Prètre";
+				next;
+				warp "prt_church", 13, 39; 
+				end;
+			} else if (JobLevel >39 && Class == 4005) {
+				mes "[Yuna]";
+				mes "Je t'envoie pour devenir Haut Prètre";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >69 && Class == 4009) {
+				mes "[Yuna]";
+				mes "Je t'envoie pour devenir Arc Bishop";
+				next;
+				warp "prt_church", 101, 86; 
+				end;
+			} else {
+				mes "[Yuna]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Yuna]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02,134,176,4	script	Monk Bill#LSICustom	1_M_SIGNMONK2,{
+	mes "[Bill]";
+	mes "Si tu es un bon Acolyte je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Monk, un Champion ou un Sura";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 4) {
+				mes "[Bill]";
+				mes "Je t'envoie pour devenir Monk";
+				next;
+				warp "prt_monk", 62, 249; 
+				end;
+			} else if (JobLevel >39 && Class == 4005) {
+				mes "[Bill]";
+				mes "Je t'envoie pour devenir un Champion";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >69 && Class == 4016) {
+				mes "[Bill]";
+				mes "Je t'envoie pour devenir Sura";
+				next;
+				warp "ve_in", 236, 126; 
+				end;
+			} else {
+				mes "[Bill]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Bill]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02,60,58,4	script	Crusader Milo#LSICustom	4_F_JOB_KNIGHT,{
+	mes "[Milo]";
+	mes "Si tu es un bon Epeiste je peux t'envoyé vers l'endroit pour faire de toi";
+	mes "un Crusader, un Paladin ou un Garde Royal";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			if (JobLevel >39 && Class == 1) {
+				mes "[Milo]";
+				mes "Je t'envoie pour devenir Crusader";
+				next;
+				warp "prt_church" ,95 ,127;  
+				end;
+			} else if (JobLevel >39 && Class == 4002) {
+				mes "[Milo]";
+				mes "Je t'envoie pour devenir Paladin";
+				next;
+				warp "valkyrie", 49, 8; 
+				end;
+			} else if (JobLevel >50 && Class == 4015) {
+				mes "[Milo]";
+				mes "Je t'envoie pour devenir Garde Royal";
+				next;
+				warp "prt_cas", 169, 275; 
+				end;
+			} else {
+				mes "[Milo]";
+				mes "Euh... tu n'as pas ceux qu'il faut";
+				close;
+			}
+			break;
+		case 2:
+			mes "[Milo]";
+			mes "Ok salut !";
+			close;
+			break;
+	}
+}
+
+iz_ac02_a,60,58,4	duplicate(Crusader Milo#LSICustom)	Crusader Milo#LSICustom_a	4_F_JOB_KNIGHT
+iz_ac02_b,60,58,4	duplicate(Crusader Milo#LSICustom)	Crusader Milo#LSICustom_b	4_F_JOB_KNIGHT
+iz_ac02_c,60,58,4	duplicate(Crusader Milo#LSICustom)	Crusader Milo#LSICustom_c	4_F_JOB_KNIGHT
+iz_ac02_d,60,58,4	duplicate(Crusader Milo#LSICustom)	Crusader Milo#LSICustom_d	4_F_JOB_KNIGHT
+
+
+
+iz_ac02,101,211,4	script	Valkyrie_#LSICustom	811,{
+	mes "[Valkyrie]";
+	mes "Bonjour toi !";
+	mes "Je vois plein d'aventurier renaittre en tant que Héros";
+	mes "Si tu es prêt je pourrai t'y envoyer";
+	next;
+	if (BaseLevel >98){
+		mes "[Valkyrie]";
+		mes "Veux tu que je t'emmène au monde des Héros ?";
+		next;
+		switch(select("Oui envoyé moi :Non merci.")){
+			case 1:
+				warp "valkyrie", 49, 8; 
+				end;
+			case 2:
+				mes "[Valkyrie]";
+				mes "Reviens vers moi quand tu voudras y aller.";
+				next;
+		}
+	} else {
+		mes "[Valkyrie]";
+		mes "Je vois que tu n'es pas encore prêt";
+		next;
+	}
+	mes "[Valkyrie]";
+	mes "A bientôt";
+	close;
+}
+
+iz_ac02,94,210,4	script	Reset Girl	124,{
+	//	 		Skills,	Stats,	Both,	Limit
+	setarray .@Reset,	5000,	5000,	9000,	0;
+	mes "[Reset Girl]";
+	if(.@Reset[3] && reset_limit > .@Reset[3]) {
+		mes "Désolée, vous pouvez seulement réinitialiser "+callfunc("F_InsertPlural",.@Reset[3],"fois")+" dans votre vie.";
+		close;
+	}
+	mes "Je suis la Fille du Reset.";
+	mes "Réinitialisation des Stats : "+ callfunc("F_InsertComma",.@Reset[1]) +"z";
+	mes "Réinitialisation des Compétences : "+ callfunc("F_InsertComma",.@Reset[0]) +"z";
+	mes "Réinitialisation des Deux : "+ callfunc("F_InsertComma",.@Reset[2]) +"z";
+	if(.@Reset[3]) mes "Vous ne pouvez réinitialiser que "+callfunc("F_InsertPlural",.@Reset[3],"fois")+", alors utilisez "+((.@Reset[3]>1)?"les":"la")+" sagement.";
+	mes "Veuillez sélectionner le service que vous souhaitez :";
+	next;
+	set .@i,(select("^FF3355Réinitialiser les Compétences:Réinitialiser les Stats:Réinitialiser les Deux^000000:Annuler"));
+	if(.@i > 3) close;
+	mes "[Fille du Reset]";
+	if (Zeny < .@Reset[.@i-1]) {
+		mes "Désolée, vous n'avez pas assez de Zeny.";
+		close;
+	}
+	if(.@Reset[3]){
+		mes "Vous ne pouvez réinitialiser que "+callfunc("F_InsertPlural",.@Reset[3],"fois")+" dans votre vie, êtes-vous sûr ?";
+		if(select("Laissez-moi réfléchir:C'est bon") == 1) close;
+	}
+	set Zeny, Zeny-.@Reset[.@i-1];
+	if(.@i&1){
+		sc_end_class;
+		ResetSkill;
+	}
+	if(.@i&2) ResetStatus;
+	mes "Voilà !";
+	if(.@Reset[3]) set reset_limit,reset_limit + 1;
+	close;
+}
+
+iz_ac02,113,211,4	script	BuffXP	4_F_AGENTKAFRA,{
+	mes "[Talia]";
+	mes "En fonction de ton niveau je peux augmenté la quantité d'expérience reçu pour 10.000.000 de zeny";
+	mes "Mais il te faut au moins un niveau 30";
+	next;
+	switch(select("Oui:Non merci.")){
+		case 1:
+			if (Zeny >= 1 && BaseLevel >= 30) {
+					mes "[Talia]";
+					mes "Très bien";
+					Zeny -= 1;
+					if (BaseLevel >= 30 && BaseLevel <= 50) {
+						sc_start SC_EXPBOOST,3600000,50;
+						mes "50% en plus pour toi";
+					}
+					if (BaseLevel > 50 && BaseLevel <= 70) {
+						sc_start SC_EXPBOOST,3600000,100;
+						mes "100% en plus pour toi";
+					}
+					if (BaseLevel > 70 && BaseLevel <= 100) {
+						sc_start SC_EXPBOOST,3600000,250;
+						mes "250% en plus pour toi";
+					}
+					if (BaseLevel > 100 && BaseLevel <= 120) {
+						sc_start SC_EXPBOOST,3600000,500;
+						mes "500% en plus pour toi";
+					}
+					if (BaseLevel > 120 && BaseLevel <= 150) {
+						sc_start SC_EXPBOOST,3600000,1000;
+						mes "1000% en plus pour toi";
+					}
+					if (BaseLevel > 150 && BaseLevel <= 200) {
+						sc_start SC_EXPBOOST,3600000,2000;
+						mes "2000% en plus pour toi";
+					}
+					if (BaseLevel > 200) {
+						sc_start SC_EXPBOOST,1800000,5000;
+						mes "5000% en plus pour toi";
+					}
+				} else {
+					mes "[Talia]";
+					mes "Tu n'a pas assez de zeny.";
+				}
+			close;
+			break;
+		case 2:
+			mes "[Talia]";
+			mes "Je comprend.";
+			close;
+			break;
+	}
+}
+
+valkyrie,46,9,4	script	Valkyrie#LSICustom001	811,{
+	mes "[Valkyrie]";
+	mes "Re bonjour !";
+	mes "Tu veux rentré à la capitale ?";
+	mes "Si tu es prêt je pourrai t'y envoyer";
+	next;
+	mes "[Valkyrie]";
+	mes "Veux tu que je t'emmène au monde des Héros ?";
+	next;
+	switch(select("Oui envoyé moi :Non merci.")){
+		case 1:
+			warp "iz_ac02", 98, 211; 
+			end;
+		case 2:
+			mes "[Valkyrie]";
+			mes "Reviens vers moi quand tu voudras y aller.";
+			next;
+	}
+	mes "[Valkyrie]";
+	mes "A bientôt";
+	close;
+}
+
+
+
+
+iz_ac02,109,201,4	shop	Item	73,611:50,602:500,645:800,656:1500,657:3000,12264:10000,12263:10000

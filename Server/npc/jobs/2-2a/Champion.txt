@@ -20,68 +20,69 @@ valkyrie,53,42,3	script	Champion#Valkyrie	52,{
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Champion]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers!";
 			close;
 		}
 		mes "[Champion]";
-		mes "Skill.";
-		mes "Speed.";
-		mes "Strength.";
-		mes "Agility.";
+		mes "Compétence.";
+		mes "Vitesse.";
+		mes "Force.";
+		mes "Agilité.";
 		next;
 		mes "[Champion]";
-		mes "A Champion can";
-		mes "benefit from all";
-		mes "these things. But";
-		mes "one can only master";
-		mes "so much in life...";
+		mes "Un Champion peut";
+		mes "bénéficier de toutes";
+		mes "ces choses. Mais";
+		mes "on ne peut maîtriser";
+		mes "qu'autant dans la vie...";
 		close;
 	}
 	else if (ADVJOB == Job_Champion && Class == Job_Acolyte_High && JobLevel > 39) {
 		mes "[Champion]";
-		mes "It's time.";
-		mes "Time for great heroes";
-		mes "to stand up against the";
-		mes "forces of evil which plague";
-		mes "the world of Midgard!";
+		mes "C'est le moment.";
+		mes "Le moment pour les grands héros";
+		mes "de se dresser contre les";
+		mes "forces du mal qui affligent";
+		mes "le monde de Midgard!";
 		next;
 		mes "[Champion]";
-		mes "Would you like";
-		mes "to become a Champion?";
+		mes "Voulez-vous";
+		mes "devenir un Champion?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("Non.:Oui.") == 1) {
 			mes "[Champion]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+			mes "Quand vous serez prêt,";
+			mes "n'hésitez pas à revenir.";
+			mes "Honneur aux guerriers!";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Champion]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "Il vous est encore possible d'apprendre davantage de compétences. Veuillez utiliser";
+			mes "tous vos Points de Compétence restants avant de revenir me voir.";
 			close;
 		}
 		jobchange Job_Champion;
 		set ADVJOB,0;
+		atcommand "@joblvlup 5";
 		mes "[Champion]";
-		mes "Congratulations!";
-		mes "Live as a Champion,";
-		mes "and bring light into";
-		mes "the world through the";
-		mes "strength of your fists.";
+		mes "Félicitations!";
+		mes "Vivez en tant que Champion,";
+		mes "et apportez la lumière dans";
+		mes "le monde grâce à la";
+		mes "force de vos poings.";
 		close;
 	}
 	mes "[Champion]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
 	mes "[Champion]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "S'il vous plaît,";
+	mes "sentez-vous comme chez vous";
+	mes "pendant votre séjour ici.";
+	mes "Honneur aux guerriers!";
 	close;
 }

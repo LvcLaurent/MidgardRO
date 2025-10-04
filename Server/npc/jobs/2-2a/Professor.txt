@@ -17,77 +17,76 @@
 
 valkyrie,53,47,3	script	Scholar#Valkyrie	743,{
 	if (ADVJOB == 0 || Upper != 1) {
-		set .@karma_d,rand(1,10);
+		set .@karma_d, rand(1, 10);
 		if (.@karma_d > 4) {
-			mes "[Scholar]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "[Érudit]";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
-		mes "[Scholar]";
-		mes "It takes a lifetime...";
-		mes "Literally a lifetime";
-		mes "to amass the knowledge";
-		mes "necessary to become";
-		mes "a Scholar...";
+		mes "[Érudit]";
+		mes "Il faut toute une vie...";
+		mes "Littéralement toute une vie";
+		mes "pour accumuler les connaissances";
+		mes "nécessaires pour devenir";
+		mes "un Érudit...";
 		next;
-		mes "[Scholar]";
-		mes "It's overwhelming.";
-		mes "The more you learn, the";
-		mes "more you discover what";
-		mes "else you don't know.";
-		mes "There's no end to the";
-		mes "process of learning...";
+		mes "[Érudit]";
+		mes "C'est écrasant.";
+		mes "Plus vous apprenez, plus vous";
+		mes "découvrez ce que vous ne savez";
+		mes "pas encore.";
+		mes "Il n'y a pas de fin au";
+		mes "processus d'apprentissage...";
 		close;
 	}
-	else if (ADVJOB == Job_Professor && Class == Job_Mage_High && JobLevel > 39) {
-		mes "[Scholar]";
-		mes "Midgard doesn't";
-		mes "have enough Scholars to";
-		mes "help usher in a new age";
-		mes "of prosperity. The";
-		mes "world needs you...";
+	else if (ADVJOB == Job_Professeur && Class == Job_Mage_High && JobLevel > 39) {
+		mes "[Érudit]";
+		mes "Midgard n'a pas";
+		mes "assez d'Érudits pour";
+		mes "aider à ouvrir une nouvelle ère";
+		mes "de prospérité. Le";
+		mes "monde a besoin de vous...";
 		next;
-		mes "[Scholar]";
-		mes "Will you take this";
-		mes "awesome responsibility?";
-		mes "Will you serve Midgard";
-		mes "as a Scholar?";
+		mes "[Érudit]";
+		mes "Accepterez-vous cette";
+		mes "formidable responsabilité ?";
+		mes "Servirez-vous Midgard";
+		mes "en tant qu'Érudit ?";
 		next;
-		if (select("No.:Yes.") == 1) {
-			mes "[Scholar]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+		if (select("Non.:Oui.") == 1) {
+			mes "[Érudit]";
+			mes "Quand vous serez prêt,";
+			mes "n'hésitez pas à revenir.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		if (SkillPoint) {
-			mes "[Scholar]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "[Érudit]";
+			mes "Il vous est encore possible d'apprendre d'autres compétences. Veuillez utiliser";
+			mes "tous vos Points de Compétence restants avant de revenir me voir.";
 			close;
 		}
-		jobchange Job_Professor;
-		set ADVJOB,0;
-		mes "[Scholar]";
-		mes "Congratulations!";
-		mes "As a Professor, I hope";
-		mes "that you will take an";
-		mes "active part in bringing";
-		mes "the light of knowledge";
-		mes "where there is darkness.";
+		jobchange Job_Professeur;
+		set ADVJOB, 0;
+		mes "[Érudit]";
+		mes "Félicitations !";
+		mes "En tant que Professeur, j'espère";
+		mes "que vous prendrez une part active";
+		mes "à apporter la lumière de la connaissance";
+		mes "là où il y a des ténèbres.";
 		close;
 	}
-	mes "[Scholar]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "[Érudit]";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
-	mes "[Scholar]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "[Érudit]";
+	mes "S'il vous plaît,";
+	mes "faites-vous à l'aise";
+	mes "pendant votre séjour ici.";
+	mes "Honneur aux guerriers !";
 	close;
 }
 

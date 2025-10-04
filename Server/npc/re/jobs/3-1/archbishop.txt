@@ -30,144 +30,144 @@
 prt_church,103,88,3	script	Praying Minister#arch	60,{
 	if (BaseJob != Job_Priest) {
 		if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Arch_Bishop) {
-			mes "[Praying Minister]";
-			mes "Ah! An Archbishop.";
-			mes "You have reached the state of light.";
-			mes "I hope you give happiness and honor to people during your adventures.";
+			mes "[Ministre de la Prière]";
+			mes "Ah ! Un Archevêque.";
+			mes "Vous avez atteint l'état de lumière.";
+			mes "J'espère que vous apporterez bonheur et honneur aux gens lors de vos aventures.";
 			close;
 		}
-		mes "[Praying Minister]";
-		mes "In front of the Almighty God Odin,";
-		mes "there shall be no person smarter than him,";
-		mes "and there will be no person more merciful than him.";
+		mes "[Ministre de la Prière]";
+		mes "Face au tout-puissant Dieu Odin,";
+		mes "il n'y aura personne de plus sage que lui,";
+		mes "et il n'y aura personne de plus miséricordieux que lui.";
 		next;
-		mes "[Praying Minister]";
-		mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
+		mes "[Ministre de la Prière]";
+		mes "Tous les ministres d'Odin doivent être diligents. Ils ne doivent jamais être trop paresseux pour servir Odin.";
 		next;
-		mes "[Praying Minister]";
-		mes "These days, I've heard that ministers are becoming lax in their duty to Odin and adorn themselves with the splendors of the world.";
+		mes "[Ministre de la Prière]";
+		mes "De nos jours, j'ai entendu dire que les ministres se relâchent dans leur devoir envers Odin et se parent des splendeurs du monde.";
 		next;
-		mes "[Praying Minister]";
-		mes "If you see any of these ministers, can you ask to them to go to the church in prontera?";
+		mes "[Ministre de la Prière]";
+		mes "Si vous croisez l'un de ces ministres, pourriez-vous leur demander de se rendre à l'église de Prontera ?";
 		next;
-		mes "[Praying Minister]";
-		mes "They give out a special aura so you can easily recognize them.";
-		mes "I'm going to make them ministers worthy of serving Odin.";
+		mes "[Ministre de la Prière]";
+		mes "Ils dégagent une aura spéciale, vous pourrez donc les reconnaître facilement.";
+		mes "Je vais les rendre dignes de servir Odin.";
 		close;
 	}
 	if ((BaseLevel > 98) && (JobLevel > 49)) {
 		if (job_arch == 0) {
 			if (SkillPoint) {
-				mes "You can't change jobs without using all your skill points. Please use all of your skill points before applying to change jobs~";
+				mes "Vous ne pouvez pas changer de métier sans utiliser tous vos points de compétence. Veuillez utiliser tous vos points de compétence avant de postuler pour changer de métier~";
 				close;
 			}
 			if (VIP_SCRIPT) {
-				callfunc "VIP_Third_Class";
+				callfunc "VIP_Troisième_Classe";
 				set job_arch,1;
 				setquest 2187;
 				next;
 			}
-			mes "[Praying Minister]";
-			mes "In front of the Almighty God Odin,";
-			mes "there shall be no person smarter than him,";
-			mes "and there will be no person more merciful than him.";
+			mes "[Ministre de la Prière]";
+			mes "Face au tout-puissant Dieu Odin,";
+			mes "il n'y aura personne de plus sage que lui,";
+			mes "et il n'y aura personne de plus miséricordieux que lui.";
 			next;
-			mes "[Praying Minister]";
-			mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
+			mes "[Ministre de la Prière]";
+			mes "Tous les ministres d'Odin doivent être diligents. Ils ne doivent jamais être trop paresseux pour servir Odin.";
 			next;
-			mes "[Praying Minister]";
-			mes (Sex == SEX_MALE?"Brother":"Sister")+", how has your life been? Have you lived it to its fullest?";
-			mes "Have you served your life in the light of Odin?";
+			mes "[Ministre de la Prière]";
+			mes (Sex == SEX_MALE?"Frère":"Sœur")+", comment se passe votre vie ? L'avez-vous vécue pleinement ?";
+			mes "Avez-vous servi votre vie à la lumière d'Odin ?";
 			next;
-			mes "[Praying Minister]";
-			mes "We are ministers and our behavior is seen as acts of the Gods.";
-			mes "We should always be mindful of this.";
+			mes "[Ministre de la Prière]";
+			mes "Nous sommes des ministres et notre comportement est considéré comme des actes des dieux.";
+			mes "Nous devrions toujours en être conscients.";
 			next;
-			mes "[Praying Minister]";
-			mes "We should always tell the truth.";
-			mes "We should not fall prey to lies and deceit.";
+			mes "[Ministre de la Prière]";
+			mes "Nous devrions toujours dire la vérité.";
+			mes "Nous ne devrions pas tomber dans les mensonges et la tromperie.";
 			next;
-			mes "[Praying Minister]";
-			mes (Sex == SEX_MALE?"Brother":"Sister")+"...";
-			mes "Even though we serve Odin, we are normal people.";
-			mes "We can be degraded in spite of ourselves and we must realize that.";
+			mes "[Ministre de la Prière]";
+			mes (Sex == SEX_MALE?"Frère":"Sœur")+"...";
+			mes "Même si nous servons Odin, nous sommes des personnes normales.";
+			mes "Nous pouvons être dégradés malgré nous et nous devons en être conscients.";
 			next;
-			mes "[Praying Minister]";
-			mes "We always try to keep our original intention in mind and spread Odin's rule.";
+			mes "[Ministre de la Prière]";
+			mes "Nous essayons toujours de garder notre intention initiale à l'esprit et de propager la règle d'Odin.";
 			next;
-			select("How do I become like that?");
-			mes "[Praying Minister]";
-			mes "That's a good question.";
-			mes "We have lots of methods.";
-			mes "But, I recommend this.";
+			select("Comment puis-je devenir comme ça ?");
+			mes "[Ministre de la Prière]";
+			mes "C'est une bonne question.";
+			mes "Nous avons beaucoup de méthodes.";
+			mes "Mais, je recommande ceci.";
 			next;
-			mes "[Praying Minister]";
-			mes "Have you ever heard of a ^3131FFHoly Pilgrimage^000000?";
-			mes "A Holy Pilgrimage means going to a holy place to pray to the God Odin for protection and grace.";
+			mes "[Ministre de la Prière]";
+			mes "Avez-vous déjà entendu parler d'un ^3131FFPèlerinage Sacré^000000 ?";
+			mes "Un Pèlerinage Sacré consiste à se rendre dans un lieu saint pour prier le dieu Odin en demandant protection et grâce.";
 			next;
-			mes "[Praying Minister]";
-			mes "When you pray to Odin in the holy place, you will feel that you are born again.";
+			mes "[Ministre de la Prière]";
+			mes "Lorsque vous priez Odin dans le lieu saint, vous aurez l'impression de renaître.";
 			next;
-			mes "[Praying Minister]";
-			mes "What do you think?";
-			mes "Would you like to do a Holy Pilgrimage?";
+			mes "[Ministre de la Prière]";
+			mes "Qu'en pensez-vous ?";
+			mes "Aimeriez-vous faire un Pèlerinage Sacré ?";
 			next;
-			switch(select("Yes I want to.:I'll think about it.")) {
-			case 1:
-				mes "[Praying Minister]";
-				mes "That's the correct attitude.";
-				mes "A person who lives in one's mundane life would better have a new mind and body and evolve to the way of a true minister of Odin.";
-				next;
-				mes "[Praying Minister]";
-				mes "There is a small village named Umbala far from here.";
-				mes "That village is a where a tribe lives in harmony with nature.";
-				next;
-				mes "[Praying Minister]";
-				mes "Go there and find Priest Dayan.";
-				mes "Tell him exactly,";
-				mes "'^3131FFI'm here for the Holy Pilgrimage.^000000'";
-				next;
-				mes "[Praying Minister]";
-				mes "He's very old so he is hard of hearing.";
-				mes "You have to speak loud and clearly. You got it?";
-				mes "I hope that this paves the way for you to live in the light of Odin.";
-				set job_arch,1;
-				setquest 2187;
-				close;
-			case 2:
-				mes "[Praying Minister]";
-				mes "Mmmm...";
-				mes "A Holy Pilgrimage isn't that difficult.";
-				mes "Just be mindful that once you start the path you will be on your way to the way of a true minister of Odin.";
-				next;
-				mes "[Praying Minister]";
-				mes "Feel free to visit me if you change your mind.";
-				mes "I'll always be here for you.";
-				close;
+			switch(select("Oui, je veux.:J'y réfléchirai.")) {
+				case 1:
+					mes "[Ministre de la Prière]";
+					mes "C'est la bonne attitude.";
+					mes "Une personne qui vit sa vie de manière mondaine ferait mieux d'avoir un esprit et un corps neufs et d'évoluer vers la voie d'un vrai ministre d'Odin.";
+					next;
+					mes "[Ministre de la Prière]";
+					mes "Il y a un petit village appelé Umbala, loin d'ici.";
+					mes "Ce village est habité par une tribu qui vit en harmonie avec la nature.";
+					next;
+					mes "[Ministre de la Prière]";
+					mes "Rendez-vous là-bas et trouvez le Prêtre Dayan.";
+					mes "Dites-lui exactement :";
+					mes "'^3131FFJe suis là pour le Pèlerinage Sacré.^000000'";
+					next;
+					mes "[Ministre de la Prière]";
+					mes "Il est très âgé, donc il a des problèmes d'audition.";
+					mes "Vous devrez parler fort et clairement. Compris ?";
+					mes "J'espère que cela vous ouvrira la voie pour vivre à la lumière d'Odin.";
+					set job_arch,1;
+					setquest 2187;
+					close;
+				case 2:
+					mes "[Ministre de la Prière]";
+					mes "Mmmm...";
+					mes "Un Pèlerinage Sacré n'est pas si difficile.";
+					mes "Sachez simplement que dès que vous commencerez le chemin, vous serez sur la voie d'un vrai ministre d'Odin.";
+					next;
+					mes "[Ministre de la Prière]";
+					mes "N'hésitez pas à me rendre visite si vous changez d'avis.";
+					mes "Je serai toujours là pour vous.";
+					close;
 			}
 		}
-		mes "[Praying Minister]";
-		mes "How's it going?";
-		mes "Did you meet Priest Dayan in Umbala?";
+		mes "[Ministre de la Prière]";
+		mes "Comment ça va ?";
+		mes "Avez-vous rencontré le Prêtre Dayan à Umbala ?";
 		close;
 	}
-	mes "[Praying Minister]";
-	mes "In front of the Almighty God Odin,";
-	mes "there shall be no person smarter than him,";
-	mes "and there will be no person more merciful than him.";
+	mes "[Ministre de la Prière]";
+	mes "Face au tout-puissant Dieu Odin,";
+	mes "il n'y aura personne de plus sage que lui,";
+	mes "et il n'y aura personne de plus miséricordieux que lui.";
 	next;
-	mes "[Praying Minister]";
-	mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
+	mes "[Ministre de la Prière]";
+	mes "Tous les ministres d'Odin doivent être diligents. Ils ne doivent jamais être trop paresseux pour servir Odin.";
 	next;
-	mes "[Praying Minister]";
-	mes "These days, I've heard that ministers are becoming lax in their duty to Odin and adorn themselves with the splendors of the world.";
+	mes "[Ministre de la Prière]";
+	mes "De nos jours, j'ai entendu dire que les ministres se relâchent dans leur devoir envers Odin et se parent des splendeurs du monde.";
 	next;
-	mes "[Praying Minister]";
-	mes "If you see any of these ministers, can you ask to them to go to the church in Prontera?";
+	mes "[Ministre de la Prière]";
+	mes "Si vous croisez l'un de ces ministres, pourriez-vous leur demander de se rendre à l'église de Prontera ?";
 	next;
-	mes "[Praying Minister]";
-	mes "They give out a special aura so you can easily recognize them.";
-	mes "I'm going to make them ministers worthy of serving Odin.";
+	mes "[Ministre de la Prière]";
+	mes "Ils dégagent une aura spéciale, vous pourrez donc les reconnaître facilement.";
+	mes "Je vais les rendre dignes de servir Odin.";
 	close;
 }
 
@@ -179,247 +179,247 @@ umbala,137,227,5	script	Utan Boy#arch	787,{
 
 umbala,139,227,3	script	Priest#arch	60,{
 	if (job_arch == 0) {
-		mes "[Priest]";
+		mes "[Prêtre]";
 		mes "Un...ba... Unba?";
 		close;
 	} else if (job_arch == 1) {
-		mes "[Priest]";
+		mes "[Prêtre]";
 		mes "Un...ba... Umba?";
 		next;
-		mes "[Utan Boy]";
+		mes "[Garçon Utan]";
 		mes "...............";
 		next;
-		mes "[Priest]";
-		mes "Is that... right?";
-		mes "Hmm... so...";
-		mes "Um...ma? Umau...ma?";
+		mes "[Prêtre]";
+		mes "C'est... correct ?";
+		mes "Hmm... donc...";
+		mes "Um...ma ? Umau...ma ?";
 		emotion ET_SWEAT;
 		next;
-		mes "[Utan Boy]";
+		mes "[Garçon Utan]";
 		mes "...............";
 		next;
-		mes "[Priest]";
+		mes "[Prêtre]";
 		mes "Huuuuuu......";
-		mes "Oh, dear . I feel heavy.";
+		mes "Oh, mon Dieu. Je me sens lourd.";
 		mes "hohohoho.";
 		next;
-		mes "- mumbling~ -";
+		mes "- murmures~ -";
 		next;
-		mes "[Priest]";
+		mes "[Prêtre]";
 		mes "hahahahaha.";
 		mes "huhuhuhu. humhum.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Hello. are you... Priest Dayan?";
+		mes "Bonjour. Êtes-vous... Prêtre Dayan ?";
 		next;
-		mes "[Priest]";
-		mes "Huh?";
+		mes "[Prêtre]";
+		mes "Hein ?";
 		next;
-		mes "He turns his head towards you.";
-		next;
-		mes "[" + strcharinfo(0) + "]";
-		mes "Aren't you Priest Dayan?";
-		next;
-		mes "[Priest]";
-		mes "muttering...";
+		mes "Il tourne la tête vers vous.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Priest! Da~yan! Right!?";
+		mes "N'êtes-vous pas le Prêtre Dayan ?";
 		next;
-		mes "[Priest Dayan]";
-		mes "Ah~, yes.";
-		mes "Yes, I am.";
-		mes "I'm Dayan. Nice to meet you "+(Sex?"Brother.":"Sister.");
-		next;
-		mes "The old priest gives you an ear to ear grin. ";
-		next;
-		mes "[Priest Dayan]";
-		mes "I forgot to wear my hearing aid. hehe.";
-		mes "Anyway, why have you come here?";
+		mes "[Prêtre]";
+		mes "murmurant...";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Hmm, I wanted to tell you...";
+		mes "Prêtre ! Da~yan ! C'est ça, non ?";
+		next;
+		mes "[Prêtre Dayan]";
+		mes "Ah~, oui.";
+		mes "Oui, c'est moi.";
+		mes "Je suis Dayan. Ravi de vous rencontrer "+(Sex?"Frère.":"Sœur.");
+		next;
+		mes "Le vieux prêtre vous fait un sourire de coin à coin.";
+		next;
+		mes "[Prêtre Dayan]";
+		mes "J'ai oublié de mettre mon appareil auditif. hehe.";
+		mes "De toute façon, pourquoi êtes-vous venu ici ?";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "Eh bien, je voulais vous dire...";
 		next;
 		input .@inputstr$;
 		mes "[" + strcharinfo(0) + "]";
 		mes "" + .@inputstr$ + "";
 		next;
-		if (.@inputstr$ != "I'm here for the Holy Pilgrimage") {
-			mes "Priest Dayan doesn't seem to understand you. He just stares at you and smiles.";
+		if (.@inputstr$ != "Je suis ici pour le Pèlerinage Sacré") {
+			mes "Le Prêtre Dayan semble ne pas vous comprendre. Il vous regarde juste en souriant.";
 			next;
-			mes "[Priest]";
-			mes "Eh? Say what?";
+			mes "[Prêtre]";
+			mes "Hein ? Que dites-vous ?";
 			close;
 		}
-		mes "[Priest Dayan]";
-		mes "..............?";
+		mes "[Prêtre Dayan]";
+		mes ".............. ?";
 		next;
-		mes "He cups his ears towards you.";
+		mes "Il tend les oreilles vers vous.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
+		mes "^FF0000Je suis ici pour le Pèlerinage Sacré !^000000";
+		mes "^FF0000Je suis ici pour le Pèlerinage Sacré !^000000";
+		mes "^FF0000Je suis ici pour le Pèlerinage Sacré !^000000";
+		mes "^FF0000Je suis ici pour le Pèlerinage Sacré !^000000";
 		next;
-		mes "[Priest Dayan]";
-		mes "Eh... are you?";
-		mes "A pilgrimage to the Holy Land...";
-		mes "It has been a long time since I've seen such a devout minister.";
-		mes "Welcome. "+(Sex?"Brother.":"Sister.");
+		mes "[Prêtre Dayan]";
+		mes "Eh... vous l'êtes ?";
+		mes "Un pèlerinage vers la Terre Sainte...";
+		mes "Cela fait longtemps que je n'ai pas vu un ministre aussi pieux.";
+		mes "Bienvenue. "+(Sex?"Frère.":"Sœur.");
 		next;
-		mes "The old priest gives you a gracious smile.";
+		mes "Le vieux prêtre vous fait un sourire gracieux.";
 		next;
-		mes "[Priest Dayan]";
-		mes "See this village with the huge forest surrounding it.";
-		mes "Can you see a giant tree?";
+		mes "[Prêtre Dayan]";
+		mes "Voyez ce village entouré de cette immense forêt.";
+		mes "Pouvez-vous voir un arbre géant ?";
 		next;
-		mes "[Priest Dayan]";
-		mes "That big tree is called The ^3131FFYggdrasil^000000.";
-		mes "That tree was created from Ymir's body after Odin created the world as you know it, Midgard.";
+		mes "[Prêtre Dayan]";
+		mes "Cet arbre géant s'appelle l' ^3131FFYggdrasil^000000.";
+		mes "Cet arbre a été créé à partir du corps d'Ymir après qu'Odin ait créé le monde tel que vous le connaissez, Midgard.";
 		next;
-		mes "[Priest Dayan]";
-		mes "A fountain pours out from the end of Yggdrasil's roots that spread to every world.";
+		mes "[Prêtre Dayan]";
+		mes "Une fontaine jaillit de l'extrémité des racines d'Yggdrasil qui se répandent dans tous les mondes.";
 		next;
-		mes "[Priest Dayan]";
-		mes "The roots head to Niflheim where you can find the Hvergelmir spring.";
-		mes "In Midgard there is Mimir's spring.";
-		mes "And in Asgard, the world of the Gods, there is the Word spring.";
+		mes "[Prêtre Dayan]";
+		mes "Les racines se dirigent vers Niflheim où vous pouvez trouver la source Hvergelmir.";
+		mes "À Midgard, il y a la source de Mimir.";
+		mes "Et à Asgard, le monde des dieux, il y a la source du Verbe.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Mimir's spring wells with intelligence, myth says that if Odin lets you have his eye that you will gain all of the knowledge within that spring.";
+		mes "[Prêtre Dayan]";
+		mes "La source de Mimir est remplie d'intelligence, on dit que si Odin vous donne son œil, vous acquerrez toute la connaissance de cette source.";
 		next;
-		mes "[Priest Dayan]";
-		mes Sex?"Brother.":"Sister.";
-		mes "Through the Holy Pilgrimage, we can make ourselves pious by cleansing our bodies and souls.";
+		mes "[Prêtre Dayan]";
+		mes Sex?"Frère.":"Sœur.";
+		mes "Grâce au Pèlerinage Sacré, nous pouvons nous rendre pieux en purifiant nos corps et nos âmes.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Enter the Yggdrasil.";
-		mes "You may be assaulted by creatures in there";
-		mes "but be mindful that their intentions are only to protect the Yggdrasil.";
+		mes "[Prêtre Dayan]";
+		mes "Entrez dans l'Yggdrasil.";
+		mes "Vous pourriez être attaqué par des créatures là-bas";
+		mes "mais gardez à l'esprit que leurs intentions sont seulement de protéger l'Yggdrasil.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Follow your steps with purpose.";
-		mes "If Odin doesn't abandon you, you can reach the beginning of the world at the stem of the Yggdrasil.";
-		mes "When you arrive there, find a quiet place.";
+		mes "[Prêtre Dayan]";
+		mes "Suivez vos pas avec détermination.";
+		mes "Si Odin ne vous abandonne pas, vous pourrez atteindre le début du monde au tronc de l'Yggdrasil.";
+		mes "Lorsque vous y arriverez, trouvez un endroit tranquille.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Pray for a life of faith and expiate your sins with a pious mind.";
+		mes "[Prêtre Dayan]";
+		mes "Priez pour une vie de foi et expiez vos péchés avec un esprit pieux.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Admire Odin's omniscience and omnipotence and pray for a wisdom to choose the right path.";
-		mes "^3131FFFeel free to ask me about how to pray^000000.";
+		mes "[Prêtre Dayan]";
+		mes "Admirez l'omniscience et l'omnipotence d'Odin et priez pour la sagesse de choisir le bon chemin.";
+		mes "^3131FFN'hésitez pas à me demander comment prier^000000.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Lets see, go to the place of the most famous creature from Odin.";
+		mes "[Prêtre Dayan]";
+		mes "Ensuite, rendez-vous à l'endroit de la créature la plus célèbre d'Odin.";
 		next;
-		mes "[Priest Dayan]";
-		mes "After making your pilgrimage, let's have a drink together and talk about your experience.";
+		mes "[Prêtre Dayan]";
+		mes "Après avoir fait votre pèlerinage, nous pourrons prendre un verre ensemble et parler de votre expérience.";
 		next;
-		mes "- Priest Dayan smiles again. -";
+		mes "- Le Prêtre Dayan sourit à nouveau. -";
 		set job_arch,2;
 		changequest 2187,2188;
 		close;
 	} else if (job_arch == 2) {
-		mes "[Priest Dayan]";
-		mes "This place is the holiest place in the world, Yggdrasil.";
-		mes "This holy ceremony will brighten your soul.";
+		mes "[Prêtre Dayan]";
+		mes "Cet endroit est le lieu le plus sacré au monde, Yggdrasil.";
+		mes "Cette cérémonie sainte illuminera votre âme.";
 		next;
-		switch(select("How should I pray?:Cancel.")) {
+		switch(select("Comment devrais-je prier ? : Annuler.")) {
 		case 1:
-			mes "[Priest Dayan]";
-			mes "Through prayer, we can follow four paths.";
-			mes "Remember what I say to you now.";
+			mes "[Prêtre Dayan]";
+			mes "À travers la prière, nous pouvons suivre quatre voies.";
+			mes "Souvenez-vous de ce que je vais vous dire maintenant.";
 			next;
-			mes "[Priest Dayan]";
-			mes "The 1st way is the ^3131FFway of meditation^000000.";
-			mes "In the way of meditation, we have to be ready to greet Odin with a clear conscience.";
+			mes "[Prêtre Dayan]";
+			mes "La 1ère voie est la ^3131FFvoie de la méditation^000000.";
+			mes "Dans la voie de la méditation, nous devons être prêts à saluer Odin avec une conscience claire.";
 			next;
-			mes "[Priest Dayan]";
-			mes "Meditation starts with a ^3131FFBlessing^000000 which calms your mind down.";
+			mes "[Prêtre Dayan]";
+			mes "La méditation commence par une ^3131FFBénédiction^000000 qui apaise votre esprit.";
 			next;
-			mes "[Priest Dayan]";
-			mes "The 2nd is the ^3131FFway of agony^000000.";
-			mes "Through the way of agony, we reflect on ourselves with confession about our retribution for the deeds of a former life.";
+			mes "[Prêtre Dayan]";
+			mes "La 2e voie est la ^3131FFvoie de l'agonie^000000.";
+			mes "À travers la voie de l'agonie, nous nous réfléchissons avec confession sur notre rétribution pour les actes d'une vie antérieure.";
 			next;
-			mes "[Priest Dayan]";
-			mes "Don't be afraid of pain. That is a necessity and will be a first step to enter a way to liquidate past wounds.";
+			mes "[Prêtre Dayan]";
+			mes "N'ayez pas peur de la douleur. C'est une nécessité et sera la première étape pour entrer dans une voie pour liquider les blessures du passé.";
 			next;
-			mes "[Priest Dayan]";
-			mes "The 3rd way is the ^3131FFway of joy^000000.";
-			mes "As you rid yourself of pain, your mind will suffer less and you will experience the joy of life as you help and console others.";
+			mes "[Prêtre Dayan]";
+			mes "La 3e voie est la ^3131FFvoie de la joie^000000.";
+			mes "À mesure que vous vous débarrasserez de la douleur, votre esprit souffrira moins et vous éprouverez la joie de vivre en aidant et en consolant les autres.";
 			next;
-			mes "[Priest Dayan]";
-			mes "They will bless you because you are an existence of joy overcoming an affliction. We call that ^3131FFAspersio^000000.";
-			mes "You must drink a ^3131FFHoly Water^000000 with appreciation of Aspersio.";
+			mes "[Prêtre Dayan]";
+			mes "Ils vous béniront parce que vous êtes une existence de joie surmontant une affliction. Nous appelons cela ^3131FFAspersio^000000.";
+			mes "Vous devez boire de l'^3131FFEau Sainte^000000 avec gratitude pour Aspersio.";
 			next;
-			mes "[Priest Dayan]";
-			mes "The last way is the ^3131FFway of light^000000.";
-			mes "You are free from all sin because you were blessed from all creation.";
+			mes "[Prêtre Dayan]";
+			mes "La dernière voie est la ^3131FFvoie de la lumière^000000.";
+			mes "Vous êtes libéré de tout péché car vous avez été béni dès la création.";
 			next;
-			mes "[Priest Dayan]";
-			mes "You were reborn as light, sing a ^3131FFGloria^000000 of joy and soul that loves you.";
+			mes "[Prêtre Dayan]";
+			mes "Vous êtes né à nouveau comme la lumière, chantez un ^3131FFGloria^000000 de joie et d'âme qui vous aime.";
 			next;
-			mes "[Priest Dayan]";
-			mes "After finishing all of these prayers, just stand up with a pious mind.";
-			mes "If your prayer is truthful, Odin will lend you his wisdom.";
+			mes "[Prêtre Dayan]";
+			mes "Après avoir accompli toutes ces prières, levez-vous simplement avec un esprit pieux.";
+			mes "Si votre prière est sincère, Odin vous prêtera sa sagesse.";
 			next;
-			mes "[Priest Dayan]";
-			mes "Are you ready?";
-			mes "Okay, it's time to leave and exculpate yourself.";
-			mes "If your prayer is finished, let's talk.";
+			mes "[Prêtre Dayan]";
+			mes "Êtes-vous prêt ?";
+			mes "D'accord, il est temps de partir et de vous exonérer.";
+			mes "Si votre prière est terminée, parlons.";
 			close;
 		case 2:
-			mes "[Priest Dayan]";
-			mes "I hope that my prayer can weaken your agony...";
+			mes "[Prêtre Dayan]";
+			mes "J'espère que ma prière pourra atténuer votre agonie...";
 			close;
 		}
 	} else if (job_arch == 3) {
-		mes "[Priest Dayan]";
-		mes "Oh, you've come back.";
-		mes "I can feel that you have a fresh energy.";
-		mes "Maybe you did pray truthfully.";
+		mes "[Prêtre Dayan]";
+		mes "Oh, vous êtes revenu.";
+		mes "Je sens que vous avez une nouvelle énergie.";
+		mes "Peut-être avez-vous prié sincèrement.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "I feel light-hearted. Like I was just reborn...";
+		mes "Je me sens léger. Comme si je venais de renaître...";
 		next;
-		mes "[Priest Dayan]";
-		mes "Your faith gives you confidence and courage.";
-		mes "A smile from a peaceful mind will easily rid people of their wariness.";
-		mes "Please, inspire people with love and energy.";
-		next;
-		mes "[" + strcharinfo(0) + "]";
-		mes "Thanks for your kind words.";
-		next;
-		mes "[Priest Dayan]";
-		mes Sex?"Brother.":"Sister.";
-		mes "Now, there is a place you should go to.";
-		next;
-		mes "[Priest Dayan]";
-		mes "That place is Hugel in Schwarzwald.";
-		mes "There is a Nun praying there named Vinue,";
-		mes "she is a true minister who prays for the suffering people in the world.";
-		mes "But the last time I saw her she seemed sad.";
-		next;
-		mes "[Priest Dayan]";
-		mes "Can you convince her to make a pilgrimage to Yggdrasil?";
-		mes "I think she is exhausted due to praying too much.";
-		mes "I hope the air of Yggdrasil will be helpful to her.";
+		mes "[Prêtre Dayan]";
+		mes "Votre foi vous donne confiance et courage.";
+		mes "Un sourire venant d'un esprit paisible débarrassera facilement les gens de leur méfiance.";
+		mes "S'il vous plaît, inspirez les gens avec amour et énergie.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Don't worry.";
-		mes "I'll go and meet her.";
+		mes "Merci pour vos gentilles paroles.";
 		next;
-		mes "[Priest Dayan]";
-		mes "Thank you very much.";
-		mes "Feel free to visit here when you want to pray, "+(Sex == SEX_MALE?"brother.":"sister.");
-		mes "A visit from a friend always makes me happy.";
+		mes "[Prêtre Dayan]";
+		mes Sex?"Frère.":"Sœur.";
+		mes "Maintenant, il y a un endroit où vous devriez aller.";
+		next;
+		mes "[Prêtre Dayan]";
+		mes "Cet endroit est Hugel dans Schwarzwald.";
+		mes "Il y a une Nonne qui prie là-bas nommée Vinue,";
+		mes "c'est une véritable ministre qui prie pour les personnes souffrantes dans le monde.";
+		mes "Mais la dernière fois que je l'ai vue, elle semblait triste.";
+		next;
+		mes "[Prêtre Dayan]";
+		mes "Pouvez-vous la convaincre de faire un pèlerinage à Yggdrasil ?";
+		mes "Je pense qu'elle est épuisée à force de prier trop.";
+		mes "J'espère que l'air d'Yggdrasil lui sera utile.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "Ne vous inquiétez pas.";
+		mes "J'irai la voir et la rencontrer.";
+		next;
+		mes "[Prêtre Dayan]";
+		mes "Merci beaucoup.";
+		mes "N'hésitez pas à venir ici quand vous voulez prier, "+(Sex == SEX_MALE?"frère.":"sœur.");
+		mes "Une visite d'un ami me rend toujours heureux.";
 		set job_arch,4;
 		changequest 2188,2189;
 		close;
 	}
 	mes "[Dayan]";
-	mes "Did you find Vinue in Hugel? How's she doing?";
+	mes "Avez-vous trouvé Vinue à Hugel ? Comment va-t-elle ?";
 	close;
 }
 
@@ -427,72 +427,72 @@ yggdrasil01,220,47,0	script	#arch_pilgrimage	139,5,5,{
 OnTouch:
 	if (job_arch == 2) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Is it the spring of Hvergelmir.";
-		mes "This place is a very vivid and peaceful place.";
-		mes "It's proper to pray.";
+		mes "Est-ce la source de Hvergelmir ?";
+		mes "Cet endroit est très vivant et paisible.";
+		mes "Il est approprié de prier.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Time to genuflect...";
-		mes "Time to start...";
-		mes "Hmm, what did that priest say to me?";
+		mes "Le moment de fléchir les genoux...";
+		mes "Le moment de commencer...";
+		mes "Hmm, que m'a dit ce prêtre ?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Hmm... What is the first way?";
+		mes "Hmm... Quelle est la première voie ?";
 		next;
-		switch(select("The way of silence.:The way of confession.:The way of meditation.")) {
+		switch(select("La voie du silence.:La voie de la confession.:La voie de la méditation.")) {
 		case 1:
 			mes "[" + strcharinfo(0) + "]";
-			mes "The way of silence...?";
-			mes "I don't think so.";
+			mes "La voie du silence... ?";
+			mes "Je ne pense pas.";
 			close;
 		case 2:
 			mes "[" + strcharinfo(0) + "]";
-			mes "The way of confession...?";
-			mes "I don't think so.";
+			mes "La voie de la confession... ?";
+			mes "Je ne pense pas.";
 			close;
 		case 3:
 			mes "[" + strcharinfo(0) + "]";
-			mes "The way of meditation...?";
-			mes "Yes, it's the way of meditation.";
+			mes "La voie de la méditation... ?";
+			mes "Oui, c'est la voie de la méditation.";
 			next;
 		}
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFThe 1st way is the way of meditation.^000000";
-		mes "^3131FFIn the way of meditation, we have to be ready to greet Odin with a clear conscience.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFLa 1ère voie est la voie de la méditation.^000000";
+		mes "^3131FFDans la voie de la méditation, nous devons être prêts à saluer Odin avec une conscience claire.^000000";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFMeditation starts with a Blessing which calms your mind down.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFLa méditation commence par une Bénédiction qui apaise votre esprit.^000000";
 		next;
-		mes "- You close your eyes slowly and take a deep breath. -";
+		mes "- Vous fermez lentement les yeux et prenez une profonde respiration. -";
 		next;
-		mes "- * BLESSING! * -";
+		mes "- * BÉNÉDICTION ! * -";
 		specialeffect2 EF_BLESSING;
 		next;
-		mes "Your mind is refreshed with the blessing effect.";
-		mes "You continue to meditate trying to rid your mind of any ill feelings.";
+		mes "Votre esprit est rafraîchi par l'effet de la bénédiction.";
+		mes "Vous continuez à méditer en essayant de vous débarrasser de tout sentiment négatif.";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFThe 2nd is the way of agony^000000.";
-		mes "^3131FFThrough the way of agony, we reflect on ourselves with confession about our retribution for the deeds of a former life.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFLa 2e voie est la voie de l'agonie.^000000";
+		mes "^3131FFÀ travers la voie de l'agonie, nous nous réfléchissons sur nous-mêmes en confessant nos fautes passées.^000000";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFDon't be afraid of pain. That is a necessity and will be a first step to enter a way to liquidate past wounds.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFN'ayez pas peur de la douleur. C'est une nécessité et sera la première étape pour entrer dans une voie pour liquider les blessures du passé.^000000";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Pain... What kind of faults have I had?";
+		mes "La douleur... Quel genre de fautes ai-je commises ?";
 		input .@inputstr$;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "I confess my guilt to the Almighty God Odin.";
+		mes "Je confesse ma culpabilité au Tout-Puissant Dieu Odin.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
 		mes "^3131FF" + .@inputstr$ + ".^000000";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Oh benevolent Odin, Take mercy on me and pity me because I'm remiss in the discharge of my duties as a minister.";
-		mes "Please, lead the way and save a foolish minister with your wisdom.";
+		mes "Ô Odin bienveillant, prends pitié de moi car je suis négligent dans l'accomplissement de mes devoirs de ministre.";
+		mes "S'il te plaît, guide-moi et sauve un ministre insensé avec ta sagesse.";
 		next;
-		mes "You ruminate about your confession and are lost in thought again.";
+		mes "Vous méditez sur votre confession et êtes perdu dans vos pensées à nouveau.";
 		next;
 		mes ".............................";
 		next;
@@ -503,23 +503,23 @@ OnTouch:
 		mes ".........................";
 		mes ".....................";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFThe 3rd way is the way of joy.^000000";
-		mes "^3131FFAs you rid yourself of pain, your mind will suffer less and you will experience the joy of life as you help and console others.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFLa 3e voie est la voie de la joie.^000000";
+		mes "^3131FFÀ mesure que vous vous débarrasserez de la douleur, votre esprit souffrira moins et vous éprouverez la joie de vivre en aidant et en consolant les autres.^000000";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFAnd also they will bless you because you are an existence of joy overcoming an affliction. We call that Aspersio^000000.";
-		mes "^3131FFYou must drink a Holy Water with appreciation of Aspersio.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFEt aussi, ils vous béniront car vous êtes une existence de joie qui surmonte l'affliction. Nous appelons cela Aspersio^000000.";
+		mes "^3131FFVous devez boire une Eau Sainte avec gratitude pour Aspersio.^000000";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFYou're drinking the Holy Water.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFVous buvez l'Eau Sainte.^000000";
 		next;
 		if (countitem(523) == 0) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Oh no! I forgot to bring a Holy Water!";
+			mes "Oh non ! J'ai oublié d'apporter de l'Eau Sainte !";
 			close;
 		}
-		mes "- You bow respectfully holding up a Holy Water and put the glass to your lips. -";
+		mes "- Vous vous inclinez respectueusement en tenant une Eau Sainte et portez le verre à vos lèvres. -";
 		next;
 		mes "- * ASPERSIO ! * -";
 		specialeffect2 EF_ASPERSIO;
@@ -534,47 +534,47 @@ OnTouch:
 		mes ".........................";
 		mes ".....................";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFThe last way is a way of light^000000.^000000.";
-		mes "^3131FFYou are free from all sin because you were blessed from all creation.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFLa dernière voie est la voie de la lumière.^000000";
+		mes "^3131FFVous êtes libéré de tout péché car vous avez été béni dès la création.^000000";
 		next;
-		mes "^3131FF[Priest Dayan]^000000";
-		mes "^3131FFYou were reborn as light, sing a Gloria of joy and soul that love you.^000000";
+		mes "^3131FF[Prêtre Dayan]^000000";
+		mes "^3131FFVous êtes né à nouveau comme la lumière, chantez un Gloria de joie et d'âme qui vous aime.^000000";
 		next;
-		mes "- You breath in deep and start to sing a Gloria.";
-		mes "A chord crashes out in the spring of Hvergelmir and a waterfall sound gives you a refreshing feeling. -";
+		mes "- Vous inspirez profondément et commencez à chanter un Gloria.";
+		mes "Un accord résonne dans la source de Hvergelmir et le bruit d'une cascade vous procure une sensation rafraîchissante. -";
 		specialeffect2 EF_GLORIA;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "~Descendants of Heimdal gather under the Ash tree Yggdrasil.~";
-		mes "~The Curdan bird which sits on a branch brings me the wisdom of whole world.~";
+		mes "~Descendants d'Heimdal, rassemblez-vous sous l'Arbre Yggdrasil.~";
+		mes "~L'oiseau Curdan assis sur une branche m'apporte la sagesse du monde entier.~";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "~The Curdan wolf protects me from all threats in the world.~";
+		mes "~Le loup Curdan me protège de toutes les menaces du monde.~";
 		specialeffect2 EF_GLORIA;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "~The host of ballascalf, rise up from your seat. The whole world shouts for joy.~";
-		mes "~The father of light, the poet of wisdom, sing for me.~";
+		mes "~L'armée de ballascalf, levez-vous de votre siège. Le monde entier crie de joie.~";
+		mes "~Le père de la lumière, le poète de la sagesse, chante pour moi.~";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "~The host of a glittering glass, give me a holy prediction.~";
+		mes "~L'armée de verre scintillant, donnez-moi une sainte prédiction.~";
 		specialeffect2 EF_GLORIA;
 		next;
-		mes "- After you finish the song, you feel light and strong with abundant devotion. -";
+		mes "- Après avoir terminé la chanson, vous vous sentez léger et fort, empli de dévotion. -";
 		specialeffect2 EF_BLESSING;
 		specialeffect2 EF_RESURRECTION;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "That was refreshing.";
-		mes "I guess I should go back to Priest Dayan.";
+		mes "C'était rafraîchissant.";
+		mes "Je suppose que je devrais retourner voir le Prêtre Dayan.";
 		set job_arch,3;
 		close2;
 		warp "umbala",138,219;
 		end;
 	} else if (job_arch == 3) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "The song is over. It's time to go back to Priest Dayan.";
+		mes "La chanson est terminée. Il est temps de retourner voir le Prêtre Dayan.";
 		close2;
 		warp "umbala",138,219;
 		end;
@@ -584,150 +584,150 @@ OnTouch:
 
 hu_in01,205,204,7	script	Praying Nun#benew	79,{
 	if (job_arch == 4) {
-		mes "- There is a nun closing her eyes as she murmurs something which sounds like a prayer. -";
+		mes "- Il y a une nonne qui ferme les yeux en murmurant quelque chose qui ressemble à une prière. -";
 		next;
-		if(select("Talk to her.:Stay Quiet.") == 2) {
-			mes "- You don't feel like disturbing her -";
+		if (select("Lui parler.:Rester silencieux.") == 2) {
+			mes "- Vous n'avez pas envie de la déranger -";
 			close;
 		}
 		mes "[" + strcharinfo(0) + "]";
-		mes "Umm, hello sister?";
+		mes "Um, bonjour sœur ?";
 		next;
 		mes "[Vinue]";
-		mes "Ah, Welcome.";
-		mes "It's not time to have a service yet...";
-		mes "Are you here to pray, "+(Sex == SEX_MALE?"brother":"sister")+"?";
+		mes "Ah, bienvenue.";
+		mes "Ce n'est pas encore l'heure de la messe...";
+		mes "Êtes-vous ici pour prier, "+(Sex == SEX_MALE?"frère":"sœur")+" ?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "I came here to say hello from Priest Dayan from Prontera.";
+		mes "Je suis venu ici pour vous saluer de la part du Prêtre Dayan de Prontera.";
 		next;
 		mes "[Vinue]";
-		mes "Ah, Priest Dayan.";
-		mes "Is he good?";
-		mes "He is so cute even though he's old.";
+		mes "Ah, le Prêtre Dayan.";
+		mes "Il va bien ?";
+		mes "Il est si mignon même s'il est vieux.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "He told me that he was worried because when he saw you last time, you seemed sad.";
-		mes "He asks you to go on a Holy Pilgrimage.";
+		mes "Il m'a dit qu'il s'inquiétait car la dernière fois qu'il vous a vue, vous aviez l'air triste.";
+		mes "Il vous demande de partir en Pèlerinage Sacré.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Umbala has the vital power of nature!";
+		mes "Umbala a le pouvoir vital de la nature !";
 		next;
 		mes "[Vinue]";
 		mes "Ah...";
-		mes "He's very kind. As are you "+(Sex == SEX_MALE?"brother":"sister")+".";
+		mes "Il est très gentil. Tout comme vous, "+(Sex == SEX_MALE?"frère":"sœur")+".";
 		next;
 		mes "[Vinue]";
-		mes "But don't worry.";
-		mes "I'm just a little tired because of a bad dream.";
+		mes "Mais ne vous inquiétez pas.";
+		mes "Je suis juste un peu fatiguée à cause d'un mauvais rêve.";
 		next;
 		mes "[Vinue]";
-		mes "Evil is always watching for our souls.";
-		mes "If you are indifferent to praying, it never misses an opportunity.";
+		mes "Le mal veille toujours sur nos âmes.";
+		mes "Si vous êtes indifférent à la prière, il ne manque jamais une opportunité.";
 		next;
-		if(select("A dream? What kind of dream?:Your soul should be fine.") == 2) {
+		if (select("Un rêve ? Quel genre de rêve ?:Votre âme devrait être bien.") == 2) {
 			mes "[Vinue]";
-			mes "Oh but that's where you're wrong.";
-			mes "My soul may be the most at risk.";
-			mes "Thank you for delivering the message.";
-			mes "I'll go back to my prayers.";
+			mes "Oh, mais c'est là que vous vous trompez.";
+			mes "Mon âme peut être la plus en danger.";
+			mes "Merci d'avoir transmis le message.";
+			mes "Je vais retourner à ma prière.";
 			close;
 		}
 		mes "[Vinue]";
-		mes "That is...";
-		mes "Actually I started to have a bad dream from the date I was appointed.";
+		mes "C'est que...";
+		mes "En fait, j'ai commencé à faire un mauvais rêve depuis la date où j'ai été nommée.";
 		next;
 		mes "[Vinue]";
-		mes "At first, it was a dream that Valkyrie was sad and in darkness.";
+		mes "Au début, c'était un rêve où la Valkyrie était triste et dans l'obscurité.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Valkyrie?";
+		mes "Valkyrie ?";
 		next;
 		mes "[Vinue]";
-		mes "Yeah...";
-		mes "She was crying in a pitch-black room.";
-		mes "Hanging down like a bird that had its wings cut.";
+		mes "Oui...";
+		mes "Elle pleurait dans une pièce complètement noire.";
+		mes "Pendant que sa descente ressemblait à celle d'un oiseau à qui on avait coupé les ailes.";
 		next;
 		mes "[Vinue]";
-		mes "But, as time went by, the dream became scarier. Now Valkyrie is arrested with chains and then finally she is dashed to pieces.";
+		mes "Mais, avec le temps, le rêve est devenu de plus en plus effrayant. Maintenant, la Valkyrie est enchaînée et finalement elle est réduite en morceaux.";
 		next;
 		mes "[Vinue]";
-		mes "What a cruel performance! I suddenly can't breathe properly and then I wake up.";
+		mes "Quelle cruelle mise en scène ! Soudain, je ne peux plus respirer correctement, puis je me réveille.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "To have to see the death of Valkyrie, must be a tormenting dream.";
+		mes "Devoir assister à la mort de la Valkyrie doit être un rêve éprouvant.";
 		next;
 		mes "[Vinue]";
-		mes "Is it just a nightmare?";
-		mes "Or do you think it is an omen?";
+		mes "Est-ce juste un cauchemar ?";
+		mes "Ou pensez-vous que c'est un présage ?";
 		next;
 		mes "[Vinue]";
-		mes "I've been wanting to pray at Odin's shrine to make the dream go away. But that shrine became a den of evil a long time ago.";
+		mes "J'ai voulu prier au sanctuaire d'Odin pour chasser ce rêve. Mais ce sanctuaire est devenu un repaire du mal il y a bien longtemps.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "The shrine?";
-		mes "Nobody tried to subdue the evil?";
+		mes "Le sanctuaire ?";
+		mes "Personne n'a essayé de vaincre le mal ?";
 		next;
 		mes "[Vinue]";
-		mes "Unfortunately, I'm a nun who doesn't have any exorcism skill...";
-		mes "Residents of Hugel just stood aghast of the sight because they are not familiar with adventure.";
+		mes "Malheureusement, je suis une nonne qui n'a aucune compétence en exorcisme...";
+		mes "Les habitants de Hugel étaient simplement horrifiés par la vue car ils ne sont pas familiers avec l'aventure.";
 		next;
 		mes "[Vinue]";
-		mes "These days, there are a lot of people because of the development of the Odin shrine, but their situation is not so good.";
+		mes "De nos jours, il y a beaucoup de gens en raison du développement du sanctuaire d'Odin, mais leur situation n'est pas si bonne.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Is the dream related with the evil in the Odin shrine?";
+		mes "Le rêve est-il lié au mal dans le sanctuaire d'Odin ?";
 		next;
 		mes "[Vinue]";
-		mes "Hum... well.";
-		mes "I don't have any way to find out.";
-		mes "I don't have a method, so I just pray.";
+		mes "Hum... eh bien.";
+		mes "Je n'ai aucun moyen de le savoir.";
+		mes "Je n'ai pas de méthode, alors je prie simplement.";
 		next;
-		if(select("I'll investgate for you.:I'll pray with you.") == 2) {
+		if (select("Je vais enquêter pour vous.:Je vais prier avec vous.") == 2) {
 			mes "[Vinue]";
-			mes "Thank you.";
-			mes "I'll pray that the darkness stays away.";
-			mes "I hope you have a good time with the festival here in Hugel.";
+			mes "Merci.";
+			mes "Je vais prier pour que les ténèbres restent à distance.";
+			mes "J'espère que vous passerez un bon moment avec la fête ici à Hugel.";
 			close;
 		}
 		mes "[Vinue]";
-		mes "Yeah?";
-		mes "But, it'll be scary inside!";
-		mes "There are lots of devils inside!";
+		mes "Vraiment ?";
+		mes "Mais, l'intérieur sera effrayant !";
+		mes "Il y a beaucoup de démons à l'intérieur !";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "But I can't pretend to ignore a Sister who is in trouble?";
-		mes "I'm a minister who copes with lots of asceticism!";
-		mes "Entrust me.";
+		mes "Mais je ne peux pas faire semblant d'ignorer une Sœur en difficulté ?";
+		mes "Je suis un ministre qui fait face à beaucoup d'ascèse !";
+		mes "Confiez-moi.";
 		next;
 		mes "[Vinue]";
-		mes "Ah... I'm so worried....";
-		mes "I'll never forget your warm heart.";
+		mes "Ah... J'ai tellement peur...";
+		mes "Je n'oublierai jamais votre cœur chaleureux.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "How do I get to Odin shrine?";
+		mes "Comment puis-je me rendre au sanctuaire d'Odin ?";
 		next;
 		mes "[Vinue]";
-		mes "There is a ferry on the right side of the church.";
+		mes "Il y a un ferry sur le côté droit de l'église.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Ok, wait for good news!";
+		mes "D'accord, attendez de bonnes nouvelles !";
 		next;
 		mes "[Vinue]";
-		mes "I'll pray for your safe return.";
-		mes "I hope that Odin gives you his protection as well.";
+		mes "Je vais prier pour votre retour en toute sécurité.";
+		mes "J'espère qu'Odin vous protégera également.";
 		set job_arch,5;
 		changequest 2189,2190;
 		close;
 	} else if ((job_arch > 4) && (job_arch < 100)) {
 		mes "[Vinue]";
-		mes "I'll pray for your safe return.";
+		mes "Je vais prier pour votre retour en toute sécurité.";
 		close;
 	}
 	mes "[Vinue]";
-	mes "I feel refreshed.";
-	mes "It must be good news?";
-	mes "Thank the Gods.";
+	mes "Je me sens rafraîchie.";
+	mes "C'est sûrement une bonne nouvelle ?";
+	mes "Remerciez les Dieux.";
 	close;
 }
 
@@ -740,18 +740,18 @@ OnTouch:
 
 odin_tem02,281,275,3	script	Valkyrie Illusion#arch	403,{
 	if ((job_arch > 4) && (job_arch < 100)) {
-		mes "You can see Valkyrie who has a despairing face.";
+		mes "Vous pouvez voir la Valkyrie qui a un visage désespéré.";
 		next;
-		switch(select("Touch Valkyrie's Illusion.:Turn away.")) {
+		switch(select("Toucher l'illusion de Valkyrie : Détourner le regard.")) {
 		case 1:
-			mes "You lose your consciousness while getting a closer view of Valkyrie's Illusion.";
+			mes "Vous perdez conscience en vous approchant de l'illusion de la Valkyrie.";
 			close2;
 			specialeffect2 EF_CLOAKING;
 			warp "job3_arch01",29,29;
 			hideonnpc "Valkyrie Illusion#arch";
 			end;
 		case 2:
-			mes "Out of fear, you turn away from Valkyrie's illusion.";
+			mes "De peur, vous détournez le regard de l'illusion de la Valkyrie.";
 			close2;
 			hideonnpc "Valkyrie Illusion#arch";
 			end;
@@ -764,227 +764,227 @@ OnInit:
 }
 
 job3_arch01,29,34,3	script	Valkyrie#arch	403,{
-	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
-		mes "- Wait a Sec !! -";
-		mes "- You are carrying too many items, -";
-		mes "- you won't be able to obtain any new items. -";
-		mes "- Please take off some items -";
-		mes "- and come for the challenge again. -";
+	if (checkweight(1201, 1) == 0 || (MaxWeight - Weight) < 2000) {
+		mes "- Attendez une seconde ! -";
+		mes "- Vous portez trop d'objets, -";
+		mes "- vous ne pourrez pas obtenir de nouveaux objets. -";
+		mes "- Veuillez enlever quelques objets -";
+		mes "- et revenez pour relever le défi. -";
 		close;
 	}
 	if ((BaseLevel != 99) || (JobLevel < 50) || (BaseJob != Job_Priest)) {
-		warp "odin_tem02",282,263;
+		warp "odin_tem02", 282, 263;
 		end;
 	}
 	if (getmercinfo(1)) {
 		mes "[Valkyrie]";
-		mes "If you want to talk with me, you have to ^3131FFcancel all contracts^000000 with any mercenaries you have.";
+		mes "Si vous voulez parler avec moi, vous devez ^3131FFrésilier tous les contrats^000000 avec vos mercenaires.";
 		close;
 	}
 	if (SkillPoint) {
-		mes "You can't progress without using all your skill points. Please use all of your skill points before progressing~";
+		mes "Vous ne pouvez pas progresser sans utiliser tous vos points de compétence. Veuillez utiliser tous vos points de compétence avant de continuer~";
 		close;
 	}
 	if (Class != Job_Priest && Class != Job_High_Priest && Class != Job_Baby_Priest) {
-		warp "odin_tem02",282,263;
+		warp "odin_tem02", 282, 263;
 		end;
 	} else if (Class != Job_Arch_Bishop && Class != Job_Arch_Bishop_T && Class != Job_Baby_Arch_Bishop) {
 		if (job_arch < 5) {
-			warp "odin_tem02",282,263;
+			warp "odin_tem02", 282, 263;
 			end;
 		} else if (job_arch == 5) {
 			mes "[Valkyrie]";
-			mes "In the heavens the sound of pipes spread out, but a bird that can't fly crawls and finally is crushed to pieces on the ground.";
-			mes "Ah, I'm resentful! so regretful!";
+			mes "Dans les cieux, le son des flûtes se répand, mais un oiseau qui ne peut pas voler rampe et finit par être réduit en morceaux sur le sol.";
+			mes "Ah, je ressens de la rancune ! Tellement de regrets !";
 			next;
-			mes "- Valkyrie holds its face, then she finds you and stares with a threatening face. -";
+			mes "- Valkyrie se tient la tête, puis elle vous repère et vous fixe du regard d'un air menaçant. -";
 			next;
 			mes "[Valkyrie]";
-			mes "You are a descendant of Heimdal living in pain as a mortal, why are you in here?";
-			mes "Are you here to ridicule my grim fate?";
+			mes "Toi, descendant d'Heimdal vivant dans la douleur en tant que mortel, pourquoi es-tu ici ?";
+			mes "Es-tu ici pour te moquer de mon destin funeste ?";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "No way!";
-			mes "But it's true that I'm here for you.";
+			mes "Absolument pas !";
+			mes "Mais c'est vrai que je suis ici pour toi.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "...me?";
-			mes "Of course I'm staying in Midgard, but we are under the yoke of fate that can't coexist in this world.";
+			mes "...moi ?";
+			mes "Bien sûr, je suis restée à Midgard, mais nous sommes sous le joug du destin et ne pouvons pas coexister dans ce monde.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "I see, is your goal to enter Valhalla?";
-			mes "If you do, it's the wrong place for you.";
+			mes "Je vois, ton but est-il d'entrer à Valhalla ?";
+			mes "Si c'est le cas, tu es au mauvais endroit.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "I was already expelled from Asgard.";
-			mes "My duty is protecting this small island from humans trying to take it from the Gods and even I don't have any energy to do so.";
+			mes "J'ai déjà été expulsée d'Asgard.";
+			mes "Ma mission est de protéger cette petite île des humains qui essaient de la prendre aux dieux, mais je n'ai même pas l'énergie pour le faire.";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "It's not that kind of problem.";
-			mes "But someone who perceives your painful situation has sent me here.";
+			mes "Ce n'est pas ce genre de problème.";
+			mes "Mais quelqu'un qui comprend ta situation douloureuse m'a envoyé ici.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "Haha! You are going to help me?!";
+			mes "Haha ! Tu viens m'aider ?!";
 			next;
 			mes "[Valkyrie Anguhilde]";
 			mes "...................";
 			next;
-			mes "- Valkyrie gives you a fierce scowl. -";
+			mes "- Valkyrie vous lance un regard féroce. -";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "In fact, I can't do anything with my body now.";
+			mes "En fait, je ne peux rien faire avec mon corps maintenant.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "Human, answer me. Are you here to sincerely help me?";
+			mes "Humain, réponds-moi. Es-tu ici pour m'aider sincèrement ?";
 			next;
-			if(select("Yes:No") == 2) {
+			if (select("Oui:Non") == 2) {
 				mes "[Valkyrie Anguhilde]";
-				mes "I knew that I couldn't trust a human!";
+				mes "Je savais que je ne pouvais pas faire confiance à un humain !";
 				close2;
-				warp "odin_tem02",282,263;
+				warp "odin_tem02", 282, 263;
 				end;
 			}
 			mes "[Valkyrie Anguhilde]";
-			mes "Ok...";
-			mes "I don't have any energy to hold my own, so I have no choice but to trust you.";
+			mes "D'accord...";
+			mes "Je n'ai plus d'énergie pour me soutenir, alors je n'ai pas d'autre choix que de te faire confiance.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "I was a normal Valkyrie that lead soldiers to Valhalla according to the order of Odin.";
+			mes "J'étais une Valkyrie normale qui conduisait les soldats à Valhalla selon l'ordre d'Odin.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "But I harmed Freki, one of Odin's wolves, and I was expelled form Asgard without any energy as a Valkyrie with orders to protect this island.";
+			mes "Mais j'ai blessé Freki, l'un des loups d'Odin, et j'ai été expulsée d'Asgard sans aucune énergie en tant que Valkyrie chargée de protéger cette île.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "I was disgraced, this island is important as a temple for Odin and the various Gods.";
-			mes "I tried to do my best to protect this holy place.";
+			mes "J'ai été déshonorée, cette île est importante en tant que temple pour Odin et les divers dieux.";
+			mes "J'ai essayé de faire de mon mieux pour protéger ce lieu saint.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "But one day, the devil started to gain influence on this island.";
-			mes "I don't know why they came here and from where they came from.";
+			mes "Mais un jour, le diable a commencé à gagner de l'influence sur cette île.";
+			mes "Je ne sais pas pourquoi ils sont venus ici et d'où ils viennent.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "They sieged the temple and I exhausted my energy trying to fight them all myself.";
+			mes "Ils ont assiégé le temple et j'ai épuisé mon énergie en essayant de les combattre seule.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "The holy shrine was tainted by the devils.";
-			mes "How long do I have to be under this dishonorable fate!";
+			mes "Le sanctuaire sacré a été souillé par les démons.";
+			mes "Combien de temps dois-je subir ce destin déshonorant !";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "Mortal one, what is your name?";
+			mes "Humain, comment t'appelles-tu ?";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "My name is " + strcharinfo(0) + ".";
+			mes "Je m'appelle " + strcharinfo(0) + ".";
 			next;
 			mes "[Valkyrie Anguhilde]";
 			mes "" + strcharinfo(0) + ",";
-			mes "You told me that you want to help me, right? Even though it disgraces me, I am asking for your help.";
+			mes "Tu m'as dit que tu voulais m'aider, n'est-ce pas ? Même si cela me déshonore, je te demande de l'aide.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "This place may look like it was made my humans. Actually, it's a very important monument and also a part of the God's history.";
+			mes "Cet endroit peut sembler avoir été créé par des humains. En réalité, c'est un monument très important et aussi une partie de l'histoire des dieux.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "I've lost all of my energy and my body is sealed so there is no way for me to protect the shrine.";
-			mes "You have to send a message to Valhalla to ask for help from a Valkyrie quickly.";
+			mes "J'ai perdu toute mon énergie et mon corps est scellé, alors je n'ai aucun moyen de protéger le sanctuaire.";
+			mes "Tu dois envoyer un message à Valhalla pour demander de l'aide à une Valkyrie rapidement.";
 			next;
-			select("How can I do that?");
+			select("Comment puis-je faire ça ?");
 			mes "[Valkyrie Anguhilde]";
-			mes "At the ^3131FFtop of the shrine^000000, You can contact to them with a ^3131FFGolden pipe^000000.";
-			next;
-			mes "[Valkyrie Anguhilde]";
-			mes "I'm going to give you a scroll of paper written in an ancient language.";
-			mes "In that scroll, there is my impersonation.";
-			mes "^3131FFIf you go outside, you can summon a Valkyrie with that scroll.^000000";
+			mes "Au sommet du sanctuaire, tu peux les contacter avec un ^3131FFtuyau doré^000000.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "After you summon my impersonation, you have to find a ^3131FFBroken pipe^000000.";
-			mes "Maybe it'll be spread in the shrine...";
+			mes "Je vais te donner un parchemin écrit dans une langue ancienne.";
+			mes "Dans ce parchemin, il y a mon impersonation.";
+			mes "^3131FFSi tu sors, tu pourras invoquer une Valkyrie avec ce parchemin.^000000";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "You have to go to the top of the shrine, collecting all broken pipes from the impersonation.";
-			mes "And then I'm going to take care of the matter.";
+			mes "Une fois que tu auras invoqué mon impersonation, tu devras trouver un ^3131FFtuyau brisé^000000.";
+			mes "Il pourrait être dispersé dans le sanctuaire...";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "An impersonation will help when you move or attack as you want through ^FF0000ALT+click^000000.";
-			mes "But you have to be careful if an imeprsonation falls down.";
+			mes "Tu devras monter au sommet du sanctuaire en collectant tous les tuyaux cassés de l'impersonation.";
+			mes "Ensuite, je m'occuperai de la situation.";
 			next;
 			mes "[Valkyrie Anguhilde]";
-			mes "When you finish preparing to go on, talk to me again.";
-			mes "It'll be a long journey...";
-			set job_arch,6;
+			mes "Une impersonation t'aidera lorsque tu bougeras ou attaqueras comme tu le souhaites en faisant un clic avec ^FF0000ALT^000000.";
+			mes "Mais tu devras faire attention si une impersonation tombe.";
+			next;
+			mes "[Valkyrie Anguhilde]";
+			mes "Lorsque tu auras terminé de te préparer, reparle-moi.";
+			mes "Ce sera un long voyage...";
+			set job_arch, 6;
 			close;
 		} else if (job_arch == 6) {
 			if ($@archbs == 0) {
-				set $@archbs,1;
+				set $@archbs, 1;
 				mes "[Valkyrie Anguhilde]";
-				mes "" + strcharinfo(0) + " Did you finish preparing for your way of asceticism?";
+				mes "" + strcharinfo(0) + " As-tu terminé de te préparer pour ton chemin d'ascèse ?";
 				next;
 				if (getmapusers("job3_arch02") > 0) {
 					mes "[Valkyrie Anguhilde]";
-					mes "Hmm, someone is battling the devil in the shrine right now.";
-					mes "You just wait a minute while I'm finding who it is.";
-					set $@archbs,0;
+					mes "Hmm, quelqu'un combat actuellement le diable dans le sanctuaire.";
+					mes "Attends un instant pendant que je découvre qui c'est.";
+					set $@archbs, 0;
 					close;
 				}
 				mes "[Valkyrie Anguhilde]";
-				mes "Ok. Now I'm going to send you there.";
-				mes "^FF0000When you go there, you have to summon my impersonation with the scroll^000000. Don't forget.";
-				set $@archbs,0;
+				mes "D'accord. Maintenant je vais t'envoyer là-bas.";
+				mes "^FF0000Quand tu iras là-bas, tu devras invoquer mon impersonation avec le parchemin^000000. N'oublie pas.";
+				set $@archbs, 0;
 				close2;
 				nude;
 				if (countitem(2798))
-					delitem 2798,countitem(2798); //Will_Of_Exhausted_Angel
+					delitem 2798, countitem(2798); //Will_Of_Exhausted_Angel
 				donpcevent "start#arch::OnEnable";
-				set job_arch,7;
-				changequest 2190,2191;
-				warp "job3_arch02",119,49;
+				set job_arch, 7;
+				changequest 2190, 2191;
+				warp "job3_arch02", 119, 49;
 				hideonnpc "Valkyrie#arch";
 				end;
 			}
 			mes "[Valkyrie Anguhilde]";
-			mes "I'm talking with another person now, so give me a second.";
+			mes "Je parle actuellement avec une autre personne, donne-moi une seconde.";
 			close;
 		} else if (job_arch == 7) {
-			if (countitem(12381)) delitem 12381,countitem(12381); //ValkyrieA_Scroll
-			if (countitem(12382)) delitem 12382,countitem(12382); //ValkyrieB_Scroll
+			if (countitem(12381)) delitem 12381, countitem(12381); //ValkyrieA_Scroll
+			if (countitem(12382)) delitem 12382, countitem(12382); //ValkyrieB_Scroll
 			if ($@archbs == 0) {
-				set $@archbs,1;
+				set $@archbs, 1;
 				mes "[Valkyrie Anguhilde]";
-				mes "Are you ok human?";
-				mes "It was not as easy as I expected.";
-				mes "Will you challenge again?";
+				mes "Es-tu en état, humain ?";
+				mes "Ce n'était pas aussi facile que je le pensais.";
+				mes "Veux-tu relever le défi à nouveau ?";
 				next;
 				if (getmapusers("job3_arch02") > 0) {
-					set $@archbs,0;
+					set $@archbs, 0;
 					mes "[Valkyrie Anguhilde]";
-					mes "Hmm, someone is battling the devil in the shrine right now.";
-					mes "You just wait a minute while I'm finding who it is.";
+					mes "Hmm, quelqu'un combat actuellement le diable dans le sanctuaire.";
+					mes "Attends un instant pendant que je découvre qui c'est.";
 					close;
 				}
-				set $@archbs,0;
+				set $@archbs, 0;
 				mes "[Valkyrie Anguhilde]";
-				mes "OK. now I'm going to send you there.";
-				mes "^FF0000When you go there, you have to summon my impersonation with the scroll^000000.";
-				mes "An impersonation will help when you move or attack as you want through ^FF0000ALT+click^000000.";
-				mes "But you have to be careful if an impersonation falls down.";
+				mes "D'accord. Maintenant je vais t'envoyer là-bas.";
+				mes "^FF0000Quand tu iras là-bas, tu devras invoquer mon impersonation avec le parchemin^000000.";
+				mes "Une impersonation t'aidera lorsque tu bougeras ou attaqueras comme tu le souhaites en faisant un clic avec ^FF0000ALT^000000.";
+				mes "Mais tu devras faire attention si une impersonation tombe.";
 				close2;
 				nude;
 				if (countitem(2798))
-					delitem 2798,countitem(2798); //Will_Of_Exhausted_Angel
+					delitem 2798, countitem(2798); //Will_Of_Exhausted_Angel
 				donpcevent "start#arch::OnEnable";
-				set job_arch,7;
-				warp "job3_arch02",119,49;
+				set job_arch, 7;
+				warp "job3_arch02", 119, 49;
 				hideonnpc "Valkyrie#arch";
 				end;
 			}
 			mes "[Valkyrie Anguhilde]";
-			mes "I'm talking with another person now, so give me a second.";
+			mes "Je parle actuellement avec une autre personne, donne-moi une seconde.";
 			close;
 		}
 	}
 	end;
 OnBc:
 	set $@archbs,0;
-	mapannounce "job3_arch01","Valkyrie: I think someone fell down in the shrine. I can hear the devil's unpleasant laugh.",bc_map,"0xFFCE00";
+	mapannounce "job3_arch01","Valkyrie : Je pense que quelqu'un est tombé dans le sanctuaire. J'entends le rire désagréable du diable.",bc_map,"0xFFCE00";
 	hideoffnpc "Valkyrie#arch";
 	end;
 }
@@ -993,7 +993,7 @@ job3_arch02,119,49,0	script	#arch_1_start	139,6,6,{
 OnTouch:
 	if (countitem(12381) == 0)
 		getitem 12381,1; //ValkyrieA_Scroll
-	mapannounce "job3_arch02","Whispering of an impersonation: I feel heavy! Set me free!",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02","Chuchotement d'une sans âmes : je me sens lourd ! Me libérer!",bc_map,"0xFFCE00";
 	disablenpc "#arch_1_start";
 	end;
 }
@@ -1008,12 +1008,12 @@ OnTouch:
 			viewpoint 1,113,327,1,0xFF9900;
 		set .@randht, rand(1,10);
 		if (.@randht < 8)
-			mapannounce "job3_arch02","Whispering of an impersonation: I can feel the devil's spirits! Be careful!",bc_map,"0xFFCE00";
+			mapannounce "job3_arch02","Chuchotement d'une sans âme: Je peux sentir les esprits du diable ! Sois prudent!",bc_map,"0xFFCE00";
 		else if ((.@randht == 8) || (.@randht == 9))
-			mapannounce "job3_arch02","Whispering of an impersonation: They are coming!",bc_map,"0xFFCE00";
+			mapannounce "job3_arch02","Chuchotement d'une sans âme: Ils arrivent!",bc_map,"0xFFCE00";
 		end;
 	}
-	mapannounce "job3_arch02","Whispering of an impersonation: You can't do anything by yourself! Let's go back!",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02","Chuchotement d'une sans âme : vous ne pouvez rien faire par vous-même !",bc_map,"0xFFCE00";
 	mapwarp "job3_arch02","job3_arch01",29,29;
 	end;
 }
@@ -1036,11 +1036,11 @@ OnTouch:
 		delitem 12381,1; //ValkyrieA_Scroll
 		// fall through
 	} else if (getmercinfo(1) == 2037) {
-		mapannounce "job3_arch02","Valkyrie's Nightmare: An incompetent illusion of Valkyrie came here with the assistance of humans. You wanna have that nightmare?",bc_map,"0xFF0000";
+		mapannounce "job3_arch02","Le Cauchemar de Valkyrie : Une illusion incompétente de Valkyrie est arrivée ici avec l'aide des humains. Tu veux faire ce cauchemar ?",bc_map,"0xFF0000";
 		donpcevent "mob#arch_1::OnKill";
 		end;
 	}
-	mapannounce "job3_arch02","Whispering of an impersonation: You can't do anything by yourself! Let's go back!",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02","Chuchotement d'une sans âme: Vous ne pouvez rien faire tout seul !!",bc_map,"0xFFCE00";
 	mapwarp "job3_arch02","job3_arch01",29,29;
 	end;
 }
@@ -1068,7 +1068,7 @@ OnEnable:
 OnMyMobDead:
 	if (mobcount("job3_arch02","#arch_val01::OnMyMobDead") < 1) {
 		donpcevent "#arch_redcell::OnGreen";
-		mapannounce "job3_arch02","Valkyrie's Nightmare: Your win is only a false image! hahahaha!",bc_map,"0xFF0000";
+		mapannounce "job3_arch02","Valkyrie's Nightmare : Votre victoire n'est qu'une fausse image ! hahahaha!",bc_map,"0xFF0000";
 		hideoffnpc "Valkyrie#arch_01";
 		disablenpc "#arch_1_start";
 		disablenpc "#arch_1_01";
@@ -1098,7 +1098,7 @@ OnEnable:
 	end;
 OnMyMobDead:
 	if (mobcount("job3_arch02","#arch_val02::OnMyMobDead") < 1) {
-		mapannounce "job3_arch02","Valkyrie's Nightmare: You are so childish. I invite you to a devil's party. I'll make sure you have a fun!",bc_map,"0xFF0000";
+		mapannounce "job3_arch02","Valkyrie's Nightmare: Vous êtes tellement enfantin. Je vous invite à une fête du diable. Je veillerai à ce que vous vous amusiez !",bc_map,"0xFF0000";
 		hideoffnpc "Valkyrie#arch_02";
 		disablenpc "#arch_2_boss";
 		viewpoint 1,279,234,1,0xFFFF99;
@@ -1112,33 +1112,33 @@ OnKill:
 job3_arch02,113,327,5	script	Valkyrie#arch_01	403,{
 	if (getmercinfo(1)) {
 		mes "[Valkyrie]";
-		mes "If you want to talk with me, you have to ^3131FFcancel all contracts^000000 with any mercenaries you have.";
+		mes "Si tu veux parler avec moi, tu dois ^3131FFannuler tous les contrats^000000 avec tous les mercenaires que tu as.";
 		close;
 	}
 	mes "[Valkyrie Anguhilde]";
-	mes "The devil always makes an effort to agitate people's mind.";
-	mes "You don't have to care about their whisperings.";
+	mes "Le diable fait toujours des efforts pour agiter l'esprit des gens.";
+	mes "Tu n'as pas à te soucier de leurs murmures.";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "Anyway I can feel my energy coming back.";
-	mes "Show me the stuff that you found.";
+	mes "De toute façon, je sens que mon énergie revient.";
+	mes "Montre-moi les objets que tu as trouvés.";
 	next;
-	mes "- You show a golden piece of pipe to Valkyrie. -";
-	next;
-	mes "[Valkyrie Anguhilde]";
-	mes "Oh, It's a piece of pipe!";
-	mes "If you collect pieces, you can ask other Valkyries for help.";
+	mes "- Tu montres un morceau de tuyau en or à Valkyrie. -";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "Because of a close battle, I could only get a little energy.";
-	mes "I'm going to give a ^3131FFnew ancient scroll^000000.";
-	mes "It'll be helpful to find the rest of pieces.";
+	mes "Oh, c'est un morceau de tuyau !";
+	mes "Si tu collectes des morceaux, tu pourras demander de l'aide à d'autres Valkyries.";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "Then I look forward to good news.";
+	mes "En raison d'un combat intense, j'ai pu récupérer un peu d'énergie.";
+	mes "Je vais te donner un ^3131FFnouveau parchemin ancien^000000.";
+	mes "Il te sera utile pour trouver le reste des morceaux.";
+	next;
+	mes "[Valkyrie Anguhilde]";
+	mes "Alors, je suis impatiente d'avoir de bonnes nouvelles.";
 	close2;
-	getitem 12382,1; //ValkyrieB_Scroll
-	viewpoint 1,244,46,1,0xFFFF99;
+	getitem 12382, 1; //ValkyrieB_Scroll
+	viewpoint 1, 244, 46, 1, 0xFFFF99;
 	hideonnpc "Valkyrie#arch_01";
 	donpcevent "#arch_2_start::OnEnable";
 	end;
@@ -1146,36 +1146,36 @@ job3_arch02,113,327,5	script	Valkyrie#arch_01	403,{
 
 job3_arch02,244,46,5	script	Valkyrie#arch_02	403,{
 	mes "[Valkyrie Anguhilde]";
-	mes "Did you find the rest of the pieces?";
+	mes "As-tu trouvé le reste des morceaux ?";
 	next;
 	if (countitem(6154) < 2) {
 		mes "[Valkyrie Anguhilde]";
-		mes "Hum?";
-		mes "I can see this one beside you.";
-		getitem 6154,2; //Broken_Horn_Pipe
+		mes "Hum ?";
+		mes "Je peux voir celui-ci à côté de toi.";
+		getitem 6154, 2; //Broken_Horn_Pipe
 		next;
 	}
 	mes "[Valkyrie Anguhilde]";
-	mes "OK.";
-	mes "I'll complete the broken horn pipe!";
+	mes "D'accord.";
+	mes "Je vais réparer le tuyau de corne cassé !";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "But the battle is not finished yet.";
-	mes "You remember a ^3131FFruined shrine on the center of the island^000000?";
-	mes "It'll be completed only when you use a horn pipe.";
+	mes "Mais la bataille n'est pas encore terminée.";
+	mes "Tu te souviens d'un ^3131FFsanctuaire en ruine au centre de l'île^000000 ?";
+	mes "Il ne sera achevé que lorsque tu utiliseras un tuyau de corne.";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "I can feel the air around me is getting impure.";
-	mes "And feel the coldness of the pitch-black darkness.";
-	mes "This time will be dangerous.";
+	mes "Je sens que l'air autour de moi devient impur.";
+	mes "Et je ressens la froideur de l'obscurité d'un noir profond.";
+	mes "Cette fois, ça sera dangereux.";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "I give you a necklace as a present.";
-	mes "But I'm not sure that It'll be helpful or not....";
-	mes "Take care.";
-	mes "Please, hurry up!";
+	mes "Je te donne un collier en cadeau.";
+	mes "Mais je ne suis pas sûre que cela sera utile ou non....";
+	mes "Prends soin de toi.";
+	mes "S'il te plaît, dépêche-toi !";
 	close2;
-	getitem 2798,1; //Will_Of_Exhausted_Angel
+	getitem 2798, 1; //Will_Of_Exhausted_Angel
 	hideonnpc "Valkyrie#arch_02";
 	donpcevent "#arch_3_start::OnEnable";
 	end;
@@ -1189,123 +1189,123 @@ OnTouch:
 	donpcevent "#arch_3_03::OnKill";
 	donpcevent "mob#arch_2::OnKill";
 	hideoffnpc "Valkyrie Anguhilde#end";
-	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
-		mes "- Wait a Sec !! -";
-		mes "- You are carrying too many items, -";
-		mes "- you won't be able to obtain any new items. -";
-		mes "- Please take off some items -";
-		mes "- and come for the challenge again. -";
+	if (checkweight(1201, 1) == 0 || (MaxWeight - Weight) < 2000) {
+		mes "- Attendez une seconde ! -";
+		mes "- Vous transportez trop d'objets, -";
+		mes "- vous ne pourrez pas obtenir de nouveaux objets. -";
+		mes "- Veuillez enlever certains objets -";
+		mes "- et revenir pour le défi. -";
 		close;
 	}
 	if (ismounting()) {
-		mes "You are on a riding pet,";
-		mes "so you cannot change your job.";
-		mes "Please unequip your riding pet and try again!";
+		mes "Vous êtes sur une monture,";
+		mes "donc vous ne pouvez pas changer de job.";
+		mes "Veuillez déséquiper votre monture et réessayer !";
 		close;
 	}
 	if (countitem(6154) < 2) {
 		mes "[Valkyrie Anguhilde]";
-		mes "Did you collect all of the pieces of my horn pipe?";
+		mes "As-tu collecté tous les morceaux de ma corne de corne ?";
 		next;
 		mes "[Valkyrie Anguhilde]";
-		mes "I know you bent over backwards to help me, but I can't do anything without 2 pieces of horn pipe.";
+		mes "Je sais que tu t'es donné beaucoup de mal pour m'aider, mais je ne peux rien faire sans 2 morceaux de corne de corne.";
 		next;
 		mes "[Valkyrie Anguhilde]";
-		mes "It can be dangerous, so let's go back.";
+		mes "Cela peut être dangereux, alors retournons.";
 		close2;
 		nude;
 		if (countitem(2798))
-			delitem 2798,(2798); //Will_Of_Exhausted_Angel
-		delitem 6154,countitem(6154); //Broken_Horn_Pipe
-		mapwarp "job3_arch02","job3_arch01",29,29;
+			delitem 2798, countitem(2798); //Will_Of_Exhausted_Angel
+		delitem 6154, countitem(6154); //Broken_Horn_Pipe
+		mapwarp "job3_arch02", "job3_arch01", 29, 29;
 		end;
 	}
 	mes "[Valkyrie Anguhilde]";
-	mes "Finally we finished all the preparations.";
+	mes "Enfin, nous avons terminé toutes les préparations.";
 	next;
-	mes "Valkyrie holds the pipe and blows towards the sky.";
+	mes "Valkyrie tient le tuyau et souffle vers le ciel.";
 	next;
 	mes "Booo - - - -";
 	next;
 	mes "Booo - - -";
 	next;
-	hideoffnpc "Valkyrie of the heavens";
+	hideoffnpc "Valkyrie des cieux";
 	mes "[Valkyrie Anguhilde]";
-	mes "Assistance of Odin! Soldiers of Valhalla!";
-	mes "The holy place of the God Odin is tainted by darkness!";
+	mes "Assistance d'Odin ! Soldats de Valhalla !";
+	mes "Le lieu saint du dieu Odin est souillé par les ténèbres !";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Don't worry, Anguhilde.";
-	mes "Your desire has reached Valhalla.";
-	mes "The devils were removed by other Valkyries as you wanted.";
-	next;
-	mes "[Valkyrie Anguhilde]";
-	mes "Valkyries! Then is it safe now?";
-	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Yes Anguhilde.";
-	mes "Even though you were expelled because of an incident before, Odin said that he is reconsidering your banishment.";
+	mes "[Valkyrie des cieux]";
+	mes "Ne t'inquiète pas, Anguhilde.";
+	mes "Ton désir est parvenu à Valhalla.";
+	mes "Les démons ont été éliminés par d'autres Valkyries comme tu le voulais.";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "Ah! I can go back to Asgard!";
+	mes "Valkyries ! Est-ce que c'est en sécurité maintenant ?";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Don't make a hasty generalization.";
-	mes "But I think that good news will be sent to you.";
+	mes "[Valkyrie des cieux]";
+	mes "Oui, Anguhilde.";
+	mes "Même si tu as été expulsée à cause d'un incident auparavant, Odin a dit qu'il réexaminait ton bannissement.";
 	next;
 	mes "[Valkyrie Anguhilde]";
-	mes "Honor to Odin!";
-	mes "I feel full of grace.";
-	mes "So bright and warm....";
+	mes "Ah ! Je peux retourner à Asgard !";
+	next;
+	mes "[Valkyrie des cieux]";
+	mes "Ne tire pas de conclusions hâtives.";
+	mes "Mais je pense que de bonnes nouvelles te seront envoyées.";
+	next;
+	mes "[Valkyrie Anguhilde]";
+	mes "Honneur à Odin !";
+	mes "Je me sens plein de grâce.";
+	mes "Si lumineux et chaud....";
 	next;
 	mes "- Shoooo -";
-	specialeffect EF_CLOAKING,AREA,"Valkyrie Anguhilde#end";
+	specialeffect EF_CLOAKING, AREA, "Valkyrie Anguhilde#end";
 	hideonnpc "Valkyrie Anguhilde#end";
 	emotion ET_HUK, playerattached();
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Set your mind at ease.";
-	mes "She went to a place where she is supposed to be.";
+	mes "[Valkyrie des cieux]";
+	mes "Apaise ton esprit.";
+	mes "Elle est allée là où elle devait aller.";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "I think you don't get it.";
+	mes "[Valkyrie des cieux]";
+	mes "Je pense que tu ne comprends pas.";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Anguhilde is a Valkyrie who is dead for a long time ago.";
-	mes "Didn't you see a shrine covered by the devil?";
-	mes "Unfortunately, Anguhilde couldn't cope with the task and fell down.";
+	mes "[Valkyrie des cieux]";
+	mes "Anguhilde est une Valkyrie décédée il y a longtemps.";
+	mes "N'as-tu pas vu un sanctuaire envahi par les démons ?";
+	mes "Malheureusement, Anguhilde n'a pas pu faire face à la tâche et est tombée.";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Here is an illusion of Anguhilde who doesn't want to be recognized.";
-	mes "She can't go to hell even when she is dead, and struggles from her constant nightmare.";
+	mes "[Valkyrie des cieux]";
+	mes "Ici, c'est une illusion d'Anguhilde qui ne veut pas être reconnue.";
+	mes "Elle ne peut pas aller en enfer même après sa mort, et lutte contre ses cauchemars constants.";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "But she is relieved by your favor.";
-	mes "Even though It's different with reality but now she may be able to rest in peace.";
+	mes "[Valkyrie des cieux]";
+	mes "Mais elle est soulagée par ta faveur.";
+	mes "Même si c'est différent de la réalité, maintenant elle pourra peut-être reposer en paix.";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Human, the Valkyries are in your debt. Thank you.";
-	mes "I can't invite you as I want, but the power given by Odin can help you.";
+	mes "[Valkyrie des cieux]";
+	mes "Humain, les Valkyries te sont redevables. Merci.";
+	mes "Je ne peux pas t'inviter comme je le souhaite, mais le pouvoir donné par Odin peut t'aider.";
 	next;
-	mes "[Valkyrie of the heavens]";
-	mes "Now, go back to your world.";
-	mes "The sound of the horn pipe and a bird's chirpings will be spread out for you.";
+	mes "[Valkyrie des cieux]";
+	mes "Maintenant, retourne dans ton monde.";
+	mes "Le son de la corne de corne et les chants d'oiseaux seront pour toi.";
 	next;
 	if (SkillPoint) {
-		mes "You can't progress without using all your skill points. Please use all of your skill points before progressing~";
+		mes "Tu ne peux pas progresser sans utiliser tous tes points de compétence. Utilise tous tes points de compétence avant de progresser~";
 		close;
 	}
-	mes "[Valkyrie of the heavens]";
-	mes "Don't forget an altruistic minister's spirit like today forever.";
-	mes "I hope we see each other in Valhalla sometime.";
+	mes "[Valkyrie des cieux]";
+	mes "N'oublie pas un esprit altruiste de ministre comme aujourd'hui pour toujours.";
+	mes "J'espère que nous nous retrouverons à Valhalla un jour.";
 	nude;
 	if (countitem(2798))
-		delitem 2798,countitem(2798); //Will_Of_Exhausted_Angel
-	delitem 6154,countitem(6154); //Broken_Horn_Pipe
-	set job_arch,100;
+		delitem 2798, countitem(2798); //Will_Of_Exhausted_Angel
+	delitem 6154, countitem(6154); //Broken_Horn_Pipe
+	set job_arch, 100;
 	completequest 2191;
-	getitem 5747,1; //Mitra
-	getitem 2795,1; //Green_Apple_Ring
+	getitem 5747, 1; //Mitra
+	getitem 2795, 1; //Green_Apple_Ring
 	jobchange roclass(eaclass()|EAJL_THIRD);
 	close;
 OnInit:
@@ -1322,15 +1322,15 @@ OnInit:
 
 job3_arch02,273,235,5	script	Valkyrie of the heavens	811,{
 	if (job_arch == 100) {
-		mes "[Valkyrie of the heavens]";
-		mes "Now, go back to your world.";
-		mes "The sound of the horn pipe and a bird's chirpings will be spread out for you.";
+		mes "[Valkyrie des cieux]";
+		mes "Maintenant, retourne dans ton monde.";
+		mes "Le son de la corne de corne et les chants d'oiseaux seront pour toi.";
 		next;
-		mes "[Valkyrie of the heavens]";
-		mes "Don't forget an altruistic minister's spirit like today forever.";
-		mes "I hope we see each other in Valhalla sometime.";
+		mes "[Valkyrie des cieux]";
+		mes "N'oublie pas un esprit altruiste de ministre comme aujourd'hui pour toujours.";
+		mes "J'espère que nous nous retrouverons à Valhalla un jour.";
 		close2;
-		mapwarp "job3_arch02","job3_arch01",29,29;
+		mapwarp "job3_arch02", "job3_arch01", 29, 29;
 		end;
 	}
 	end;
@@ -1343,7 +1343,7 @@ job3_arch02,132,323,0	script	#arch_2_01	139,5,5,{
 	end;
 OnTouch:
 	if (countitem(12382))
-		mapannounce "job3_arch02","Whispering of Valkyrie: I see a new ancient scroll!",bc_map;
+		mapannounce "job3_arch02","Chuchotement de Valkyrie: Je vois un nouveau parchemin ancien !",bc_map;
 	end;
 }
 
@@ -1353,16 +1353,16 @@ OnTouch:
 		delitem 12382,1; //ValkyrieB_Scroll
 		// fall through
 	} else if (getmercinfo(1) == 2038) {
-		set .@randht, rand(1,10);
+		set .@randht, rand(1, 10);
 		if (.@randht < 8)
-			mapannounce "job3_arch02","Whispering of an impersonation: I can feel the devil's spirits. Can you hear? The sound of gathering in crowds.",bc_map,"0xFFCE00";
+			mapannounce "job3_arch02", "Murmure d'une impersonation : Je sens les esprits des démons. Pouvez-vous entendre ? Le bruit de leur rassemblement en foule.", bc_map, "0xFFCE00";
 		else if ((.@randht == 8) || (.@randht == 9))
-			mapannounce "job3_arch02","Whispering of an impersonation: Combat readiness!",bc_map,"0xFFCE00";
+			mapannounce "job3_arch02", "Murmure d'une impersonation : Préparez-vous au combat !", bc_map, "0xFFCE00";
 		else
-			mapannounce "job3_arch02","Whispering of an impersonation: I can't leave you. Die!",bc_map,"0xFFCE00";
-		end;
+			mapannounce "job3_arch02", "Murmure d'une impersonation : Je ne peux pas te laisser. Meurs !", bc_map, "0xFFCE00";
 	}
-	mapannounce "job3_arch02","Whispering of an impersonation: You can't do anything by yourself! Let's go back!",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02", "Murmure d'une impersonation : Tu ne peux rien faire tout seul ! Retournons !", bc_map, "0xFFCE00";
+
 	mapwarp "job3_arch02","job3_arch01",29,29;
 	end;
 }
@@ -1381,13 +1381,13 @@ job3_arch02,190,146,0	duplicate(archbjcq2)	#arch_2_11	139,5,5
 // Not in official script.
 job3_arch02,252,267,0	script	#arch_2_12	139,5,5,{
 OnTouch:
-	mapannounce "job3_arch02","Whispering of an impersonation: It's a crossroad. Let's go to the left side. I have to find my pipe.",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02","Murmure d'une impersonation :  C'est un carrefour. Allons vers le côté gauche. Je dois retrouver ma pipe.",bc_map,"0xFFCE00";
 	end;
 }
 
 job3_arch02,250,290,0	script	#arch_2_13	139,5,5,{
 OnTouch:
-	mapannounce "job3_arch02","Whispering of an impersonation: I can see a ruined shrine. Take a rest in there.",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02","Murmure d'une impersonation :  Je peux voir un sanctuaire en ruine. Reposez-vous là-dedans.",bc_map,"0xFFCE00";
 	end;
 }
 */
@@ -1398,10 +1398,10 @@ OnTouch:
 		delitem 12382,1; //ValkyrieB_Scroll
 		// fall through
 	} else if (getmercinfo(1) == 2038) {
-		mapannounce "job3_arch02","A shout of devil: You are so childish. I invite you a party of devil. I'll make you have a fun!",bc_map,"0xFF0000";
+		mapannounce "job3_arch02", "Cri du diable : Tu es tellement enfantin. Je t'invite à une fête de démons. Je vais te faire passer un bon moment !", bc_map, "0xFF0000";
 		end;
 	}
-	mapannounce "job3_arch02","Whispering of an impersonation: You can't do anything by yourself! Let's go back!",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02", "Murmure d'une impersonation : Tu ne peux rien faire tout seul ! Retournons !", bc_map, "0xFFCE00";
 	mapwarp "job3_arch02","job3_arch01",29,29;
 	end;
 }
@@ -1409,7 +1409,7 @@ OnTouch:
 job3_arch02,284,159,0	script	#arch_3_01	139,20,20,{
 OnTouch:
 	if (Class != Job_Priest) {
-		mapannounce "job3_arch02","Frus: Do you want to see God? Okay, I'll send you to the land of the dead by myself!",bc_map,"0xFF0000";
+		mapannounce "job3_arch02","Frus : Veux-tu voir Dieu ? D'accord, je t'enverrai tout seul au pays des morts !",bc_map,"0xFF0000";
 		areamonster "job3_arch02",239,41,249,51,"Frus",1762,1,"#arch_3_01::OnMyMobDead";
 	}
 	disablenpc "#arch_3_01";
@@ -1427,7 +1427,7 @@ OnKill:
 job3_arch02,307,200,0	script	#arch_3_02	139,5,5,{
 OnTouch:
 	if (BaseJob == Job_Priest) {
-		mapannounce "job3_arch02","Skogul: You are my guest!",bc_map,"0xFF0000";
+		mapannounce "job3_arch02","Skogul : Vous êtes mon invité !",bc_map,"0xFF0000";
 		areamonster "job3_arch02",306,199,308,201,"Skogul",1761,1,"#arch_3_02::OnMyMobDead";
 	}
 	disablenpc "#arch_3_02";
@@ -1444,7 +1444,7 @@ OnKill:
 
 job3_arch02,296,216,0	script	#arch_3_03	139,5,5,{
 OnTouch:
-	mapannounce "job3_arch02","Frus: I like your face... Can I steal it?",bc_map,"0xFF0000";
+	mapannounce "job3_arch02","Frus : J'aime ton visage... Puis-je le voler ?",bc_map,"0xFF0000";
 	areamonster "job3_arch02",295,215,297,217,"Frus",1762,1,"#arch_3_03::OnMyMobDead";
 	disablenpc "#arch_3_03";
 	end;
@@ -1580,10 +1580,10 @@ OnTimer540000:
 	}
 	end;
 OnTimer600000:
-	mapannounce "job3_arch02","Valkyrie's Nightmare: I can't stand anymore!",bc_map,"0xFF0000";
+	mapannounce "job3_arch02","Valkyrie's Nightmare: Je n'en peux plus !",bc_map,"0xFF0000";
 	end;
 OnTimer605000:
-	mapannounce "job3_arch02","Whispering of Valkyrie: No way! I can't let you guys do that. Go back!",bc_map,"0xFFCE00";
+	mapannounce "job3_arch02","Chuchotement de Valkyrie : Pas question ! Je ne peux pas vous laisser faire ça. demi-tour!",bc_map,"0xFFCE00";
 	mapwarp "job3_arch02","job3_arch01",29,29;
 	donpcevent "Valkyrie#arch::OnBc";
 	stopnpctimer;
@@ -1655,27 +1655,27 @@ OnTouch:
 job3_arch01,1,1,1	script	control#arch	844,{
 	callfunc "F_GM_NPC";
 	mes "[Troll]";
-	mes "Password please.";
+	mes "S'il vous plaît, entrez le mot de passe.";
 	next;
-	if (callfunc("F_GM_NPC",1854,0) == 1) {
+	if (callfunc("F_GM_NPC", 1854, 0) == 1) {
 		mes "[Transit]";
-		mes "The GlobalVar is";
+		mes "La variable globale est";
 		mes $@archbs + ".";
-		mes "Do you want to change it?";
+		mes "Voulez-vous la changer ?";
 		next;
-		switch(select("0:1")) {
-		case 1:
-			set $@archbs,0;
-			hideoffnpc "Valkyrie#arch";
-			close;
-		case 2:
-			set $@archbs,1;
-			hideoffnpc "Valkyrie#arch";
-			close;
+		switch (select("0:1")) {
+			case 1:
+				set $@archbs, 0;
+				hideoffnpc "Valkyrie#arch";
+				close;
+			case 2:
+				set $@archbs, 1;
+				hideoffnpc "Valkyrie#arch";
+				close;
 		}
 	} else {
 		mes "[Troll]";
-		mes "Enter the correct password!";
+		mes "Entrez le mot de passe correct !";
 		close;
 	}
 }

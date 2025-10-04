@@ -20,74 +20,75 @@ valkyrie,53,58,3	script	Stalker#Valkyrie	747,{
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Stalker]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		mes "[Stalker]";
-		mes "Heh...";
-		mes "It's tough";
-		mes "being a hero";
-		mes "and being shady,";
-		mes "untrustworthy,";
-		mes "sneaky...";
+		mes "Hein...";
+		mes "C'est dur";
+		mes "d'être un héros";
+		mes "et d'être louche,";
+		mes "peu fiable,";
+		mes "sournois...";
 		next;
 		mes "[Stalker]";
-		mes "But when the";
-		mes "going gets rough";
-		mes "my pals know they";
-		mes "can count on me.";
-		mes "I need them and";
-		mes "they need me.";
+		mes "Mais quand les";
+		mes "choses se compliquent,";
+		mes "mes potes savent";
+		mes "qu'ils peuvent compter sur moi.";
+		mes "J'ai besoin d'eux et";
+		mes "ils ont besoin de moi.";
 		close;
 	}
 	else if (ADVJOB == Job_Stalker && Class == Job_Thief_High && JobLevel > 39) {
 		mes "[Stalker]";
-		mes "This world needs";
-		mes "more heroes who are";
-		mes "willing to walk the line";
-		mes "between order and lawlessness.";
+		mes "Ce monde a besoin";
+		mes "de plus de héros prêts";
+		mes "à marcher sur la ligne";
+		mes "entre l'ordre et le chaos.";
 		next;
 		mes "[Stalker]";
-		mes "Are you ready";
-		mes "to join the ranks";
-		mes "of the sneakiest of";
-		mes "warriors? Are you ready";
-		mes "to become a Stalker?";
+		mes "Es-tu prêt";
+		mes "à rejoindre les rangs";
+		mes "des guerriers les plus furtifs ?";
+		mes "Es-tu prêt à devenir";
+		mes "un Stalker ?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("Non. : Oui.") == 1) {
 			mes "[Stalker]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+			mes "Quand tu seras prêt,";
+			mes "n'hésite pas à revenir.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Stalker]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "Il te reste encore la possibilité d'apprendre plus de compétences. S'il te plaît, utilise";
+			mes "tous tes points de compétence restants avant de revenir me voir.";
 			close;
 		}
 		jobchange Job_Stalker;
-		set ADVJOB,0;
+		set ADVJOB, 0;
+		atcommand "@joblvlup 5";
 		mes "[Stalker]";
-		mes "Congratulations!";
-		mes "As a Stalker, I hope";
-		mes "you stab the right people";
-		mes "in the back. Banish the";
-		mes "wicked using their own";
-		mes "dastardly methods!";
+		mes "Félicitations !";
+		mes "En tant que Stalker, j'espère";
+		mes "que tu poignarderas les bonnes personnes";
+		mes "dans le dos. Bannis les";
+		mes "méchants en utilisant leurs propres";
+		mes "méthodes perfides !";
 		close;
 	}
 	mes "[Stalker]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
 	mes "[Stalker]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "S'il te plaît,";
+	mes "fais comme chez toi";
+	mes "pendant ton séjour ici.";
+	mes "Honneur aux guerriers !";
 	close;
 }

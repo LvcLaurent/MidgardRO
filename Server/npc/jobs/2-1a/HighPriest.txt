@@ -17,66 +17,68 @@
 
 valkyrie,44,42,5	script	High Priest#Valkyrie	60,{
 	if (ADVJOB == 0 || Upper != 1) {
-		set .@karma_d,rand(1,10);
+		set .@karma_d, rand(1, 10);
 		if (.@karma_d > 4) {
-			mes "[High Priest]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "[Grand Prêtre]";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
-		mes "[High Priest]";
-		mes "Through the power";
-		mes "of holiness, may we";
-		mes "find peace, strength";
-		mes "and protection. Deliver";
-		mes "us from the forces of evil...";
+		mes "[Grand Prêtre]";
+		mes "À travers le pouvoir";
+		mes "de la sainteté, puissions-nous";
+		mes "trouver la paix, la force";
+		mes "et la protection. Délivrez-nous";
+		mes "des forces du mal...";
 		close;
 	}
 	else if (ADVJOB == Job_High_Priest && Class == Job_Acolyte_High && JobLevel > 39) {
-		mes "[High Priest]";
-		mes "Our world is in";
-		mes "need of people of";
-		mes "talent and conviction.";
-		mes "Please continue your";
-		mes "good works as an even";
-		mes "greater hero of holiness...";
+		mes "[Grand Prêtre]";
+		mes "Notre monde a besoin";
+		mes "de personnes talentueuses";
+		mes "et convaincues.";
+		mes "Continuez s'il vous plaît";
+		mes "vos bonnes actions en tant que";
+		mes "un héros de la sainteté encore";
+		mes "plus grand...";
 		next;
-		mes "[High Priest]";
-		mes "Would you like";
-		mes "to become a High Priest?";
+		mes "[Grand Prêtre]";
+		mes "Voulez-vous devenir";
+		mes "un Grand Prêtre ?";
 		next;
-		if (select("No.:Yes.") == 1) {
-			mes "[High Priest]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+		if (select("Non.:Oui.") == 1) {
+			mes "[Grand Prêtre]";
+			mes "Quand vous serez prêt,";
+			mes "n'hésitez pas à revenir.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		if (SkillPoint) {
-			mes "[High Priest]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "[Grand Prêtre]";
+			mes "Il vous est encore possible d'apprendre plus de compétences. Veuillez utiliser";
+			mes "tous vos points de compétence restants avant de revenir vers moi.";
 			close;
 		}
 		jobchange Job_High_Priest;
-		set ADVJOB,0;
-		mes "[High Priest]";
-		mes "Congratulations.";
-		mes "As a High Priest,";
-		mes "I hope you will guide";
-		mes "others upon the path";
-		mes "to holiness...";
+		set ADVJOB, 0;
+		mes "[Grand Prêtre]";
+		mes "Félicitations.";
+		mes "En tant que Grand Prêtre,";
+		mes "j'espère que vous guiderez";
+		mes "les autres sur le chemin";
+		mes "de la sainteté...";
 		close;
 	}
-	mes "[High Priest]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "[Grand Prêtre]";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
-	mes "[High Priest]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "[Grand Prêtre]";
+	mes "S'il vous plaît,";
+	mes "faites comme";
+	mes "chez vous";
+	mes "tant que vous êtes ici.";
+	mes "Honneur aux guerriers !";
 	close;
 }

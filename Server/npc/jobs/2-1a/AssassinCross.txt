@@ -16,11 +16,11 @@
 //============================================================ 
 
 valkyrie,44,58,5	script	Assassin Cross#Valkyrie	725,{
-	if (ADVJOB == 0 || Upper != 1) {
-		set .@karma_d,rand(1,10);
+	if (Class != 4007) {
+		set .@karma_d, rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Assassin Cross]";
-			mes "Congratulations...";
+			mes "Félicitations...";
 			next;
 			mes "[Assassin Cross]";
 			mes "...";
@@ -32,69 +32,69 @@ valkyrie,44,58,5	script	Assassin Cross#Valkyrie	725,{
 			mes "[Assassin Cross]";
 			mes "...";
 			mes "......";
-			mes "Honor to";
-			mes "the warriors.";
+			mes "Honneur aux";
+			mes "guerriers.";
 			close;
 		}
 		mes "[Assassin Cross]";
-		mes "We are the warriors";
-		mes "of the desert. Nobody";
-		mes "looks down upon us.";
-		mes "Nobody...";
+		mes "Nous sommes les guerriers";
+		mes "du désert. Personne";
+		mes "ne nous regarde de haut.";
+		mes "Personne...";
 		close;
 	}
-	else if (ADVJOB == Job_Assassin_Cross && Class == Job_Thief_High && JobLevel > 39) {
+	else if (Class == Job_Thief_High && JobLevel > 39) {
 		mes "[Assassin Cross]";
-		mes "The time has come.";
-		mes "The world needs you...";
-		mes "More than ever.";
+		mes "Le moment est venu.";
+		mes "Le monde a besoin de toi...";
+		mes "Plus que jamais.";
 		next;
 		mes "[Assassin Cross]";
-		mes "I ask that you continue to live in the shadows, but as an even greater Assassin with a new appearance.";
+		mes "Je te demande de continuer à vivre dans l'ombre, mais en tant qu'Assassin encore plus grand, avec une nouvelle apparence.";
 		next;
 		mes "[Assassin Cross]";
-		mes "Will you become";
-		mes "an Assassin Cross?";
+		mes "Vas-tu devenir";
+		mes "un Assassin Cross ?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("Non.:Oui.") == 1) {
 			mes "[Assassin Cross]";
-			mes "When you are";
-			mes "ready, come back.";
+			mes "Quand tu seras";
+			mes "prêt, reviens.";
 			next;
 			mes "[Assassin Cross]";
-			mes "Honor to";
-			mes "the warriors.";
+			mes "Honneur aux";
+			mes "guerriers.";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Assassin Cross]";
-			mes "You still haven't";
-			mes "learned everything";
-			mes "that you can.";
+			mes "Tu n'as pas encore";
+			mes "tout appris";
+			mes "ce que tu pouvais.";
 			next;
 			mes "[Assassin Cross]";
-			mes "Use all your";
-			mes "Skill Points";
-			mes "and then come back.";
+			mes "Utilise tous tes";
+			mes "points de compétence";
+			mes "et reviens ensuite.";
 			close;
 		}
 		jobchange Job_Assassin_Cross;
-		set ADVJOB,0;
+		set ADVJOB, 0;
+		atcommand "@joblvlup 5";
 		mes "[Assassin Cross]";
-		mes "Congratulations.";
-		mes "As an Assassin Cross,";
-		mes "I hope that you fight for a brighter future within the darkness.";
+		mes "Félicitations.";
+		mes "En tant qu'Assassin Cross,";
+		mes "j'espère que tu combattras pour un avenir plus radieux au sein des ténèbres.";
 		close;
 	}
 	mes "[Assassin Cross]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
 	mes "[Assassin Cross]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors.";
+	mes "S'il te plaît, mets-toi à l'aise";
+	mes "pendant ton séjour ici.";
+	mes "Honneur aux guerriers.";
 	close;
 }

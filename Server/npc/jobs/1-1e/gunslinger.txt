@@ -30,186 +30,185 @@
 
 que_ng,152,167,3	script	Master Miller	901,{
 	if (Upper == 2) {
-		mes "[Master Miller]";
-		mes "Well, aren't you an";
-		mes "adorable little child~";
-		mes "Where's your mommy?";
-		mes "This place is dangerous, so";
-		mes "please go home soon, okay?";
+		mes "[Maître Miller]";
+		mes "Eh bien, n'es-tu pas un";
+		mes "adorable petit enfant~";
+		mes "Où est ta maman ?";
+		mes "Cet endroit est dangereux, alors";
+		mes "rentre chez toi bientôt, d'accord ?";
 		close;
 	}
 	if (Class == Job_Novice) {
 		if (!callfunc("F_CanChangeJob")) {
-			mes "[Master Miller]";
-			mes "Interested in becoming";
-			mes "a Gunslinger, eh? You've";
-			mes "got potential, but you're";
-			mes "not yet experienced enough.";
-			mes "Just train yourself a bit more,";
-			mes "and then come back, you hear?";
+			mes "[Maître Miller]";
+			mes "Intéressé par devenir";
+			mes "un Gunslinger, hein ? Tu as";
+			mes "du potentiel, mais tu n'es";
+			mes "pas encore assez expérimenté.";
+			mes "Entraîne-toi un peu plus,";
+			mes "et reviens ensuite, tu m'entends ?";
 			close;
 		}
 		if (GUNS_Q == 0) {
-			mes "[Master Miller]";
-			mes "I'm Miller, a full time";
-			mes "Gunslinger drillmaster, and";
-			mes "full time guardian for Lady";
-			mes "Selena. Now, what do you";
-			mes "need? If it's not important, then I can't make the time for you.";
+			mes "[Maître Miller]";
+			mes "Je suis Miller, instructeur à plein";
+			mes "temps pour les Gunslingers, et";
+			mes "gardien à plein temps de Lady";
+			mes "Selena. Alors, de quoi as-tu besoin ?";
+			mes "Si ce n'est pas important, je ne peux pas te consacrer de temps.";
 			next;
-			if(select("Nothing.:I want to become a Gunslinger.") == 1) {
-				mes "[Master Miller]";
-				mes "Don't waste my time.";
-				mes "If you do want to become";
-				mes "a Gunslinger, then come";
-				mes "back and talk to me.";
+			if (select("Rien. : Je veux devenir un Gunslinger.") == 1) {
+				mes "[Maître Miller]";
+				mes "Ne gaspille pas mon temps.";
+				mes "Si tu veux vraiment devenir";
+				mes "un Gunslinger, reviens me voir.";
 				close;
 			}
-			mes "[Master Miller]";
-			mes "Hm. You're pretty young, but";
-			mes "your eyes tell me that you're";
-			mes "pretty ambitious. You'll need to pass our interview and educational";
-			mes "course to become a Gunslinger. Do you want to apply for the job?";
+			mes "[Maître Miller]";
+			mes "Hmm. Tu es assez jeune, mais";
+			mes "tes yeux me disent que tu as";
+			mes "de l'ambition. Tu devras réussir notre entretien et notre cours";
+			mes "éducatif pour devenir un Gunslinger. Veux-tu postuler pour le poste ?";
 			next;
-			if(select("Give me some time to think.:Sure!") == 1) {
-				mes "[Master Miller]";
-				mes "Understandable.";
-				mes "If you do decide that";
-				mes "you want to become";
-				mes "a Gunslinger, then let";
-				mes "me know right away.";
-				mes "I'll get you started.";
+			if (select("Laisse-moi un peu de temps pour réfléchir. : Bien sûr !") == 1) {
+				mes "[Maître Miller]";
+				mes "Compréhensible.";
+				mes "Si tu décides que";
+				mes "tu veux devenir";
+				mes "un Gunslinger, fais-le moi savoir";
+				mes "tout de suite. Je te mettrai en route.";
 				close;
 			}
-			mes "[Master Miller]";
-			mes "Great, great. Alright then,";
-			mes "let's get you started. Take";
-			mes "this letter to Mr. Wise Bull";
-			mes "Horn in Payon. He's a shaman";
-			mes "that will judge whether or not";
-			mes "you qualify to be a Gunslinger.";
+			mes "[Maître Miller]";
+			mes "Parfait, parfait. D'accord alors,";
+			mes "commençons. Prends";
+			mes "cette lettre à M. Wise Bull";
+			mes "Horn à Payon. C'est un chaman";
+			mes "qui jugera si tu es qualifié ou non";
+			mes "pour devenir un Gunslinger.";
 			set GUNS_Q,1;
 			setquest 6020;
 			close;
 		}
 		else if (GUNS_Q == 1) {
-			mes "[Master Miller]";
-			mes "Take that letter of";
-			mes "introduction I've written";
-			mes "for you to Mr. Wise Bull";
-			mes "Horn in Payon. He'll test";
-			mes "you to see if you're really";
-			mes "Gunslinger material.";
+			mes "[Maître Miller]";
+			mes "Prends cette lettre de";
+			mes "présentation que j'ai écrite";
+			mes "pour toi à M. Wise Bull";
+			mes "Horn à Payon. Il te testera";
+			mes "pour voir si tu es vraiment";
+			mes "matériel de Gunslinger.";
 			close;
 		}
 		else if (GUNS_Q == 2) {
-			mes "[Master Miller]";
+			mes "[Maître Miller]";
 			mes "Hmm... Wise Bull Horn";
-			mes "asked you to collect the";
-			mes "items you need to make the";
-			mes "voucher? Hm. I guess that's";
-			mes "part of his qualification test.";
+			mes "t'a demandé de rassembler les";
+			mes "objets dont tu as besoin pour faire le";
+			mes "bon de commande ? Hm. Je suppose que c'est";
+			mes "une partie de son test de qualification.";
 			close;
 		}
 		else if (GUNS_Q == 3) {
-			mes "[Master Miller]";
-			mes "Wise Bull Horn asked";
-			mes "you to bring him some";
-			mes "Milk? He must really like";
-			mes "you if he's already asking";
-			mes "for favors. Good luck, friend.";
+			mes "[Maître Miller]";
+			mes "Wise Bull Horn t'a demandé";
+			mes "de lui apporter du lait ?";
+			mes "Il doit vraiment t'apprécier";
+			mes "s'il te demande déjà des services.";
+			mes "Bonne chance, mon ami.";
 			close;
 		}
 		else if (GUNS_Q == 4) {
-			mes "[Master Miller]";
-			mes "I expect to hear good";
-			mes "news from you soon. You";
-			mes "know, I have no doubt that";
-			mes "you'll become a Gunslinger.";
+			mes "[Maître Miller]";
+			mes "J'attends de bonnes nouvelles";
+			mes "de ta part bientôt. Je n'ai";
+			mes "aucun doute que tu deviendras";
+			mes "un Gunslinger.";
 			close;
 		}
 		else if (GUNS_Q == 5) {
 			if (SkillPoint != 0) {
-				mes "[Master Miller]";
-				mes "Hey, you have leftover";
-				mes "Skill Points. You better";
-				mes "use them all up before you";
-				mes "come and talk to me again.";
+				mes "[Maître Miller]";
+				mes "Hé, tu as des points";
+				mes "de compétence inutilisés.";
+				mes "Tu ferais mieux de les";
+				mes "utiliser avant de revenir me voir.";
 				close;
 			}
-			mes "[Master Miller]";
-			mes "Oh, you've brought a";
-			mes "voucher from Wise Bull Horn?";
-			mes "It's been a while since he's";
-			mes "given one to anybody, so";
-			mes "I'm really proud of you!";
+			mes "[Maître Miller]";
+			mes "Oh, tu as apporté un";
+			mes "bon de commande de Wise Bull Horn ?";
+			mes "Cela faisait un moment depuis qu'il";
+			mes "n'en avait donné à personne, donc";
+			mes "je suis vraiment fier de toi !";
 			next;
-			mes "[Master Miller]";
-			mes "If Wise Bull Horn approves,";
-			mes "then I have no reason to";
-			mes "reject you. Alright then, I'll";
-			mes "promote you to a Gunslinger.";
-			mes "But first, let me explain";
-			mes "our job in more detail.";
+			mes "[Maître Miller]";
+			mes "Si Wise Bull Horn approuve,";
+			mes "alors je n'ai aucune raison de";
+			mes "te rejeter. D'accord alors, je vais";
+			mes "te promouvoir au rang de Gunslinger.";
+			mes "Mais d'abord, laisse-moi t'expliquer";
+			mes "notre travail en détail.";
 			next;
-			mes "[Master Miller]";
-			mes "As a Gunslinger, you must";
-			mes "keep your gun with you at";
-			mes "all times. The Gunslinger";
-			mes "Guild keeps track of every Gun";
-			mes "and Bullet, so you can only get";
-			mes "them from our guild members.";
+			mes "[Maître Miller]";
+			mes "En tant que Gunslinger, tu dois";
+			mes "garder ton arme à feu avec toi à";
+			mes "tout moment. La guilde des Gunslingers";
+			mes "contrôle chaque arme à feu et chaque balle,";
+			mes "donc tu ne peux les obtenir que de nos membres de guilde.";
 			next;
-			mes "[Master Miller]";
-			mes "Don't worry, Gunslinger";
-			mes "Guildsmen can be found almost";
-			mes "anywhere these days. Anyway,";
-			mes "it has to be this way by order of our guild leader, Lady Selena.";
+			mes "[Maître Miller]";
+			mes "Ne t'inquiète pas, les Gunslingers";
+			mes "Guildsmen peuvent être trouvés presque";
+			mes "partout de nos jours. De toute façon,";
+			mes "il faut que ça se passe ainsi sur ordre de notre leader de guilde, Lady Selena.";
 			next;
-			mes "[Master Miller]";
-			mes "You might get the chance to";
-			mes "meet her one of these days.";
-			mes "Anyway, just now that we have";
-			mes "to regulate Gun and Bullet sales to keep them away from evil";
-			mes "or irresponsible folk.";
+			mes "[Maître Miller]";
+			mes "Tu pourrais avoir la chance de";
+			mes "la rencontrer un de ces jours.";
+			mes "Quoi qu'il en soit, sache que nous devons";
+			mes "réguler la vente d'armes à feu et de balles pour les éloigner des";
+			mes "gens malintentionnés ou irresponsables.";
 			next;
-			mes "[Master Miller]";
-			mes "In any case, it's always";
-			mes "a pleasure for me to talk";
-			mes "to another Gunslinger, so";
-			mes "let's keep in touch. May the";
-			mes "power of the earth protect";
-			mes "you in all of your adventures~";
-			callfunc "Job_Change",Job_Gunslinger;
+			mes "[Maître Miller]";
+			mes "En tout cas, c'est toujours";
+			mes "un plaisir pour moi de parler";
+			mes "à un autre Gunslinger, alors";
+			mes "restons en contact. Que la";
+			mes "puissance de la terre te protège";
+			mes "dans toutes tes aventures~";
+			callfunc "Job_Change", Job_Gunslinger;
+			atcommand "@joblvlup 5";
 			set GUNS_Q,6;
 			completequest 6024;
 			if (checkre(0)) {
-				getitem 13180,1;		// Novice_Rifle
-				getitem 12149,2;		// Bullet_Case
-				getitem 12151,1;		// Bullet_Case_Silver
+				getitem 13180,1;        // Novice_Rifle
+				getitem 12149,2;        // Bullet_Case
+				getitem 12151,1;        // Bullet_Case_Silver
 			} else {
 				if (rand(2))
-					getitem 13100,1;	// Six_Shooter
+					getitem 13100,1;    // Six_Shooter
 				else
-					getitem 13150,1;	// Branch
+					getitem 13150,1;    // Branch
 			}
 			close;
 		}
 	} else {
 		if (Class == Job_Gunslinger) {
-			mes "[Master Miller]";
-			mes "Oh! Long time, no see,";
-			mes "friend. How have you been?";
-			mes "I hope you've been keeping";
-			mes "you Gun well maintained.";
-			mes "Take care of it, and it'll take";
-			mes "care of you. Remember it.";
+			mes "[Maître Miller]";
+			mes "Oh ! Ça fait longtemps,";
+			mes "mon ami. Comment ça va ?";
+			mes "J'espère que tu as bien pris";
+			mes "soin de ton arme à feu.";
+			mes "Prends-en soin, et elle prendra";
+			mes "soin de toi. N'oublie pas ça.";
 			close;
 		} else {
-			mes "[Master Miller]";
-			mes "If you don't have";
-			mes "any business with me,";
-			mes "then please go on your way.";
+			mes "[Maître Miller]";
+			mes "Si tu n'as pas";
+			mes "affaire avec moi,";
+			mes "alors s'il te plaît,";
+			mes "poursuis ton chemin.";
 			close;
 		}
 	}
@@ -218,55 +217,56 @@ que_ng,152,167,3	script	Master Miller	901,{
 payon,184,65,3	script	Wise Bull Horn	866,{
 	if (GUNS_Q == 1) {
 		mes "[Wise Bull Horn]";
-		mes "Hello, young wolf.";
-		mes "What business has";
-		mes "brought you before me?";
+		mes "Bonjour, jeune loup.";
+		mes "Quel motif";
+		mes "t'amène devant moi ?";
 		next;
-		mes "["+strcharinfo(0)+"]";
-		mes "Mr. Miller sent me to";
-		mes "deliver this letter to you.";
-		mes "Actually, I'm interested in";
-		mes "becoming a Gunslinger...";
-		next;
-		mes "[Wise Bull Horn]";
-		mes "Miller, you said?";
-		mes "Hm, the Black Fox doesn't";
-		mes "give introductions for anyone";
-		mes "he doesn't believe will make";
-		mes "a good Gunslinger. Yes, I think";
-		mes "I know why he sent you to me.";
+		mes "[" + strcharinfo(0) + "]";
+		mes "M. Miller m'a envoyé pour";
+		mes "te remettre cette lettre.";
+		mes "En fait, je suis intéressé par";
+		mes "devenir un Gunslinger...";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "I can see it in your eyes:";
-		mes "you've got a warm heart and a";
-		mes "strong sense of responsibility.";
-		mes "All you need is the blessing";
-		mes "of the Earth to protect you";
-		mes "as a Gunslinger.";
+		mes "Miller, tu dis ?";
+		mes "Hm, le Renard Noir ne";
+		mes "fait pas d'introductions pour";
+		mes "n'importe qui. Il ne le fait que";
+		mes "pour ceux en qui il croit en tant";
+		mes "que bons Gunslingers. Oui, je pense";
+		mes "que je sais pourquoi il t'a envoyé à moi.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "I can make a voucher that";
-		mes "will demonstrate your desire";
-		mes "to become a warrior of the";
-		mes "earth for you to present to";
-		mes "Gunslinger drillmasters.";
-		mes "I shall need these items...";
+		mes "Je peux le voir dans tes yeux :";
+		mes "tu as un cœur chaleureux et un";
+		mes "fort sens des responsabilités.";
+		mes "Tout ce dont tu as besoin est la bénédiction";
+		mes "de la Terre pour te protéger";
+		mes "en tant que Gunslinger.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "^3355FF1 Trunk^000000,";
-		mes "^3355FF3 Fluffs^000000,";
+		mes "Je peux créer un bon de commande";
+		mes "qui montrera ton désir";
+		mes "de devenir un guerrier de la";
+		mes "terre que tu pourras présenter à";
+		mes "des instructeurs Gunslinger.";
+		mes "J'aurai besoin de ces objets...";
+		next;
+		mes "[Wise Bull Horn]";
+		mes "^3355FF1 Tronc^000000,";
+		mes "^3355FF3 Plumes^000000,";
 		mes "^3355FF3 Zargons^000000,";
-		mes "^3355FF10 Shells^000000,";
-		mes "^3355FF3 Green Herbs^000000, and";
-		mes "^3355FF3 Rainbow Shells^000000.";
+		mes "^3355FF10 Coquilles^000000,";
+		mes "^3355FF3 Herbes Vertes^000000, et";
+		mes "^3355FF3 Coquilles Arc-en-ciel^000000.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "After I complete the";
-		mes "voucher, you may bring";
-		mes "it to Black Fox, and he";
-		mes "will help you achieve";
-		mes "your goal of becoming";
-		mes "a Gunslinger.";
+		mes "Après avoir complété le";
+		mes "bon de commande, tu peux";
+		mes "l'apporter à Black Fox, et il";
+		mes "t'aidera à atteindre ton";
+		mes "objectif de devenir";
+		mes "un Gunslinger.";
 		set GUNS_Q,2;
 		changequest 6020,6021;
 		close;
@@ -274,83 +274,85 @@ payon,184,65,3	script	Wise Bull Horn	866,{
 	else if (GUNS_Q == 2) {
 		if (countitem(912) < 3 || countitem(914) < 3 || countitem(1019) < 1 || countitem(935) < 10 || countitem(511) < 3 || countitem(1013) < 3) {
 			mes "[Wise Bull Horn]";
-			mes "I can make a voucher that";
-			mes "will demonstrate your desire";
-			mes "to become a warrior of the";
-			mes "earth for you to present to";
-			mes "Gunslinger drillmasters.";
-			mes "I shall need these items...";
+			mes "Je peux créer un bon de commande";
+			mes "qui montrera ton désir";
+			mes "de devenir un guerrier de la";
+			mes "terre que tu pourras présenter à";
+			mes "des instructeurs Gunslinger.";
+			mes "J'aurai besoin de ces objets...";
 			next;
 			mes "[Wise Bull Horn]";
-			mes "^3355FF1 Trunk^000000,";
-			mes "^3355FF3 Fluffs^000000,";
+			mes "^3355FF1 Tronc^000000,";
+			mes "^3355FF3 Plumes^000000,";
 			mes "^3355FF3 Zargons^000000,";
-			mes "^3355FF10 Shells^000000,";
-			mes "^3355FF3 Green Herbs^000000, and";
-			mes "^3355FF3 Rainbow Shells^000000.";
+			mes "^3355FF10 Coquilles^000000,";
+			mes "^3355FF3 Herbes Vertes^000000, et";
+			mes "^3355FF3 Coquilles Arc-en-ciel^000000.";
 			next;
 			mes "[Wise Bull Horn]";
-			mes "After I complete the";
-			mes "voucher, you may bring";
-			mes "it to Black Fox, and he";
-			mes "will help you achieve";
-			mes "your goal of becoming";
-			mes "a Gunslinger.";
+			mes "Après avoir complété le";
+			mes "bon de commande, tu peux";
+			mes "l'apporter à Black Fox, et il";
+			mes "t'aidera à atteindre ton";
+			mes "objectif de devenir";
+			mes "un Gunslinger.";
 			close;
 		}
 		delitem 912,3; // Zargon
-		delitem 914,3; // Fluff
-		delitem 1019,1; // Wooden_Block
-		delitem 935,10; // Shell
-		delitem 511,3; // Green_Herb
-		delitem 1013,3; // Colorful_Shell
+		delitem 914,3; // Plume
+		delitem 1019,1; // Bloc_de_Bois
+		delitem 935,10; // Coquille
+		delitem 511,3; // Herbe_Verte
+		delitem 1013,3; // Coquille_Colorée
 		set GUNS_Q,3;
 		changequest 6021,6022;
 		mes "[Wise Bull Horn]";
-		mes "Ah, you've returned";
-		mes "with everything I need.";
-		mes "Please give me some time";
-		mes "to make the voucher. If you";
-		mes "come back in a little while,";
-		mes "I should be finished with it.";
+		mes "Ah, tu es revenu";
+		mes "avec tout ce dont j'ai besoin.";
+		mes "Donne-moi un peu de temps";
+		mes "pour créer le bon de commande.";
+		mes "Si tu reviens dans un petit moment,";
+		mes "je devrais l'avoir terminé.";
 		close;
 	}
 	else if (GUNS_Q == 3) {
 		mes "[Wise Bull Horn]";
-		mes "Oh, you've arrived just";
-		mes "in time. It's been a while";
-		mes "since I've made one of these vouchers, so I might be a little";
-		mes "rusty. Still, this really takes me back to the days of my youth.";
+		mes "Oh, tu arrives juste à";
+		mes "temps. Cela fait un moment";
+		mes "que je n'ai pas fait l'un de ces bons,";
+		mes "alors je pourrais être un peu";
+		mes "rouillé. Mais cela me ramène vraiment à";
+		mes "l'époque de ma jeunesse.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "I've been serving in this";
-		mes "position of choosing worthy";
-		mes "recipients of Gunslinger";
-		mes "vouchers for a few decades";
-		mes "now. But before that, I was a";
-		mes "young adventurer just like you.";
+		mes "Je sers dans cette";
+		mes "fonction de sélection des";
+		mes "bénéficiaires de bons";
+		mes "Gunslinger depuis quelques décennies";
+		mes "maintenant. Mais avant cela, j'étais un";
+		mes "jeune aventurier comme toi.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "It feels like it was only";
-		mes "yesterday when I held my own";
-		mes "little voucher as a Gunslinger,";
-		mes "a warrior of the earth. That's";
-		mes "when I met Selena's father...";
-		mes "How can time pass so quickly?";
+		mes "On dirait que c'était hier";
+		mes "quand je tenais mon propre";
+		mes "petit bon en tant que Gunslinger,";
+		mes "un guerrier de la terre. C'est";
+		mes "là que j'ai rencontré le père de Selena...";
+		mes "Comment le temps peut-il passer si rapidement ?";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "Ah... I really appreciate";
-		mes "Selena and Black Fox for all";
-		mes "of their help in recruiting";
-		mes "young Gunslingers. I'm very";
-		mes "old now, and can't do everything by myself. *Sigh...* Such is life.";
+		mes "Ah... J'apprécie vraiment";
+		mes "Selena et Black Fox pour toute";
+		mes "leur aide dans le recrutement";
+		mes "de jeunes Gunslingers. Je suis très";
+		mes "vieux maintenant et je ne peux pas tout faire seul. *Soupir...* C'est la vie.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "Before you leave, may";
-		mes "I ask you for a small favor?";
-		mes "I'm thirsty, and would like";
-		mes "a cold glass of Milk. Would";
-		mes "you please bring me some?";
+		mes "Avant de partir, puis-je";
+		mes "te demander une petite faveur ?";
+		mes "J'ai soif et j'aimerais";
+		mes "un verre de lait bien froid.";
+		mes "Pourrais-tu m'en apporter ?";
 		set GUNS_Q,4;
 		changequest 6022,6023;
 		close;
@@ -358,35 +360,35 @@ payon,184,65,3	script	Wise Bull Horn	866,{
 	else if (GUNS_Q == 4) {
 		if (countitem(519) < 1) {
 			mes "[Wise Bull Horn]";
-			mes "I'm an old man that will";
-			mes "soon be reunited with mother";
-			mes "earth. Would you do this old";
-			mes "Gunslinger a favor a bring me";
-			mes "a cold glass of Milk, please?";
+			mes "Je suis un vieil homme qui";
+			mes "sera bientôt réuni avec la terre";
+			mes "mère. Pourrais-tu faire cette faveur";
+			mes "à un vieux Gunslinger et m'apporter";
+			mes "un verre de lait bien froid, s'il te plaît ?";
 			close;
 		}
-		delitem 519,1; // Milk
+		delitem 519,1; // Lait
 		set GUNS_Q,5;
 		changequest 6023,6024;
 		mes "[Wise Bull Horn]";
-		mes "Oh, thank you for your!";
-		mes "generosity--I see that";
-		mes "you've brought me some";
-		mes "Milk. Ahhhh, delicious~";
+		mes "Oh, merci pour ta générosité !";
+		mes "Je vois que tu m'as apporté du";
+		mes "lait. Ahhhh, délicieux~";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "I admire the patience,";
-		mes "gentleness, and kindness";
-		mes "that you've proven by bringing";
-		mes "this to me. Yes, those are traits we all want Gunslingers to have.";
+		mes "J'admire la patience,";
+		mes "la douceur et la gentillesse";
+		mes "que tu as prouvées en apportant";
+		mes "cela. Oui, ce sont des traits que nous";
+		mes "voulons que les Gunslingers aient.";
 		next;
 		mes "[Wise Bull Horn]";
-		mes "Now, please take this voucher";
-		mes "to Miller, the Black Fox, with";
-		mes "my wholehearted approval.";
-		mes "I hope that you will use your";
-		mes "gun to uphold justice as a";
-		mes "noble warrior of the earth.";
+		mes "Maintenant, s'il te plaît, prends ce bon";
+		mes "à Miller, le Renard Noir, avec";
+		mes "mon approbation sincère.";
+		mes "J'espère que tu utiliseras ton";
+		mes "arme pour faire respecter la justice";
+		mes "en tant que noble guerrier de la terre.";
 		next;
 		mes "[Wise Bull Horn]";
 		mes "Eeh~Yeah~Eeh~Hooom";
@@ -397,12 +399,12 @@ payon,184,65,3	script	Wise Bull Horn	866,{
 	}
 	else if (GUNS_Q == 5) {
 		mes "[Wise Bull Horn]";
-		mes "Please take this voucher";
-		mes "to Miller, the Black Fox, with";
-		mes "my wholehearted approval.";
-		mes "I hope that you will use your";
-		mes "gun to uphold justice as a";
-		mes "noble warrior of the earth.";
+		mes "S'il te plaît, prends ce bon";
+		mes "à Miller, le Renard Noir, avec";
+		mes "mon approbation sincère.";
+		mes "J'espère que tu utiliseras ton";
+		mes "arme pour faire respecter la justice";
+		mes "en tant que noble guerrier de la terre.";
 		next;
 		mes "[Wise Bull Horn]";
 		mes "Eeh~Yeah~Eeh~Hooom";
@@ -413,10 +415,10 @@ payon,184,65,3	script	Wise Bull Horn	866,{
 	}
 	else if (GUNS_Q == 6) {
 		mes "[Wise Bull Horn]";
-		mes "AAh, long time no see.";
-		mes "I hope that you become";
-		mes "a smart beast, and use";
-		mes "your powers as a Gunslinger to protect what is good and just.";
+		mes "Ah, cela fait longtemps.";
+		mes "J'espère que tu deviendras";
+		mes "une bête intelligente et utiliseras";
+		mes "tes pouvoirs de Gunslinger pour protéger ce qui est bon et juste.";
 		close;
 	}
 	else {

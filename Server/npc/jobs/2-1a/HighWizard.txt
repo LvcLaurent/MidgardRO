@@ -16,71 +16,68 @@
 //============================================================ 
 
 valkyrie,44,47,5	script	High Wizard#Valkyrie	735,{
-	if (ADVJOB == 0 ||  Upper != 1) {
+	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[High Wizard]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "Félicitations.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		mes "[High Wizard]";
-		mes "We High Wizards have";
-		mes "the responsibility of";
-		mes "using our destructive magic";
-		mes "for the right purposes.";
+		mes "Nous, les High Wizards, avons";
+		mes "la responsabilité d'utiliser notre magie destructrice";
+		mes "à des fins justes.";
 		next;
 		mes "[High Wizard]";
-		mes "A lifetime of training";
-		mes "is required before becoming";
-		mes "a High Wizard. Can you imagine";
-		mes "what would happen if our power";
-		mes "was placed in the wrong hands?!";
+		mes "Une vie entière d'entraînement";
+		mes "est nécessaire avant de devenir";
+		mes "un High Wizard. Peux-tu imaginer";
+		mes "ce qui se passerait si notre pouvoir";
+		mes "tombait entre de mauvaises mains ?";
 		close;
 	}
 	else if (ADVJOB == Job_High_Wizard && Class == Job_Mage_High && JobLevel > 39) {
 		mes "[High Wizard]";
-		mes "It is time.";
-		mes "And Midgard has";
-		mes "need of those who can";
-		mes "wield the strongest of magic...";
+		mes "C'est le moment.";
+		mes "Et Midgard a besoin de ceux qui";
+		mes "peuvent manier la magie la plus puissante...";
 		next;
 		mes "[High Wizard]";
-		mes "Would you like to";
-		mes "become a High Wizard?";
+		mes "Veux-tu devenir un High Wizard ?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("Non. : Oui.") == 1) {
 			mes "[High Wizard]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honors to the warriors!";
+			mes "Quand tu seras prêt,";
+			mes "n'hésite pas à revenir.";
+			mes "Honneur aux guerriers !";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[High Wizard]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "Il te reste encore des points de compétence à apprendre. Utilise";
+			mes "tous tes points de compétence restants avant de revenir me voir.";
 			close;
 		}
 		jobchange Job_high_Wizard;
 		set ADVJOB,0;
 		mes "[High Wizard]";
-		mes "Congratulations.";
-		mes "As a High Wizard,";
-		mes "I hope use you use";
-		mes "your powers to bring";
-		mes "peace to the oppressed.";
+		mes "Félicitations.";
+		mes "En tant que High Wizard,";
+		mes "j'espère que tu utiliseras";
+		mes "tes pouvoirs pour apporter";
+		mes "la paix aux opprimés.";
 		close;
 	}
 	mes "[High Wizard]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenue";
+	mes "à Valhalla,";
+	mes "la Salle de l'Honneur.";
 	next;
 	mes "[High Wizard]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "S'il te plaît, mets-toi";
+	mes "à l'aise";
+	mes "pendant ton séjour ici.";
+	mes "Honneur aux guerriers !";
 	close;
 }
