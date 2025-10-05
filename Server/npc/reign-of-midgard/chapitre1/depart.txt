@@ -1,0 +1,671 @@
+//===== rAthena Script =========================================================
+//= Chapitre 1
+//===== By: ====================================================================
+//= Marcel (0.1)
+//===== Current Version: =======================================================
+//= 0.1.0
+//===== File Encoding ==========================================================
+//= ISO-8859-1 (ANSI compatible). Do NOT read/save it as UTF-8.
+//===== Description: ===========================================================
+//= Script pour le démarrage des joueurs
+//= il contient les quètes pour recevoir les premiers job skill
+//===== Additional Comments: ===================================================
+//= 0.1.0 Création du script
+//==============================================================================
+
+
+//gonryun,0,0	monster	Poring	1002,32,5000
+//gonryun,0,0	monster	Lunatic	1063,196,5000
+//gonryun,0,0	monster	Fabre	1007,42,5000
+gonryun,77,36	monster	Poring	1002,10,5000
+gonryun,85,34	monster	Lunatic	1063,13,5000
+gonryun,93,37	monster	Fabre	1007,12,5000
+gonryun,45,102	monster	Poring	1002,10,5000
+gonryun,45,97	monster	Lunatic	1063,13,5000
+gonryun,45,82	monster	Fabre	1007,12,5000
+gonryun,28,188	monster	Poring	1002,10,5000
+gonryun,28,186	monster	Lunatic	1063,13,5000
+gonryun,28,184	monster	Fabre	1007,12,5000
+gonryun,108,277	monster	Poring	1002,10,5000
+gonryun,105,277	monster	Lunatic	1063,13,5000
+gonryun,111,277	monster	Fabre	1007,12,5000
+gonryun,262,216	monster	Poring	1002,10,5000
+gonryun,262,216	monster	Lunatic	1063,13,5000
+gonryun,262,216	monster	Fabre	1007,12,5000
+gonryun,272,84	monster	Poring	1002,10,5000
+gonryun,274,84	monster	Lunatic	1063,13,5000
+gonryun,270,84	monster	Fabre	1007,12,5000
+
+//=================================================================
+//====================== Héraut d'Aetherion =======================
+//============== Bienvenu dans ce monde
+//=================================================================
+gonryun,160,124,3	script	Héraut d'Aetherion#intro_npc001_Gonruyn	4_m_sage_a,{
+    if (Class == Job_Novice && JobLevel != 10) {
+		set JobLevel, 10;
+        atcommand "@allskill";
+        #GON_INTRO_DONE = 0;
+	}
+	if (#GON_INTRO_DONE || Class != Job_Novice) {
+        mes "[Héraut d'Aetherion]";
+        mes "Nous nous reverrons à chaque aurore, Éveillé.";
+        mes "Ton choix de classe est déjà scellé... mais les Dieux accordent parfois une seconde chance.";
+        next;
+
+        if (select("Redevenir Novice (Réinitialiser le serment):Partir") == 1) {
+            mes "[Héraut d'Aetherion]";
+            mes "Ainsi soit-il. Les fils du destin se dénouent, et ta voie s'efface pour renaître.";
+            next;
+
+            // Effet visuel + reset de classe
+            specialeffect2 EF_SPHERE;
+            jobchange Job_Novice;
+            // Optionnel : remise à zéro du niveau de job
+            set JobLevel, 10;
+            atcommand "@allskill";
+
+            // Reset de la variable pour lui permettre de refaire le choix
+            set #GON_INTRO_DONE, 0;
+
+            mes "[Héraut d'Aetherion]";
+            mes "Te voilà à nouveau au commencement. Puisses-tu choisir une voie différente cette fois.";
+            close;
+        }
+        else {
+            mes "[Héraut d'Aetherion]";
+            mes "Alors poursuis ton chemin, Éveillé. Le monde de Midgard n'attend que ta légende.";
+            close;
+        }
+    }
+    mes "[Héraut d'Aetherion]";
+	mes "Bienvenue, " +strcharinfo(0) +", dans ^0066FFGonryun, la Cité des Dieux^000000.";
+	mes "Ici, les esprits qui t'entourent sont paisibles. Ils te guideront par leur simple présence.";
+    #HERAUT_CHAT_FIRST = 1;
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Mais la paix que tu ressens ici n'est qu'un murmure, un souvenir fragile.";
+	mes "Car au-delà des brumes sacrées de Gonryun, le monde de ^0080FFMidgard^000000 s'étiole.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Deux grandes factions s'y disputent le destin :";
+	mes "la ^FFD700Confrérie du Solstice^000000, héritière des anciens temples et gardienne de l'ordre divin...";
+	mes "et le ^9900FFConsortium de l'Ombre^000000, né des ruines de la connaissance interdite, qui cherche à briser le joug des dieux.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Leur guerre ne se mène pas qu'à la pointe des armes :";
+	mes "elle se joue dans les esprits, dans la foi, dans la manière même dont le monde se souvient de son origine.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Pendant que les mortels s'affrontent, d'autres menaces rampent sous le voile des cieux.";
+	mes "Les ^FF3333Vestiges^000000 - fragments de dieux déchus - corrompent les terres et sèment le chaos.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Les ^CC6600Grands Monstres^000000 s'éveillent dans leurs sanctuaires oubliés, liés aux flux d'énergie que les hommes exploitent sans mesure.";
+	mes "Et dans les neiges éternelles du Nord, certains murmurent qu'une force ancienne, le ^000000Néant^000000, cherche à consumer toute création.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "C'est dans ce désordre que ton existence prend sens.";
+	mes "Tu es de ceux que l'on nomme les ^33CCFFÉveillés^000000 - des âmes rappelées ici par les Dieux, destinées à restaurer l'équilibre... ou à précipiter sa chute.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Chacun de tes choix façonnera le monde.";
+	mes "Car même un souffle, en ces temps troublés, peut devenir tempête.";
+	next;
+
+	mes "[Héraut d'Aetherion]";
+	mes "Les Dieux de Gonryun t'attendent.";
+	mes "Approche-les, écoute leurs voies, et choisis celle que ton coeur réclame.";
+	mes "Alors seulement ton voyage commencera.";
+    next;
+	switch(select("Qui sont les Dieux de Gonryun ?:Comment choisir ma classe ?:Je suis prêt")) {
+		case 1:
+			mes "[Héraut d'Aetherion]";
+			mes "^0080FFGardien de l'Égide^000000 (Épéiste)";
+            mes "^9933FFArcaniste des Sphères^000000 (Mage)"; 
+            mes "^FFCC00Porteur de Halo^000000 (Acolyte)";
+			mes "^66CC66Voile Silencieux^000000 (Voleur)";
+            mes "^CC9933Maître des Denrées^000000 (Marchand)"; 
+            mes "^66CCFFChasseur des Vents^000000 (Archer).";
+			close;
+		case 2:
+			mes "[Héraut d'Aetherion]";
+			mes "Approche le Dieu qui résonne avec ton coeur. Il t'expliquera sa voie, puis te proposera de ^00CC00devenir sa classe^000000.";
+			mes "Tu dois être ^00CC00Novice^000000 pour sceller ton premier serment.";
+			close;
+		case 3:
+			mes "[Héraut d'Aetherion]";
+			mes "Alors écoute les Dieux et choisis. ^00CC00Ta légende commence maintenant^000000.";
+			close;
+	}
+}
+
+//=================================================================
+//====================== DIEUX ====================================
+//============== Un PNJ par voie, chacun peut faire le jobchange
+//=================================================================
+
+// ---- Gardien de l'Égide (Épéiste)
+gonryun,209,176,4	script	Gardien de l'Égide#intro_npc002_Gonruyn	1_m_knightmaster,{
+	callfunc "F_GOD_INTRO","Épéiste","Présence, protection, avant-garde.","JOB_SWORDMAN";
+	end;
+}
+
+// ---- Arcaniste des Sphères (Mage)
+gonryun,105,107,3	script	Arcaniste des Sphères#intro_npc003_Gonruyn	2_m_sage_old,{
+	callfunc "F_GOD_INTRO","Mage","Étude, distance, modeler la bataille.","JOB_MAGE";
+	end;
+}
+
+// ---- Porteur de Halo (Acolyte)
+gonryun,149,197,4	script	Porteur de Halo#intro_npc004_Gonruyn	4_m_jpn,{
+	callfunc "F_GOD_INTRO","Acolyte","Soin, lumière, serments.","JOB_ACOLYTE";
+	end;
+}
+
+// ---- Voile Silencieux (Voleur)
+gonryun,133,149,6	script	Voile Silencieux#intro_npc005_Gonruyn	4_f_rogue,{
+	callfunc "F_GOD_INTRO","Voleur","Ombre, opportunité, frappe précise.","JOB_THIEF";
+	end;
+}
+
+// ---- Maître des Denrées (Marchand)
+gonryun,141,117,5	script	Maître des Denrées#intro_npc006_Gonruyn	4_m_humerchant,{
+	callfunc "F_GOD_INTRO","Marchand","Échange, ingéniosité, puissance économique.","JOB_MERCHANT";
+	end;
+}
+
+// ---- Chasseur des Vents (Archer)
+gonryun,160,10,0	script	Chasseur des Vents#intro_npc007_Gonruyn	4_f_job_hunter,{
+	callfunc "F_GOD_INTRO","Archer","Distance, calme, précision.","JOB_ARCHER";
+	end;
+}
+
+// ------------------------------------------------------------
+// Fonction commune aux Dieux : intro + choix + jobchange + cadeaux
+// ------------------------------------------------------------
+function	script	F_GOD_INTRO	{
+	.@name$ = getarg(0);
+	.@pitch$ = getarg(1);
+	.@jobconst$ = getarg(2); // ex: "JOB_SWORDMAN"
+
+	mes "[Dieu de "+.@name$+"]";
+	mes "Ma voie : ^00CC00"+.@pitch$+"^000000.";
+	mes "Le monde a besoin de ceux qui la portent avec droiture.";
+	next;
+
+	if (Class != Job_Novice) {
+		mes "[Dieu de "+.@name$+"]";
+        switch (Sex) {
+            case 1:
+                mes "Tu n'es plus un novice. Ta première voie est déjà prise.";
+                break;
+            case 0:
+                mes "Tu n'es plus une novice. Ta première voie est déjà prise.";
+                break;
+        }
+		
+		close;
+	}
+
+	if (select("En savoir plus:"+ "Devenir "+.@name$) == 1) {
+		mes "[Dieu de "+.@name$+"]";
+		mes "Observe Gonryun : les esprits se rassemblent, les vents s'accordent.";
+		mes "Fais de ta volonté une ancre.";
+		close;
+	}
+
+	// Confirmation
+	mes "[Dieu de "+.@name$+"]";
+	mes "Souhaites-tu vraiment ^00CC00devenir "+.@name$+"^000000 ?";
+	if (select("Oui:"+ "Non") == 2) close;
+
+	// Jobchange
+	specialeffect2 EF_BLESSING;
+	jobchange getd(.@jobconst$);
+
+	// Cadeaux de départ (ne donner qu'une fois)
+	if (!#GON_INTRO_DONE) {
+		#GON_INTRO_DONE = 1;
+	}
+
+	mes "[Dieu de "+.@name$+"]";
+	mes "C'est fait. Que ta première voie soit ferme.";
+	switch (Sex) {
+        case 1:
+            mes "Quand tu seras prêt, parles avec ^0080FFFrelsi^000000.";
+            break;
+        case 0:
+            mes "Quand tu seras prête, parles avec ^0080FFFrelsi^000000.";
+            break;
+    }
+	close;
+	return;
+}
+
+//=================================================================
+//====================== Frelsi ====================================
+//============== Dieux des choix - Pour choisir sa faction
+//=================================================================
+
+-	script	FACTION_CONST	-1,{
+OnInit:
+	.f_SOLSTICE = 1;
+	.f_OMBRE    = 2;
+	end;
+}
+
+gonryun,157,124,5	script	Frelsi	4_M_BARD,{
+
+	// ---- Contrôle d'accès : a-t-il parlé au Héraut ?
+	if (#HERAUT_CHAT_FIRST != 1) {
+		mes "[Frelsi]";
+		mes "Les brumes ne s'écartent pas encore pour toi.";
+		mes "Va d'abord écouter le ^0066FFHéraut d'Aetherion^000000. Il t'attend, il est juste à côté de moi.";
+		close;
+	}
+
+    if (BaseLevel < 10 || Class == Job_Novice) {
+		mes "[Frelsi]";
+		mes "Les brumes ne s'écartent pas encore pour toi.";
+        switch (Sex) {
+            case 1:
+                mes "Tu ne dois plus être un novice et tu dois avoir un base level à 10";
+                break;
+            case 0:
+                mes "Tu ne dois plus être une novice et tu dois avoir un base level à 10";
+                break;
+        }
+		
+		close;
+	}
+
+	// ---- Si une faction est déjà choisie
+	if (#FACTION_ID == getvariableofnpc(.f_SOLSTICE,"FACTION_CONST")) {
+		mes "[Frelsi]";
+		mes "Ton serment actuel : ^FFD700Confrérie du Solstice^000000 (Prontera).";
+		next;
+		switch(select("Descendre à Prontera:Changer de faction:Partir")) {
+			case 1:
+				callfunc "F_FACTION_WARP",getvariableofnpc(.f_SOLSTICE,"FACTION_CONST"); end;
+			case 2:
+				callfunc "F_FACTION_SWITCH"; end;
+			default:
+				close;
+		}
+		end;
+	} else if (#FACTION_ID == getvariableofnpc(.f_OMBRE,"FACTION_CONST")) {
+		mes "[Frelsi]";
+		mes "Ton serment actuel : ^9900FFConsortium de l'Ombre^000000 (Aldebaran).";
+		next;
+		switch(select("Descendre à Aldebaran:Changer de faction:Partir")) {
+			case 1:
+				callfunc "F_FACTION_WARP",getvariableofnpc(.f_OMBRE,"FACTION_CONST"); end;
+			case 2:
+				callfunc "F_FACTION_SWITCH"; end;
+			default:
+				close;
+		}
+		end;
+	}
+
+	// ---- Premier serment : choix de faction
+	mes "[Frelsi]";
+    mes "Écoute bien, Éveillé : le serment que tu vas prêter n'est pas un simple drapeau.";
+    mes "Les Dieux n'aiment pas les conflits - ils savent ce qu'ils consument.";
+    next;
+    mes "[Frelsi]";
+    mes "Pourtant, ces deux factions demeurent, non pour nourrir la haine,";
+    mes "mais pour offrir des voies d'exigence.";
+    mes "De leur rivalité naissent les épreuves qui polissent l'âme.";
+    next;
+    mes "[Frelsi]";
+    mes "Elles poussent les hommes et les héros à se ^00CC00surpasser^000000,";
+    mes "à affermir leurs choix et à devenir dignes de Midgard.";
+    next;
+    mes "[Frelsi]";
+    mes "Choisir, c'est accepter un ^FFD700devoir^000000, des ^66CCFFfrères d'armes^000000,";
+    mes "des ^9933FFrites^000000 et des ^FF3333épreuves^000000.";
+    mes "Ton serment t'ouvrira des maîtres, des quêtes, et une place à défendre.";
+    next;
+	switch(select("^FFD700Confrérie du Solstice^000000 (Prontera):^9900FFConsortium de l'Ombre^000000 (Aldebaran):En savoir plus:Partir")) {
+		case 1:
+			callfunc "F_FACTION_CONFIRM",getvariableofnpc(.f_SOLSTICE,"FACTION_CONST"); end;
+		case 2:
+			callfunc "F_FACTION_CONFIRM",getvariableofnpc(.f_OMBRE,"FACTION_CONST"); end;
+		case 3:
+			mes "[Frelsi]";
+			mes "^FFD700Confrérie du Solstice^000000 : gardiens de l'ordre ancien, protecteurs des sanctuaires et des routes.";
+			mes "Le soleil guide leur pas, et ^0066FFProntera^000000 est leur capitale.";
+			next;
+			mes "[Frelsi]";
+			mes "^9900FFConsortium de l'Ombre^000000 : héritiers des secrets, ils cherchent la liberté hors du joug divin.";
+			mes "Leurs pactes se tissent à ^3366FFAldebaran^000000, ville d'engrenages et d'astrolabes.";
+            next;
+            switch(select("^FFD700Confrérie du Solstice^000000 (Prontera):^9900FFConsortium de l'Ombre^000000 (Aldebaran):Partir")) {
+                case 1:
+			        callfunc "F_FACTION_CONFIRM",getvariableofnpc(.f_SOLSTICE,"FACTION_CONST"); end;
+		        case 2:
+			        callfunc "F_FACTION_CONFIRM",getvariableofnpc(.f_OMBRE,"FACTION_CONST"); end;
+                default:
+			        close;
+            }
+		default:
+			close;
+	}
+}
+
+// ------------------------------------------------------------
+// Fonctions utilitaires : confirmation, warp, changement
+// ------------------------------------------------------------
+function	script	F_FACTION_NAME	{
+	.@fid = getarg(0);
+	if (.@fid == getvariableofnpc(.f_SOLSTICE,"FACTION_CONST")) return "Confrérie du Solstice";
+	if (.@fid == getvariableofnpc(.f_OMBRE,"FACTION_CONST"))    return "Consortium de l'Ombre";
+	return "Indéfinie";
+}
+
+function	script	F_FACTION_CONFIRM	{
+	.@fid = getarg(0);
+	.@name$ = callfunc("F_FACTION_NAME",.@fid);
+
+	mes "[Frelsi]";
+	mes "Jures-tu de servir la ^00CC00"+.@name$+"^000000 ?";
+	if (select("Oui:Non") == 2) { close; }
+
+	// Serment scellé
+	specialeffect2 EF_BLESSING;
+	#FACTION_ID = .@fid;
+
+	// (Optionnel) petite dotation RP différente selon la faction
+	if (#FACTION_ID == getvariableofnpc(.f_SOLSTICE,"FACTION_CONST")) {
+		
+	} else {
+		
+	}
+
+	mes "[Frelsi]";
+	mes "Qu'il en soit ainsi. Ton serment est scellé.";
+    mes "Veux tu quitter le monde des Dieux ? Tu ne pourras plus revenir !";
+	next;
+
+	// Descente immédiate ?
+	if (select("Descendre maintenant:Plus tard") == 1) {
+		callfunc "F_FACTION_WARP",#FACTION_ID;
+		end;
+	}
+	close;
+	return;
+}
+
+function	script	F_FACTION_WARP	{
+	.@fid = getarg(0);
+
+	if (.@fid == getvariableofnpc(.f_SOLSTICE,"FACTION_CONST")) {
+		// Savepoint + Warp Prontera
+		savepoint "prontera",156,179;
+		mes "[Frelsi]";
+		mes "Que la lumière de ^FFD700Prontera^000000 guide tes pas.";
+		close2;
+		warp "prontera",156,179;
+		end;
+	}
+	if (.@fid == getvariableofnpc(.f_OMBRE,"FACTION_CONST")) {
+		// Savepoint + Warp Aldebaran
+		savepoint "aldebaran",140,119;
+		mes "[Frelsi]";
+		mes "Que les engrenages d'^9900FFAldebaran^000000 murmurent à ton esprit.";
+		close2;
+		warp "aldebaran",140,119;
+		end;
+	}
+
+	// Fallback
+	close;
+	return;
+}
+
+function	script	F_FACTION_SWITCH	{
+	mes "[Frelsi]";
+	mes "Changer de serment n'est pas anodin. Es-tu absolument sûr ?";
+	if (select("Oui:Non") == 2) close;
+
+	// (Optionnel) pénalité/cout/cooldown à insérer ici si tu veux
+	// ex : Zeny, reset de quêtes de faction, etc.
+
+	// Choix inverse automatique
+	.@newfid = (#FACTION_ID == getvariableofnpc(.f_SOLSTICE,"FACTION_CONST")) 
+	           ? getvariableofnpc(.f_OMBRE,"FACTION_CONST")
+	           : getvariableofnpc(.f_SOLSTICE,"FACTION_CONST");
+
+	#FACTION_ID = .@newfid;
+	specialeffect2 EF_SPHERE;
+
+	mes "[Frelsi]";
+	mes "Le serment est renversé. Ta nouvelle allégeance est scellée.";
+	close;
+	end;
+}
+
+
+
+//=========================================================================================
+//=========================================================================================
+//=============================== Event ===================================================
+//=========================================================================================
+// ============================================================
+// Event : Ronde des Âmes paisibles ? Fabre (Gonryun)
+// Démarrage : toutes les heures (OnMinute00), durée 15 minutes
+// Objectif : Purifier 50 Fabre (ID 1169) autour de la place
+// Récompense (si succès) : Buff Bless+Increase AGI (15 min) + 300 Base EXP
+//                         + Potions rouges pour chaque joueur présent sur la map
+// ============================================================
+
+-	script	GON_EVENT_FABRE	-1,{
+
+OnInit:
+	.map$ = "gonryun";
+	// Zone de spawn (carré). Ajuste selon ton centre de ville.
+	.x1 = 127; .y1 = 166;
+	.x2 = 207; .y2 = 70;
+
+	.mob_name$ = "Fabre troublé";
+	.mob_id = 1007;            // Fabre
+	.goal = 50;                // objectifs à purifier
+	.duration_ms = 15 * 60 * 1000; // 15 minutes
+	.buff_dur_ms = 15 * 60 * 1000; // 15 minutes de Bless/AGI
+	.potions_each = 5;         // potions rouges données à la réussite
+	.is_active = 0;
+
+	// Commande GM de test : @fabrekillstart
+	bindatcmd "fabrekillstart", strnpcinfo(3)+"::OnManualStart", 99, 99;
+
+	end;
+
+
+// ------------------------------------------------------------
+// Lancement automatique : chaque heure pile
+// ------------------------------------------------------------
+OnMinute00:
+	if (.is_active) end; // évite double-lancement
+	donpcevent strnpcinfo(3)+"::OnStart";
+	end;
+
+
+// ------------------------------------------------------------
+// Lancement manuel (GM only) : @fabrekillstart
+// ------------------------------------------------------------
+OnManualStart:
+	if (.is_active) {
+		dispbottom "Event déjà en cours.";
+		end;
+	}
+	donpcevent strnpcinfo(3)+"::OnStart";
+	end;
+
+
+// ------------------------------------------------------------
+// DÉBUT D'ÉVENT
+// ------------------------------------------------------------
+OnStart:
+	.is_active = 1;
+	$gon_sb_score = 0;
+
+	mapannounce .map$, "[Gonryun] Les brumes s'agitent... Des Fabres troublés apparaissent !", bc_map, 0x66CCFF;
+	mapannounce .map$, "[Objectif] Purifiez 50 âmes en 15 minutes !", bc_map, 0x66CCFF;
+
+	// Nettoie d'anciens restes au cas où (uniquement ceux de cet event)
+	killmonster .map$, strnpcinfo(3)+"::OnSBDead";
+
+	// Spawn initial : 50 Fabres dans la zone
+	// -> On leur associe l'event de mort OnSBDead pour compter les points
+	areamonster .map$, .x1, .y1, .x2, .y2, .mob_name$, .mob_id, 80, strnpcinfo(3)+"::OnSBDead";
+
+	// --- TIMER NPC (PAS addtimer) ---
+	stopnpctimer;
+	initnpctimer;            // démarre le chrono pour cet NPC
+	end;
+	end;
+
+OnTimer900000:
+	donpcevent strnpcinfo(3)+"::OnTimeUp";
+	stopnpctimer;
+	end;
+
+
+// ------------------------------------------------------------
+// Comptage des points (à la mort d'un Fabres d'event)
+// ------------------------------------------------------------
+OnSBDead:
+	if (!.is_active) end;
+	$gon_sb_score++;
+
+	// Feedback de progression toutes les 10 purifs (10/20/30/40)
+	if ($gon_sb_score % 10 == 0 && $gon_sb_score < .goal) {
+		mapannounce .map$, "[Progression] Purifications : "+$gon_sb_score+"/"+.goal+". Courage !", bc_map, 0x99CCFF;
+	}
+
+	// Succès si on atteint 50
+	if ($gon_sb_score >= .goal) {
+		donpcevent strnpcinfo(3)+"::OnSuccess";
+	}
+	end;
+
+
+// ------------------------------------------------------------
+// SUCCÈS : récompenses & buff à TOUS les joueurs de la map
+// ------------------------------------------------------------
+OnSuccess:
+	if (!.is_active) end; // sécurité
+	.is_active = 0;
+
+	// Nettoyer les mobs restants de l'event
+	killmonster .map$, strnpcinfo(3)+"::OnSBDead";
+
+	mapannounce .map$, "[Gonryun] Les esprits se calment ! Purification accomplie ("+$gon_sb_score+"/"+.goal+").", bc_map, 0x33CC66;
+
+	// --- VERSION B : Boucle safe getmapunits + attachrid ---
+	getmapunits(BL_PC, .map$, .@rid);
+	// Log console
+	debugmes "[GON_EVENT_FABRE] Reward start; players on map = "+getarraysize(.@rid);
+
+	for (.@i = 0; .@i < getarraysize(.@rid); .@i++) {
+
+		// Attache sécurisé
+		if (!attachrid(.@rid[.@i])) continue;
+
+		// Toujours sur la bonne map ? (évite récompense si warp instantané)
+		if (strcharinfo(3) != .map$) { detachrid; continue; }
+
+		// (Option) ignorer les GMs pendant tes tests
+		// if (getgroupid() >= 60) { detachrid; continue; }
+
+		// Récompenses
+		sc_start SC_BLESSING,    .buff_dur_ms, 10;
+		sc_start SC_INCREASEAGI, .buff_dur_ms, 10;
+
+        addtimer 10, strnpcinfo(3)+"::OnGiveSelfReward";
+
+		//getexp 300, 0;
+		//getitem 501, .potions_each;
+
+		// Log console non bloquant
+		debugmes "[GON_EVENT_FABRE] Rewarded -> "+strcharinfo(0);
+
+		detachrid;
+	}
+	// Fin de distribution
+	mapannounce .map$, "[Récompense] +Bless/+Agi (15 min), +300 EXP Base, et Potions rouges pour tous.", bc_map, 0x33CC66;
+	end;
+
+// Donne EXP + items DANS le contexte du joueur (appelé par addtimer)
+OnGiveSelfReward:
+
+	// EXP + Items 
+	getexp 300, 0;
+	getitem 501, .potions_each;
+
+	// Optionnel: message perso
+	dispbottom "[Event] +300 EXP Base et "+.potions_each+" Potions rouges reçus.";
+
+	end;
+
+
+// ------------------------------------------------------------
+// FIN DE TEMPS (échec si objectif non atteint)
+// ------------------------------------------------------------
+OnTimeUp:
+	if (!.is_active) end;
+	.is_active = 0;
+
+	killmonster .map$, strnpcinfo(3)+"::OnSBDead";
+
+	if ($gon_sb_score >= .goal) {
+		// Si pile à l'instant on a atteint l'objectif, passe par OnSuccess
+		donpcevent strnpcinfo(3)+"::OnSuccess";
+		end;
+	}
+
+	mapannounce .map$, "[Gonryun] Le voile retombe... ("+$gon_sb_score+"/"+.goal+") Les brumes demeurent pour l'heure.", bc_map, 0xCC6666;
+	end;
+
+}
+
+// ============================================================
+// Event : Course
+// Démarrage : A la demande
+// Objectif : Passez par toute les balises
+// Récompense (si succès) : Buff Bless+Increase AGI (15 min) + 150 Base EXP
+//                         + Potions rouges (2)
+// ============================================================
+
+// ---------- Fonction : toucher/valider une balise ----------
+function	script	F_PARCOURS_TOUCH	{
+	
+}
+
+// ============================================================
+// PNJ : Gardien du Parcours ? lance/relance l'event pour le joueur
+// ============================================================
+gonryun,147,19,4	script	Gardien du Parcours	4_M_SAGE_a,{
+    mes "[Gardien]";
+    close;
+}
+
+
+// ============================================================
+// 6 Balises cliquables (positions à ajuster si besoin)
+// Sprite : 2_bulletin_board 
+// ============================================================
+gonryun,152,39,3	script	Balise du Parcours #1	2_bulletin_board,{ callfunc "F_PARCOURS_TOUCH", 0; end; }
+gonryun,53,101,3	script	Balise du Parcours #2	2_bulletin_board,{ callfunc "F_PARCOURS_TOUCH", 1; end; }
+gonryun,102,249,3	script	Balise du Parcours #3	2_bulletin_board,{ callfunc "F_PARCOURS_TOUCH", 2; end; }
+gonryun,209,261,3	script	Balise du Parcours #4	2_bulletin_board,{ callfunc "F_PARCOURS_TOUCH", 3; end; }
+gonryun,254,202,3	script	Balise du Parcours #5	2_bulletin_board,{ callfunc "F_PARCOURS_TOUCH", 4; end; }
+gonryun,256,80,3	script	Balise du Parcours #6	2_bulletin_board,{ callfunc "F_PARCOURS_TOUCH", 5; end; }

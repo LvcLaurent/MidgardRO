@@ -97,18 +97,18 @@ S_Warp:
 		end;
 	}
 
-	if (WoeTETimeStart(3600) == 1) {
-		if (!.@guild_id || !.@my_guild_id) {
-			mes "It's time for preparing to WoE. Only Alliance guild is able to enter.";
-			close;
-		}
-		if (getguildalliance(.@my_guild_id,.@guild_id) != 1) {
-			mes "It's time for preparing to WoE. Only Alliance guild is able to enter.";
-			close;
-		}
-		mes "Welcome alliance guild.";
-		close2;
-	}
+//	if (WoeTETimeStart(3600) == 1) {
+//		if (!.@guild_id || !.@my_guild_id) {
+//			mes "It's time for preparing to WoE. Only Alliance guild is able to enter.";
+//			close;
+//		}
+//		if (getguildalliance(.@my_guild_id,.@guild_id) != 1) {
+//			mes "It's time for preparing to WoE. Only Alliance guild is able to enter.";
+//			close;
+//		}
+//		mes "Welcome alliance guild.";
+//		close2;
+//	}
 	warp .@castle$,getarg(1),getarg(2);
 	end;
 }

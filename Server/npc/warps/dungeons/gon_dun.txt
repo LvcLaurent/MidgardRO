@@ -13,7 +13,7 @@
 //= 1.1 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
 //============================================================
 
-gonryun,159,201,0	warp	gon_dun1-1	1,1,gon_dun01,153,48
+//gonryun,159,201,0	warp	gon_dun1-1	1,1,gon_dun01,153,48
 gon_dun01,153,45,0	warp	gon_dun1-2	1,1,gonryun,159,198
 gon_dun01,162,273,0	warp	gon_dun2-1	1,1,gon_dun02,17,113
 gon_dun02,14,113,0	warp	gon_dun2-2	1,1,gon_dun01,162,270
