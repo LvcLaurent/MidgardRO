@@ -51,6 +51,19 @@ gonryun,160,124,3	script	Héraut d'Aetherion#intro_npc001_Gonruyn	4_m_sage_a,{
         mes "Nous nous reverrons à chaque aurore, Éveillé.";
         mes "Ton choix de classe est déjà scellé... mais les Dieux accordent parfois une seconde chance.";
         next;
+		if (checkquest(90000) == 2 && checkquest(90001) != 2) {
+			mes "Bravo ! Tu as choisie ta classe.";
+			mes "Voici ta récompense.";
+			next;
+
+			getexp 150, 0;
+			getitem 501, 2;
+			
+			completequest 90001;
+			erasequest 90000;
+
+			close;
+		}
 
         if (select("Redevenir Novice (Réinitialiser le serment):Partir") == 1) {
             mes "[Héraut d'Aetherion]";
@@ -65,7 +78,7 @@ gonryun,160,124,3	script	Héraut d'Aetherion#intro_npc001_Gonruyn	4_m_sage_a,{
             atcommand "@allskill";
 
             // Reset de la variable pour lui permettre de refaire le choix
-            set #GON_INTRO_DONE, 0;
+            #GON_INTRO_DONE = 0;
 
             mes "[Héraut d'Aetherion]";
             mes "Te voilà à nouveau au commencement. Puisses-tu choisir une voie différente cette fois.";
@@ -124,6 +137,9 @@ gonryun,160,124,3	script	Héraut d'Aetherion#intro_npc001_Gonruyn	4_m_sage_a,{
 	mes "Approche-les, écoute leurs voies, et choisis celle que ton coeur réclame.";
 	mes "Alors seulement ton voyage commencera.";
     next;
+	if (checkquest(90000) == -1) && checkquest(90001) != 2 {
+		setquest 90000;
+	}
 	switch(select("Qui sont les Dieux de Gonryun ?:Comment choisir ma classe ?:Je suis prêt")) {
 		case 1:
 			mes "[Héraut d'Aetherion]";
@@ -144,6 +160,9 @@ gonryun,160,124,3	script	Héraut d'Aetherion#intro_npc001_Gonruyn	4_m_sage_a,{
 			mes "Alors écoute les Dieux et choisis. ^00CC00Ta légende commence maintenant^000000.";
 			close;
 	}
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "(Class == Job_Novice && !isbegin_quest(90000) && checkquest(90001) != 2) || (Class != Job_Novice && checkquest(90001) != 2)" );
+		end;
 }
 
 //=================================================================
@@ -155,36 +174,60 @@ gonryun,160,124,3	script	Héraut d'Aetherion#intro_npc001_Gonruyn	4_m_sage_a,{
 gonryun,209,176,4	script	Gardien de l'Égide#intro_npc002_Gonruyn	1_m_knightmaster,{
 	callfunc "F_GOD_INTRO","Épéiste","Présence, protection, avant-garde.","JOB_SWORDMAN";
 	end;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && (isbegin_quest(90000) || isbegin_quest(90001))" );
+		end;
 }
 
 // ---- Arcaniste des Sphères (Mage)
 gonryun,105,107,3	script	Arcaniste des Sphères#intro_npc003_Gonruyn	2_m_sage_old,{
 	callfunc "F_GOD_INTRO","Mage","Étude, distance, modeler la bataille.","JOB_MAGE";
 	end;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && (isbegin_quest(90000) || isbegin_quest(90001))" );
+		end;
 }
 
 // ---- Porteur de Halo (Acolyte)
 gonryun,149,197,4	script	Porteur de Halo#intro_npc004_Gonruyn	4_m_jpn,{
 	callfunc "F_GOD_INTRO","Acolyte","Soin, lumière, serments.","JOB_ACOLYTE";
 	end;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && (isbegin_quest(90000) || isbegin_quest(90001))" );
+		end;
 }
 
 // ---- Voile Silencieux (Voleur)
 gonryun,133,149,6	script	Voile Silencieux#intro_npc005_Gonruyn	4_f_rogue,{
 	callfunc "F_GOD_INTRO","Voleur","Ombre, opportunité, frappe précise.","JOB_THIEF";
 	end;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && (isbegin_quest(90000) || isbegin_quest(90001))" );
+		end;
 }
 
 // ---- Maître des Denrées (Marchand)
 gonryun,141,117,5	script	Maître des Denrées#intro_npc006_Gonruyn	4_m_humerchant,{
 	callfunc "F_GOD_INTRO","Marchand","Échange, ingéniosité, puissance économique.","JOB_MERCHANT";
 	end;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && (isbegin_quest(90000) || isbegin_quest(90001))" );
+		end;
 }
 
 // ---- Chasseur des Vents (Archer)
 gonryun,160,10,0	script	Chasseur des Vents#intro_npc007_Gonruyn	4_f_job_hunter,{
 	callfunc "F_GOD_INTRO","Archer","Distance, calme, précision.","JOB_ARCHER";
 	end;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_NONE, "Class == Job_Novice && (isbegin_quest(90000) || isbegin_quest(90001))" );
+		end;
 }
 
 // ------------------------------------------------------------
@@ -195,6 +238,7 @@ function	script	F_GOD_INTRO	{
 	.@pitch$ = getarg(1);
 	.@jobconst$ = getarg(2); // ex: "JOB_SWORDMAN"
 
+	// Marquer la quête comme complétée une seule fois
 	mes "[Dieu de "+.@name$+"]";
 	mes "Ma voie : ^00CC00"+.@pitch$+"^000000.";
 	mes "Le monde a besoin de ceux qui la portent avec droiture.";
@@ -230,9 +274,9 @@ function	script	F_GOD_INTRO	{
 	specialeffect2 EF_BLESSING;
 	jobchange getd(.@jobconst$);
 
-	// Cadeaux de départ (ne donner qu'une fois)
-	if (!#GON_INTRO_DONE) {
-		#GON_INTRO_DONE = 1;
+	if (isbegin_quest(90000) && checkquest(90000) != 2) {
+		completequest 90000;
+		setquest 90001;
 	}
 
 	mes "[Dieu de "+.@name$+"]";

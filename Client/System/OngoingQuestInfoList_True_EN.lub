@@ -9965,7 +9965,7 @@ QuestInfoList = {
 		Description = {
 			"Research specimens are required for research! Go to the Bathtub and collect 10 <ITEM>[Bath Water Sample]<INFO>6386</INFO></ITEM>.",
 			" ",
-			"¤ Samples can be obtained at the Bathtub.",
+			"ï¿½ Samples can be obtained at the Bathtub.",
 			"When you get all the specimens, take them to <NAVI>[Raffle Researcher]<INFO>mora,31,138,0,101,0</INFO></NAVI>."
 		},
 		Summary = ""
@@ -9988,7 +9988,7 @@ QuestInfoList = {
 			"The Bathtub research found that the test-subject has interesting DNA.",
 			"In order to compare the unidentified DNA, go to the Bathtub to collect <ITEM>[Tooth Sample]<INFO>6388</INFO></ITEM>.",
 			" ",
-			"¤ Samples can be obtained from the Bathtub",
+			"ï¿½ Samples can be obtained from the Bathtub",
 			"When you get all the specimens, take them to <NAVI>[Raffle Researcher]<INFO>mora,31,138,0,101,0</INFO></NAVI>."
 		},
 		Summary = ""
@@ -10000,7 +10000,7 @@ QuestInfoList = {
 			"The Bathtub research found that the test-subject has interesting DNA.",
 			"In order to compare the unidentified DNA, go to the Bathtub to collect <ITEM>[Scale Sample]<INFO>6388</INFO></ITEM>.",
 			" ",
-			"¤ Samples can be obtained from the Bathtub",
+			"ï¿½ Samples can be obtained from the Bathtub",
 			"When you get all the specimens, take them to <NAVI>[Raffle Researcher]<INFO>mora,31,138,0,101,0</INFO></NAVI>."
 		},
 		Summary = ""
@@ -15609,7 +15609,7 @@ QuestInfoList = {
 			"I received a quest to hunt 50 local monsters.",
 			"    ",
 			"If the party number registered with Professor Taeguto and the number of inside the joint are not the same, you will not be able to receive a fair compensation.",
-			"^FF0000» This is a repeatable quest.^000000"
+			"^FF0000ï¿½ This is a repeatable quest.^000000"
 		},
 		Summary = ""
 	},
@@ -15620,7 +15620,7 @@ QuestInfoList = {
 			"I received a quest to hunt 100 local monsters.",
 			"    ",
 			"If the party number registered with Professor Taeguto and the number of inside the joint are not the same, you will not be able to receive a fair compensation.",
-			"^FF0000» This is a repeatable quest.^000000"
+			"^FF0000ï¿½ This is a repeatable quest.^000000"
 		},
 		Summary = ""
 	},
@@ -15631,7 +15631,7 @@ QuestInfoList = {
 			"I received a quest to hunt 150 local monsters.",
 			"    ",
 			"If the party number registered with Professor Taeguto and the number of inside the joint are not the same, you will not be able to receive a fair compensation.",
-			"^FF0000» This is a repeatable quest.^000000"
+			"^FF0000ï¿½ This is a repeatable quest.^000000"
 		},
 		Summary = ""
 	},
@@ -15886,13 +15886,13 @@ QuestInfoList = {
 			" ",
 			"How to Gather Half Flowers",
 			"1) If it blooms near a rock",
-			"» Angle 40°/2 leaves left/50ml Water/2g Secret Powder",
+			"ï¿½ Angle 40ï¿½/2 leaves left/50ml Water/2g Secret Powder",
 			"2) When it blooms on flat ground",
-			"» Angle 30°/4 leaves left/40ml Water/4g Secret Powder",
+			"ï¿½ Angle 30ï¿½/4 leaves left/40ml Water/4g Secret Powder",
 			"^0000FF3) If it blooms near a tree^000000",
-			"^0000FF» Angle 20°/4 leaves left/30ml Water/6g Secret Powder^000000",
+			"^0000FFï¿½ Angle 20ï¿½/4 leaves left/30ml Water/6g Secret Powder^000000",
 			"4) If it blooms near the Water",
-			"» Angle 10°/8 leaves left/20ml Water/8g Secret Powder"
+			"ï¿½ Angle 10ï¿½/8 leaves left/20ml Water/8g Secret Powder"
 		},
 		Summary = "",
 		NpcSpr = "EP18_HALFFLOWER"
@@ -15917,7 +15917,7 @@ QuestInfoList = {
 			"Do not overwork. When you're done with one task, get plenty of rest!",
 			" ",
 			"If you want to do the next job after the waiting time,",
-			"go to <NAVI>[President Mezai]<INFO>rachel,70,135,0,101,0</INFO></NAVI>À» Ã£¾Æ°¡º¸me."
+			"go to <NAVI>[President Mezai]<INFO>rachel,70,135,0,101,0</INFO></NAVI>ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ï¿½ï¿½me."
 		},
 		Summary = "Reset at 04:00",
 		CoolTimeQuest = 1,
@@ -15936,13 +15936,13 @@ QuestInfoList = {
 			" ",
 			"How to Gather Half Flowers",
 			"^0000FF1) If it blooms near a rock^000000",
-			"^0000FF» Angle 40°/2 leaves left/50ml Water/2g Secret Powder^000000",
+			"^0000FFï¿½ Angle 40ï¿½/2 leaves left/50ml Water/2g Secret Powder^000000",
 			"2) When it blooms on flat ground",
-			"» Angle 30°/4 leaves left/40ml Water/4g Secret Powder",
+			"ï¿½ Angle 30ï¿½/4 leaves left/40ml Water/4g Secret Powder",
 			"3) If it blooms near a tree",
-			"» Angle 20°/4 leaves left/30ml Water/6g Secret Powder",
+			"ï¿½ Angle 20ï¿½/4 leaves left/30ml Water/6g Secret Powder",
 			"4) If it blooms near the Water",
-			"» Angle 10°/8 leaves left/20ml Water/8g Secret Powder"
+			"ï¿½ Angle 10ï¿½/8 leaves left/20ml Water/8g Secret Powder"
 		},
 		Summary = "",
 		NpcSpr = "EP18_HALFFLOWER"
@@ -15957,13 +15957,13 @@ QuestInfoList = {
 			" ",
 			"How to Gather Half Flowers",
 			"1) If it blooms near a rock",
-			"» Angle 40°/2 leaves left/50ml Water/2g Secret Powder",
+			"ï¿½ Angle 40ï¿½/2 leaves left/50ml Water/2g Secret Powder",
 			"^0000FF2) When it blooms on flat ground^000000",
-			"^0000FF» Angle 30°/4 leaves left/40ml Water/4g Secret Powder^000000",
+			"^0000FFï¿½ Angle 30ï¿½/4 leaves left/40ml Water/4g Secret Powder^000000",
 			"3) If it blooms near a tree",
-			"» Angle 20°/4 leaves left/30ml Water/6g Secret Powder",
+			"ï¿½ Angle 20ï¿½/4 leaves left/30ml Water/6g Secret Powder",
 			"4) If it blooms near the Water",
-			"» Angle 10°/8 leaves left/20ml Water/8g Secret Powder"
+			"ï¿½ Angle 10ï¿½/8 leaves left/20ml Water/8g Secret Powder"
 		},
 		Summary = "",
 		NpcSpr = "EP18_HALFFLOWER"
@@ -15978,13 +15978,13 @@ QuestInfoList = {
 			" ",
 			"How to Gather Half Flowers",
 			"1) If it blooms near a rock",
-			"» Angle 40°/2 leaves left/50ml Water/2g Secret Powder",
+			"ï¿½ Angle 40ï¿½/2 leaves left/50ml Water/2g Secret Powder",
 			"2) When it blooms on flat ground",
-			"» Angle 30°/4 leaves left/40ml Water/4g Secret Powder",
+			"ï¿½ Angle 30ï¿½/4 leaves left/40ml Water/4g Secret Powder",
 			"^0000FF3) If it blooms near a tree^000000",
-			"^0000FF» Angle 20°/4 leaves left/30ml Water/6g Secret Powder^000000",
+			"^0000FFï¿½ Angle 20ï¿½/4 leaves left/30ml Water/6g Secret Powder^000000",
 			"4) If it blooms near the Water",
-			"» Angle 10°/8 leaves left/20ml Water/8g Secret Powder"
+			"ï¿½ Angle 10ï¿½/8 leaves left/20ml Water/8g Secret Powder"
 		},
 		Summary = "",
 		NpcSpr = "EP18_HALFFLOWER"
@@ -15999,13 +15999,13 @@ QuestInfoList = {
 			" ",
 			"How to Gather Half Flowers",
 			"1) If it blooms near a rock",
-			"» Angle 40°/2 leaves left/50ml Water/2g Secret Powder",
+			"ï¿½ Angle 40ï¿½/2 leaves left/50ml Water/2g Secret Powder",
 			"2) When it blooms on flat ground",
-			"» Angle 30°/4 leaves left/40ml Water/4g Secret Powder",
+			"ï¿½ Angle 30ï¿½/4 leaves left/40ml Water/4g Secret Powder",
 			"3) If it blooms near a tree",
-			"» Angle 20°/4 leaves left/30ml Water/6g Secret Powder",
+			"ï¿½ Angle 20ï¿½/4 leaves left/30ml Water/6g Secret Powder",
 			"^0000FF4) If it blooms near the Water^000000",
-			"^0000FF» Angle 10°/8 leaves left/20ml Water/8g Secret Powder^000000"
+			"^0000FFï¿½ Angle 10ï¿½/8 leaves left/20ml Water/8g Secret Powder^000000"
 		},
 		Summary = "",
 		NpcSpr = "EP18_HALFFLOWER"
@@ -16277,7 +16277,7 @@ QuestInfoList = {
 		Description = {
 			"Together with the Eagle Patrol.",
 			"Finished patrolling Frozen Scale Hill.",
-			"If you want to participate in the patrol tomorrow, go to the <NAVI>[Guard Captain]<INFO>icecastle,23,115,0,101,0</INFO></NAVI>À» Ã£¾Æ°¡me."
+			"If you want to participate in the patrol tomorrow, go to the <NAVI>[Guard Captain]<INFO>icecastle,23,115,0,101,0</INFO></NAVI>ï¿½ï¿½ Ã£ï¿½Æ°ï¿½me."
 		},
 		Summary = "Reset at 04:00",
 		CoolTimeQuest = 1
@@ -16316,7 +16316,7 @@ QuestInfoList = {
 			"It's relatively simple and the pay isn't bad.",
 			"Let's visit <NAVI>[Supplier Officer Gorir]<INFO>icecastle,97,177,0,101,0</INFO></NAVI> again tomorrow.",
 			"-",
-			"» If you are inside the Memorial Dungeon, the directions may not be smooth."
+			"ï¿½ If you are inside the Memorial Dungeon, the directions may not be smooth."
 		},
 		Summary = "Reset at 04:00",
 		CoolTimeQuest = 1
@@ -16338,7 +16338,7 @@ QuestInfoList = {
 			"Retrieved food from wild animals that someone had left behind.",
 			"Report to <NAVI>[Supplier Officer Gorir]<INFO>icecastle,97,177,0,101,0</INFO></NAVI>.",
 			"-",
-			"» If you are inside the Memorial Dungeon, the directions may not be smooth."
+			"ï¿½ If you are inside the Memorial Dungeon, the directions may not be smooth."
 		},
 		Summary = ""
 	},
@@ -16389,7 +16389,7 @@ QuestInfoList = {
 			"but he disappeared immediately. You said you were going in",
 			"the direction of <NAVI>[Frozen Scale Plains]<INFO>jor_back2,250,30,0,101,0</INFO></NAVI>? Let's visit when the time comes.",
 			"-",
-			"» If you are inside the Memorial Dungeon, the directions may not be smooth."
+			"ï¿½ If you are inside the Memorial Dungeon, the directions may not be smooth."
 		},
 		Summary = ""
 	},
@@ -25434,7 +25434,7 @@ QuestInfoList = {
 	[8306] = {
 		Title = "There are children studying in Yuno",
 		Description = {
-			"The tag on the cold box that Lilyyu asked for is¡° to Yuno-Juni and Tres."
+			"The tag on the cold box that Lilyyu asked for isï¿½ï¿½ to Yuno-Juni and Tres."
 		},
 		Summary = "Cold Box Delivery"
 	},
@@ -27408,7 +27408,7 @@ QuestInfoList = {
 	[8713] = {
 		Title = "Temple Closure (10)",
 		Description = {
-			"¹The door opened safely and I was able to get out. Let's talk with <NAVI>[Priest Nema]<INFO>rachel,116,174,0,101,0</INFO></NAVI>."
+			"ï¿½The door opened safely and I was able to get out. Let's talk with <NAVI>[Priest Nema]<INFO>rachel,116,174,0,101,0</INFO></NAVI>."
 		},
 		Summary = "Talk to Priest Nema"
 	},
@@ -28354,7 +28354,7 @@ QuestInfoList = {
 		Title = "Dreaming Poring",
 		IconName = "ico_vr.bmp",
 		Description = {
-			"Gullaring grew up…"
+			"Gullaring grew upï¿½"
 		},
 		Summary = "Talk to Gullaring"
 	},
@@ -32433,14 +32433,14 @@ QuestInfoList = {
 		Summary = "Lugen"
 	},
 	[11099] = {
-		Title = "To My Friend¡¦",
+		Title = "To My Friendï¿½ï¿½",
 		Description = {
 			"Lugen asked you to deliver a letter to his friend Otto who is working on the barrier in the west."
 		},
 		Summary = "Otto"
 	},
 	[11100] = {
-		Title = "To My Friend¡¦",
+		Title = "To My Friendï¿½ï¿½",
 		Description = {
 			"Otto asked you to bring his letter to Lugen and to tell him that he will be visiting him when he gets his next vacation."
 		},
@@ -38334,7 +38334,7 @@ QuestInfoList = {
 		Title = "[Standby] Larva - Exciting Sausage Hero's Adventure",
 		IconName = "ico_vr.bmp",
 		Description = {
-			"Looks like you've rescued the Sausage Princess. Maybe…? If you want to read <NAVI>[Larva - Exciting Sausage Hero's Adventure]<INFO>prt_elib,41,68,0,101,0</INFO></NAVI> again, come back after 04:00."
+			"Looks like you've rescued the Sausage Princess. Maybeï¿½? If you want to read <NAVI>[Larva - Exciting Sausage Hero's Adventure]<INFO>prt_elib,41,68,0,101,0</INFO></NAVI> again, come back after 04:00."
 		},
 		Summary = "Reset at 04:00",
 		CoolTimeQuest = 1
@@ -40476,7 +40476,7 @@ QuestInfoList = {
 	[12301] = {
 		Title = "Two remaining friends",
 		Description = {
-			"Robert and Etran will carry out their destinies until the end. Until the land of the past (although present for them¢®|) becomes the abundant land of the present. Talk to Hiel and Clever who made the encounters possible."
+			"Robert and Etran will carry out their destinies until the end. Until the land of the past (although present for themï¿½ï¿½|) becomes the abundant land of the present. Talk to Hiel and Clever who made the encounters possible."
 		},
 		Summary = "Two remaining friends"
 	},
@@ -49124,7 +49124,7 @@ QuestInfoList = {
 		Title = "Waiting: Hungry Boar",
 		IconName = "ico_ev.bmp",
 		Description = {
-			"Now I have to clean the boar trap. After the dawn, come back to <NAVI>me<INFO>alberta,152,198,0,101,0</INFO></NAVI> Ù¾ î¿?"
+			"Now I have to clean the boar trap. After the dawn, come back to <NAVI>me<INFO>alberta,152,198,0,101,0</INFO></NAVI> Ù¾ ï¿½?"
 		},
 		Summary = "Reset at 04:00",
 		CoolTimeQuest = 1
@@ -53009,7 +53009,7 @@ QuestInfoList = {
 		Title = "Data Backup",
 		IconName = "ico_dq.bmp",
 		Description = {
-			"Daily maintenance of the chip is required. Let's go to the Secret Wings <NAVI>[Researcher]<INFO>sp_rudus4,192,204,0,101,0</INFO></NAVI>¿¡°Ô Ã£¾Æ°¡ º¸me."
+			"Daily maintenance of the chip is required. Let's go to the Secret Wings <NAVI>[Researcher]<INFO>sp_rudus4,192,204,0,101,0</INFO></NAVI>ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ ï¿½ï¿½me."
 		},
 		Summary = "Talk with the Researcher"
 	},
@@ -53259,7 +53259,7 @@ QuestInfoList = {
 		Description = {
 			"Go to <NAVI>[Dinar]<INFO>wolfvill,106,224,0,101,0</INFO></NAVI> with the notebook Gudra gave you and write down the amazing story Dina tells you."
 		},
-		Summary = "µð³ª¸£¿Í ´ëÈ­",
+		Summary = "ï¿½ð³ª¸ï¿½ï¿½ï¿½ ï¿½ï¿½È­",
 		NpcSpr = "4_F_DST_CHILD",
 		NpcNavi = "wolfvill",
 		NpcPosX = "106",
@@ -56712,7 +56712,7 @@ QuestInfoList = {
 		Description = {
 			"Tell <NAVI>[Galstein]<INFO>lighthalzen,179,170,0,101,0</INFO></NAVI> in Lighthalzen that the secret wings can no longer be maintained."
 		},
-		Summary = "Galstein¿¡°Ô"
+		Summary = "Galsteinï¿½ï¿½ï¿½ï¿½"
 	},
 	[17307] = {
 		Title = "Gatekeeper of Lasagna Cave",
@@ -57197,7 +57197,7 @@ QuestInfoList = {
 		Title = "So suddenly?",
 		IconName = "ico_ep.bmp",
 		Description = {
-			"It is said that if you step on the wrong drain while cleaning, it will fall into the lake instead of the sewage treatment plant, so there might be something. Take a look at <NAVI>[±×°÷]<INFO>ba_bath,165,43,0,101,0</INFO></NAVI> and come back."
+			"It is said that if you step on the wrong drain while cleaning, it will fall into the lake instead of the sewage treatment plant, so there might be something. Take a look at <NAVI>[ï¿½×°ï¿½]<INFO>ba_bath,165,43,0,101,0</INFO></NAVI> and come back."
 		},
 		Summary = "Explore the Lake"
 	},
@@ -57482,7 +57482,7 @@ QuestInfoList = {
 		Title = "Stop Time",
 		IconName = "ico_ev.bmp",
 		Description = {
-			"Now let¡¯s go back to the Clock Tower and stop the <NAVI>[Villain Boss]<INFO>aldebaran,159,127,0,101,0</INFO></NAVI>  from executing their plan!"
+			"Now letï¿½ï¿½s go back to the Clock Tower and stop the <NAVI>[Villain Boss]<INFO>aldebaran,159,127,0,101,0</INFO></NAVI>  from executing their plan!"
 		},
 		Summary = "Go to the Clock Tower"
 	},
@@ -57555,7 +57555,7 @@ QuestInfoList = {
 		Title = "Secrets of the Thanatos Tower",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Show the obtained notebook to <NAVI>[Bled Conceed]<INFO>tha_t02,231,161,0,101,0</INFO></NAVI>¿¡°Ô º¸¿©ÁÖme."
+			"Show the obtained notebook to <NAVI>[Bled Conceed]<INFO>tha_t02,231,161,0,101,0</INFO></NAVI>ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½me."
 		},
 		Summary = "Go to Bled Conceed"
 	},
@@ -60266,7 +60266,7 @@ QuestInfoList = {
 		Title = "Special Delivery Request 3",
 		IconName = "ico_dq.bmp",
 		Description = {
-			"Collect 10x <ITEM>[Poison Spore]<INFO>7033</INFO></ITEM>, 10x <ITEM>[Worm Peeling]<INFO>955</INFO></ITEM>, 10x <ITEM>[Insect Feeler]<INFO>928</INFO></ITEM> 10°³¸¦ and deliver it to \'Lime Evenor\' through a booster call.  The items of the quest can be obtained from the Prontera Culvert."
+			"Collect 10x <ITEM>[Poison Spore]<INFO>7033</INFO></ITEM>, 10x <ITEM>[Worm Peeling]<INFO>955</INFO></ITEM>, 10x <ITEM>[Insect Feeler]<INFO>928</INFO></ITEM> 10ï¿½ï¿½ï¿½ï¿½ and deliver it to \'Lime Evenor\' through a booster call.  The items of the quest can be obtained from the Prontera Culvert."
 		},
 		Summary = "10x Poison Spore, 10x Worm Peeling, 10x Insect Feeler"
 	},
@@ -60514,7 +60514,7 @@ QuestInfoList = {
 		Title = "Procurement of research materials for Vellgunde",
 		IconName = "ico_dq.bmp",
 		Description = {
-			"Vellgunde, who is researching Jörmungandr's curse in the Ice Castle, needs a large amount of Purified Magic Cores as a material. You must purify the Rgan's Low-Grade Magic Cores obtained by killing Rgan through Friederike and then bring it to Vellgunde."
+			"Vellgunde, who is researching Jï¿½rmungandr's curse in the Ice Castle, needs a large amount of Purified Magic Cores as a material. You must purify the Rgan's Low-Grade Magic Cores obtained by killing Rgan through Friederike and then bring it to Vellgunde."
 		},
 		Summary = "3 Purified Magic Cores"
 	},
@@ -60848,7 +60848,7 @@ QuestInfoList = {
 		Title = "Mission 1 - EDDA Half-Moon in the Daytime(Easy)",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the EDDA Memorial Dungeon, Half-Moon in the Daytime (Easythat came out during the day. Report completion to Lime using a booster call.\n» <TIPBOX>MD EDDA Half-Moon in the Daytime (80)<INFO>7138</INFO></TIPBOX>"
+			"Let's challenge the EDDA Memorial Dungeon, Half-Moon in the Daytime (Easythat came out during the day. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD EDDA Half-Moon in the Daytime (80)<INFO>7138</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Lumine"
 	},
@@ -60856,7 +60856,7 @@ QuestInfoList = {
 		Title = "Mission 2 - MD Geffen Magic Tournament",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Heroes' Trails Memorial, Geffen Magic Tournament. Report completion to Lime using a booster call.\n» <TIPBOX>MD Geffen Magic Tournament (90)<INFO>7130</INFO></TIPBOX>"
+			"Let's challenge the Heroes' Trails Memorial, Geffen Magic Tournament. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD Geffen Magic Tournament (90)<INFO>7130</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Arhi the Geffen Wizard"
 	},
@@ -60864,7 +60864,7 @@ QuestInfoList = {
 		Title = "Mission 3 - MD Sara's Memory",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Heroes' Trails Memorial, Sara's Memory. Report completion to Lime using a booster call.\n» <TIPBOX>MD Sara's Memory (99)<INFO>7131</INFO></TIPBOX>"
+			"Let's challenge the Heroes' Trails Memorial, Sara's Memory. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD Sara's Memory (99)<INFO>7131</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Captain Irene"
 	},
@@ -60872,7 +60872,7 @@ QuestInfoList = {
 		Title = "Mission 4 - Register at the Illusion Investigation Team",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Join the Illusion Investigation Team that investigates illusions and do the work of the Illusion Investigators scattered around the world. Join the Illusion Survey and report to Lime using booster calls.\n» <TIPBOX>Illusion Investigation Team<INFO>9126</INFO></TIPBOX>"
+			"Join the Illusion Investigation Team that investigates illusions and do the work of the Illusion Investigators scattered around the world. Join the Illusion Survey and report to Lime using booster calls.\nï¿½ <TIPBOX>Illusion Investigation Team<INFO>9126</INFO></TIPBOX>"
 		},
 		Summary = "Meet Joel and join the Illusion Investigation Team."
 	},
@@ -60880,7 +60880,7 @@ QuestInfoList = {
 		Title = "Mission 5 - Illusion Investigation Team Moonlight",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Jiroker]<INFO>pay_d03_i,149,34,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Moonlight. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Moonlight<INFO>9086</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Jiroker]<INFO>pay_d03_i,149,34,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Moonlight. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Moonlight<INFO>9086</INFO></TIPBOX>"
 		},
 		Summary = "Complete Jiroker's mission"
 	},
@@ -60888,7 +60888,7 @@ QuestInfoList = {
 		Title = "Mission 6 - Illusion Investigation Team Frozen",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's carry out the mission of <NAVI>[Elysia]<INFO>ice_dun02,142,18,0,101,0</INFO></NAVI>>, a member of the Illusion Investigation Team investigating the Illusion of Frozen. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Frozen<INFO>9088</INFO></TIPBOX>"
+			"Let's carry out the mission of <NAVI>[Elysia]<INFO>ice_dun02,142,18,0,101,0</INFO></NAVI>>, a member of the Illusion Investigation Team investigating the Illusion of Frozen. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Frozen<INFO>9088</INFO></TIPBOX>"
 		},
 		Summary = "Complete Elysia's mission"
 	},
@@ -60896,7 +60896,7 @@ QuestInfoList = {
 		Title = "Mission 7 - MD Ghost Palace",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Heroes' Trails Memorial, the Ghost Palace. Report completion to Lime using a booster call.\n» <TIPBOX>MD Ghost Palace (120)<INFO>7132</INFO></TIPBOX>"
+			"Let's challenge the Heroes' Trails Memorial, the Ghost Palace. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD Ghost Palace (120)<INFO>7132</INFO></TIPBOX>"
 		},
 		Summary = "Defeat monsters in the Ghost Palace"
 	},
@@ -60904,7 +60904,7 @@ QuestInfoList = {
 		Title = "Mission 8 - MD Old Glast Heim",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Memorial Dungeon, Old Glast Heim. Report completion to Lime using a booster call.\n» <TIPBOX>Old Glast Heim (130)<INFO>7104</INFO></TIPBOX>"
+			"Let's challenge the Memorial Dungeon, Old Glast Heim. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Old Glast Heim (130)<INFO>7104</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Amdarais"
 	},
@@ -60912,7 +60912,7 @@ QuestInfoList = {
 		Title = "Mission 9 - Illusion Investigation Team Vampire",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Radhimir]<INFO>gef_d01_i,122,237,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Vampire. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Vampire<INFO>9087</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Radhimir]<INFO>gef_d01_i,122,237,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Vampire. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Vampire<INFO>9087</INFO></TIPBOX>"
 		},
 		Summary = "Complete Radhimir's mission"
 	},
@@ -60920,7 +60920,7 @@ QuestInfoList = {
 		Title = "Mission 10 - Illusion Investigation Team Abyss",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Orian]<INFO>tur_d03_i,125,186,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Abyss. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Abyss<INFO>9089</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Orian]<INFO>tur_d03_i,125,186,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Abyss. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Abyss<INFO>9089</INFO></TIPBOX>"
 		},
 		Summary = "Complete Orian's mission"
 	},
@@ -60928,7 +60928,7 @@ QuestInfoList = {
 		Title = "Mission 11 - Illusion Investigation Team Teddy Bear",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Machoko]<INFO>ein_d02_i,161,180,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Teddy Bear. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Teddy Bear<INFO>9090</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Machoko]<INFO>ein_d02_i,161,180,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Teddy Bear. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Teddy Bear<INFO>9090</INFO></TIPBOX>"
 		},
 		Summary = "Complete Machoko's mission"
 	},
@@ -60936,7 +60936,7 @@ QuestInfoList = {
 		Title = "Mission 12 - Illusion Investigation Team Launda",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Kesis]<INFO>com_d02_i,253,232,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Launda. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Launda<INFO>9091</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Kesis]<INFO>com_d02_i,253,232,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Launda. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Launda<INFO>9091</INFO></TIPBOX>"
 		},
 		Summary = "Complete Kesis's mission"
 	},
@@ -60944,7 +60944,7 @@ QuestInfoList = {
 		Title = "Mission 13 - Illusion Investigation Team Twins",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Sesin]<INFO>ant_d02_i,167,184,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Twins. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Twins<INFO>9157</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Sesin]<INFO>ant_d02_i,167,184,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Twins. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Twins<INFO>9157</INFO></TIPBOX>"
 		},
 		Summary = "Complete Sesin's mission"
 	},
@@ -60952,7 +60952,7 @@ QuestInfoList = {
 		Title = "Mission 14 - MD Old Glast Heim(Hard Mode)",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Memorial Dungeon, Old Glast Heim Hard Mode. Report completion to Lime using a booster call.\n» <TIPBOX>Old Glast Heim Hard Mode  (160)<INFO>7105</INFO></TIPBOX>"
+			"Let's challenge the Memorial Dungeon, Old Glast Heim Hard Mode. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Old Glast Heim Hard Mode  (160)<INFO>7105</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Amdarais"
 	},
@@ -60960,7 +60960,7 @@ QuestInfoList = {
 		Title = "Mission 15 - Illusion Investigation Team Labyrinth",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Terian]<INFO>prt_fild01,131,364,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Labyrinth. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Labyrinth<INFO>9092</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Terian]<INFO>prt_fild01,131,364,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Labyrinth. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Labyrinth<INFO>9092</INFO></TIPBOX>"
 		},
 		Summary = "Complete Terian's mission"
 	},
@@ -60968,7 +60968,7 @@ QuestInfoList = {
 		Title = "Mission 16 - EDDA Fall of Glastheim(Normal)",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the EDDA Memorial Dungeon, Fall of Glastheim(Normal). Report completion to Lime using a booster call.\n» <TIPBOX>MD EDDA Fall of Glastheim (130)<INFO>7139</INFO></TIPBOX>"
+			"Let's challenge the EDDA Memorial Dungeon, Fall of Glastheim(Normal). Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD EDDA Fall of Glastheim (130)<INFO>7139</INFO></TIPBOX>"
 		},
 		Summary = "Defeat the Cursed King"
 	},
@@ -60976,7 +60976,7 @@ QuestInfoList = {
 		Title = "Mission 17 - EDDA Bioresearch Laboratory(Exploration Mode)",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the EDDA Memorial Dungeon, Bioresearch Laboratory(Exploration Mode). Report completion to Lime using a booster call.\n» <TIPBOX>MD EDDA Bioresearch Laboratory - Exploration(170)<INFO>7140</INFO></TIPBOX>"
+			"Let's challenge the EDDA Memorial Dungeon, Bioresearch Laboratory(Exploration Mode). Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD EDDA Bioresearch Laboratory - Exploration(170)<INFO>7140</INFO></TIPBOX>"
 		},
 		Summary = "Defeat the Nameless Swordsman"
 	},
@@ -60984,7 +60984,7 @@ QuestInfoList = {
 		Title = "Mission 18 - Old Glast Heim(Challenge)",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Memorial Dungeon, Old Glast Heim(Challenge). Report completion to Lime using a booster call.\n» <TIPBOX>Old Glast Heim Challenge Mode (170)<INFO>7106</INFO></TIPBOX>"
+			"Let's challenge the Memorial Dungeon, Old Glast Heim(Challenge). Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Old Glast Heim Challenge Mode (170)<INFO>7106</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Phantom Amdarais"
 	},
@@ -60992,7 +60992,7 @@ QuestInfoList = {
 		Title = "Mission 19 - Illusion Investigation Team Underwater",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's perform the mission of <NAVI>[Lista]<INFO>iz_d04_i,127,224,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Underwater. Report completion to Lime using a booster call.\n» <TIPBOX>Illusion of Underwater<INFO>9093</INFO></TIPBOX>"
+			"Let's perform the mission of <NAVI>[Lista]<INFO>iz_d04_i,127,224,0,101,0</INFO></NAVI>, a member of the Illusion Investigation Team investigating the Illusion of Underwater. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>Illusion of Underwater<INFO>9093</INFO></TIPBOX>"
 		},
 		Summary = "Complete Lista's mission"
 	},
@@ -61000,7 +61000,7 @@ QuestInfoList = {
 		Title = "Mission 20 - MD Geffen Night Arena Round 3",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge 3rd round the Memorial Dungeon, Geffen Night Arena. Report completion to Lime using a booster call.\n» <TIPBOX>MD Geffen Night Arena (210)<INFO>5001</INFO></TIPBOX>"
+			"Let's challenge 3rd round the Memorial Dungeon, Geffen Night Arena. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD Geffen Night Arena (210)<INFO>5001</INFO></TIPBOX>"
 		},
 		Summary = "Reach Geffen Night Arena Round 3"
 	},
@@ -61008,7 +61008,7 @@ QuestInfoList = {
 		Title = "Mission 21 - MD Tomb of the Fallen",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Memorial Dungeon, Tomb of the Fallen. Report completion to Lime using a booster call.\n» <TIPBOX>MD Tomb of the Fallen (220)<INFO>8165</INFO></TIPBOX>"
+			"Let's challenge the Memorial Dungeon, Tomb of the Fallen. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD Tomb of the Fallen (220)<INFO>8165</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Magic Swordsman Sakray"
 	},
@@ -61016,7 +61016,7 @@ QuestInfoList = {
 		Title = "Mission 22 - MD Tower of Constellation",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the Memorial Dungeon, Tower of Constellation. Report completion to Lime using a booster call.\n» <TIPBOX>MD Tower of Constellation (240)<INFO>5002</INFO></TIPBOX>"
+			"Let's challenge the Memorial Dungeon, Tower of Constellation. Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD Tower of Constellation (240)<INFO>5002</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Betelgeuse"
 	},
@@ -61120,7 +61120,7 @@ QuestInfoList = {
 		Title = "Mission 1-EDDA Half-Moon in the Daytime(Hard)",
 		IconName = "ico_nq.bmp",
 		Description = {
-			"Let's challenge the EDDA Memorial Dungeon, Half-Moon in the Daytime (Hard). Report completion to Lime using a booster call.\n» <TIPBOX>MD EDDA Half-Moon in the Daytime (80)<INFO>7138</INFO></TIPBOX>"
+			"Let's challenge the EDDA Memorial Dungeon, Half-Moon in the Daytime (Hard). Report completion to Lime using a booster call.\nï¿½ <TIPBOX>MD EDDA Half-Moon in the Daytime (80)<INFO>7138</INFO></TIPBOX>"
 		},
 		Summary = "Defeat Awakened Ktullanux"
 	},
@@ -62349,7 +62349,7 @@ QuestInfoList = {
 		Title = "Investigate unknown places",
 		IconName = "ico_ev.bmp",
 		Description = {
-			"An adventurer who agreed to cooperate with the investigation after saying that a new dimension of niche was discovered! As usual, we went through the gate… Was it another world?!",
+			"An adventurer who agreed to cooperate with the investigation after saying that a new dimension of niche was discovered! As usual, we went through the gateï¿½ Was it another world?!",
 			"Let's go inside the huge door to investigate! It seems that there are many other adventurers!"
 		},
 		Summary = "Exploring another world"
@@ -62360,7 +62360,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"It seems like all you have to do is go around the booth and get 10 stamps."
 		},
 		Summary = ""
@@ -62371,7 +62371,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the first stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62383,7 +62383,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the second stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62395,7 +62395,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the third stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62407,7 +62407,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the fourth stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62419,7 +62419,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the fifth stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62431,7 +62431,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the sixth stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62443,7 +62443,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the seventh stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62455,7 +62455,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the eighth stamp of the day!",
 			"Let's find another booth."
 		},
@@ -62467,7 +62467,7 @@ QuestInfoList = {
 		Description = {
 			"Stamp relay with gifts pouring out every day!",
 			"If you bring the completed stamp card to the <NAVI>[HQ]<INFO>rag_fes,192,128,0,101,0</INFO></NAVI> once a day, we will give you a present!",
-			"… If I received a card that said",
+			"ï¿½ If I received a card that said",
 			"I got the nineth stamp of the day!",
 			"Let's find another booth. You just need to find one more booth."
 		},
@@ -62486,7 +62486,7 @@ QuestInfoList = {
 		Title = "Another world adventure complete!",
 		IconName = "ico_ev.bmp",
 		Description = {
-			"The stamp card is complete! exciting! Who would you brag about this to? … Paul?",
+			"The stamp card is complete! exciting! Who would you brag about this to? ï¿½ Paul?",
 			"To return to Paul in front of the dimensional rift that has been moved to this place, go to the <NAVI>[you arrived at]<INFO>rag_fes,100,83,0,101,0</INFO></NAVI>."
 		},
 		Summary = "Talk to Paul"
@@ -81173,12 +81173,21 @@ QuestInfoList = {
 		},
 		Summary = ""
 	},
-	[90010] = {
+	[90000] = {
 		Title = "Rencontrer les Dieux",
 		Description = {
-			"Gonryun abrite six Dieux. Ecoute-les pour choisir ta voie.\nPuis Retourner voir le Gardien du Cercle"
+			"Gonryun abrite six Dieux. Ecoute-les pour choisir ta voie.\nPuis Retourner voir le Heraux"
 		},
-		Summary = "Parler aux 6 Dieux",
+		Summary = "Choisir sa classe",
+		RewardEXP = "0",
+		RewardJEXP = "0"
+	},
+	[90001] = {
+		Title = "Parler aux Heraut",
+		Description = {
+			"Retourner voir le Heraux"
+		},
+		Summary = "Choisir sa classe",
 		RewardEXP = "150",
 		RewardJEXP = "0",
 		RewardItemList = {

@@ -50,6 +50,9 @@ Header:
   Version: 3
 
 Body:
-- Id: 90010
-  Title: "Le Cercle des dieux"
+- Id: 90000
+  Title: "Rencontrer les Dieux"
+  Repeatable: false
+- Id: 90001
+  Title: "Parler aux Heraut"
   Repeatable: false
