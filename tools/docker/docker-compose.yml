@@ -31,19 +31,20 @@ services:
             context: .
             dockerfile: Dockerfile
         environment:
-            BUILDER_CONFIGURE: "--enable-packetver=20211103"
+            BUILDER_CONFIGURE: "--enable-packetver=20220406"
 
     login:
         image: "rathena:local"
         container_name: "rathena-login"
         command: sh -c "/bin/wait-for db:3306 -- /rathena/login-server"
         ports:
-            - "6900:6900" # login server
+            - "16900:16900" # login server
         volumes:
             - "../..:/rathena" # mount git repo directory inside container
             - "./asset/inter_conf.txt:/rathena/conf/import/inter_conf.txt" # load db connection
             - "./asset/char_conf.txt:/rathena/conf/import/char_conf.txt"   #localdev login-char relation
             - "./asset/map_conf.txt:/rathena/conf/import/map_conf.txt"     #localdev char-map relation
+            - "./asset/login_conf.txt:/rathena/conf/import/login_conf.txt" # override login port (6900 is blocked by Windows reserved port range)
         init: true # helps with signal forwarding and process reaping
         tty: true
         stdin_open: true
@@ -57,7 +58,7 @@ services:
         container_name: "rathena-char"
         command: sh -c "/bin/wait-for db:3306 -- /rathena/char-server"
         ports:
-            - "6121:6121" # char server
+            - "16121:16121" # char server (6121 is blocked by Windows reserved port range)
         volumes:
             - "../..:/rathena" # mount git repo directory inside container
             - "./asset/inter_conf.txt:/rathena/conf/import/inter_conf.txt" # load db connection
