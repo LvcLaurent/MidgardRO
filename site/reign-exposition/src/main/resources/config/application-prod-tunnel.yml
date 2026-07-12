@@ -13,9 +13,9 @@ spring:
       matching-strategy: ant-path-matcher
   debug: false
   datasource:
-    # "db" est le nom du service MariaDB sur le réseau docker "docker_default" partagé
-    # avec la stack rAthena - cette appli doit tourner sur ce même réseau docker.
-    url: jdbc:mariadb://db:3306/ragnarok
+    # Pour tester depuis un poste de dev (hors du réseau docker de prod) via un tunnel SSH :
+    # plink -ssh -N -L 13306:127.0.0.1:13306 -pw <mdp> <user>@192.168.1.20
+    url: jdbc:mariadb://127.0.0.1:13306/ragnarok
     username: ragnarok
     password: ${DB_PASSWORD}
     driverClassName: org.mariadb.jdbc.Driver
