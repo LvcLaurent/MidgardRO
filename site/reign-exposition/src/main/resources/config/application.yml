@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Reign-service
+  jta:
+    enabled: true
+  
+  jpa:
+    mapping-resources:
+      - META-INF/account.orm.xml
+    open-in-view: false
+
+logging:
+  level:
+    ROOT: INFO

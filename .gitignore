@@ -7,3 +7,12 @@
 
 # Deployment credentials - never commit
 /deploy.properties
+
+# Java build output and frontend deps
+/site/**/target/
+/site/reign-site/prez/node_modules/
+/site/reign-site/prez/node/
+/site/reign-site/prez/.angular/
+/site/reign-exposition/src/main/resources/static/
+/site/app.log
+/site/app-prod.log

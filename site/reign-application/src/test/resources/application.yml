@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: test
+  main:
+    banner-mode: 'off'
+  jpa:
+    show-sql: true
+    mapping-resources:
+      - META-INF/user.orm.hbm.xml
+      - META-INF/common.orm.hbm.xml
+    open-in-view: false

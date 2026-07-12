@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" xmlns="http://java.sun.com/xml/ns/persistance/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
+
+	<description>User domain module </description>
+	<entity class="fr.lsi.gardsafe.domain.login.model.User" name="User" access="FIELD">
+		<attributes>
+			<basic name="lastName">
+				<column name="LASTNAME" />
+			</basic>
+			<basic name="firstName">
+				<column name="FIRSTNAME" />
+			</basic>
+			<basic name="pseudo">
+				<column name="PSEUDO" />
+			</basic>
+			<basic name="birthDate">
+				<column name="BIRTHDATE" />
+			</basic>
+			<basic name="adress">
+				<column name="ADRESS" />
+			</basic>
+			<basic name="postalCode">
+				<column name="POSTALCODE" />
+			</basic>
+			<basic name="phone">
+				<column name="PHONE" />
+			</basic>
+			<basic name="mail">
+				<column name="MAIL" />
+			</basic>
+			<basic name="city">
+				<column name="CITY" />
+			</basic>
+			<basic name="createUserDate">
+				<column name="CREATE_USER_DATE" />
+			</basic>
+			<basic name="lastUserDate">
+				<column name="LAST_USER_DATE" />
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>

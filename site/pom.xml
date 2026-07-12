@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>fr.lsi</groupId>
+	<packaging>pom</packaging>
+	<artifactId>reign</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0</version>
+	</parent>
+
+	<description>Gestion de Reign of Midgard</description>
+
+	<properties>
+		<maven.compiler.source>25</maven.compiler.source>
+		<maven.compiler.target>25</maven.compiler.target>
+		<java.version>25</java.version>
+		
+		<mainClass>fr.lsi.reign.exposition.ReignApplication</mainClass>
+	</properties>
+
+
+	<modules>
+		<module>reign-exposition</module>
+		<module>reign-application</module>
+		<module>reign-infrastructure</module>
+		<module>reign-domain</module>
+		<module>reign-site</module>
+	</modules>
+
+
+	<dependencyManagement>
+		<dependencies>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+</project>

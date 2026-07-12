@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /reign
+
+springdoc:
+  swagger-ui:
+    enabled: false
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  debug: false
+  datasource:
+    # Le port DB n'est exposé qu'en loopback sur le serveur (127.0.0.1:13306) :
+    # cette appli doit tourner sur ce même serveur, ou via un tunnel SSH -L pour les tests.
+    url: jdbc:mariadb://127.0.0.1:13306/ragnarok
+    username: ragnarok
+    password: ${DB_PASSWORD}
+    driverClassName: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MariaDBDialect

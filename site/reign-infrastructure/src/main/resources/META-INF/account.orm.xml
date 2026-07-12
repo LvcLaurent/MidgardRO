@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" xmlns="http://java.sun.com/xml/ns/persistance/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
+
+	<description>Account domain module - mappe sur la table login de rAthena</description>
+	<entity class="fr.lsi.reign.domain.account.model.Account" name="Account" access="FIELD">
+		<table name="login" />
+		<attributes>
+			<id name="accountId">
+				<column name="account_id" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="userId">
+				<column name="userid" />
+			</basic>
+			<basic name="userPass">
+				<column name="user_pass" />
+			</basic>
+			<basic name="sex">
+				<column name="sex" />
+				<enumerated>STRING</enumerated>
+			</basic>
+			<basic name="email">
+				<column name="email" />
+			</basic>
+			<basic name="groupId">
+				<column name="group_id" />
+			</basic>
+			<basic name="state">
+				<column name="state" />
+			</basic>
+			<basic name="characterSlots">
+				<column name="character_slots" />
+			</basic>
+			<basic name="lastLogin">
+				<column name="lastlogin" />
+			</basic>
+			<basic name="lastIp">
+				<column name="last_ip" />
+			</basic>
+			<basic name="loginCount">
+				<column name="logincount" />
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>

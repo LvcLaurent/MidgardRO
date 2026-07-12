@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: test
+  main:
+    banner-mode: 'off'
+  jpa:
+    show-sql: true
+    mapping-resources:
+    open-in-view: false
