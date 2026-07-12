@@ -5,6 +5,8 @@ services:
         volumes:
             - "rathenadb:/var/lib/mysql" # persist database on the host
             - "../../sql-files/:/docker-entrypoint-initdb.d" # initialize db with ./sql-files
+        ports:
+            - "127.0.0.1:13306:3306" # loopback-only: reachable only from this host (e.g. via SSH tunnel), never from LAN/WAN
         environment:
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
             MYSQL_DATABASE: ragnarok
