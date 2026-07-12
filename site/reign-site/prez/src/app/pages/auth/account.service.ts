@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { tap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
-// TODO: déplacer vers un fichier d'environnement quand on prépare le build de prod.
-const API_BASE_URL = 'http://localhost:8080/reign';
+const API_BASE_URL = environment.apiBaseUrl;
 
 export interface Account {
     accountId: number;
