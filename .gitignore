@@ -4,3 +4,6 @@
 # Extracted base-game GRF content, kept locally for scanning/reference only
 /Client_Reign/data_GRF/
 /Client_Reign/rdata_GRF/
+
+# Deployment credentials - never commit
+/deploy.properties

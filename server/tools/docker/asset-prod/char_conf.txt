@@ -1,0 +1,4 @@
+login_ip: login
+login_port: 16900
+char_ip: laurentetpauline.fr
+char_port: 16121
