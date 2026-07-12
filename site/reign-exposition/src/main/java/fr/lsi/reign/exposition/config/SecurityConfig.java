@@ -31,10 +31,14 @@ public class SecurityConfig {
                 // jeton CSRF géré côté front pour l'instant, à revoir si des actions sensibles
                 // protégées par session sont ajoutées plus tard.
                 .csrf(csrf -> csrf.disable())
+                // Le SPA Angular (html/js/css/media) n'a jamais besoin d'être protégé - seuls les
+                // endpoints qui exposent vraiment des données de compte le sont explicitement.
+                // Éviter d'énumérer les chemins de ressources statiques ici : trop fragile (media/,
+                // chunks hashés à la racine, etc.) - un nouvel endpoint sensible doit être ajouté
+                // explicitement à la liste ci-dessous.
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/accounts/register", "/accounts/login").permitAll()
-                        .requestMatchers("/", "/index.html", "/*.js", "/*.css", "/assets/**", "/favicon.ico").permitAll()
-                        .anyRequest().authenticated());
+                        .requestMatchers("/accounts/me", "/accounts/logout").authenticated()
+                        .anyRequest().permitAll());
         return http.build();
     }
 
