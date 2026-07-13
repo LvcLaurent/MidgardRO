@@ -35,9 +35,9 @@ class ZrendererSpriteRenderer implements CharacterSpriteRenderer {
         final Map<String, Object> body = new LinkedHashMap<>();
         body.put("job", List.of(String.valueOf(character.getJobId())));
         body.put("gender", character.getSex() == Sex.M ? 1 : 0);
-        body.put("head", character.getHair());
-        body.put("headPalette", rotatedPalette(character.getHairColor()));
-        body.put("bodyPalette", rotatedPalette(character.getClothesColor()));
+        body.put("head", character.getHair() + 1);
+        body.put("headPalette", character.getHairColor());
+        body.put("bodyPalette", character.getClothesColor());
         body.put("weapon", character.getWeapon());
         body.put("shield", character.getShield());
         body.put("garment", character.getRobe());
@@ -56,16 +56,5 @@ class ZrendererSpriteRenderer implements CharacterSpriteRenderer {
 
     private List<Integer> headgear(GameCharacter character) {
         return Stream.of(character.getHeadTop(), character.getHeadMid(), character.getHeadBottom()).filter(id -> id > 0).toList();
-    }
-
-    /**
-     * Les fichiers de palette extraits du client (méridiN_{sexe}_{0..8}.pal) sont décalés d'un
-     * cran par rapport à hair_color/clothes_color en base: la couleur 0 en base correspond au
-     * fichier "_1", constaté en comparant un rendu au client réel (cheveux blonds pour
-     * hair_color=0, alors que le fichier "_0" est un rose/saumon qui ne correspond à rien
-     * d'observé en jeu). On boucle sur les 9 fichiers disponibles (0 à max_hair_color=8).
-     */
-    private int rotatedPalette(int colorId) {
-        return (colorId + 1) % 9;
     }
 }
