@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -30,7 +31,10 @@ export class AccountService {
     /** Compte connecté (source unique de vérité pour tout le layout). */
     readonly account = signal<Account | null>(null);
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient,
+        private router: Router
+    ) {
         this.refreshSession();
     }
 
@@ -51,7 +55,12 @@ export class AccountService {
     }
 
     logout() {
-        return this.http.post<void>(`${API_BASE_URL}/accounts/logout`, {}, { withCredentials: true }).pipe(tap(() => this.account.set(null)));
+        return this.http.post<void>(`${API_BASE_URL}/accounts/logout`, {}, { withCredentials: true }).pipe(
+            tap(() => {
+                this.account.set(null);
+                this.router.navigateByUrl('/');
+            })
+        );
     }
 
     /** Réservé aux comptes admin (groupe 99) - voir SecurityConfig côté API. */

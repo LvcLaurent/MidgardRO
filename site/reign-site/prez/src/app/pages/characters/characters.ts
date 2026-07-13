@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { TableModule } from 'primeng/table';
+import { TableModule, TableRowSelectEvent } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { CharacterService, GameCharacter } from './character.service';
 
@@ -17,7 +17,7 @@ import { CharacterService, GameCharacter } from './character.service';
         <div class="card">
             <div class="text-surface-900 dark:text-surface-0 text-xl font-medium mb-6">Mes personnages</div>
 
-            <p-table [value]="characters()" [loading]="loading()" dataKey="charId">
+            <p-table [value]="characters()" [loading]="loading()" dataKey="charId" selectionMode="single" [selection]="selected()" (onRowSelect)="onRowSelect($event)">
                 <ng-template #header>
                     <tr>
                         <th>Nom</th>
@@ -28,7 +28,7 @@ import { CharacterService, GameCharacter } from './character.service';
                     </tr>
                 </ng-template>
                 <ng-template #body let-character>
-                    <tr>
+                    <tr [pSelectableRow]="character" class="cursor-pointer">
                         <td>{{ character.name }}</td>
                         <td>{{ character.jobId }}</td>
                         <td>{{ character.baseLevel }} / {{ character.jobLevel }}</td>
@@ -36,7 +36,7 @@ import { CharacterService, GameCharacter } from './character.service';
                             <p-tag [value]="character.online ? 'En ligne' : 'Hors ligne'" [severity]="character.online ? 'success' : 'secondary'" />
                         </td>
                         <td>
-                            <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (onClick)="confirmDelete(character)" />
+                            <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (onClick)="confirmDelete(character); $event.stopPropagation()" />
                         </td>
                     </tr>
                 </ng-template>
@@ -48,6 +48,29 @@ import { CharacterService, GameCharacter } from './character.service';
             </p-table>
         </div>
 
+        @if (selected(); as character) {
+            <div class="card mt-4">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }}</div>
+                    <p-button icon="pi pi-times" text rounded severity="secondary" (onClick)="selected.set(null)" />
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <div class="text-muted-color text-sm mb-1">Classe</div>
+                        <div>{{ character.jobId }}</div>
+                    </div>
+                    <div>
+                        <div class="text-muted-color text-sm mb-1">Niveau</div>
+                        <div>{{ character.baseLevel }} / {{ character.jobLevel }}</div>
+                    </div>
+                    <div>
+                        <div class="text-muted-color text-sm mb-1">Statut</div>
+                        <p-tag [value]="character.online ? 'En ligne' : 'Hors ligne'" [severity]="character.online ? 'success' : 'secondary'" />
+                    </div>
+                </div>
+            </div>
+        }
+
         <p-confirmdialog [style]="{ width: '450px' }" />
     `
 })
@@ -55,6 +78,8 @@ export class Characters implements OnInit {
     characters = signal<GameCharacter[]>([]);
 
     loading = signal(true);
+
+    selected = signal<GameCharacter | null>(null);
 
     constructor(
         private characterService: CharacterService,
@@ -82,6 +107,10 @@ export class Characters implements OnInit {
         });
     }
 
+    onRowSelect(event: TableRowSelectEvent<GameCharacter>): void {
+        this.selected.set(Array.isArray(event.data) ? null : (event.data ?? null));
+    }
+
     confirmDelete(character: GameCharacter): void {
         this.confirmationService.confirm({
             message: `Supprimer le personnage "${character.name}" ? Cette action déclenche le délai de grâce du serveur avant suppression définitive.`,
@@ -90,6 +119,9 @@ export class Characters implements OnInit {
             accept: () => {
                 this.characterService.delete(character.charId).subscribe(() => {
                     this.characters.set(this.characters().filter((c) => c.charId !== character.charId));
+                    if (this.selected()?.charId === character.charId) {
+                        this.selected.set(null);
+                    }
                 });
             }
         });
