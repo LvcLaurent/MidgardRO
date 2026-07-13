@@ -24,24 +24,24 @@ import { AccountService } from './account.service';
                             <span class="text-muted-color font-medium">Se connecter</span>
                         </div>
 
-                        <div>
+                        <form (ngSubmit)="login()">
                             @if (errorMessage()) {
                                 <p-message severity="error" [text]="errorMessage()!" styleClass="w-full mb-4"></p-message>
                             }
 
                             <label for="userId" class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">Identifiant</label>
-                            <input pInputText id="userId" type="text" placeholder="Identifiant" class="w-full md:w-120 mb-8" [(ngModel)]="userId" />
+                            <input pInputText id="userId" type="text" placeholder="Identifiant" class="w-full md:w-120 mb-8" [(ngModel)]="userId" name="userId" />
 
                             <label for="password1" class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">Mot de passe</label>
-                            <p-password id="password1" [(ngModel)]="password" placeholder="Mot de passe" [toggleMask]="true" styleClass="mb-4" [fluid]="true" [feedback]="false"></p-password>
+                            <p-password id="password1" [(ngModel)]="password" name="password" placeholder="Mot de passe" [toggleMask]="true" styleClass="mb-4" [fluid]="true" [feedback]="false"></p-password>
 
-                            <p-button label="Se connecter" styleClass="w-full mt-4" [loading]="loading()" (onClick)="login()"></p-button>
+                            <p-button type="submit" label="Se connecter" styleClass="w-full mt-4" [loading]="loading()"></p-button>
 
                             <div class="text-center mt-8">
                                 <span class="text-muted-color font-medium">Pas encore de compte ? </span>
                                 <a routerLink="/auth/register" class="font-medium text-primary cursor-pointer">Créer un compte</a>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

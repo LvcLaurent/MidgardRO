@@ -27,8 +27,225 @@
 			<basic name="jobLevel">
 				<column name="job_level" />
 			</basic>
+			<basic name="baseExp">
+				<column name="base_exp" />
+			</basic>
+			<basic name="jobExp">
+				<column name="job_exp" />
+			</basic>
+			<basic name="zeny">
+				<column name="zeny" />
+			</basic>
+			<basic name="str">
+				<column name="str" />
+			</basic>
+			<basic name="agi">
+				<column name="agi" />
+			</basic>
+			<basic name="vit">
+				<column name="vit" />
+			</basic>
+			<basic name="intelligence">
+				<column name="int" />
+			</basic>
+			<basic name="dex">
+				<column name="dex" />
+			</basic>
+			<basic name="luk">
+				<column name="luk" />
+			</basic>
+			<basic name="pow">
+				<column name="pow" />
+			</basic>
+			<basic name="sta">
+				<column name="sta" />
+			</basic>
+			<basic name="wis">
+				<column name="wis" />
+			</basic>
+			<basic name="spl">
+				<column name="spl" />
+			</basic>
+			<basic name="con">
+				<column name="con" />
+			</basic>
+			<basic name="crt">
+				<column name="crt" />
+			</basic>
+			<basic name="maxHp">
+				<column name="max_hp" />
+			</basic>
+			<basic name="hp">
+				<column name="hp" />
+			</basic>
+			<basic name="maxSp">
+				<column name="max_sp" />
+			</basic>
+			<basic name="sp">
+				<column name="sp" />
+			</basic>
+			<basic name="maxAp">
+				<column name="max_ap" />
+			</basic>
+			<basic name="ap">
+				<column name="ap" />
+			</basic>
+			<basic name="statusPoint">
+				<column name="status_point" />
+			</basic>
+			<basic name="skillPoint">
+				<column name="skill_point" />
+			</basic>
+			<basic name="traitPoint">
+				<column name="trait_point" />
+			</basic>
+			<basic name="option">
+				<column name="`option`" />
+			</basic>
+			<basic name="karma">
+				<column name="karma" />
+			</basic>
+			<basic name="manner">
+				<column name="manner" />
+			</basic>
+			<basic name="partyId">
+				<column name="party_id" />
+			</basic>
+			<basic name="guildId">
+				<column name="guild_id" />
+			</basic>
+			<basic name="petId">
+				<column name="pet_id" />
+			</basic>
+			<basic name="homunId">
+				<column name="homun_id" />
+			</basic>
+			<basic name="elementalId">
+				<column name="elemental_id" />
+			</basic>
+			<basic name="hair">
+				<column name="hair" />
+			</basic>
+			<basic name="hairColor">
+				<column name="hair_color" />
+			</basic>
+			<basic name="clothesColor">
+				<column name="clothes_color" />
+			</basic>
+			<basic name="body">
+				<column name="body" />
+			</basic>
+			<basic name="weapon">
+				<column name="weapon" />
+			</basic>
+			<basic name="shield">
+				<column name="shield" />
+			</basic>
+			<basic name="headTop">
+				<column name="head_top" />
+			</basic>
+			<basic name="headMid">
+				<column name="head_mid" />
+			</basic>
+			<basic name="headBottom">
+				<column name="head_bottom" />
+			</basic>
+			<basic name="robe">
+				<column name="robe" />
+			</basic>
+			<basic name="lastMap">
+				<column name="last_map" />
+			</basic>
+			<basic name="lastX">
+				<column name="last_x" />
+			</basic>
+			<basic name="lastY">
+				<column name="last_y" />
+			</basic>
+			<basic name="lastInstanceId">
+				<column name="last_instanceid" />
+			</basic>
+			<basic name="saveMap">
+				<column name="save_map" />
+			</basic>
+			<basic name="saveX">
+				<column name="save_x" />
+			</basic>
+			<basic name="saveY">
+				<column name="save_y" />
+			</basic>
+			<basic name="partnerId">
+				<column name="partner_id" />
+			</basic>
 			<basic name="online">
 				<column name="online" />
+			</basic>
+			<basic name="father">
+				<column name="father" />
+			</basic>
+			<basic name="mother">
+				<column name="mother" />
+			</basic>
+			<basic name="child">
+				<column name="child" />
+			</basic>
+			<basic name="fame">
+				<column name="fame" />
+			</basic>
+			<basic name="rename">
+				<column name="rename" />
+			</basic>
+			<basic name="deleteDate">
+				<column name="delete_date" />
+			</basic>
+			<basic name="moves">
+				<column name="moves" />
+			</basic>
+			<basic name="unbanTime">
+				<column name="unban_time" />
+			</basic>
+			<basic name="font">
+				<column name="font" />
+			</basic>
+			<basic name="uniqueItemCounter">
+				<column name="uniqueitem_counter" />
+			</basic>
+			<basic name="sex">
+				<column name="sex" />
+				<enumerated>STRING</enumerated>
+			</basic>
+			<basic name="hotkeyRowshift">
+				<column name="hotkey_rowshift" />
+			</basic>
+			<basic name="hotkeyRowshift2">
+				<column name="hotkey_rowshift2" />
+			</basic>
+			<basic name="clanId">
+				<column name="clan_id" />
+			</basic>
+			<basic name="lastLogin">
+				<column name="last_login" />
+			</basic>
+			<basic name="titleId">
+				<column name="title_id" />
+			</basic>
+			<basic name="showEquip">
+				<column name="show_equip" />
+			</basic>
+			<basic name="inventorySlots">
+				<column name="inventory_slots" />
+			</basic>
+			<basic name="bodyDirection">
+				<column name="body_direction" />
+			</basic>
+			<basic name="disableCall">
+				<column name="disable_call" />
+			</basic>
+			<basic name="disablePartyInvite">
+				<column name="disable_partyinvite" />
+			</basic>
+			<basic name="disableShowCostumes">
+				<column name="disable_showcostumes" />
 			</basic>
 		</attributes>
 	</entity>

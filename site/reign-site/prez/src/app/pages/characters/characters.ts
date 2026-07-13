@@ -54,19 +54,15 @@ import { CharacterService, GameCharacter } from './character.service';
                     <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }}</div>
                     <p-button icon="pi pi-times" text rounded severity="secondary" (onClick)="selected.set(null)" />
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div>
-                        <div class="text-muted-color text-sm mb-1">Classe</div>
-                        <div>{{ character.jobId }}</div>
-                    </div>
-                    <div>
-                        <div class="text-muted-color text-sm mb-1">Niveau</div>
-                        <div>{{ character.baseLevel }} / {{ character.jobLevel }}</div>
-                    </div>
-                    <div>
-                        <div class="text-muted-color text-sm mb-1">Statut</div>
-                        <p-tag [value]="character.online ? 'En ligne' : 'Hors ligne'" [severity]="character.online ? 'success' : 'secondary'" />
-                    </div>
+                <!-- Vue brute et exhaustive pour l'instant, en attendant de savoir ce qui vaut la peine
+                     d'être mis en forme visuellement (carte, position, équipement...). -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    @for (field of characterFields(character); track field.key) {
+                        <div>
+                            <div class="text-muted-color text-sm mb-1">{{ field.label }}</div>
+                            <div>{{ field.value }}</div>
+                        </div>
+                    }
                 </div>
             </div>
         }
@@ -113,7 +109,7 @@ export class Characters implements OnInit {
 
     confirmDelete(character: GameCharacter): void {
         this.confirmationService.confirm({
-            message: `Supprimer le personnage "${character.name}" ? Cette action déclenche le délai de grâce du serveur avant suppression définitive.`,
+            message: `Supprimer le personnage "${character.name}" ? Le personnage sera définitivement supprimé par le serveur dans 72h (délai de grâce).`,
             header: 'Confirmer la suppression',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
@@ -125,5 +121,18 @@ export class Characters implements OnInit {
                 });
             }
         });
+    }
+
+    characterFields(character: GameCharacter): { key: string; label: string; value: string }[] {
+        return Object.entries(character).map(([key, value]) => ({
+            key,
+            label: this.toLabel(key),
+            value: value === null || value === undefined || value === '' ? '-' : String(value)
+        }));
+    }
+
+    private toLabel(key: string): string {
+        const withSpaces = key.replace(/([A-Z])/g, ' $1');
+        return withSpaces.charAt(0).toUpperCase() + withSpaces.slice(1);
     }
 }
