@@ -25,11 +25,11 @@ import { CharacterService, GameCharacter } from './character.service';
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-2">
                                 <!-- Personnage : sprite, nom, job, niveau, statut -->
                                 <div class="flex items-center gap-4">
-                                    <div class="w-24 h-24 flex items-center justify-center shrink-0 bg-surface-100 dark:bg-surface-800 rounded-lg">
+                                    <div class="w-48 h-48 flex items-center justify-center shrink-0 bg-surface-100 dark:bg-surface-800 rounded-lg">
                                         @if (spriteUrl(character.charId); as url) {
                                             <img [src]="url" [alt]="character.name" class="max-w-full max-h-full" style="image-rendering: pixelated" />
                                         } @else {
-                                            <i class="pi pi-user text-muted-color text-2xl"></i>
+                                            <i class="pi pi-user text-muted-color text-4xl"></i>
                                         }
                                     </div>
                                     <div>
