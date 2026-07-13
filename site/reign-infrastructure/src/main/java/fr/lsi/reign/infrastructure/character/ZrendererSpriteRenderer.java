@@ -35,7 +35,7 @@ class ZrendererSpriteRenderer implements CharacterSpriteRenderer {
         final Map<String, Object> body = new LinkedHashMap<>();
         body.put("job", List.of(String.valueOf(character.getJobId())));
         body.put("gender", character.getSex() == Sex.M ? 1 : 0);
-        body.put("head", character.getHair() + 1);
+        body.put("head", character.getHair());
         body.put("headPalette", character.getHairColor());
         body.put("bodyPalette", character.getClothesColor());
         body.put("weapon", character.getWeapon());
