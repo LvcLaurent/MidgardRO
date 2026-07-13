@@ -42,7 +42,7 @@ echo "==> Compression locale de zren-resources (peut prendre plusieurs minutes, 
 tar czf "$ARCHIVE" -C "$SCRIPT_DIR" zren-resources
 
 echo "==> Transfert de l'archive vers $DEPLOY_HOST"
-"$PSCP" -pw "$DEPLOY_PASSWORD" "$ARCHIVE" "$DEPLOY_USER@$DEPLOY_HOST:~/zren-resources.tar.gz"
+"$PSCP" -pw "$DEPLOY_PASSWORD" "$ARCHIVE" "$DEPLOY_USER@$DEPLOY_HOST:zren-resources.tar.gz"
 
 echo "==> Extraction sur le serveur"
 run_remote "rm -rf ~/zren-resources && tar xzf ~/zren-resources.tar.gz -C ~ && rm ~/zren-resources.tar.gz"
