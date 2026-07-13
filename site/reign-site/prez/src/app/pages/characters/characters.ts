@@ -30,7 +30,7 @@ import { CharacterService, GameCharacter } from './character.service';
                 <ng-template #body let-character>
                     <tr [pSelectableRow]="character" class="cursor-pointer">
                         <td>{{ character.name }}</td>
-                        <td>{{ character.jobId }}</td>
+                        <td>{{ character.jobName }}</td>
                         <td>{{ character.baseLevel }} / {{ character.jobLevel }}</td>
                         <td>
                             <p-tag [value]="character.online ? 'En ligne' : 'Hors ligne'" [severity]="character.online ? 'success' : 'secondary'" />
@@ -51,10 +51,42 @@ import { CharacterService, GameCharacter } from './character.service';
         @if (selected(); as character) {
             <div class="card mt-4">
                 <div class="flex items-center justify-between mb-4">
-                    <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }}</div>
+                    <div>
+                        <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }}</div>
+                        <div class="text-muted-color text-sm">{{ character.jobName }} - Niveau {{ character.baseLevel }} / {{ character.jobLevel }}</div>
+                    </div>
                     <p-button icon="pi pi-times" text rounded severity="secondary" (onClick)="selected.set(null)" />
                 </div>
-                <!-- Vue brute et exhaustive pour l'instant, en attendant de savoir ce qui vaut la peine
+
+                <div class="max-w-md mb-6">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="font-medium">PV</span>
+                        <span>{{ character.hp }} / {{ character.maxHp }}</span>
+                    </div>
+                    <div class="w-full bg-surface-200 dark:bg-surface-700 rounded-full h-3 mb-3">
+                        <div class="bg-red-500 h-3 rounded-full transition-all" [style.width.%]="percent(character.hp, character.maxHp)"></div>
+                    </div>
+
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="font-medium">SP</span>
+                        <span>{{ character.sp }} / {{ character.maxSp }}</span>
+                    </div>
+                    <div class="w-full bg-surface-200 dark:bg-surface-700 rounded-full h-3" [class.mb-3]="character.maxAp > 0">
+                        <div class="bg-blue-500 h-3 rounded-full transition-all" [style.width.%]="percent(character.sp, character.maxSp)"></div>
+                    </div>
+
+                    @if (character.maxAp > 0) {
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="font-medium">AP</span>
+                            <span>{{ character.ap }} / {{ character.maxAp }}</span>
+                        </div>
+                        <div class="w-full bg-surface-200 dark:bg-surface-700 rounded-full h-3">
+                            <div class="bg-amber-500 h-3 rounded-full transition-all" [style.width.%]="percent(character.ap, character.maxAp)"></div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Vue brute et exhaustive pour le reste, en attendant de savoir ce qui vaut la peine
                      d'être mis en forme visuellement (carte, position, équipement...). -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     @for (field of characterFields(character); track field.key) {
@@ -121,6 +153,10 @@ export class Characters implements OnInit {
                 });
             }
         });
+    }
+
+    percent(value: number, max: number): number {
+        return max > 0 ? Math.min(100, (value / max) * 100) : 0;
     }
 
     characterFields(character: GameCharacter): { key: string; label: string; value: string }[] {

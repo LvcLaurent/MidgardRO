@@ -1,6 +1,7 @@
 package fr.lsi.reign.exposition.character.dto;
 
 import fr.lsi.reign.domain.character.model.GameCharacter;
+import fr.lsi.reign.domain.character.model.JobName;
 import java.time.LocalDateTime;
 
 /**
@@ -12,6 +13,7 @@ public record CharacterResponse(
         int charNum,
         String name,
         int jobId,
+        String jobName,
         int baseLevel,
         int jobLevel,
         long baseExp,
@@ -94,6 +96,7 @@ public record CharacterResponse(
                 c.getCharNum(),
                 c.getName(),
                 c.getJobId(),
+                JobName.of(c.getJobId()),
                 c.getBaseLevel(),
                 c.getJobLevel(),
                 c.getBaseExp(),

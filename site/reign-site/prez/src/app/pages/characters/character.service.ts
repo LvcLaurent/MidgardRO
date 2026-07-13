@@ -13,6 +13,7 @@ export interface GameCharacter {
     charNum: number;
     name: string;
     jobId: number;
+    jobName: string;
     baseLevel: number;
     jobLevel: number;
     baseExp: number;
