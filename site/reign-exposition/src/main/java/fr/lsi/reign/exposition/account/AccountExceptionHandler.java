@@ -1,6 +1,7 @@
 package fr.lsi.reign.exposition.account;
 
 import fr.lsi.reign.domain.account.exception.AccountBannedException;
+import fr.lsi.reign.domain.account.exception.DuplicateEmailException;
 import fr.lsi.reign.domain.account.exception.DuplicateUserIdException;
 import fr.lsi.reign.domain.account.exception.InvalidCredentialsException;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,11 @@ public class AccountExceptionHandler {
 
     @ExceptionHandler(DuplicateUserIdException.class)
     public ResponseEntity<String> handleDuplicateUserId(DuplicateUserIdException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ResponseEntity<String> handleDuplicateEmail(DuplicateEmailException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 

@@ -2,11 +2,15 @@ package fr.lsi.reign.exposition.account;
 
 import fr.lsi.reign.application.account.AuthenticateAccountCommand;
 import fr.lsi.reign.application.account.AuthenticateAccountService;
+import fr.lsi.reign.application.account.ChangeAccountPasswordService;
 import fr.lsi.reign.application.account.ListAccountsService;
 import fr.lsi.reign.application.account.RegisterAccountCommand;
 import fr.lsi.reign.application.account.RegisterAccountService;
+import fr.lsi.reign.application.account.UpdateAccountEmailService;
 import fr.lsi.reign.domain.account.model.Account;
 import fr.lsi.reign.exposition.account.dto.AccountResponse;
+import fr.lsi.reign.exposition.account.dto.ChangeEmailRequest;
+import fr.lsi.reign.exposition.account.dto.ChangePasswordRequest;
 import fr.lsi.reign.exposition.account.dto.LoginRequest;
 import fr.lsi.reign.exposition.account.dto.RegisterAccountRequest;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +26,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,13 +42,20 @@ public class AccountController {
 
     private final ListAccountsService listAccountsService;
 
+    private final UpdateAccountEmailService updateAccountEmailService;
+
+    private final ChangeAccountPasswordService changeAccountPasswordService;
+
     private final SecurityContextRepository securityContextRepository;
 
     public AccountController(RegisterAccountService registerAccountService, AuthenticateAccountService authenticateAccountService,
-            ListAccountsService listAccountsService, SecurityContextRepository securityContextRepository) {
+            ListAccountsService listAccountsService, UpdateAccountEmailService updateAccountEmailService,
+            ChangeAccountPasswordService changeAccountPasswordService, SecurityContextRepository securityContextRepository) {
         this.registerAccountService = registerAccountService;
         this.authenticateAccountService = authenticateAccountService;
         this.listAccountsService = listAccountsService;
+        this.updateAccountEmailService = updateAccountEmailService;
+        this.changeAccountPasswordService = changeAccountPasswordService;
         this.securityContextRepository = securityContextRepository;
     }
 
@@ -77,6 +89,20 @@ public class AccountController {
     public ResponseEntity<List<AccountResponse>> list() {
         final List<AccountResponse> accounts = listAccountsService.listAll().stream().map(AccountResponse::from).toList();
         return ResponseEntity.ok(accounts);
+    }
+
+    @PatchMapping("/me/email")
+    public ResponseEntity<AccountResponse> updateEmail(@Valid @RequestBody ChangeEmailRequest request, Authentication authentication,
+            HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+        final Account account = updateAccountEmailService.updateEmail((Account) authentication.getPrincipal(), request.email());
+        openSession(account, httpRequest, httpResponse);
+        return ResponseEntity.ok(AccountResponse.from(account));
+    }
+
+    @PostMapping("/me/password")
+    public ResponseEntity<Void> changePassword(@Valid @RequestBody ChangePasswordRequest request, Authentication authentication) {
+        changeAccountPasswordService.changePassword((Account) authentication.getPrincipal(), request.currentPassword(), request.newPassword());
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/logout")

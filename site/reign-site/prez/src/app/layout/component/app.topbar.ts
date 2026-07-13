@@ -66,10 +66,10 @@ import { AccountService } from '@/app/pages/auth/account.service';
             <div class="layout-topbar-menu hidden lg:block">
                 <div class="layout-topbar-menu-content">
                     @if (accountService.account(); as account) {
-                        <span class="layout-topbar-action">
+                        <button type="button" class="layout-topbar-action" routerLink="/profile">
                             <i class="pi pi-user"></i>
                             <span>{{ account.userId }}</span>
-                        </span>
+                        </button>
                         <button type="button" class="layout-topbar-action" (click)="logout()">
                             <i class="pi pi-sign-out"></i>
                             <span>Déconnexion</span>

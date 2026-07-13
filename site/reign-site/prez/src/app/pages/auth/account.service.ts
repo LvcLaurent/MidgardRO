@@ -67,4 +67,14 @@ export class AccountService {
     listAll() {
         return this.http.get<Account[]>(`${API_BASE_URL}/accounts`, { withCredentials: true });
     }
+
+    changeEmail(email: string) {
+        return this.http
+            .patch<Account>(`${API_BASE_URL}/accounts/me/email`, { email }, { withCredentials: true })
+            .pipe(tap((account) => this.account.set(account)));
+    }
+
+    changePassword(currentPassword: string, newPassword: string) {
+        return this.http.post<void>(`${API_BASE_URL}/accounts/me/password`, { currentPassword, newPassword }, { withCredentials: true });
+    }
 }

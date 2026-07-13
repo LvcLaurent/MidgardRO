@@ -40,7 +40,10 @@ export class AppMenu {
             {
                 label: 'Compte',
                 items: account
-                    ? [{ label: 'Se déconnecter', icon: 'pi pi-fw pi-sign-out', command: () => this.accountService.logout().subscribe() }]
+                    ? [
+                          { label: 'Mon profil', icon: 'pi pi-fw pi-user-edit', routerLink: ['/profile'] },
+                          { label: 'Se déconnecter', icon: 'pi pi-fw pi-sign-out', command: () => this.accountService.logout().subscribe() }
+                      ]
                     : [
                           { label: 'Se connecter', icon: 'pi pi-fw pi-sign-in', routerLink: ['/auth/login'] },
                           { label: 'Créer un compte', icon: 'pi pi-fw pi-user-plus', routerLink: ['/auth/register'] }

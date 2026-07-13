@@ -85,6 +85,17 @@ public class Account {
         this.loginCount++;
     }
 
+    public void changeEmail(String newEmail) {
+        this.email = newEmail;
+    }
+
+    /**
+     * Voir le commentaire de matchesPassword : stocké en clair, pas de hachage ici non plus.
+     */
+    public void changePassword(String newPassword) {
+        this.userPass = newPassword;
+    }
+
     public Long getAccountId() {
         return accountId;
     }

@@ -26,6 +26,11 @@ class AccountRepositoryAdapter implements AccountRepository {
     }
 
     @Override
+    public boolean existsByEmail(String email) {
+        return jpaRepository.existsByEmail(email);
+    }
+
+    @Override
     public Account save(Account account) {
         return jpaRepository.save(account);
     }

@@ -39,7 +39,7 @@ public class SecurityConfig {
                 // explicitement à la liste ci-dessous.
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.GET, "/accounts").hasRole("ADMIN")
-                        .requestMatchers("/accounts/me", "/accounts/me/characters/**", "/accounts/logout").authenticated()
+                        .requestMatchers("/accounts/me", "/accounts/me/**", "/accounts/logout").authenticated()
                         .anyRequest().permitAll());
         return http.build();
     }
@@ -47,7 +47,7 @@ public class SecurityConfig {
     private CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:4200"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
 

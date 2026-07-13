@@ -14,6 +14,8 @@ public interface AccountRepository {
 
     boolean existsByUserId(String userId);
 
+    boolean existsByEmail(String email);
+
     Account save(Account account);
 
     List<Account> findAll();
