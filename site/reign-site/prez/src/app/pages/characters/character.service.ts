@@ -42,6 +42,8 @@ export interface GameCharacter {
     skillPoint: number;
     traitPoint: number;
     option: number;
+    faction: number;
+    factionName: string;
     karma: number;
     manner: number;
     partyId: number;

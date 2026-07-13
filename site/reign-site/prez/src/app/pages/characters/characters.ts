@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { TableModule, TableRowSelectEvent } from 'primeng/table';
+import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import { CharacterService, GameCharacter } from './character.service';
@@ -22,9 +22,9 @@ const CAPITAL_Y = 181;
         <div class="card">
             <div class="text-surface-900 dark:text-surface-0 text-xl font-medium mb-6">Mes personnages</div>
 
-            <p-table [value]="characters()" [loading]="loading()" dataKey="charId" selectionMode="single" [selection]="selected()" (onRowSelect)="onRowSelect($event)">
+            <p-table [value]="characters()" [loading]="loading()" dataKey="charId">
                 <ng-template #body let-character>
-                    <tr [pSelectableRow]="character" class="cursor-pointer align-top">
+                    <tr class="align-top">
                         <td>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-2">
                                 <!-- Personnage : sprite, nom, job, niveau, statut -->
@@ -40,7 +40,12 @@ const CAPITAL_Y = 181;
                                         <div class="text-surface-900 dark:text-surface-0 text-lg font-medium">{{ character.name }}</div>
                                         <div class="text-muted-color text-sm">{{ character.jobName }}</div>
                                         <div class="text-muted-color text-sm mb-2">Niveau {{ character.baseLevel }} / {{ character.jobLevel }}</div>
-                                        <p-tag [value]="character.online ? 'En ligne' : 'Hors ligne'" [severity]="character.online ? 'success' : 'secondary'" />
+                                        <div class="flex gap-2">
+                                            <p-tag [value]="character.online ? 'En ligne' : 'Hors ligne'" [severity]="character.online ? 'success' : 'secondary'" />
+                                            @if (character.faction) {
+                                                <p-tag [value]="character.factionName" [severity]="character.faction === 1 ? 'info' : 'warn'" />
+                                            }
+                                        </div>
                                     </div>
                                 </div>
 
@@ -117,26 +122,6 @@ const CAPITAL_Y = 181;
             </p-table>
         </div>
 
-        @if (selected(); as character) {
-            <div class="card mt-4">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }} - détails</div>
-                    <p-button icon="pi pi-times" text rounded severity="secondary" (onClick)="selected.set(null)" />
-                </div>
-
-                <!-- Vue brute et exhaustive pour le reste (guilde, équipement, hotkeys...), en attendant
-                     de savoir ce qui vaut encore la peine d'être mis en forme visuellement. -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    @for (field of characterFields(character); track field.key) {
-                        <div>
-                            <div class="text-muted-color text-sm mb-1">{{ field.label }}</div>
-                            <div>{{ field.value }}</div>
-                        </div>
-                    }
-                </div>
-            </div>
-        }
-
         <p-confirmdialog [style]="{ width: '450px' }" />
         <p-toast />
     `
@@ -145,8 +130,6 @@ export class Characters implements OnInit, OnDestroy {
     characters = signal<GameCharacter[]>([]);
 
     loading = signal(true);
-
-    selected = signal<GameCharacter | null>(null);
 
     private spriteUrls = signal<Map<number, string>>(new Map());
 
@@ -203,10 +186,6 @@ export class Characters implements OnInit, OnDestroy {
         return this.spriteUrls().get(charId) ?? null;
     }
 
-    onRowSelect(event: TableRowSelectEvent<GameCharacter>): void {
-        this.selected.set(Array.isArray(event.data) ? null : (event.data ?? null));
-    }
-
     confirmDelete(character: GameCharacter): void {
         this.confirmationService.confirm({
             message: `Supprimer le personnage "${character.name}" ? Le personnage sera définitivement supprimé par le serveur dans 72h (délai de grâce).`,
@@ -215,9 +194,6 @@ export class Characters implements OnInit, OnDestroy {
             accept: () => {
                 this.characterService.delete(character.charId).subscribe(() => {
                     this.characters.set(this.characters().filter((c) => c.charId !== character.charId));
-                    if (this.selected()?.charId === character.charId) {
-                        this.selected.set(null);
-                    }
                     const url = this.spriteUrls().get(character.charId);
                     if (url) {
                         URL.revokeObjectURL(url);
@@ -246,25 +222,9 @@ export class Characters implements OnInit, OnDestroy {
 
     private updateCharacter(charId: number, changes: Partial<GameCharacter>): void {
         this.characters.set(this.characters().map((c) => (c.charId === charId ? { ...c, ...changes } : c)));
-        if (this.selected()?.charId === charId) {
-            this.selected.set({ ...this.selected()!, ...changes });
-        }
     }
 
     percent(value: number, max: number): number {
         return max > 0 ? Math.min(100, (value / max) * 100) : 0;
-    }
-
-    characterFields(character: GameCharacter): { key: string; label: string; value: string }[] {
-        return Object.entries(character).map(([key, value]) => ({
-            key,
-            label: this.toLabel(key),
-            value: value === null || value === undefined || value === '' ? '-' : String(value)
-        }));
-    }
-
-    private toLabel(key: string): string {
-        const withSpaces = key.replace(/([A-Z])/g, ' $1');
-        return withSpaces.charAt(0).toUpperCase() + withSpaces.slice(1);
     }
 }

@@ -83,6 +83,8 @@ public class GameCharacter {
 
     private int option;
 
+    private int faction;
+
     private int karma;
 
     private int manner;
@@ -309,6 +311,10 @@ public class GameCharacter {
 
     public int getOption() {
         return option;
+    }
+
+    public int getFaction() {
+        return faction;
     }
 
     public int getKarma() {

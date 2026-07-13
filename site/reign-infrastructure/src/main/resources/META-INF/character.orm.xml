@@ -102,6 +102,9 @@
 			<basic name="option">
 				<column name="`option`" />
 			</basic>
+			<basic name="faction">
+				<column name="faction" />
+			</basic>
 			<basic name="karma">
 				<column name="karma" />
 			</basic>

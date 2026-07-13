@@ -1,5 +1,6 @@
 package fr.lsi.reign.exposition.character.dto;
 
+import fr.lsi.reign.domain.character.model.FactionName;
 import fr.lsi.reign.domain.character.model.GameCharacter;
 import fr.lsi.reign.domain.character.model.JobName;
 import java.time.LocalDateTime;
@@ -41,6 +42,8 @@ public record CharacterResponse(
         int skillPoint,
         int traitPoint,
         int option,
+        int faction,
+        String factionName,
         int karma,
         int manner,
         int partyId,
@@ -124,6 +127,8 @@ public record CharacterResponse(
                 c.getSkillPoint(),
                 c.getTraitPoint(),
                 c.getOption(),
+                c.getFaction(),
+                FactionName.of(c.getFaction()),
                 c.getKarma(),
                 c.getManner(),
                 c.getPartyId(),

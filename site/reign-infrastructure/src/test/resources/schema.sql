@@ -64,6 +64,7 @@ CREATE TABLE `char` (
   skill_point int unsigned NOT NULL DEFAULT 0,
   trait_point int unsigned NOT NULL DEFAULT 0,
   `option` int NOT NULL DEFAULT 0,
+  faction tinyint unsigned NOT NULL DEFAULT 0,
   karma tinyint NOT NULL DEFAULT 0,
   manner smallint NOT NULL DEFAULT 0,
   party_id int unsigned NOT NULL DEFAULT 0,
