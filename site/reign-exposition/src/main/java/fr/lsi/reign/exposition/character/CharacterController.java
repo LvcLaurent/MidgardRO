@@ -3,6 +3,8 @@ package fr.lsi.reign.exposition.character;
 import fr.lsi.reign.application.character.DeleteMyCharacterService;
 import fr.lsi.reign.application.character.ListMyCharactersService;
 import fr.lsi.reign.application.character.RenderMyCharacterSpriteService;
+import fr.lsi.reign.application.character.RepatriateMyCharacterService;
+import fr.lsi.reign.application.character.RepatriateMySavePointService;
 import fr.lsi.reign.domain.account.model.Account;
 import fr.lsi.reign.exposition.character.dto.CharacterResponse;
 import java.util.List;
@@ -12,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,13 +28,21 @@ public class CharacterController {
 
     private final RenderMyCharacterSpriteService renderMyCharacterSpriteService;
 
+    private final RepatriateMyCharacterService repatriateMyCharacterService;
+
+    private final RepatriateMySavePointService repatriateMySavePointService;
+
     public CharacterController(
             ListMyCharactersService listMyCharactersService,
             DeleteMyCharacterService deleteMyCharacterService,
-            RenderMyCharacterSpriteService renderMyCharacterSpriteService) {
+            RenderMyCharacterSpriteService renderMyCharacterSpriteService,
+            RepatriateMyCharacterService repatriateMyCharacterService,
+            RepatriateMySavePointService repatriateMySavePointService) {
         this.listMyCharactersService = listMyCharactersService;
         this.deleteMyCharacterService = deleteMyCharacterService;
         this.renderMyCharacterSpriteService = renderMyCharacterSpriteService;
+        this.repatriateMyCharacterService = repatriateMyCharacterService;
+        this.repatriateMySavePointService = repatriateMySavePointService;
     }
 
     @GetMapping
@@ -52,5 +63,19 @@ public class CharacterController {
         final Account account = (Account) authentication.getPrincipal();
         final byte[] png = renderMyCharacterSpriteService.render(charId, account.getAccountId());
         return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(png);
+    }
+
+    @PostMapping("/{charId}/repatriate")
+    public ResponseEntity<Void> repatriate(@PathVariable Long charId, Authentication authentication) {
+        final Account account = (Account) authentication.getPrincipal();
+        repatriateMyCharacterService.repatriate(charId, account.getAccountId());
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{charId}/repatriate-save-point")
+    public ResponseEntity<Void> repatriateSavePoint(@PathVariable Long charId, Authentication authentication) {
+        final Account account = (Account) authentication.getPrincipal();
+        repatriateMySavePointService.repatriate(charId, account.getAccountId());
+        return ResponseEntity.noContent().build();
     }
 }

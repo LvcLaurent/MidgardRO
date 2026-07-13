@@ -9,6 +9,10 @@ import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import { CharacterService, GameCharacter } from './character.service';
 
+const CAPITAL_MAP = 'prontera';
+const CAPITAL_X = 156;
+const CAPITAL_Y = 181;
+
 @Component({
     selector: 'app-characters',
     standalone: true,
@@ -226,14 +230,25 @@ export class Characters implements OnInit, OnDestroy {
         });
     }
 
-    // TODO: pas encore branché côté serveur (nécessite map/coordonnées de la zone safe + un
-    // endpoint qui demande au char-server de déplacer le personnage/son point de sauvegarde).
     repatriateCharacter(character: GameCharacter): void {
-        this.messageService.add({ severity: 'info', summary: 'Bientôt disponible', detail: `Rapatriement de "${character.name}" pas encore implémenté.` });
+        this.characterService.repatriate(character.charId).subscribe(() => {
+            this.updateCharacter(character.charId, { lastMap: CAPITAL_MAP, lastX: CAPITAL_X, lastY: CAPITAL_Y });
+            this.messageService.add({ severity: 'success', summary: 'Rapatriement effectué', detail: `"${character.name}" sera à Prontera à la prochaine connexion.` });
+        });
     }
 
     repatriateSavePoint(character: GameCharacter): void {
-        this.messageService.add({ severity: 'info', summary: 'Bientôt disponible', detail: `Rapatriement du point de sauvegarde de "${character.name}" pas encore implémenté.` });
+        this.characterService.repatriateSavePoint(character.charId).subscribe(() => {
+            this.updateCharacter(character.charId, { saveMap: CAPITAL_MAP, saveX: CAPITAL_X, saveY: CAPITAL_Y });
+            this.messageService.add({ severity: 'success', summary: 'Point de sauvegarde déplacé', detail: `Le point de sauvegarde de "${character.name}" est maintenant à Prontera.` });
+        });
+    }
+
+    private updateCharacter(charId: number, changes: Partial<GameCharacter>): void {
+        this.characters.set(this.characters().map((c) => (c.charId === charId ? { ...c, ...changes } : c)));
+        if (this.selected()?.charId === charId) {
+            this.selected.set({ ...this.selected()!, ...changes });
+        }
     }
 
     percent(value: number, max: number): number {

@@ -104,6 +104,14 @@ export class CharacterService {
         return this.http.delete<void>(`${API_BASE_URL}/accounts/me/characters/${charId}`, { withCredentials: true });
     }
 
+    repatriate(charId: number) {
+        return this.http.post<void>(`${API_BASE_URL}/accounts/me/characters/${charId}/repatriate`, null, { withCredentials: true });
+    }
+
+    repatriateSavePoint(charId: number) {
+        return this.http.post<void>(`${API_BASE_URL}/accounts/me/characters/${charId}/repatriate-save-point`, null, { withCredentials: true });
+    }
+
     /** Retourne une blob URL locale (à révoquer via URL.revokeObjectURL une fois affichée). */
     getSpriteUrl(charId: number) {
         return this.http

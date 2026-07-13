@@ -23,4 +23,18 @@ public interface CharacterRepository {
      * @return false si aucun personnage actif portant cet id n'appartient à ce compte
      */
     boolean requestDeletion(Long charId, Long accountId);
+
+    /**
+     * Déplace le personnage à la capitale (position à la prochaine connexion).
+     *
+     * @return false si aucun personnage actif portant cet id n'appartient à ce compte
+     */
+    boolean repatriateToCapital(Long charId, Long accountId);
+
+    /**
+     * Déplace le point de sauvegarde du personnage à la capitale.
+     *
+     * @return false si aucun personnage actif portant cet id n'appartient à ce compte
+     */
+    boolean repatriateSavePointToCapital(Long charId, Long accountId);
 }

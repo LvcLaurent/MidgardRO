@@ -33,4 +33,20 @@ interface CharacterJpaRepository extends JpaRepository<GameCharacter, Long> {
     @Modifying
     @Query(value = "UPDATE `char` SET delete_date = :deleteDate WHERE char_id = :charId AND account_id = :accountId", nativeQuery = true)
     int requestDeletion(@Param("charId") Long charId, @Param("accountId") Long accountId, @Param("deleteDate") long deleteDate);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "UPDATE `char` SET last_map = :map, last_x = :x, last_y = :y WHERE char_id = :charId AND account_id = :accountId",
+            nativeQuery = true)
+    int repatriateToCapital(
+            @Param("charId") Long charId, @Param("accountId") Long accountId, @Param("map") String map, @Param("x") int x, @Param("y") int y);
+
+    @Transactional
+    @Modifying
+    @Query(
+            value = "UPDATE `char` SET save_map = :map, save_x = :x, save_y = :y WHERE char_id = :charId AND account_id = :accountId",
+            nativeQuery = true)
+    int repatriateSavePointToCapital(
+            @Param("charId") Long charId, @Param("accountId") Long accountId, @Param("map") String map, @Param("x") int x, @Param("y") int y);
 }
