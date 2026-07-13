@@ -623,6 +623,9 @@ struct mmo_charstatus {
 
 	unsigned char font;
 
+	// Reign of Midgard: faction chosen by the character (0 = none, 1 = Magic, 2 = Technology)
+	unsigned char faction;
+
 	bool cashshop_sent; // Whether the player has received the CashShop list
 
 	uint32 uniqueitem_counter;

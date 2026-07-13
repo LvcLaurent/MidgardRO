@@ -22402,6 +22402,33 @@ BUILDIN_FUNC(setfont)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+/*==========================================
+ * Reign of Midgard: faction (0 = none, 1 = Magic, 2 = Technology)
+ *------------------------------------------*/
+BUILDIN_FUNC(getfaction)
+{
+	map_session_data *sd;
+
+	if( !script_rid2sd(sd) )
+		return SCRIPT_CMD_SUCCESS;
+
+	script_pushint(st, sd->status.faction);
+	return SCRIPT_CMD_SUCCESS;
+}
+
+BUILDIN_FUNC(setfaction)
+{
+	map_session_data *sd;
+
+	if( !script_rid2sd(sd) )
+		return SCRIPT_CMD_SUCCESS;
+
+	sd->status.faction = static_cast<uint8>(script_getnum(st,2));
+	status_calc_pc(sd, SCO_FORCE);
+
+	return SCRIPT_CMD_SUCCESS;
+}
+
 static int32 buildin_mobuseskill_sub(block_list *bl,va_list ap)
 {
 	TBL_MOB* md		= (TBL_MOB*)bl;
@@ -28384,6 +28411,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(mercenary_set_faith,"ii"),
 	BUILDIN_DEF(readbook,"ii"),
 	BUILDIN_DEF(setfont,"i"),
+	BUILDIN_DEF(getfaction,""),
+	BUILDIN_DEF(setfaction,"i"),
 	BUILDIN_DEF(areamobuseskill,"siiivviiiii"),
 	BUILDIN_DEF(progressbar,"si"),
 	BUILDIN_DEF(progressbar_npc, "si?"),

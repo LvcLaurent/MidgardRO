@@ -287,6 +287,7 @@ CREATE TABLE IF NOT EXISTS `char` (
   `disable_call` tinyint(3) unsigned NOT NULL default '0',
   `disable_partyinvite` tinyint(1) unsigned NOT NULL default '0',
   `disable_showcostumes` tinyint(1) unsigned NOT NULL default '0',
+  `faction` tinyint(3) unsigned NOT NULL default '0',
   PRIMARY KEY  (`char_id`),
   UNIQUE KEY `name_key` (`name`),
   KEY `account_id` (`account_id`),

@@ -9984,6 +9984,28 @@ ACMD_FUNC(delitem)
 }
 
 /*==========================================
+ * Reign of Midgard: faction (temporary GM testing tool, until the
+ * faction-choice quest exists).
+ *------------------------------------------*/
+ACMD_FUNC(setfaction)
+{
+	int32 faction;
+	nullpo_retr(-1,sd);
+
+	faction = atoi(message);
+	if( message[0] == '\0' || faction < 0 || faction > 2 ) {
+		clif_displaymessage(fd, "Usage: @setfaction <0-2> (0 = aucune, 1 = Magie, 2 = Technologie)");
+		return -1;
+	}
+
+	sd->status.faction = static_cast<uint8>(faction);
+	status_calc_pc(sd, SCO_FORCE);
+	clif_displaymessage(fd, "Faction mise à jour.");
+
+	return 0;
+}
+
+/*==========================================
  * Custom Fonts
  *------------------------------------------*/
 ACMD_FUNC(font)
@@ -11754,6 +11776,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(delitem),
 		ACMD_DEF(charcommands),
 		ACMD_DEF(font),
+		ACMD_DEF(setfaction),
 		ACMD_DEF(accinfo),
 		ACMD_DEF(set),
 		ACMD_DEF(undisguiseguild),

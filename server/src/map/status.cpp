@@ -4295,8 +4295,14 @@ int32 status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	i = base_status->vit + sd->status.vit + sd->indexed_bonus.param_bonus[PARAM_VIT] + sd->indexed_bonus.param_equip[PARAM_VIT];
 	base_status->vit = cap_value(i,0,USHRT_MAX);
 	i = base_status->int_+ sd->status.int_+ sd->indexed_bonus.param_bonus[PARAM_INT] + sd->indexed_bonus.param_equip[PARAM_INT];
+	// Reign of Midgard: Magic faction bonus for the Mage branch (Mage/Wizard/High Wizard/Warlock/...).
+	if (sd->status.faction == 1 && (sd->class_&MAPID_FIRSTMASK) == MAPID_MAGE)
+		i += 50;
 	base_status->int_ = cap_value(i,0,USHRT_MAX);
 	i = base_status->dex + sd->status.dex + sd->indexed_bonus.param_bonus[PARAM_DEX] + sd->indexed_bonus.param_equip[PARAM_DEX];
+	// Reign of Midgard: Technology faction bonus for the Merchant branch (Merchant/Blacksmith/Whitesmith/Mechanic/...).
+	if (sd->status.faction == 2 && ((sd->class_&MAPID_FIRSTMASK) == MAPID_MERCHANT || (sd->class_&MAPID_THIRDMASK) == MAPID_MECHANIC || (sd->class_&MAPID_THIRDMASK) == MAPID_MECHANIC_T))
+		i += 50;
 	base_status->dex = cap_value(i,0,USHRT_MAX);
 	i = base_status->luk + sd->status.luk + sd->indexed_bonus.param_bonus[PARAM_LUK] + sd->indexed_bonus.param_equip[PARAM_LUK];
 	base_status->luk = cap_value(i,0,USHRT_MAX);
