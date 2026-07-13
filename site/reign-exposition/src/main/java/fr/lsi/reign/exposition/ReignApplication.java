@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * Class pour le lancement Spring boot
@@ -21,7 +20,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @Configuration
 @ComponentScan("fr.lsi.reign")
-@EnableJpaRepositories("fr.lsi.reign")
 @SpringBootApplication
 public class ReignApplication {
 

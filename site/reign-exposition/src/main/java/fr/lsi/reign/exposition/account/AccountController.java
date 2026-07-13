@@ -2,6 +2,7 @@ package fr.lsi.reign.exposition.account;
 
 import fr.lsi.reign.application.account.AuthenticateAccountCommand;
 import fr.lsi.reign.application.account.AuthenticateAccountService;
+import fr.lsi.reign.application.account.ListAccountsService;
 import fr.lsi.reign.application.account.RegisterAccountCommand;
 import fr.lsi.reign.application.account.RegisterAccountService;
 import fr.lsi.reign.domain.account.model.Account;
@@ -34,12 +35,15 @@ public class AccountController {
 
     private final AuthenticateAccountService authenticateAccountService;
 
+    private final ListAccountsService listAccountsService;
+
     private final SecurityContextRepository securityContextRepository;
 
     public AccountController(RegisterAccountService registerAccountService, AuthenticateAccountService authenticateAccountService,
-            SecurityContextRepository securityContextRepository) {
+            ListAccountsService listAccountsService, SecurityContextRepository securityContextRepository) {
         this.registerAccountService = registerAccountService;
         this.authenticateAccountService = authenticateAccountService;
+        this.listAccountsService = listAccountsService;
         this.securityContextRepository = securityContextRepository;
     }
 
@@ -65,6 +69,16 @@ public class AccountController {
         return ResponseEntity.ok(AccountResponse.from((Account) authentication.getPrincipal()));
     }
 
+    /**
+     * Réservé aux comptes du groupe le plus haut (99) : voir SecurityConfig, qui n'autorise
+     * cette route qu'aux authentifications portant ROLE_ADMIN.
+     */
+    @GetMapping
+    public ResponseEntity<List<AccountResponse>> list() {
+        final List<AccountResponse> accounts = listAccountsService.listAll().stream().map(AccountResponse::from).toList();
+        return ResponseEntity.ok(accounts);
+    }
+
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
         SecurityContextHolder.clearContext();
@@ -82,8 +96,10 @@ public class AccountController {
      * pour que la session soit reconnue sur les requêtes suivantes.
      */
     private void openSession(Account account, HttpServletRequest request, HttpServletResponse response) {
-        final Authentication authentication = new UsernamePasswordAuthenticationToken(
-                account, null, List.of(new SimpleGrantedAuthority("ROLE_USER")));
+        final List<SimpleGrantedAuthority> authorities = account.isAdmin()
+                ? List.of(new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN"))
+                : List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        final Authentication authentication = new UsernamePasswordAuthenticationToken(account, null, authorities);
         final SecurityContext context = SecurityContextHolder.createEmptyContext();
         context.setAuthentication(authentication);
         SecurityContextHolder.setContext(context);

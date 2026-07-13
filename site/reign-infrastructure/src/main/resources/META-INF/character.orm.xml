@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" xmlns="http://java.sun.com/xml/ns/persistance/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_1.xsd">
+
+	<description>Character domain module - mappe en lecture sur la table char de rAthena (`char` est un mot réservé, d'où le nom entre backticks)</description>
+	<entity class="fr.lsi.reign.domain.character.model.GameCharacter" name="GameCharacter" access="FIELD">
+		<table name="`char`" />
+		<attributes>
+			<id name="charId">
+				<column name="char_id" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="accountId">
+				<column name="account_id" />
+			</basic>
+			<basic name="charNum">
+				<column name="char_num" />
+			</basic>
+			<basic name="name">
+				<column name="name" />
+			</basic>
+			<basic name="jobId">
+				<column name="class" />
+			</basic>
+			<basic name="baseLevel">
+				<column name="base_level" />
+			</basic>
+			<basic name="jobLevel">
+				<column name="job_level" />
+			</basic>
+			<basic name="online">
+				<column name="online" />
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>

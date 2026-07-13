@@ -2,6 +2,7 @@ package fr.lsi.reign.infrastructure.account;
 
 import fr.lsi.reign.domain.account.AccountRepository;
 import fr.lsi.reign.domain.account.model.Account;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
@@ -27,5 +28,10 @@ class AccountRepositoryAdapter implements AccountRepository {
     @Override
     public Account save(Account account) {
         return jpaRepository.save(account);
+    }
+
+    @Override
+    public List<Account> findAll() {
+        return jpaRepository.findAll();
     }
 }

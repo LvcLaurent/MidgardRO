@@ -6,7 +6,7 @@
 	<connection>
 		<display>Local</display>
       		<address>laurentetpauline.fr</address>
-      		<port>6900</port>
+      		<port>16900</port>
       		<version>55</version>
       		<langtype>25</langtype>
 		<registrationweb>www.ragnarok.com</registrationweb>

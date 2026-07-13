@@ -24,10 +24,18 @@ export class AppMenu {
 
     model = computed<MenuItem[]>(() => {
         const account = this.accountService.account();
+        const navigationItems: MenuItem[] = [{ label: 'Accueil', icon: 'pi pi-fw pi-home', routerLink: ['/'] }];
+        if (account) {
+            navigationItems.push({ label: 'Mes personnages', icon: 'pi pi-fw pi-users', routerLink: ['/characters'] });
+        }
+        if (account?.isAdmin) {
+            navigationItems.push({ label: 'Comptes', icon: 'pi pi-fw pi-shield', routerLink: ['/accounts'] });
+        }
+
         return [
             {
                 label: 'Navigation',
-                items: [{ label: 'Accueil', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
+                items: navigationItems
             },
             {
                 label: 'Compte',

@@ -10,6 +10,7 @@ export interface Account {
     userId: string;
     email: string;
     characterSlots: number;
+    isAdmin: boolean;
 }
 
 export interface RegisterPayload {
@@ -51,5 +52,10 @@ export class AccountService {
 
     logout() {
         return this.http.post<void>(`${API_BASE_URL}/accounts/logout`, {}, { withCredentials: true }).pipe(tap(() => this.account.set(null)));
+    }
+
+    /** Réservé aux comptes admin (groupe 99) - voir SecurityConfig côté API. */
+    listAll() {
+        return this.http.get<Account[]>(`${API_BASE_URL}/accounts`, { withCredentials: true });
     }
 }

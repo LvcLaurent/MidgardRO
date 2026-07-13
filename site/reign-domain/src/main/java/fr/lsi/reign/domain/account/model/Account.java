@@ -17,6 +17,8 @@ public class Account {
 
     public static final int PLAYER_GROUP_ID = 0;
 
+    public static final int ADMIN_GROUP_ID = 99;
+
     public static final int NOT_BANNED_STATE = 0;
 
     private Long accountId;
@@ -71,6 +73,10 @@ public class Account {
 
     public boolean isBanned() {
         return this.state != NOT_BANNED_STATE;
+    }
+
+    public boolean isAdmin() {
+        return this.groupId == ADMIN_GROUP_ID;
     }
 
     public void recordSuccessfulLogin(String ip) {

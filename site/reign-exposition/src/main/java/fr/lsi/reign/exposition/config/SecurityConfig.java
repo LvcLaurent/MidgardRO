@@ -3,6 +3,7 @@ package fr.lsi.reign.exposition.config;
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
@@ -37,7 +38,8 @@ public class SecurityConfig {
                 // chunks hashés à la racine, etc.) - un nouvel endpoint sensible doit être ajouté
                 // explicitement à la liste ci-dessous.
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/accounts/me", "/accounts/logout").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/accounts").hasRole("ADMIN")
+                        .requestMatchers("/accounts/me", "/accounts/me/characters/**", "/accounts/logout").authenticated()
                         .anyRequest().permitAll());
         return http.build();
     }
