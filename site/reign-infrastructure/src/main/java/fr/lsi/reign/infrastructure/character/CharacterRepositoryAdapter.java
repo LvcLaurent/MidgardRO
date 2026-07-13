@@ -5,6 +5,7 @@ import fr.lsi.reign.domain.character.model.GameCharacter;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -26,6 +27,11 @@ class CharacterRepositoryAdapter implements CharacterRepository {
     @Override
     public List<GameCharacter> findActiveByAccountId(Long accountId) {
         return jpaRepository.findActiveByAccountId(accountId);
+    }
+
+    @Override
+    public Optional<GameCharacter> findActiveByIdAndAccountId(Long charId, Long accountId) {
+        return jpaRepository.findActiveByIdAndAccountId(charId, accountId);
     }
 
     @Override

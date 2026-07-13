@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 const API_BASE_URL = environment.apiBaseUrl;
@@ -101,5 +102,12 @@ export class CharacterService {
 
     delete(charId: number) {
         return this.http.delete<void>(`${API_BASE_URL}/accounts/me/characters/${charId}`, { withCredentials: true });
+    }
+
+    /** Retourne une blob URL locale (à révoquer via URL.revokeObjectURL une fois affichée). */
+    getSpriteUrl(charId: number) {
+        return this.http
+            .get(`${API_BASE_URL}/accounts/me/characters/${charId}/sprite`, { withCredentials: true, responseType: 'blob' })
+            .pipe(map((blob) => URL.createObjectURL(blob)));
     }
 }

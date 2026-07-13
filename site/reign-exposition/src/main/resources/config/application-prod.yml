@@ -23,3 +23,9 @@ spring:
     hibernate:
       ddl-auto: none
     database-platform: org.hibernate.dialect.MariaDBDialect
+
+reign:
+  zrenderer:
+    # "zrenderer" est le nom du service sur le réseau docker "docker_default" (voir docker-compose.prod.yml)
+    base-url: http://zrenderer:11011
+    access-token: ${ZRENDERER_TOKEN}

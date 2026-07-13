@@ -1,9 +1,10 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TableModule, TableRowSelectEvent } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { CharacterService, GameCharacter } from './character.service';
@@ -11,7 +12,7 @@ import { CharacterService, GameCharacter } from './character.service';
 @Component({
     selector: 'app-characters',
     standalone: true,
-    imports: [ButtonModule, ConfirmDialogModule, TableModule, TagModule],
+    imports: [ButtonModule, ConfirmDialogModule, ProgressSpinnerModule, TableModule, TagModule],
     providers: [ConfirmationService],
     template: `
         <div class="card">
@@ -51,11 +52,20 @@ import { CharacterService, GameCharacter } from './character.service';
         @if (selected(); as character) {
             <div class="card mt-4">
                 <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }}</div>
-                        <div class="text-muted-color text-sm">{{ character.jobName }} - Niveau {{ character.baseLevel }} / {{ character.jobLevel }}</div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 flex items-center justify-center shrink-0">
+                            @if (spriteLoading()) {
+                                <p-progress-spinner styleClass="w-8 h-8" strokeWidth="6" />
+                            } @else if (spriteUrl()) {
+                                <img [src]="spriteUrl()" [alt]="character.name" class="max-w-full max-h-full" style="image-rendering: pixelated" (error)="spriteUrl.set(null)" />
+                            }
+                        </div>
+                        <div>
+                            <div class="text-surface-900 dark:text-surface-0 text-xl font-medium">{{ character.name }}</div>
+                            <div class="text-muted-color text-sm">{{ character.jobName }} - Niveau {{ character.baseLevel }} / {{ character.jobLevel }}</div>
+                        </div>
                     </div>
-                    <p-button icon="pi pi-times" text rounded severity="secondary" (onClick)="selected.set(null)" />
+                    <p-button icon="pi pi-times" text rounded severity="secondary" (onClick)="closeFocus()" />
                 </div>
 
                 <div class="max-w-md mb-6">
@@ -102,12 +112,16 @@ import { CharacterService, GameCharacter } from './character.service';
         <p-confirmdialog [style]="{ width: '450px' }" />
     `
 })
-export class Characters implements OnInit {
+export class Characters implements OnInit, OnDestroy {
     characters = signal<GameCharacter[]>([]);
 
     loading = signal(true);
 
     selected = signal<GameCharacter | null>(null);
+
+    spriteUrl = signal<string | null>(null);
+
+    spriteLoading = signal(false);
 
     constructor(
         private characterService: CharacterService,
@@ -135,8 +149,42 @@ export class Characters implements OnInit {
         });
     }
 
+    ngOnDestroy(): void {
+        this.releaseSpriteUrl();
+    }
+
     onRowSelect(event: TableRowSelectEvent<GameCharacter>): void {
-        this.selected.set(Array.isArray(event.data) ? null : (event.data ?? null));
+        const character = Array.isArray(event.data) ? null : (event.data ?? null);
+        this.selected.set(character);
+        this.loadSprite(character);
+    }
+
+    closeFocus(): void {
+        this.selected.set(null);
+        this.releaseSpriteUrl();
+    }
+
+    private loadSprite(character: GameCharacter | null): void {
+        this.releaseSpriteUrl();
+        if (!character) {
+            return;
+        }
+        this.spriteLoading.set(true);
+        this.characterService.getSpriteUrl(character.charId).subscribe({
+            next: (url) => {
+                this.spriteLoading.set(false);
+                this.spriteUrl.set(url);
+            },
+            error: () => this.spriteLoading.set(false)
+        });
+    }
+
+    private releaseSpriteUrl(): void {
+        const current = this.spriteUrl();
+        if (current) {
+            URL.revokeObjectURL(current);
+        }
+        this.spriteUrl.set(null);
     }
 
     confirmDelete(character: GameCharacter): void {
@@ -148,7 +196,7 @@ export class Characters implements OnInit {
                 this.characterService.delete(character.charId).subscribe(() => {
                     this.characters.set(this.characters().filter((c) => c.charId !== character.charId));
                     if (this.selected()?.charId === character.charId) {
-                        this.selected.set(null);
+                        this.closeFocus();
                     }
                 });
             }

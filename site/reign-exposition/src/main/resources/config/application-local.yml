@@ -21,4 +21,9 @@ spring:
     hibernate:
       ddl-auto: none
     database-platform: org.hibernate.dialect.MariaDBDialect
+
+reign:
+  zrenderer:
+    base-url: http://localhost:11011
+    access-token: ${ZRENDERER_TOKEN}
   

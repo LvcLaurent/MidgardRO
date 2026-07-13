@@ -2,6 +2,7 @@ package fr.lsi.reign.infrastructure.character;
 
 import fr.lsi.reign.domain.character.model.GameCharacter;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +17,9 @@ interface CharacterJpaRepository extends JpaRepository<GameCharacter, Long> {
      */
     @Query(value = "SELECT * FROM `char` WHERE account_id = :accountId AND delete_date = 0 ORDER BY char_num ASC", nativeQuery = true)
     List<GameCharacter> findActiveByAccountId(@Param("accountId") Long accountId);
+
+    @Query(value = "SELECT * FROM `char` WHERE char_id = :charId AND account_id = :accountId AND delete_date = 0", nativeQuery = true)
+    Optional<GameCharacter> findActiveByIdAndAccountId(@Param("charId") Long charId, @Param("accountId") Long accountId);
 
     /**
      * Même effet que la demande de suppression du client de jeu : ne fait qu'horodater

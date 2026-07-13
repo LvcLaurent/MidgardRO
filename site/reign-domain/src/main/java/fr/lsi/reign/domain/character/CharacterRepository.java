@@ -2,6 +2,7 @@ package fr.lsi.reign.domain.character;
 
 import fr.lsi.reign.domain.character.model.GameCharacter;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Port du domaine : lecture des personnages. Implémentation dans
@@ -10,6 +11,8 @@ import java.util.List;
 public interface CharacterRepository {
 
     List<GameCharacter> findActiveByAccountId(Long accountId);
+
+    Optional<GameCharacter> findActiveByIdAndAccountId(Long charId, Long accountId);
 
     /**
      * Marque le personnage comme en attente de suppression (delete_date), à la manière du client

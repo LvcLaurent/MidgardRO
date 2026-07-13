@@ -17,7 +17,7 @@ set -a
 source "$PROPS_FILE"
 set +a
 
-for var in DEPLOY_HOST DEPLOY_USER DEPLOY_PASSWORD DB_PASSWORD; do
+for var in DEPLOY_HOST DEPLOY_USER DEPLOY_PASSWORD DB_PASSWORD ZRENDERER_TOKEN; do
     if [ -z "${!var:-}" ]; then
         echo "Missing $var in deploy.properties" >&2
         exit 1
@@ -37,7 +37,10 @@ echo "==> Synchronisation du dépôt sur $DEPLOY_HOST"
 run_remote "if [ -d $REMOTE_DIR/.git ]; then cd $REMOTE_DIR && git fetch origin $BRANCH && git checkout $BRANCH && git reset --hard origin/$BRANCH; else git clone --branch $BRANCH $REPO_URL $REMOTE_DIR; fi"
 
 echo "==> Écriture du .env de production"
-run_remote "printf 'DB_PASSWORD=%s\n' '$DB_PASSWORD' > $REMOTE_DIR/site/.env"
+run_remote "printf 'DB_PASSWORD=%s\nZRENDERER_TOKEN=%s\n' '$DB_PASSWORD' '$ZRENDERER_TOKEN' > $REMOTE_DIR/site/.env"
+
+echo "==> Pré-génération du token d'accès zrenderer (évite d'en régénérer un à chaque déploiement)"
+run_remote "mkdir -p $REMOTE_DIR/site/zrenderer/secrets $REMOTE_DIR/site/zrenderer/output && printf '0\n0,%s,Reign site,admin\n' '$ZRENDERER_TOKEN' > $REMOTE_DIR/site/zrenderer/secrets/accesstokens.conf"
 
 echo "==> Build et démarrage du site"
 run_remote "cd $REMOTE_DIR/site && docker-compose -f docker-compose.prod.yml up -d --build --force-recreate"

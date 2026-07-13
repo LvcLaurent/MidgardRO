@@ -16,3 +16,10 @@
 /site/reign-exposition/src/main/resources/static/
 /site/app.log
 /site/app-prod.log
+
+# Curated RO client assets for zrenderer - large binaries, transferred separately (see deploy-zrenderer-resources.sh)
+zren-resources/
+zren-resources.tar.gz
+site/zrenderer/secrets/
+site/zrenderer/output/
+zren-test/

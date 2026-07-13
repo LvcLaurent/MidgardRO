@@ -2,9 +2,11 @@ package fr.lsi.reign.exposition.character;
 
 import fr.lsi.reign.application.character.DeleteMyCharacterService;
 import fr.lsi.reign.application.character.ListMyCharactersService;
+import fr.lsi.reign.application.character.RenderMyCharacterSpriteService;
 import fr.lsi.reign.domain.account.model.Account;
 import fr.lsi.reign.exposition.character.dto.CharacterResponse;
 import java.util.List;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +23,15 @@ public class CharacterController {
 
     private final DeleteMyCharacterService deleteMyCharacterService;
 
-    public CharacterController(ListMyCharactersService listMyCharactersService, DeleteMyCharacterService deleteMyCharacterService) {
+    private final RenderMyCharacterSpriteService renderMyCharacterSpriteService;
+
+    public CharacterController(
+            ListMyCharactersService listMyCharactersService,
+            DeleteMyCharacterService deleteMyCharacterService,
+            RenderMyCharacterSpriteService renderMyCharacterSpriteService) {
         this.listMyCharactersService = listMyCharactersService;
         this.deleteMyCharacterService = deleteMyCharacterService;
+        this.renderMyCharacterSpriteService = renderMyCharacterSpriteService;
     }
 
     @GetMapping
@@ -37,5 +45,12 @@ public class CharacterController {
         final Account account = (Account) authentication.getPrincipal();
         deleteMyCharacterService.delete(charId, account.getAccountId());
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{charId}/sprite", produces = MediaType.IMAGE_PNG_VALUE)
+    public ResponseEntity<byte[]> sprite(@PathVariable Long charId, Authentication authentication) {
+        final Account account = (Account) authentication.getPrincipal();
+        final byte[] png = renderMyCharacterSpriteService.render(charId, account.getAccountId());
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(png);
     }
 }

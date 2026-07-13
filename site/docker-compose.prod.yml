@@ -10,6 +10,25 @@ services:
         environment:
             SPRING_PROFILES_ACTIVE: prod
             DB_PASSWORD: ${DB_PASSWORD}
+            ZRENDERER_TOKEN: ${ZRENDERER_TOKEN}
+        networks:
+            - rathena_net
+        restart: unless-stopped
+        depends_on:
+            - zrenderer
+
+    # Rendu des sprites de personnage (voir CharacterController.sprite) - https://github.com/zhad3/zrenderer
+    # Les assets client (zren-resources/) ne sont pas dans le dépôt git (binaires volumineux) : ils sont
+    # transférés une fois sur le serveur via deploy-zrenderer-resources.sh, pas à chaque déploiement.
+    zrenderer:
+        image: "zhade/zrenderer:latest"
+        container_name: "zrenderer"
+        user: root
+        volumes:
+            - ./zrenderer/zrenderer.docker.conf:/zren/zrenderer.conf
+            - ./zrenderer/output:/zren/output
+            - ./zrenderer/secrets:/zren/secrets
+            - ~/zren-resources:/zren/resources
         networks:
             - rathena_net
         restart: unless-stopped
