@@ -36,7 +36,8 @@ iz_ac01,52,50,5	script	Instructeur Bram#reign	4_M_OLDSCHOLAR,{
 		if (getskilllv(NV_BASIC) < 4) skill NV_BASIC,4,0;
 		setquest 91005;
 		completequest 91005;
-		getexp 50,50;
+		getexp 50,0;
+		atcommand "@joblvlup 4";
 		close;
 	}
 	mes "[Instructeur Bram]";
@@ -83,7 +84,8 @@ iz_ac01,44,50,5	script	Instructrice Sunna#reign	4_F_04,{
 		if (getskilllv(NV_BASIC) < 9) skill NV_BASIC,9,0;
 		setquest 91006;
 		completequest 91006;
-		getexp 100,100;
+		getexp 100,0;
+		atcommand "@joblvlup 6";
 		close;
 	}
 	mes "[Instructrice Sunna]";
