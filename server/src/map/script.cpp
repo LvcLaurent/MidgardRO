@@ -22403,7 +22403,7 @@ BUILDIN_FUNC(setfont)
 }
 
 /*==========================================
- * Reign of Midgard: faction (0 = none, 1 = Magic, 2 = Technology)
+ * Reign of Midgard: faction (0 = none, 1 = L'Ordre de la Faille, 2 = Les Forgenoires)
  *------------------------------------------*/
 BUILDIN_FUNC(getfaction)
 {

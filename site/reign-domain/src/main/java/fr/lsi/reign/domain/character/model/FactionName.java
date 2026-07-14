@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public final class FactionName {
 
-    private static final Map<Integer, String> NAMES = Map.of(0, "Aucune", 1, "Magie", 2, "Technologie");
+    private static final Map<Integer, String> NAMES = Map.of(0, "Aucune", 1, "L'Ordre de la Faille", 2, "Les Forgenoires");
 
     private FactionName() {}
 

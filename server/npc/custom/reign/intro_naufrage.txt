@@ -93,7 +93,7 @@ int_land,78,103,5	script	Capitaine Halvard#reign_ship	4_M_REINDEER,{
 		mes "On met le cap sur Izlude — la côte la plus proche, et la seule où on est sûrs d'être accueillis plutôt que dépouillés.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "Izlude est un port franc. Ni la Magie, ni la Technologie n'y font la loi — tout le monde a besoin de ce port pour passer d'un littoral à l'autre.";
+		mes "Izlude est un port franc. Ni l'Ordre de la Faille, ni les Forgenoires n'y font la loi — tout le monde a besoin de ce port pour passer d'un littoral à l'autre.";
 		mes "Tu y seras en sécurité, le temps de reprendre tes esprits.";
 		next;
 		mes "[Capitaine Halvard]";
@@ -337,7 +337,7 @@ iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
 			mes "À l'étage, d'autres te présenteront les différentes voies de métier. Écoute-les toutes avant de choisir.";
 			next;
 			mes "[Réceptionniste]";
-			mes "Izlude elle-même est un port franc — ni la Magie ni la Technologie n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
+			mes "Izlude elle-même est un port franc — ni l'Ordre de la Faille ni les Forgenoires n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
 			next;
 			break;
 		case 3:
@@ -348,7 +348,7 @@ iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
 			mes "Il y a une génération, quelque chose s'est fissuré sous Midgard — les racines d'Yggdrasil, dit-on. On appelle ça simplement la Rupture.";
 			next;
 			mes "[Réceptionniste]";
-			mes "De cette fissure sont nées deux choses : une énergie brute que certains ont appris à canaliser sans passer par la Foi — la Magie. Et les vestiges d'une civilisation plus ancienne, ses machines encore actives — la Technologie.";
+			mes "De cette fissure sont nées deux choses : une énergie brute que certains ont appris à canaliser sans passer par la Foi — l'Ordre de la Faille. Et les vestiges d'une civilisation plus ancienne, ses machines encore actives — les Forgenoires.";
 			next;
 			mes "[Réceptionniste]";
 			mes "Deux écoles, deux façons de refuser de prier pour obtenir de la force. La Foi a crié à l'hérésie. La guerre qui a suivi n'a jamais vraiment cessé.";

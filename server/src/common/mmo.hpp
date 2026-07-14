@@ -623,7 +623,7 @@ struct mmo_charstatus {
 
 	unsigned char font;
 
-	// Reign of Midgard: faction chosen by the character (0 = none, 1 = Magic, 2 = Technology)
+	// Reign of Midgard: faction chosen by the character (0 = none, 1 = L'Ordre de la Faille, 2 = Les Forgenoires)
 	unsigned char faction;
 
 	bool cashshop_sent; // Whether the player has received the CashShop list

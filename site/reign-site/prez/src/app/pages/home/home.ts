@@ -51,7 +51,7 @@ export class Home {
         {
             date: frenchDate(new Date()),
             title: 'Les factions arrivent sur Reign of Midgard',
-            body: "Depuis toujours, Midgard vivait sous la Foi du Panthéon nordique - jusqu'à la Rupture, l'événement qui a fait naître deux voies nouvelles : la Magie et la Technologie. Chaque personnage peut désormais s'engager dans l'une de ces deux factions et en tirer un bonus (intelligence pour la lignée des Mages, dextérité pour celle des Mécaniciens). Le travail sur les premières quêtes de Midgard - celles qui vous accueilleront à votre arrivée à Izlude - commence dès maintenant."
+            body: "Depuis toujours, Midgard vivait sous la Foi du Panthéon nordique - jusqu'à la Rupture, l'événement qui a fait naître deux voies nouvelles : l'Ordre de la Faille et les Forgenoires. Chaque personnage peut désormais s'engager dans l'une de ces deux factions et en tirer un bonus (intelligence pour la lignée des Mages, dextérité pour celle des Mécaniciens). Le travail sur les premières quêtes de Midgard - celles qui vous accueilleront à votre arrivée à Izlude - commence dès maintenant."
         }
     ];
 

@@ -30,11 +30,11 @@ Rupture**. Deux choses en ont jailli au même moment, en deux endroits distincts
 monde :
 
 - Une **énergie arcanique brute**, sauvage, que certains ont appris à canaliser sans
-  passer par les rites du Panthéon — la naissance de la **Magie** comme discipline
-  indépendante de la Foi.
+  passer par les rites du Panthéon — la naissance de **l'Ordre de la Faille**, une
+  discipline indépendante de la Foi.
 - Les vestiges d'une **civilisation antérieure** enfouie, ses machines et ses forges
-  encore actives après des siècles de sommeil — le point de départ de la
-  **Technologie**.
+  encore actives après des siècles de sommeil — le point de départ des
+  **Forgenoires**.
 
 Deux écoles de pensée rivales sont nées de ces deux découvertes, toutes deux en rupture
 avec la Foi : pourquoi continuer à prier quand on peut apprendre à puiser la force
@@ -54,14 +54,14 @@ villes, affaiblies par la guerre entre factions, peinent à s'en défendre seule
 
 ## 3. Les deux factions
 
-### Magie
+### L'Ordre de la Faille
 Héritière directe de la Rupture arcanique. Ouverte à tous les métiers, mais la
 branche **Mage → Wizard → High Wizard → Warlock** en est le symbole : c'est elle qui
 reçoit le bonus de faction (**intelligence**), dès le premier changement de classe
 (Mage). Capitale naturelle : **Geffen**, déjà la ville-repère des mages dans le canon
 RO de base — pas besoin de réinventer son identité visuelle.
 
-### Technologie
+### Les Forgenoires
 Héritière des vestiges retrouvés. Elle aussi ouverte à tous les métiers, avec la
 branche **Merchant → Blacksmith → Whitesmith → Mechanic** comme symbole, recevant le
 bonus de faction (**dextérité**) dès Merchant. Capitale naturelle : **Lighthalzen**,
@@ -69,8 +69,8 @@ qui a déjà dans le RO de base ses laboratoires bio/tech souterrains — cohér
 effort de reskin supplémentaire.
 
 > 🔮 Piste future : d'autres branches "secondaires" pourraient recevoir un plus
-> petit bonus de faction plus tard (ex. Alchemist/Genetic côté Techno, Sage/Warlock
-> côté Magie) sans devenir le symbole principal de la faction.
+> petit bonus de faction plus tard (ex. Alchemist/Genetic côté Forgenoires, Sage/Warlock
+> côté Faille) sans devenir le symbole principal de la faction.
 
 > 🔮 Piste future : quête de défection (changer de faction en cours de partie) —
 > gardée en tête depuis la discussion sur les factions, à concevoir avec le système
@@ -127,8 +127,8 @@ visuelle existante plutôt que d'en inventer une nouvelle :
   situation (commerce, contrebande, opportunisme) plutôt que de la subir.
 
 > 🔮 Piste future : répartition ville par ville à faire au point 1 (refonte des
-> NPC), une fois qu'on attaque vraiment la carte. Seules Geffen (Magie), Lighthalzen
-> (Techno), Prontera (Foi/neutre en déclin) et Izlude (franche) sont fixées pour
+> NPC), une fois qu'on attaque vraiment la carte. Seules Geffen (Faille), Lighthalzen
+> (Forgenoires), Prontera (Foi/neutre en déclin) et Izlude (franche) sont fixées pour
 > l'instant.
 
 ## 6. Ce que ça implique pour le début du jeu
