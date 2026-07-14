@@ -171,3 +171,42 @@ ses habitués — pas juste des PNJ fonctionnels, un lieu vécu :
 > comme réveil délibéré plutôt qu'accident). Elle pourrait être la porte d'entrée d'un
 > "troisième camp" narratif — pas une faction jouable, mais un point de vue qui ne doit
 > rien ni à l'Ordre ni aux Forgenoires.
+
+## 8. Premiers métiers
+
+Changement vers le premier métier : inscription à l'Académie + Job Level Novice 10
+(pas de Base Level minimum — le Job Level est entièrement contrôlé par les
+instructeurs depuis que l'XP de job est désactivée, ça suffit comme jauge
+d'engagement). Cinq métiers sont enseignés directement à l'Académie ; Swordman et les
+trois métiers "étrangers" sont ailleurs, à Izlude mais hors les murs.
+
+**À l'Académie (iz_ac01)** — chaque formateur complète le PNJ de faction/foi déjà en
+place plutôt que de le doubler :
+- **Sigrun** (Mage, près de Kell) — pratique plutôt que discours, complète le côté
+  "on t'explique" de Kell par du concret.
+- **Torfinn** (Merchant, près d'Odger) — même logique côté Forgenoires.
+- **Sœur Helga** (Acolyte, près d'Isengrim) — contraste volontaire avec lui : pas
+  besoin de croire pour soigner. Le Père porte le poids de ce que la Foi *était*, elle
+  s'occupe de ce qu'elle peut encore *être*.
+- **Ingrid** (Archer) et **Skuld** (Thief) — aucun ancrage de lieu/faction encore
+  fixé, liberté totale pour plus tard.
+
+**La Lame Libre (izlude_in)** — une salle d'entraînement indépendante en ville,
+fondée et tenue par **Torvald** (Swordman) : l'épée n'a jamais eu besoin de
+bénédiction ni de grand bâtiment pour s'enseigner, donc elle reste hors Académie par
+principe, pas par oubli. Trois voyageurs étrangers y ont trouvé refuge, chacun avec sa
+propre raison de ne pas (encore) être chez eux — et chacun a une **véritable école
+ailleurs dans le monde**, que le joueur pourra un jour aller visiter à plus haut
+niveau :
+- **Ren** (Ninja) — sa contrée d'origine, à l'est, traverse sa propre rupture
+  politique ; rentrer signifierait choisir un camp qu'il refuse.
+- **Silas** (Gunslinger) — déserteur/trafiquant en délicatesse avec une nation
+  industrielle lointaine, pas franchement le bienvenu chez lui pour l'instant.
+- **Joon** (Taekwon) — le seul des trois qui n'est pas en fuite : maître itinérant
+  parti volontairement de son dojang, Izlude n'est qu'une étape parmi d'autres.
+
+> 🔮 Piste future : les "vraies" écoles de Ren, Silas et Joon comme destinations de
+> voyage à débloquer plus tard (deuxième métier ou au-delà) — cohérent avec l'idée
+> déjà notée que le deuxième métier pourrait être l'occasion de sortir enfin
+> d'Izlude et d'aller vers le monde plus large (Geffen, Lighthalzen, et ces écoles
+> lointaines).

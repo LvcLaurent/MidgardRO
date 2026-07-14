@@ -1,0 +1,389 @@
+//===== Reign of Midgard ===================================================
+//= Premiers métiers
+//===== Description: =======================================================
+//= Changement vers le premier métier. Prérequis commun : inscription à
+//= l'Académie (quête 91004) + Job Level Novice 10 (aucune exigence de Base
+//= Level). Octroie +4 niveaux de job dans la nouvelle classe (job_exp_rate
+//= étant à 0) et une arme de départ. Cinq métiers "classiques" sont
+//= enseignés à l'Académie (iz_ac01) ; Swordman et les trois métiers
+//= "étrangers" (Ninja, Gunslinger, Taekwon) sont à La Lame Libre
+//= (izlude_in), hors Académie. Voir lore/reign-of-midgard-lore.md §7-8.
+//===========================================================================
+
+//== Sigrun — formatrice Mage (iz_ac01, près de Kell) =======================
+iz_ac01,55,80,3	script	Sigrun#reign	1_M_WIZARD,{
+	if (Class != Job_Novice) {
+		mes "[Sigrun]";
+		mes "Tu as déjà trouvé ta voie. Je n'ai plus rien à t'apprendre ici.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Sigrun]";
+		mes "Inscris-toi d'abord auprès de la réceptionniste, en bas.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Sigrun]";
+		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base. Bram et Sunna t'y mèneront.";
+		close;
+	}
+	mes "[Sigrun]";
+	mes "Kell parle beaucoup de l'Ordre de la Faille. Moi, je préfère montrer.";
+	next;
+	mes "[Sigrun]";
+	mes "Canaliser l'énergie brute sans passer par la Foi, ce n'est pas un don — c'est une discipline. On apprend à écouter ce qui frémit sous la peau du monde depuis la Rupture.";
+	next;
+	mes "[Sigrun]";
+	mes "Tu es prêt à commencer ?";
+	next;
+	if (select("Pas encore.", "Oui, montre-moi.") == 1) {
+		mes "[Sigrun]";
+		mes "Prends ton temps.";
+		close;
+	}
+	jobchange Job_Mage;
+	atcommand "@joblvlup 4";
+	getitem 1601,1;// Rod
+	mes "[Sigrun]";
+	mes "Voilà. Un bâton, pour commencer — le reste s'apprend en le tenant, pas en en parlant.";
+	close;
+}
+iz_ac01_a,55,80,3	duplicate(Sigrun#reign)	Sigrun#reign_a	1_M_WIZARD
+iz_ac01_b,55,80,3	duplicate(Sigrun#reign)	Sigrun#reign_b	1_M_WIZARD
+iz_ac01_c,55,80,3	duplicate(Sigrun#reign)	Sigrun#reign_c	1_M_WIZARD
+iz_ac01_d,55,80,3	duplicate(Sigrun#reign)	Sigrun#reign_d	1_M_WIZARD
+
+//== Torfinn — formateur Merchant (iz_ac01, près d'Odger) ====================
+iz_ac01,39,72,3	script	Torfinn#reign	4_M_MANAGER,{
+	if (Class != Job_Novice) {
+		mes "[Torfinn]";
+		mes "Tu as déjà ta voie. Bonne route.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Torfinn]";
+		mes "Inscris-toi d'abord auprès de la réceptionniste, en bas.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Torfinn]";
+		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base.";
+		close;
+	}
+	mes "[Torfinn]";
+	mes "Odger te parlera des machines. Moi, je t'apprendrai à les faire tourner sans y laisser ta chemise.";
+	next;
+	mes "[Torfinn]";
+	mes "Les Forgenoires n'ont rien de mystique. Compter, négocier, réparer — c'est tout aussi respectable qu'un sortilège, et ça nourrit davantage.";
+	next;
+	mes "[Torfinn]";
+	mes "On y va ?";
+	next;
+	if (select("Pas tout de suite.", "Oui, allons-y.") == 1) {
+		mes "[Torfinn]";
+		mes "Le comptoir ne bouge pas.";
+		close;
+	}
+	jobchange Job_Merchant;
+	atcommand "@joblvlup 4";
+	getitem 1204,1;// Cutter
+	mes "[Torfinn]";
+	mes "Une lame courte, pour te défendre en chemin. Le vrai outil du métier, c'est ta tête — celle-là, je ne peux pas te la donner.";
+	close;
+}
+iz_ac01_a,39,72,3	duplicate(Torfinn#reign)	Torfinn#reign_a	4_M_MANAGER
+iz_ac01_b,39,72,3	duplicate(Torfinn#reign)	Torfinn#reign_b	4_M_MANAGER
+iz_ac01_c,39,72,3	duplicate(Torfinn#reign)	Torfinn#reign_c	4_M_MANAGER
+iz_ac01_d,39,72,3	duplicate(Torfinn#reign)	Torfinn#reign_d	4_M_MANAGER
+
+//== Sœur Helga — formatrice Acolyte (iz_ac01, près d'Isengrim) =============
+iz_ac01,108,143,3	script	Sœur Helga#reign	4_F_ACOLYTE,{
+	if (Class != Job_Novice) {
+		mes "[Sœur Helga]";
+		mes "Ta voie est déjà tracée. Que la paix te suive.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Sœur Helga]";
+		mes "Inscris-toi d'abord auprès de la réceptionniste, en bas.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Sœur Helga]";
+		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base.";
+		close;
+	}
+	mes "[Sœur Helga]";
+	mes "Le Père Isengrim porte le poids de ce que la Foi était. Moi, je préfère m'occuper de ce qu'elle peut encore être utile.";
+	next;
+	mes "[Sœur Helga]";
+	mes "Soigner ne demande pas de croire à quoi que ce soit. Juste de tendre la main. Le reste vient avec la pratique.";
+	next;
+	mes "[Sœur Helga]";
+	mes "Tu es prêt ?";
+	next;
+	if (select("Pas encore.", "Oui, je suis prêt.") == 1) {
+		mes "[Sœur Helga]";
+		mes "Prends ton temps. Personne ne presse.";
+		close;
+	}
+	jobchange Job_Acolyte;
+	atcommand "@joblvlup 4";
+	getitem 1504,1;// Mace
+	mes "[Sœur Helga]";
+	mes "Une masse, bénite d'un mot plutôt que d'un rite. Elle frappera aussi fort que si Prontera l'avait consacrée.";
+	close;
+}
+iz_ac01_a,108,143,3	duplicate(Sœur Helga#reign)	Sœur Helga#reign_a	4_F_ACOLYTE
+iz_ac01_b,108,143,3	duplicate(Sœur Helga#reign)	Sœur Helga#reign_b	4_F_ACOLYTE
+iz_ac01_c,108,143,3	duplicate(Sœur Helga#reign)	Sœur Helga#reign_c	4_F_ACOLYTE
+iz_ac01_d,108,143,3	duplicate(Sœur Helga#reign)	Sœur Helga#reign_d	4_F_ACOLYTE
+
+//== Ingrid — formatrice Archer (iz_ac01) ====================================
+iz_ac01,62,52,3	script	Ingrid#reign	4_F_04,{
+	if (Class != Job_Novice) {
+		mes "[Ingrid]";
+		mes "Tu as déjà choisi. Vise bien, où que tu ailles.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Ingrid]";
+		mes "Inscris-toi d'abord auprès de la réceptionniste, en bas.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Ingrid]";
+		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base.";
+		close;
+	}
+	mes "[Ingrid]";
+	mes "Pas de faction, pas de dieu, pas de machine. Juste une corde tendue et un œil qui ne cille pas.";
+	next;
+	mes "[Ingrid]";
+	mes "On me demande parfois pourquoi je ne me suis pas installée à Geffen ou Lighthalzen. Franchement ? Aucune des deux n'a de vue dégagée sur l'horizon comme ici.";
+	next;
+	mes "[Ingrid]";
+	mes "Prête ?";
+	next;
+	if (select("Pas maintenant.", "Prête.") == 1) {
+		mes "[Ingrid]";
+		mes "La cible attendra.";
+		close;
+	}
+	jobchange Job_Archer;
+	atcommand "@joblvlup 4";
+	getitem 1701,1;// Bow
+	mes "[Ingrid]";
+	mes "Voilà ton arc. Ne le bande pas tant que tu n'as pas décidé où regarder.";
+	close;
+}
+iz_ac01_a,62,52,3	duplicate(Ingrid#reign)	Ingrid#reign_a	4_F_04
+iz_ac01_b,62,52,3	duplicate(Ingrid#reign)	Ingrid#reign_b	4_F_04
+iz_ac01_c,62,52,3	duplicate(Ingrid#reign)	Ingrid#reign_c	4_F_04
+iz_ac01_d,62,52,3	duplicate(Ingrid#reign)	Ingrid#reign_d	4_F_04
+
+//== Skuld — formatrice Thief (iz_ac01) ======================================
+iz_ac01,37,85,3	script	Skuld#reign	4_F_03,{
+	if (Class != Job_Novice) {
+		mes "[Skuld]";
+		mes "...";
+		mes "Tu n'as plus besoin de moi. Disparais, comme il se doit.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Skuld]";
+		mes "Inscris-toi d'abord en bas. Je ne t'ai jamais vu.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Skuld]";
+		mes "Reviens plus aguerri. Niveau 10 de compétence de base, pas moins.";
+		close;
+	}
+	mes "[Skuld]";
+	mes "Personne ne vient me voir par hasard. Tu me cherchais, ou tu es juste doué pour te perdre ?";
+	next;
+	mes "[Skuld]";
+	mes "Ce que j'enseigne ne s'affiche pas sur une bannière de faction. On se fait discret, on prend ce qu'il faut, on ne laisse rien derrière. Ni l'Ordre ni les Forgenoires ne comprennent vraiment ça.";
+	next;
+	mes "[Skuld]";
+	mes "Alors ?";
+	next;
+	if (select("Pas encore prêt.", "Je suis prêt.") == 1) {
+		mes "[Skuld]";
+		mes "Je ne serai pas toujours là.";
+		close;
+	}
+	jobchange Job_Thief;
+	atcommand "@joblvlup 4";
+	getitem 1207,1;// Main_Gauche
+	mes "[Skuld]";
+	mes "Une lame courte. Cache-la mieux que tu ne caches tes intentions.";
+	close;
+}
+iz_ac01_a,37,85,3	duplicate(Skuld#reign)	Skuld#reign_a	4_F_03
+iz_ac01_b,37,85,3	duplicate(Skuld#reign)	Skuld#reign_b	4_F_03
+iz_ac01_c,37,85,3	duplicate(Skuld#reign)	Skuld#reign_c	4_F_03
+iz_ac01_d,37,85,3	duplicate(Skuld#reign)	Skuld#reign_d	4_F_03
+
+//== La Lame Libre (izlude_in) — Torvald + 3 étrangers, hors Académie =======
+izlude_in,75,172,3	script	Torvald#reign	4_M_SWORDMAN,{
+	if (Class != Job_Novice) {
+		mes "[Torvald]";
+		mes "Tu as déjà une lame. File.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Torvald]";
+		mes "Inscris-toi d'abord à l'Académie, au nord. Reviens ensuite.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Torvald]";
+		mes "Niveau 10 de compétence de base d'abord. L'Académie t'y mènera.";
+		close;
+	}
+	mes "[Torvald]";
+	mes "L'épée n'a jamais eu besoin de bénédiction, de faction, ni de grand bâtiment pour s'enseigner. Une salle, une lame, et quelqu'un pour te corriger. C'est tout ce qu'il faut.";
+	next;
+	mes "[Torvald]";
+	mes "J'ai appelé ça \"La Lame Libre\", faute de mieux. Ça m'allait, et ça a fini par plaire à d'autres — tu croiseras trois voyageurs ici qui n'avaient nulle part ailleurs où aller.";
+	next;
+	mes "[Torvald]";
+	mes "Bref. Prêt à apprendre ?";
+	next;
+	if (select("Pas encore.", "Prêt.") == 1) {
+		mes "[Torvald]";
+		mes "La porte reste ouverte.";
+		close;
+	}
+	jobchange Job_Swordman;
+	atcommand "@joblvlup 4";
+	getitem 1101,1;// Sword
+	mes "[Torvald]";
+	mes "Une épée simple. Le reste, tu l'apprendras en la portant assez longtemps pour qu'elle cesse de te sembler lourde.";
+	close;
+}
+
+izlude_in,121,164,3	script	Ren#reign	4_M_NINJA_BLUE,{
+	if (Class != Job_Novice) {
+		mes "[Ren]";
+		mes "...";
+		mes "Ta voie est tracée. Bonne chance.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Ren]";
+		mes "Passe d'abord par l'Académie, au nord.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Ren]";
+		mes "Niveau 10 de compétence de base, d'abord.";
+		close;
+	}
+	mes "[Ren]";
+	mes "Là d'où je viens, il y a une vraie école — des maîtres, une lignée, des années d'apprentissage. Ici, je ne peux t'offrir que le strict nécessaire.";
+	next;
+	mes "[Ren]";
+	mes "Ma contrée traverse sa propre rupture, à sa façon. Rentrer signifierait choisir un camp que je ne veux pas choisir. Alors j'enseigne ici, en attendant.";
+	next;
+	mes "[Ren]";
+	mes "Peut-être qu'un jour, un élève assez curieux ira voir l'école véritable par lui-même. Ce ne sera pas moi qui l'en empêcherai.";
+	next;
+	mes "[Ren]";
+	mes "Pour l'instant : es-tu prêt ?";
+	next;
+	if (select("Pas encore.", "Prêt.") == 1) {
+		mes "[Ren]";
+		mes "Je serai là.";
+		close;
+	}
+	jobchange Job_Ninja;
+	atcommand "@joblvlup 4";
+	getitem 13300,1;// Huuma_Bird_Wing
+	mes "[Ren]";
+	mes "Un huuma d'entraînement. Le tien, le vrai, tu le forgeras toi-même un jour — ailleurs qu'ici.";
+	close;
+}
+
+izlude_in,130,169,3	script	Silas#reign	4_M_GUNSLINGER,{
+	if (Class != Job_Novice) {
+		mes "[Silas]";
+		mes "T'as déjà ta voie, gamin. Bonne chasse.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Silas]";
+		mes "Passe par l'Académie d'abord, au nord.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Silas]";
+		mes "Niveau 10 de compétence de base. Reviens après.";
+		close;
+	}
+	mes "[Silas]";
+	mes "Là d'où je viens, on ne pose pas de questions sur d'où viennent les armes. J'en ai posé une de trop. Résultat : je ne suis plus vraiment le bienvenu chez moi.";
+	next;
+	mes "[Silas]";
+	mes "Izlude, ça a l'avantage de ne rien demander en retour. Ni excuses, ni explications. Juste que tu tiennes ton arme droite.";
+	next;
+	mes "[Silas]";
+	mes "La vraie guilde des tireurs, la sérieuse, elle est loin d'ici. Peut-être que toi, tu pourras y retourner un jour. Moi, pas avant longtemps.";
+	next;
+	mes "[Silas]";
+	mes "Alors, prêt ?";
+	next;
+	if (select("Pas encore.", "Prêt.") == 1) {
+		mes "[Silas]";
+		mes "Je bouge pas d'ici.";
+		close;
+	}
+	jobchange Job_Gunslinger;
+	atcommand "@joblvlup 4";
+	getitem 13100,1;// Six_Shooter
+	mes "[Silas]";
+	mes "Un six-coups, basique mais fiable. Compte tes balles. Je ne t'en donnerai pas d'autres gratuitement.";
+	close;
+}
+
+izlude_in,128,165,3	script	Joon#reign	4_F_TAEKWON,{
+	if (Class != Job_Novice) {
+		mes "[Joon]";
+		mes "Ta voie est déjà tracée. Continue d'avancer.";
+		close;
+	}
+	if (isbegin_quest(91004) < 2) {
+		mes "[Joon]";
+		mes "Passe d'abord par l'Académie, au nord.";
+		close;
+	}
+	if (JobLevel < 10) {
+		mes "[Joon]";
+		mes "Niveau 10 de compétence de base, avant tout le reste.";
+		close;
+	}
+	mes "[Joon]";
+	mes "Contrairement à Ren et Silas, je ne fuis rien. J'ai simplement quitté mon dojang pour voir où mes poings pouvaient encore être utiles.";
+	next;
+	mes "[Joon]";
+	mes "Une salle, une école, un titre — tout ça viendra si ça doit venir. Pour l'instant, j'enseigne à qui veut apprendre, où qu'il se trouve.";
+	next;
+	mes "[Joon]";
+	mes "Izlude n'est qu'une étape. La prochaine, ce sera peut-être la tienne autant que la mienne.";
+	next;
+	mes "[Joon]";
+	mes "Prêt à commencer ?";
+	next;
+	if (select("Pas encore.", "Prêt.") == 1) {
+		mes "[Joon]";
+		mes "Prends ton temps. Je ne suis pressé par rien.";
+		close;
+	}
+	jobchange Job_Taekwon;
+	atcommand "@joblvlup 4";
+	mes "[Joon]";
+	mes "Pas d'arme à te donner — tes poings suffisent. C'est tout le principe.";
+	close;
+}
