@@ -2,21 +2,13 @@ package fr.lsi.reign.infrastructure.character;
 
 import fr.lsi.reign.domain.character.CharacterRepository;
 import fr.lsi.reign.domain.character.model.GameCharacter;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 class CharacterRepositoryAdapter implements CharacterRepository {
-
-    /**
-     * Doit rester synchronisé avec char_del_delay dans server/conf/char_athena.conf : le
-     * char-server ne considère le délai de grâce écoulé (et n'autorise la suppression
-     * définitive) qu'une fois delete_date atteint, exactement comme le fait le client de jeu.
-     */
-    private static final Duration DELETION_GRACE_PERIOD = Duration.ofHours(72);
 
     private static final String CAPITAL_MAP = "prontera";
 
@@ -41,9 +33,35 @@ class CharacterRepositoryAdapter implements CharacterRepository {
     }
 
     @Override
-    public boolean requestDeletion(Long charId, Long accountId) {
-        final long deleteDate = Instant.now().plus(DELETION_GRACE_PERIOD).getEpochSecond();
-        return jpaRepository.requestDeletion(charId, accountId, deleteDate) > 0;
+    @Transactional
+    public boolean deleteCompletely(Long charId, Long accountId) {
+        final Optional<GameCharacter> character = jpaRepository.findActiveByIdAndAccountId(charId, accountId);
+        if (character.isEmpty()) {
+            return false;
+        }
+
+        jpaRepository.deletePet(charId);
+        jpaRepository.deleteFriends(charId);
+        jpaRepository.deleteHotkeys(charId);
+        jpaRepository.deleteInventory(charId);
+        jpaRepository.deleteCartInventory(charId);
+        jpaRepository.deleteMemos(charId);
+        jpaRepository.deleteCharRegNum(charId);
+        jpaRepository.deleteCharRegStr(charId);
+        jpaRepository.deleteSkills(charId);
+        jpaRepository.deleteReceivedMails(charId);
+        jpaRepository.detachSentMails(charId);
+        jpaRepository.deleteBonusScripts(charId);
+        jpaRepository.deleteQuests(charId);
+        jpaRepository.deleteAchievements(charId);
+        jpaRepository.leaveGuild(charId);
+        jpaRepository.deleteHomunculus(charId);
+        jpaRepository.deleteMercenaryOwner(charId);
+        jpaRepository.deleteMercenary(charId);
+        jpaRepository.deleteElemental(charId);
+        jpaRepository.logDeletion(accountId, "Deleted via site (CID " + charId + ")", character.get().getName());
+
+        return jpaRepository.deleteChar(charId, accountId) > 0;
     }
 
     @Override

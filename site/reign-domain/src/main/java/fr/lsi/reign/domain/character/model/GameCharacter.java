@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 /**
  * Personnage joueur, mappé en lecture seule sur la table `char` du serveur
  * rAthena (le site ne crée/modifie jamais de personnage, seul le
- * char-server le fait - à l'exception de delete_date, voir
- * CharacterRepository.requestDeletion).
+ * char-server le fait - à l'exception de la suppression complète, voir
+ * CharacterRepository.deleteCompletely).
  *
  * Reprend (quasi) toutes les colonnes de la table : c'est volontairement une
  * vue brute et exhaustive pour l'instant (panneau de focus "tout afficher"),

@@ -40,20 +40,20 @@ class CharacterJpaRepositoryTest {
     }
 
     @Test
-    void requestDeletionMarksTheCharacterAsPendingDeletionAndHidesItFromActiveList() {
+    void deleteCharRemovesTheCharacterRow() {
         insertCharacter(5L, 42L, 0, "ToDelete", 0);
 
-        final int updated = repository.requestDeletion(5L, 42L, 1700000000L);
+        final int deleted = repository.deleteChar(5L, 42L);
 
-        assertThat(updated).isEqualTo(1);
+        assertThat(deleted).isEqualTo(1);
         assertThat(repository.findActiveByAccountId(42L)).isEmpty();
     }
 
     @Test
-    void requestDeletionDoesNothingWhenTheCharacterBelongsToAnotherAccount() {
+    void deleteCharDoesNothingWhenTheCharacterBelongsToAnotherAccount() {
         insertCharacter(6L, 42L, 0, "NotYours", 0);
 
-        final int updated = repository.requestDeletion(6L, 99L, 1700000000L);
+        final int updated = repository.deleteChar(6L, 99L);
 
         assertThat(updated).isZero();
         assertThat(repository.findActiveByAccountId(42L)).extracting(GameCharacter::getCharId).containsExactly(6L);

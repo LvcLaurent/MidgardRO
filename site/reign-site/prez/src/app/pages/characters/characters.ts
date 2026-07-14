@@ -188,7 +188,7 @@ export class Characters implements OnInit, OnDestroy {
 
     confirmDelete(character: GameCharacter): void {
         this.confirmationService.confirm({
-            message: `Supprimer le personnage "${character.name}" ? Le personnage sera définitivement supprimé par le serveur dans 72h (délai de grâce).`,
+            message: `Supprimer définitivement le personnage "${character.name}" ? Cette action est immédiate et irréversible.`,
             header: 'Confirmer la suppression',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {

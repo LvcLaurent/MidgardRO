@@ -15,14 +15,14 @@ public interface CharacterRepository {
     Optional<GameCharacter> findActiveByIdAndAccountId(Long charId, Long accountId);
 
     /**
-     * Marque le personnage comme en attente de suppression (delete_date), à la manière du client
-     * de jeu (bouton "supprimer" à la sélection de personnage) : la suppression effective et le
-     * nettoyage des données associées (inventaire, guilde, amis, ...) restent gérés par le
-     * char-server, jamais directement par le site.
+     * Supprime immédiatement et définitivement le personnage et toutes ses données associées
+     * (inventaire, chariot, sorts, amis, mails, quêtes, familier/homoncule/mercenaire/élémentaire,
+     * appartenance de guilde, ...), à la manière de la suppression effective du char-server, mais
+     * sans délai de grâce ni confirmation depuis le client de jeu.
      *
      * @return false si aucun personnage actif portant cet id n'appartient à ce compte
      */
-    boolean requestDeletion(Long charId, Long accountId);
+    boolean deleteCompletely(Long charId, Long accountId);
 
     /**
      * Déplace le personnage à la capitale (position à la prochaine connexion).

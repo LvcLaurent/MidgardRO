@@ -14,7 +14,7 @@ public class DeleteMyCharacterService {
     }
 
     public void delete(Long charId, Long accountId) {
-        if (!characterRepository.requestDeletion(charId, accountId)) {
+        if (!characterRepository.deleteCompletely(charId, accountId)) {
             throw new CharacterNotFoundException(charId);
         }
     }
