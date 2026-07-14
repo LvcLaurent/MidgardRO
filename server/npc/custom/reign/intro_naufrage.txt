@@ -47,7 +47,7 @@ iz_int04,18,30,0	duplicate(Réveil#reign)	Réveil#reign04	HIDDEN_WARP_NPC,6,6
 
 //== Passager blessé (iz_int) ===============================================
 iz_int,56,32,3	script	Passager blessé#reign	4_TOWER_01,3,3,{
-	if (isbegin_quest(90000) == 0) {
+	if (isbegin_quest(91000) == 0) {
 		mes "[Passager blessé]";
 		mes "Aah... par tous les Dieux... aide-moi...";
 		next;
@@ -58,7 +58,7 @@ iz_int,56,32,3	script	Passager blessé#reign	4_TOWER_01,3,3,{
 		mes "[Passager blessé]";
 		mes "Cette tempête... elle est arrivée bien trop vite pour être tout à fait normale.";
 		mes "Mais peu importe pour l'instant. Va, je te suis dès que je peux.";
-		setquest 90000;
+		setquest 91000;
 		close;
 	}
 	mes "[Passager blessé]";
@@ -66,13 +66,13 @@ iz_int,56,32,3	script	Passager blessé#reign	4_TOWER_01,3,3,{
 	close;
 
 OnTouch:
-	if (isbegin_quest(90000) == 0) {
+	if (isbegin_quest(91000) == 0) {
 		npctalk "À l'aide... je vous en supplie...", "", bc_self;
 	}
 	end;
 
 OnInit:
-	questinfo( QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(90000) && Class == Job_Novice" );
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(91000) && Class == Job_Novice" );
 	end;
 }
 iz_int01,56,32,3	duplicate(Passager blessé#reign)	Passager blessé#reign01	4_TOWER_01,3,3
@@ -82,8 +82,8 @@ iz_int04,56,32,3	duplicate(Passager blessé#reign)	Passager blessé#reign04	4_TOWE
 
 //== Capitaine Halvard (int_land, pont du navire) ===========================
 int_land,78,103,5	script	Capitaine Halvard#reign_ship	4_M_REINDEER,{
-	if (isbegin_quest(90000) == 1) completequest 90000;
-	if (isbegin_quest(90001) == 0) {
+	if (isbegin_quest(91000) == 1) completequest 91000;
+	if (isbegin_quest(91001) == 0) {
 		mes "[Capitaine Halvard]";
 		mes "Toi aussi tu as survécu à ça ? Par les racines d'Yggdrasil...";
 		mes "Je n'avais jamais vu une tempête se lever aussi vite. Pas une ride sur l'eau, puis plus rien n'existait que le vent.";
@@ -99,8 +99,8 @@ int_land,78,103,5	script	Capitaine Halvard#reign_ship	4_M_REINDEER,{
 		mes "[Capitaine Halvard]";
 		mes "Tiens, en parlant de ça — il y avait un autre passager avec toi. Il s'est réveillé, mais... il ne se souvient de rien. Pas même de son nom.";
 		mes "Je lui en ai donné un : Lumin. Il est là, sur le pont. Va lui parler, il a l'air perdu.";
-		setquest 90001;
-		completequest 90001;
+		setquest 91001;
+		completequest 91001;
 		close;
 	}
 	mes "[Capitaine Halvard]";
@@ -108,7 +108,7 @@ int_land,78,103,5	script	Capitaine Halvard#reign_ship	4_M_REINDEER,{
 	close;
 
 OnInit:
-	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(90000) >= 1 && isbegin_quest(90001) == 0 && Class == Job_Novice" );
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91000) >= 1 && isbegin_quest(91001) == 0 && Class == Job_Novice" );
 	end;
 }
 int_land01,78,103,5	duplicate(Capitaine Halvard#reign_ship)	Capitaine Halvard#reign_ship01	4_M_REINDEER
@@ -118,7 +118,7 @@ int_land04,78,103,5	duplicate(Capitaine Halvard#reign_ship)	Capitaine Halvard#re
 
 //== Lumin (int_land, pont du navire) =======================================
 int_land,73,100,3	script	Lumin#reign	4_M_NOV_RUMIN,{
-	if (isbegin_quest(90002) == 0) {
+	if (isbegin_quest(91002) == 0) {
 		mes "[Lumin]";
 		mes "...";
 		mes "...Qui es-tu ?";
@@ -141,8 +141,8 @@ int_land,73,100,3	script	Lumin#reign	4_M_NOV_RUMIN,{
 		next;
 		mes "[Lumin]";
 		mes "On dirait qu'on recommence à zéro, tous les deux. Retrouve-moi à Izlude, si tu veux.";
-		setquest 90002;
-		completequest 90002;
+		setquest 91002;
+		completequest 91002;
 		close;
 	}
 	mes "[Lumin]";
@@ -151,7 +151,7 @@ int_land,73,100,3	script	Lumin#reign	4_M_NOV_RUMIN,{
 	close;
 
 OnInit:
-	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(90001) == 2 && isbegin_quest(90002) == 0 && Class == Job_Novice" );
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91001) == 2 && isbegin_quest(91002) == 0 && Class == Job_Novice" );
 	end;
 }
 int_land01,73,100,3	duplicate(Lumin#reign)	Lumin#reign01	4_M_NOV_RUMIN
@@ -161,11 +161,11 @@ int_land04,73,100,3	duplicate(Lumin#reign)	Lumin#reign04	4_M_NOV_RUMIN
 
 //== Marin (int_land, pont du navire) — collecte de bois ====================
 int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
-	if (isbegin_quest(90003) == 0) {
+	if (isbegin_quest(91003) == 0) {
 		mes "[Marin]";
 		mes "La coque a pris l'eau. Il me faut du bois pour colmater avant qu'on tente Izlude.";
 		mes "Les Porings qui traînent sur cette île ont dû en récupérer en fouillant l'épave — file leur en prendre deux.";
-		setquest 90003;
+		setquest 91003;
 		next;
 		mes "[Marin]";
 		mes "Ramène-m'en deux, et je te laisse embarquer pour de bon.";
@@ -181,7 +181,7 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 	delitem 6008,2;
 	getexp 100,100;
 	getitem 611,5;// Spectacles (Magnifier)
-	completequest 90003;
+	completequest 91003;
 	next;
 	mes "[Marin]";
 	mes "Tiens, prends ça — des loupes. Utiles pour identifier ce que tu ramasseras sur les monstres.";
@@ -189,7 +189,7 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 	close;
 
 OnInit:
-	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(90003) == 0 && Class == Job_Novice" );
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91003) == 0 && Class == Job_Novice" );
 	end;
 }
 int_land01,58,69,5	duplicate(Marin#reign)	Marin#reign01	4W_SAILOR
@@ -277,7 +277,7 @@ izlude_d,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_d	4_M_OL
 
 //== Réceptionniste — Académie d'Izlude (iz_ac01) ===========================
 iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
-	if (isbegin_quest(90004) == 2) {
+	if (isbegin_quest(91004) == 2) {
 		mes "[Réceptionniste]";
 		mes "Bonjour, " + strcharinfo(0) + ". Toujours ravie de te revoir à l'Académie d'Izlude.";
 	} else {
@@ -289,12 +289,12 @@ iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
 		mes "[Réceptionniste]";
 		mes "En quoi puis-je t'aider ?";
 		next;
-		if (isbegin_quest(90004) == 2)
+		if (isbegin_quest(91004) == 2)
 			.@menu$ = "Ce qu'il y a dans l'Académie et alentour.:C'est quoi, la Rupture ?:Terminer la conversation.";
 		else
 			.@menu$ = "M'inscrire à l'Académie:Explications sur l'Académie et Izlude:C'est quoi, la Rupture ?:Terminer la conversation";
 		.@choice = select(.@menu$);
-		if (isbegin_quest(90004) == 2)
+		if (isbegin_quest(91004) == 2)
 			.@choice += 1;
 		switch (.@choice) {
 		case 1:
@@ -306,8 +306,8 @@ iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
 				mes "[Réceptionniste]";
 				mes "Voyons... " + strcharinfo(0) + ", c'est ça ? Je t'inscris tout de suite.";
 				mes "Voici de quoi commencer. Prends-en soin, on ne redonne pas deux fois un équipement de départ.";
-				setquest 90004;
-				completequest 90004;
+				setquest 91004;
+				completequest 91004;
 				getitem 2352,1;// Novice_Plate
 				getitem 2510,1;// Novice_Hood
 				getitem 2414,1;// Novice_Boots
@@ -364,7 +364,7 @@ iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
 	}
 
 OnInit:
-	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(90004) && Class == Job_Novice" );
+	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(91004) && Class == Job_Novice" );
 	end;
 }
 iz_ac01_a,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_a	4_F_01

@@ -1,19 +1,19 @@
-90000#Le naufrage#SG_FEEL#QUE_NOIMAGE#
+91000#Le naufrage#SG_FEEL#QUE_NOIMAGE#
 Une tempête violente a frappé le navire de plein fouet. Un passager blessé a besoin d'aide.#
 Aider le passager blessé#
 
-90001#Le récit du capitaine#SG_FEEL#QUE_NOIMAGE#
+91001#Le récit du capitaine#SG_FEEL#QUE_NOIMAGE#
 Le Capitaine Halvard explique la situation et met le cap sur Izlude.#
 Écouter le Capitaine Halvard#
 
-90002#Un visage sans mémoire#SG_FEEL#QUE_NOIMAGE#
+91002#Un visage sans mémoire#SG_FEEL#QUE_NOIMAGE#
 Lumin ne se souvient de rien depuis le naufrage. Peut-être vaut-il la peine de faire connaissance.#
 Parler à Lumin#
 
-90003#Un coup de main avant l'accostage#SG_FEEL#QUE_NOIMAGE#
+91003#Un coup de main avant l'accostage#SG_FEEL#QUE_NOIMAGE#
 Le Marin a besoin de bois pour colmater la coque avant l'arrivée à Izlude. Les Porings de l'île en ont récupéré.#
 Ramener 2 planches de bois au Marin#
 
-90004#Inscription à l'Académie d'Izlude#SG_FEEL#QUE_NOIMAGE#
+91004#Inscription à l'Académie d'Izlude#SG_FEEL#QUE_NOIMAGE#
 La Réceptionniste de l'Académie d'Izlude peut inscrire les nouveaux arrivants et leur fournir un équipement de départ.#
 S'inscrire à l'Académie d'Izlude#

@@ -83,7 +83,7 @@ iz_int04,56,15,0	duplicate(#ship_out)	#ship_out04	WARPNPC,1,1
 int_land,49,57,0	script	#intro_to_izlude	WARPNPC,2,2,{
 	end;
 OnTouch:
-	if (isbegin_quest(90003) == 1) {
+	if (isbegin_quest(91003) == 1) {
 		mes "^4d4dffUne fois cette île quittée, impossible de faire demi-tour.";
 		mes "Es-tu sûr de vouloir partir directement pour Izlude ?^000000";
 		next;
@@ -95,13 +95,13 @@ OnTouch:
 			mes "Pas de souci, j'attendrai que tu sois prêt~";
 			close;
 		}
-		completequest 90003;
+		completequest 91003;
 	}
 	mes "[Marin]";
 	mes "En route pour Izlude !";
 	close2;
-	if (isbegin_quest(90000) == 1)
-		completequest 90000;
+	if (isbegin_quest(91000) == 1)
+		completequest 91000;
 	.@map$ = "izlude" + replacestr( strnpcinfo(2), "intro_to_izlude", "" );
 	warp .@map$,196,209;
 	savepoint .@map$,128,142,1,1;
