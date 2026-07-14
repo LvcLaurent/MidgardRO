@@ -175,6 +175,11 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 		mes "Ramène-m'en sept, et je te laisse embarquer pour de bon.";
 		close;
 	}
+	if (isbegin_quest(91003) == 2) {
+		mes "[Marin]";
+		mes "Merci encore pour le bois. La coque tient bon, grâce à toi.";
+		close;
+	}
 	if (countitem(6008) < 7) {
 		mes "[Marin]";
 		mes "Toujours pas assez de bois. Il m'en faut sept, pas un de moins.";
@@ -310,9 +315,9 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 		mes "En quoi puis-je t'aider ?";
 		next;
 		if (isbegin_quest(91004) == 2)
-			.@menu$ = "Ce qu'il y a dans l'Académie et alentour.:C'est quoi, la Rupture ?:Terminer la conversation.";
+			.@menu$ = "Ce qu'il y a dans l'Académie et alentour.:Où choisir un métier ?:C'est quoi, la Rupture ?:Terminer la conversation.";
 		else
-			.@menu$ = "M'inscrire à l'Académie:Explications sur l'Académie et Izlude:C'est quoi, la Rupture ?:Terminer la conversation";
+			.@menu$ = "M'inscrire à l'Académie:Explications sur l'Académie et Izlude:Où choisir un métier ?:C'est quoi, la Rupture ?:Terminer la conversation";
 		.@choice = select(.@menu$);
 		if (isbegin_quest(91004) == 2)
 			.@choice += 1;
@@ -325,15 +330,9 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 				}
 				mes "[Réceptionniste]";
 				mes "Voyons... " + strcharinfo(0) + ", c'est ça ? Je t'inscris tout de suite.";
-				mes "Voici de quoi commencer. Prends-en soin, on ne redonne pas deux fois un équipement de départ.";
+				mes "Tiens, de quoi tenir le coup. Pas grand-chose d'autre pour l'instant — tu ne resteras pas Novice bien longtemps de toute façon.";
 				setquest 91004;
 				completequest 91004;
-				getitem 2352,1;// Novice_Plate
-				getitem 2510,1;// Novice_Hood
-				getitem 2414,1;// Novice_Boots
-				getitem 5055,1;// Novice_Egg_Cap
-				getitem 1243,1;// Novice_Knife
-				getitem 2112,1;// Novice_Guard
 				getitem 569,300;// Novice_Potion
 				getexp 100,0;
 				next;
@@ -364,6 +363,20 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 			break;
 		case 3:
 			mes "[Réceptionniste]";
+			mes "Tu veux changer de métier ? Il faut d'abord être inscrit ici, et avoir atteint le niveau 10 de Novice — pas ton niveau de personnage, celui de ta formation. Bram et Sunna t'y mènent.";
+			next;
+			mes "[Réceptionniste]";
+			mes "Ceci fait, cinq métiers s'apprennent ici même : Mage et Merchant à l'étage, près des représentants des deux factions. Acolyte tout en haut, à l'ancienne Église. Archer et Thief ici, au rez-de-chaussée.";
+			next;
+			mes "[Réceptionniste]";
+			mes "Les autres — Swordman, et trois formateurs venus d'ailleurs — sont à La Lame Libre, en ville, tenue par un certain Torvald. Pas besoin de repasser par ici pour eux.";
+			next;
+			mes "[Réceptionniste]";
+			mes "Un dernier conseil : chaque formateur t'explique ce qu'implique réellement son métier avant de te faire changer. Prends le temps d'écouter — c'est un choix qui t'engage.";
+			next;
+			break;
+		case 4:
+			mes "[Réceptionniste]";
 			mes "Ah. Ça, tout le monde le demande, tôt ou tard.";
 			next;
 			mes "[Réceptionniste]";
@@ -382,7 +395,7 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 			mes "Voilà. Tu en sais autant que n'importe quel enfant d'ici, maintenant.";
 			next;
 			break;
-		case 4:
+		case 5:
 			mes "[Réceptionniste]";
 			mes "Reviens quand tu veux.";
 			close;

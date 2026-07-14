@@ -24,7 +24,7 @@ iz_ac01,55,80,3	script	Sigrun#reign	1_M_WIZARD,{
 	}
 	if (JobLevel < 10) {
 		mes "[Sigrun]";
-		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base. Bram et Sunna t'y mèneront.";
+		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage). Bram et Sunna t'y mèneront.";
 		close;
 	}
 	mes "[Sigrun]";
@@ -34,9 +34,9 @@ iz_ac01,55,80,3	script	Sigrun#reign	1_M_WIZARD,{
 	mes "Canaliser l'énergie brute sans passer par la Foi, ce n'est pas un don — c'est une discipline. On apprend à écouter ce qui frémit sous la peau du monde depuis la Rupture.";
 	next;
 	mes "[Sigrun]";
-	mes "Tu es prêt à commencer ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Mage — ce n'est pas rien, c'est un vrai choix. Tu es prêt ?";
 	next;
-	if (select("Pas encore.", "Oui, montre-moi.") == 1) {
+	if (select("Pas encore.", "Oui, je veux devenir Mage.") == 1) {
 		mes "[Sigrun]";
 		mes "Prends ton temps.";
 		close;
@@ -67,7 +67,7 @@ iz_ac01,39,72,3	script	Torfinn#reign	4_M_MANAGER,{
 	}
 	if (JobLevel < 10) {
 		mes "[Torfinn]";
-		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base.";
+		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage).";
 		close;
 	}
 	mes "[Torfinn]";
@@ -77,9 +77,9 @@ iz_ac01,39,72,3	script	Torfinn#reign	4_M_MANAGER,{
 	mes "Les Forgenoires n'ont rien de mystique. Compter, négocier, réparer — c'est tout aussi respectable qu'un sortilège, et ça nourrit davantage.";
 	next;
 	mes "[Torfinn]";
-	mes "On y va ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Merchant — un vrai choix, pas un détail. On y va ?";
 	next;
-	if (select("Pas tout de suite.", "Oui, allons-y.") == 1) {
+	if (select("Pas tout de suite.", "Oui, je veux devenir Merchant.") == 1) {
 		mes "[Torfinn]";
 		mes "Le comptoir ne bouge pas.";
 		close;
@@ -110,7 +110,7 @@ iz_ac01,108,143,3	script	Sœur Helga#reign	4_F_ACOLYTE,{
 	}
 	if (JobLevel < 10) {
 		mes "[Sœur Helga]";
-		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base.";
+		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage).";
 		close;
 	}
 	mes "[Sœur Helga]";
@@ -120,9 +120,9 @@ iz_ac01,108,143,3	script	Sœur Helga#reign	4_F_ACOLYTE,{
 	mes "Soigner ne demande pas de croire à quoi que ce soit. Juste de tendre la main. Le reste vient avec la pratique.";
 	next;
 	mes "[Sœur Helga]";
-	mes "Tu es prêt ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Acolyte — un vrai engagement. Tu es prêt ?";
 	next;
-	if (select("Pas encore.", "Oui, je suis prêt.") == 1) {
+	if (select("Pas encore.", "Oui, je veux devenir Acolyte.") == 1) {
 		mes "[Sœur Helga]";
 		mes "Prends ton temps. Personne ne presse.";
 		close;
@@ -153,7 +153,7 @@ iz_ac01,62,52,3	script	Ingrid#reign	4_F_04,{
 	}
 	if (JobLevel < 10) {
 		mes "[Ingrid]";
-		mes "Reviens quand tu auras atteint le niveau 10 de compétence de base.";
+		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage).";
 		close;
 	}
 	mes "[Ingrid]";
@@ -163,9 +163,9 @@ iz_ac01,62,52,3	script	Ingrid#reign	4_F_04,{
 	mes "On me demande parfois pourquoi je ne me suis pas installée à Geffen ou Lighthalzen. Franchement ? Aucune des deux n'a de vue dégagée sur l'horizon comme ici.";
 	next;
 	mes "[Ingrid]";
-	mes "Prête ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Archer — un vrai choix. Tu es prête ?";
 	next;
-	if (select("Pas maintenant.", "Prête.") == 1) {
+	if (select("Pas maintenant.", "Oui, je veux devenir Archer.") == 1) {
 		mes "[Ingrid]";
 		mes "La cible attendra.";
 		close;
@@ -197,7 +197,7 @@ iz_ac01,37,85,3	script	Skuld#reign	4_F_03,{
 	}
 	if (JobLevel < 10) {
 		mes "[Skuld]";
-		mes "Reviens plus aguerri. Niveau 10 de compétence de base, pas moins.";
+		mes "Reviens plus aguerri. Niveau 10 de Novice (ta formation, pas ton niveau de personnage), pas moins.";
 		close;
 	}
 	mes "[Skuld]";
@@ -207,9 +207,9 @@ iz_ac01,37,85,3	script	Skuld#reign	4_F_03,{
 	mes "Ce que j'enseigne ne s'affiche pas sur une bannière de faction. On se fait discret, on prend ce qu'il faut, on ne laisse rien derrière. Ni l'Ordre ni les Forgenoires ne comprennent vraiment ça.";
 	next;
 	mes "[Skuld]";
-	mes "Alors ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Thief. Réfléchis bien — alors ?";
 	next;
-	if (select("Pas encore prêt.", "Je suis prêt.") == 1) {
+	if (select("Pas encore prêt.", "Oui, je veux devenir Thief.") == 1) {
 		mes "[Skuld]";
 		mes "Je ne serai pas toujours là.";
 		close;
@@ -240,7 +240,7 @@ izlude_in,75,172,3	script	Torvald#reign	4_M_SWORDMAN,{
 	}
 	if (JobLevel < 10) {
 		mes "[Torvald]";
-		mes "Niveau 10 de compétence de base d'abord. L'Académie t'y mènera.";
+		mes "Niveau 10 de Novice (ta formation, pas ton niveau de personnage) d'abord. L'Académie t'y mènera.";
 		close;
 	}
 	mes "[Torvald]";
@@ -250,9 +250,9 @@ izlude_in,75,172,3	script	Torvald#reign	4_M_SWORDMAN,{
 	mes "J'ai appelé ça \"La Lame Libre\", faute de mieux. Ça m'allait, et ça a fini par plaire à d'autres — tu croiseras trois voyageurs ici qui n'avaient nulle part ailleurs où aller.";
 	next;
 	mes "[Torvald]";
-	mes "Bref. Prêt à apprendre ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Swordman. Bref — prêt ?";
 	next;
-	if (select("Pas encore.", "Prêt.") == 1) {
+	if (select("Pas encore.", "Oui, je veux devenir Swordman.") == 1) {
 		mes "[Torvald]";
 		mes "La porte reste ouverte.";
 		close;
@@ -279,7 +279,7 @@ izlude_in,121,164,3	script	Ren#reign	4_M_NINJA_BLUE,{
 	}
 	if (JobLevel < 10) {
 		mes "[Ren]";
-		mes "Niveau 10 de compétence de base, d'abord.";
+		mes "Niveau 10 de Novice (ta formation, pas ton niveau de personnage), d'abord.";
 		close;
 	}
 	mes "[Ren]";
@@ -292,9 +292,9 @@ izlude_in,121,164,3	script	Ren#reign	4_M_NINJA_BLUE,{
 	mes "Peut-être qu'un jour, un élève assez curieux ira voir l'école véritable par lui-même. Ce ne sera pas moi qui l'en empêcherai.";
 	next;
 	mes "[Ren]";
-	mes "Pour l'instant : es-tu prêt ?";
+	mes "Pour l'instant : si tu acceptes, tu quittes la voie de Novice et deviens officiellement Ninja. Es-tu prêt ?";
 	next;
-	if (select("Pas encore.", "Prêt.") == 1) {
+	if (select("Pas encore.", "Oui, je veux devenir Ninja.") == 1) {
 		mes "[Ren]";
 		mes "Je serai là.";
 		close;
@@ -320,7 +320,7 @@ izlude_in,130,169,3	script	Silas#reign	4_M_GUNSLINGER,{
 	}
 	if (JobLevel < 10) {
 		mes "[Silas]";
-		mes "Niveau 10 de compétence de base. Reviens après.";
+		mes "Niveau 10 de Novice (ta formation, pas ton niveau de personnage). Reviens après.";
 		close;
 	}
 	mes "[Silas]";
@@ -333,9 +333,9 @@ izlude_in,130,169,3	script	Silas#reign	4_M_GUNSLINGER,{
 	mes "La vraie guilde des tireurs, la sérieuse, elle est loin d'ici. Peut-être que toi, tu pourras y retourner un jour. Moi, pas avant longtemps.";
 	next;
 	mes "[Silas]";
-	mes "Alors, prêt ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Gunslinger. Alors, prêt ?";
 	next;
-	if (select("Pas encore.", "Prêt.") == 1) {
+	if (select("Pas encore.", "Oui, je veux devenir Gunslinger.") == 1) {
 		mes "[Silas]";
 		mes "Je bouge pas d'ici.";
 		close;
@@ -361,7 +361,7 @@ izlude_in,128,165,3	script	Joon#reign	4_F_TAEKWON,{
 	}
 	if (JobLevel < 10) {
 		mes "[Joon]";
-		mes "Niveau 10 de compétence de base, avant tout le reste.";
+		mes "Niveau 10 de Novice (ta formation, pas ton niveau de personnage), avant tout le reste.";
 		close;
 	}
 	mes "[Joon]";
@@ -374,9 +374,9 @@ izlude_in,128,165,3	script	Joon#reign	4_F_TAEKWON,{
 	mes "Izlude n'est qu'une étape. La prochaine, ce sera peut-être la tienne autant que la mienne.";
 	next;
 	mes "[Joon]";
-	mes "Prêt à commencer ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Taekwon. Prêt à commencer ?";
 	next;
-	if (select("Pas encore.", "Prêt.") == 1) {
+	if (select("Pas encore.", "Oui, je veux devenir Taekwon.") == 1) {
 		mes "[Joon]";
 		mes "Prends ton temps. Je ne suis pressé par rien.";
 		close;
