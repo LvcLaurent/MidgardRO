@@ -1,0 +1,154 @@
+//===== Reign of Midgard ===================================================
+//= Académie d'Izlude — formation de base
+//===== Description: =======================================================
+//= Suite de la trame d'ouverture (après l'inscription à l'Académie, quête
+//= 91004) : deux instructeurs qui enseignent le Basic Skill (NV_BASIC) par
+//= paliers, le retour de Lumin, et un premier aperçu — sans jamais forcer
+//= le choix — des deux factions à travers deux PNJ d'ambiance. Voir
+//= lore/reign-of-midgard-lore.md.
+//===========================================================================
+
+//== Instructeur Bram (iz_ac01) — Basic Skill niveaux 1 à 4 =================
+iz_ac01,85,45,5	script	Instructeur Bram#reign	4_M_OLDSCHOLAR,{
+	if (isbegin_quest(91004) < 2) {
+		mes "[Instructeur Bram]";
+		mes "Va d'abord t'inscrire auprès de la réceptionniste, on parlera ensuite.";
+		close;
+	}
+	if (isbegin_quest(91005) == 0) {
+		mes "[Instructeur Bram]";
+		mes "Ah, une nouvelle recrue. Bienvenue. Je vais t'apprendre les gestes de base — tu en auras besoin bien plus souvent que tu ne le crois.";
+		next;
+		mes "[Instructeur Bram]";
+		mes "Le commerce, d'abord. Un clic droit sur un autre aventurier te permet de lui proposer un échange d'objets.";
+		next;
+		mes "[Instructeur Bram]";
+		mes "Ensuite, les émotions — Alt et une touche numérique, ou Alt+L pour la liste complète. Ça paraît futile, mais ça évite bien des malentendus.";
+		next;
+		mes "[Instructeur Bram]";
+		mes "Apprends aussi à t'asseoir — la touche Inser, ou la commande /sit. Tu récupères ta santé et ton énergie bien plus vite immobile.";
+		next;
+		mes "[Instructeur Bram]";
+		mes "Et enfin, la création de salon de discussion, avec Alt+C. Utile pour recruter, vendre, ou simplement parler sans déranger tout Izlude.";
+		next;
+		mes "[Instructeur Bram]";
+		mes "Voilà. Quatre choses simples, mais qui changent tout au quotidien.";
+		if (getskilllv(NV_BASIC) < 4) skill NV_BASIC,4,0;
+		setquest 91005;
+		completequest 91005;
+		getexp 50,50;
+		close;
+	}
+	mes "[Instructeur Bram]";
+	mes "Va donc voir Sunna, un peu plus loin. Elle complètera ce que je t'ai appris.";
+	close;
+
+OnInit:
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91004) == 2 && isbegin_quest(91005) == 0 && Class == Job_Novice" );
+	end;
+}
+iz_ac01_a,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_a	4_M_OLDSCHOLAR
+iz_ac01_b,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_b	4_M_OLDSCHOLAR
+iz_ac01_c,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_c	4_M_OLDSCHOLAR
+iz_ac01_d,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_d	4_M_OLDSCHOLAR
+
+//== Instructrice Sunna (iz_ac01) — Basic Skill niveaux 5 à 9 ===============
+iz_ac01,115,45,5	script	Instructrice Sunna#reign	4_F_04,{
+	if (isbegin_quest(91005) < 2) {
+		mes "[Instructrice Sunna]";
+		mes "Va d'abord voir Bram, il t'apprendra les bases. Je reprendrai la suite ensuite.";
+		close;
+	}
+	if (isbegin_quest(91006) == 0) {
+		mes "[Instructrice Sunna]";
+		mes "Bram m'a dit du bien de toi. Voyons si on peut aller plus loin.";
+		next;
+		mes "[Instructrice Sunna]";
+		mes "Rejoindre un groupe, d'abord — indispensable pour affronter ce que Midgard te réserve sans y laisser ta peau.";
+		next;
+		mes "[Instructrice Sunna]";
+		mes "Le coffre Kafra, ensuite. Un espace de stockage partagé entre tous tes personnages, accessible depuis n'importe quelle Kafra du royaume.";
+		next;
+		mes "[Instructrice Sunna]";
+		mes "Et si tu veux mener plutôt que suivre : tape /organize suivi d'un nom pour fonder ton propre groupe. Alt+Z pour le gérer.";
+		next;
+		mes "[Instructrice Sunna]";
+		mes "Voilà. Tu en sais maintenant assez pour te débrouiller seul, ou avec d'autres.";
+		next;
+		mes "[Instructrice Sunna]";
+		mes "Une dernière chose. Tu es prêt à choisir ta voie, maintenant — celle de l'Ordre de la Faille, celle des Forgenoires, ou une toute autre qui ne doit rien ni à l'une ni à l'autre.";
+		next;
+		mes "[Instructrice Sunna]";
+		mes "Ce choix n'appartient qu'à toi. Personne, ici, ne te forcera la main.";
+		if (getskilllv(NV_BASIC) < 9) skill NV_BASIC,9,0;
+		setquest 91006;
+		completequest 91006;
+		getexp 100,100;
+		close;
+	}
+	mes "[Instructrice Sunna]";
+	mes "Bonne chance, aventurier. Le monde t'attend.";
+	close;
+
+OnInit:
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91005) == 2 && isbegin_quest(91006) == 0 && Class == Job_Novice" );
+	end;
+}
+iz_ac01_a,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_a	4_F_04
+iz_ac01_b,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_b	4_F_04
+iz_ac01_c,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_c	4_F_04
+iz_ac01_d,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_d	4_F_04
+
+//== Lumin (iz_ac01) — retrouvailles, pure texture ==========================
+iz_ac01,95,55,3	script	Lumin#reign_academy	4_M_NOV_RUMIN,{
+	mes "[Lumin]";
+	mes "Toi aussi, on t'a trouvé une place ici.";
+	next;
+	mes "[Lumin]";
+	mes "Je ne me souviens toujours de rien d'avant l'eau froide. Mais ça va, je crois. Un jour à la fois.";
+	next;
+	mes "[Lumin]";
+	mes "Le capitaine passe parfois prendre des nouvelles. Il dit que ça arrive, à certains marins, de perdre un peu la mémoire. Je ne sais pas si j'y crois.";
+	next;
+	mes "[Lumin]";
+	mes "Enfin. Bonne chance pour la suite. On se recroisera, j'imagine.";
+	close;
+}
+iz_ac01_a,95,55,3	duplicate(Lumin#reign_academy)	Lumin#reign_academy_a	4_M_NOV_RUMIN
+iz_ac01_b,95,55,3	duplicate(Lumin#reign_academy)	Lumin#reign_academy_b	4_M_NOV_RUMIN
+iz_ac01_c,95,55,3	duplicate(Lumin#reign_academy)	Lumin#reign_academy_c	4_M_NOV_RUMIN
+iz_ac01_d,95,55,3	duplicate(Lumin#reign_academy)	Lumin#reign_academy_d	4_M_NOV_RUMIN
+
+//== Instructeur Kell (iz_ac01) — écho de l'Ordre de la Faille, texture =====
+iz_ac01,75,60,3	script	Instructeur Kell#reign	1_M_WIZARD,{
+	mes "[Instructeur Kell]";
+	mes "L'Ordre de la Faille ? On m'a vu porter ce nom, oui. Je ne recrute pas — je réponds, simplement, à qui pose les bonnes questions.";
+	next;
+	mes "[Instructeur Kell]";
+	mes "Geffen a toujours su écouter ce que la terre murmure. Depuis la Rupture, elle sait aussi le canaliser.";
+	next;
+	mes "[Instructeur Kell]";
+	mes "Si un jour tu sens l'appel, viens me trouver. Sinon, tant mieux : ce monde a besoin d'autre chose que de mages, aussi.";
+	close;
+}
+iz_ac01_a,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_a	1_M_WIZARD
+iz_ac01_b,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_b	1_M_WIZARD
+iz_ac01_c,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_c	1_M_WIZARD
+iz_ac01_d,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_d	1_M_WIZARD
+
+//== Contremaître Odger (iz_ac01) — écho des Forgenoires, texture ===========
+iz_ac01,125,60,3	script	Contremaître Odger#reign	4_M_MANAGER,{
+	mes "[Contremaître Odger]";
+	mes "Les Forgenoires ? Pas une secte, pas une religion. Juste des gens qui préfèrent réparer ce qui est cassé plutôt que prier pour qu'un dieu le fasse.";
+	next;
+	mes "[Contremaître Odger]";
+	mes "Lighthalzen tourne encore grâce à des machines vieilles de je ne sais combien de générations. Quelqu'un doit bien les comprendre.";
+	next;
+	mes "[Contremaître Odger]";
+	mes "Si les rouages t'intéressent plus que les incantations, tu sais où me trouver. Sinon, pas de rancune.";
+	close;
+}
+iz_ac01_a,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_a	4_M_MANAGER
+iz_ac01_b,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_b	4_M_MANAGER
+iz_ac01_c,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_c	4_M_MANAGER
+iz_ac01_d,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_d	4_M_MANAGER

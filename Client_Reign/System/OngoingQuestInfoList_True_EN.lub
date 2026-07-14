@@ -50,5 +50,23 @@ QuestInfoList = {
 			{ ItemID = 2112, ItemNum = 1 },
 			{ ItemID = 569, ItemNum = 300 }
 		}
+	},
+	[91005] = {
+		Title = "Les rudiments de l'aventurier",
+		Description = {
+			"Instructeur Bram peut t'enseigner les gestes de base : commerce, émotions, position assise, salons de discussion."
+		},
+		Summary = "Parler à Instructeur Bram",
+		RewardEXP = "50",
+		RewardJEXP = "50"
+	},
+	[91006] = {
+		Title = "Prêt à embrasser son destin",
+		Description = {
+			"Instructrice Sunna peut compléter ta formation : groupes, coffre Kafra, et bien plus."
+		},
+		Summary = "Parler à Instructrice Sunna",
+		RewardEXP = "100",
+		RewardJEXP = "100"
 	}
 }
