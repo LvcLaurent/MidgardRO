@@ -13,7 +13,9 @@ export const appRoutes: Routes = [
             { path: '', component: Home },
             { path: 'characters', loadComponent: () => import('./app/pages/characters/characters').then((m) => m.Characters) },
             { path: 'accounts', loadComponent: () => import('./app/pages/accounts/accounts').then((m) => m.Accounts) },
-            { path: 'profile', loadComponent: () => import('./app/pages/profile/profile').then((m) => m.Profile) }
+            { path: 'profile', loadComponent: () => import('./app/pages/profile/profile').then((m) => m.Profile) },
+            { path: 'download', loadComponent: () => import('./app/pages/download/download').then((m) => m.Download) },
+            { path: 'histoire', loadComponent: () => import('./app/pages/story/story').then((m) => m.Story) }
         ]
     },
     { path: 'auth', loadChildren: () => import('./app/pages/auth/auth.routes') },

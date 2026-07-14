@@ -29,3 +29,11 @@ reign:
     # "zrenderer" est le nom du service sur le réseau docker "docker_default" (voir docker-compose.prod.yml)
     base-url: http://zrenderer:11011
     access-token: ${ZRENDERER_TOKEN}
+  gameserver:
+    # noms de service sur le réseau docker "docker_default", partagé avec la stack rAthena
+    login-host: login
+    login-port: 16900
+    char-host: char
+    char-port: 16121
+    map-host: map
+    map-port: 5121

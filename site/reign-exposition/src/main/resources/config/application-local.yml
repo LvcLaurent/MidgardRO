@@ -26,4 +26,10 @@ reign:
   zrenderer:
     base-url: http://localhost:11011
     access-token: ${ZRENDERER_TOKEN}
-  
+  gameserver:
+    login-host: 127.0.0.1
+    login-port: 16900
+    char-host: 127.0.0.1
+    char-port: 16121
+    map-host: 127.0.0.1
+    map-port: 5121

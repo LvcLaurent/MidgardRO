@@ -24,7 +24,11 @@ export class AppMenu {
 
     model = computed<MenuItem[]>(() => {
         const account = this.accountService.account();
-        const navigationItems: MenuItem[] = [{ label: 'Accueil', icon: 'pi pi-fw pi-home', routerLink: ['/'] }];
+        const navigationItems: MenuItem[] = [
+            { label: 'Accueil', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+            { label: 'Histoire', icon: 'pi pi-fw pi-book', routerLink: ['/histoire'] },
+            { label: 'Téléchargement', icon: 'pi pi-fw pi-download', routerLink: ['/download'] }
+        ];
         if (account) {
             navigationItems.push({ label: 'Mes personnages', icon: 'pi pi-fw pi-users', routerLink: ['/characters'] });
         }
