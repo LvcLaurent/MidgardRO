@@ -103,7 +103,7 @@ izlude_c,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_c	4_F_KAFRA1
 izlude_d,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_d	4_F_KAFRA1
 
 //== Bénédiction d'Izlude (izlude) — bénédictions de départ, 100 zeny =======
-izlude,125,148,3	script	Bénédiction d'Izlude#reign	1_F_MERCHANT,{
+izlude,125,148,3	script	Bénédiction d'Izlude#reign	1_F_MERCHANT_01,{
 	mes "[Bénédiction d'Izlude]";
 	mes "Une petite bénédiction avant de partir à l'aventure ? Pas de rituel, pas de prêtre, pas de question. 100 zeny, et vous voilà un peu plus vaillant.";
 	next;
@@ -133,10 +133,10 @@ izlude,125,148,3	script	Bénédiction d'Izlude#reign	1_F_MERCHANT,{
 		close;
 	}
 }
-izlude_a,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_a	1_F_MERCHANT
-izlude_b,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_b	1_F_MERCHANT
-izlude_c,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_c	1_F_MERCHANT
-izlude_d,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_d	1_F_MERCHANT
+izlude_a,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_a	1_F_MERCHANT_01
+izlude_b,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_b	1_F_MERCHANT_01
+izlude_c,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_c	1_F_MERCHANT_01
+izlude_d,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_d	1_F_MERCHANT_01
 
 //== Herjolf (izlude) — éclaireur, choix de faction (facultatif) ============
 //= Utilise getfaction()/setfaction(), exposés côté serveur pour cette quête
