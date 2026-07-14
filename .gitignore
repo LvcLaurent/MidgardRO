@@ -8,6 +8,12 @@
 # Deployment credentials - never commit
 /deploy.properties
 
+# Written at deploy time by deploy.sh with the real DB password (see run_remote
+# heredoc). Was previously tracked with placeholder content, which meant any git
+# reset/checkout on the remote host silently wiped the live prod credentials back
+# to that placeholder - caused repeated map-server DB auth outages.
+/server/tools/docker/asset-prod/inter_conf.txt
+
 # Java build output and frontend deps
 /site/**/target/
 /site/reign-site/prez/node_modules/
