@@ -26,7 +26,7 @@ QuestInfoList = {
 		Description = {
 			"Le Marin a besoin de bois pour colmater la coque avant l'arrivée à Izlude. Les Porings de l'île en ont récupéré."
 		},
-		Summary = "Ramener 2 planches de bois au Marin",
+		Summary = "Ramener 7 planches de bois au Marin",
 		RewardEXP = "100",
 		RewardJEXP = "100",
 		RewardItemList = {

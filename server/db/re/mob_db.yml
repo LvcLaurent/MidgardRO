@@ -57449,6 +57449,8 @@ Body:
     Name: Poring
     Level: 1
     Hp: 55
+    BaseExp: 150
+    JobExp: 40
     Attack: 1
     Attack2: 1
     Defense: 2
@@ -57470,6 +57472,10 @@ Body:
     ClientAttackMotion: 288
     DamageMotion: 480
     Ai: 02
+    Drops:
+      - Item: Wood
+        Index: 0
+        Rate: 10000
     Modes:
       FixedItemDrop: true
   - Id: 2402

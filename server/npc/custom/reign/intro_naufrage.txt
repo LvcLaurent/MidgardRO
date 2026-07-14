@@ -104,7 +104,11 @@ int_land,78,103,5	script	Capitaine Halvard#reign_ship	4_M_REINDEER,{
 		close;
 	}
 	mes "[Capitaine Halvard]";
-	mes "Va voir Lumin, il doit se sentir bien seul.";
+	if (isbegin_quest(91002) == 0) {
+		mes "Va voir Lumin, il doit se sentir bien seul.";
+	} else {
+		mes "Le marin va avoir besoin d'un coup de main pour réparer la coque avant qu'on tente Izlude. Il est plus loin sur le pont.";
+	}
 	close;
 
 OnInit:
@@ -164,21 +168,21 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 	if (isbegin_quest(91003) == 0) {
 		mes "[Marin]";
 		mes "La coque a pris l'eau. Il me faut du bois pour colmater avant qu'on tente Izlude.";
-		mes "Les Porings qui traînent sur cette île ont dû en récupérer en fouillant l'épave — file leur en prendre deux.";
+		mes "Les Porings qui traînent sur cette île ont dû en récupérer en fouillant l'épave — file leur en prendre sept.";
 		setquest 91003;
 		next;
 		mes "[Marin]";
-		mes "Ramène-m'en deux, et je te laisse embarquer pour de bon.";
+		mes "Ramène-m'en sept, et je te laisse embarquer pour de bon.";
 		close;
 	}
-	if (countitem(6008) < 2) {
+	if (countitem(6008) < 7) {
 		mes "[Marin]";
-		mes "Toujours pas assez de bois. Il m'en faut deux, pas un de moins.";
+		mes "Toujours pas assez de bois. Il m'en faut sept, pas un de moins.";
 		close;
 	}
 	mes "[Marin]";
 	mes "Parfait, ça devrait tenir jusqu'à Izlude.";
-	delitem 6008,2;
+	delitem 6008,7;
 	getexp 100,100;
 	getitem 611,5;// Spectacles (Magnifier)
 	completequest 91003;
