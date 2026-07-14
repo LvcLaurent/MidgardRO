@@ -150,6 +150,9 @@ habitués — pas juste des PNJ fonctionnels, un lieu vécu :
   de la Faille) et Petra (penche pour les Forgenoires) — aucun des deux n'a encore
   choisi, ce qui illustre concrètement le point 6 (le choix n'est jamais un mur).
 - **Cantine** : Chef Brokk, Fenn et Ludo — pur ton léger/vivant, sans enjeu narratif.
+- **Archive** : Archiviste Bodvar (râle contre ses livres qui "s'envolent"), Tuva
+  (l'enfant qui les lui cache en cachette, sans malice) et Halfdan (étudiant flemmard
+  planqué pour échapper à Sunna) — même registre léger/vivant que la cantine.
 
 > 🔮 Piste future : **Yrsa**, une chercheuse indépendante installée à la bibliothèque,
 > n'appartient à aucune des deux factions et étudie la Rupture pour elle-même. Elle

@@ -304,3 +304,55 @@ iz_ac01_a,153,37,3	duplicate(Ludo#reign)	Ludo#reign_a	4_M_02
 iz_ac01_b,153,37,3	duplicate(Ludo#reign)	Ludo#reign_b	4_M_02
 iz_ac01_c,153,37,3	duplicate(Ludo#reign)	Ludo#reign_c	4_M_02
 iz_ac01_d,153,37,3	duplicate(Ludo#reign)	Ludo#reign_d	4_M_02
+
+//== Archive (iz_ac01) — texture, humour ====================================
+iz_ac01,133,87,3	script	Archiviste Bodvar#reign	4_M_04,{
+	mes "[Bodvar]";
+	mes "Encore un livre envolé ! Le troisième cette semaine. Je les range TOUJOURS au même endroit, et pourtant.";
+	next;
+	mes "[Bodvar]";
+	mes "Tu n'aurais pas vu traîner un ouvrage relié de cuir brun, avec des runes sur la tranche ? Non ? Évidemment.";
+	next;
+	mes "[Bodvar]";
+	mes "Je soupçonne les souris. Ou les courants d'air. Ou peut-être que les Archives elles-mêmes n'aiment pas qu'on les range trop bien.";
+	close;
+}
+iz_ac01_a,133,87,3	duplicate(Archiviste Bodvar#reign)	Archiviste Bodvar#reign_a	4_M_04
+iz_ac01_b,133,87,3	duplicate(Archiviste Bodvar#reign)	Archiviste Bodvar#reign_b	4_M_04
+iz_ac01_c,133,87,3	duplicate(Archiviste Bodvar#reign)	Archiviste Bodvar#reign_c	4_M_04
+iz_ac01_d,133,87,3	duplicate(Archiviste Bodvar#reign)	Archiviste Bodvar#reign_d	4_M_04
+
+iz_ac01,152,79,3	script	Tuva#reign	4W_KID,{
+	mes "[Tuva]";
+	mes "Chut ! Tu ne l'as pas vu, hein ?";
+	next;
+	mes "[Tuva]";
+	mes "Le vieux Bodvar croit que ses livres s'envolent tout seuls. Je les cache juste derrière l'étagère du fond. Il ne regarde jamais là.";
+	next;
+	mes "[Tuva]";
+	mes "C'est pas méchant ! Il finit toujours par les retrouver. Enfin... après s'être bien énervé d'abord. C'est la meilleure partie.";
+	next;
+	mes "[Tuva]";
+	mes "Tu diras rien, promis ?";
+	close;
+}
+iz_ac01_a,152,79,3	duplicate(Tuva#reign)	Tuva#reign_a	4W_KID
+iz_ac01_b,152,79,3	duplicate(Tuva#reign)	Tuva#reign_b	4W_KID
+iz_ac01_c,152,79,3	duplicate(Tuva#reign)	Tuva#reign_c	4W_KID
+iz_ac01_d,152,79,3	duplicate(Tuva#reign)	Tuva#reign_d	4W_KID
+
+iz_ac01,163,74,3	script	Halfdan#reign	4_M_03,{
+	mes "[Halfdan]";
+	mes "Chuuut. Si tu me vois pas, je suis pas là, d'accord ?";
+	next;
+	mes "[Halfdan]";
+	mes "Sunna me cherche encore, j'en suis sûr. \"Encore un job level, Halfdan, tu y es presque !\" Je sais, je sais. Demain.";
+	next;
+	mes "[Halfdan]";
+	mes "Mes parents voulaient un héros quand ils m'ont appelé comme ça. Résultat : un type qui fait la sieste derrière une étagère. La vie est pleine de surprises.";
+	close;
+}
+iz_ac01_a,163,74,3	duplicate(Halfdan#reign)	Halfdan#reign_a	4_M_03
+iz_ac01_b,163,74,3	duplicate(Halfdan#reign)	Halfdan#reign_b	4_M_03
+iz_ac01_c,163,74,3	duplicate(Halfdan#reign)	Halfdan#reign_c	4_M_03
+iz_ac01_d,163,74,3	duplicate(Halfdan#reign)	Halfdan#reign_d	4_M_03
