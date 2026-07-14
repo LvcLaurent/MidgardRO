@@ -39,6 +39,13 @@ echo "==> Synchronisation de npc/ et db/ uniquement sur $DEPLOY_HOST"
 # ne pas y revenir.
 run_remote "if [ -d $REMOTE_DIR/.git ]; then cd $REMOTE_DIR && git fetch origin $BRANCH && git checkout origin/$BRANCH -- server/npc server/db; else git clone --branch $BRANCH $REPO_URL $REMOTE_DIR; fi"
 
+echo "==> Reconstruction de db/import (gitignored, non couvert par le checkout)"
+# server/db/import est gitignored - le checkout ci-dessus ne le touche pas, et le bind
+# mount de server/db écrase la copie que l'image avait construite au build (via la
+# cible "import" du Makefile). On reproduit cette même logique ici : copier depuis
+# import-tmpl uniquement les fichiers absents, jamais écraser un import/ déjà présent.
+run_remote "cd $REMOTE_DIR/server/db && mkdir -p import && for f in \$(ls import-tmpl); do if [ ! -e import/\$f ]; then cp import-tmpl/\$f import/\$f; fi; done"
+
 echo "==> Redémarrage du map-server (pas de rebuild)"
 run_remote "cd $REMOTE_DIR/server/tools/docker && docker-compose -f docker-compose.prod.yml restart map"
 
