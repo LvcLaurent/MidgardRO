@@ -210,3 +210,27 @@ niveau :
 > déjà notée que le deuxième métier pourrait être l'occasion de sortir enfin
 > d'Izlude et d'aller vers le monde plus large (Geffen, Lighthalzen, et ces écoles
 > lointaines).
+
+## 9. Izlude, la ville — visages du quotidien
+
+Au-delà de l'Académie, quelques PNJ tiennent la place devant elle et sur la place
+Kafra, pour que la ville ne se résume pas à ses trainers :
+
+- **Freya, Ketil et Ivar**, trois enfants devant l'Académie, jouent à "L'Ordre contre
+  les Forgenoires" avec des règles inventées (on tombe, on compte jusqu'à dix, on se
+  relève) — l'écho enfantin et inoffensif de la vraie guerre. Freya laisse entendre
+  qu'elle est une réfugiée de Lighthalzen ; Ivar vend de faux "diplômes de Novice"
+  dessinés à la main pour un zeny, au grand dam de Bram et Sunna.
+- **Kafra Elin** (place Kafra) offre entrepôt et point de sauvegarde, dans la même
+  veine neutre que Kafra Solveig à l'Académie — service qui ne prend jamais parti.
+- **Bénédiction d'Izlude**, un stand tenu par une marchande sans nom propre donné
+  (l'enseigne fait office de nom), vend une bénédiction express (Blessing +
+  Increase AGI, 100 zeny) aux deux factions sans distinction — encore une preuve
+  qu'Izlude vit *de* la guerre sans jamais la prendre au sérieux.
+- **Herjolf**, éclaireur/vétéran marqué par le conflit, est le premier PNJ à
+  proposer réellement le **choix de faction** (via `getfaction()`/`setfaction()`,
+  cf. commit "Add faction system") — un choix jamais forcé, jamais reproposé une
+  fois fait. Il sert aussi de vecteur d'exposition sur le sort des sans-faction hors
+  d'Izlude (mal vus, potentiellement pris pour cible par des gardes ou des zélotes
+  de l'un ou l'autre camp) — un risque purement narratif pour l'instant, aucune
+  mécanique d'agression n'est implémentée.

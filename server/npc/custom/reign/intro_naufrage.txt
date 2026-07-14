@@ -352,10 +352,10 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 			mes "À droite, tu trouveras la cantine, si une petite faim te prend. Et juste au-dessus, les archives — utile si tu cherches à en savoir plus sur ce monde.";
 			next;
 			mes "[Réceptionniste]";
-			mes "Au-dessus des instructeurs, à gauche, tu croiseras des représentants de l'Ordre de la Faille et des Forgenoires. Ils ne mordent pas — enfin, pas littéralement.";
+			mes "Dans la deuxième salle à gauche, tu croiseras des représentants de l'Ordre de la Faille et des Forgenoires. Ils ne mordent pas — enfin, pas littéralement.";
 			next;
 			mes "[Réceptionniste]";
-			mes "Et tout en haut, c'est l'ancienne Église. On y donne encore cours, aujourd'hui — mais plutôt sur les livres que sur les prières.";
+			mes "Et plus loin, c'est l'ancienne Église. On y donne encore cours, aujourd'hui — mais plutôt sur les livres que sur les prières.";
 			next;
 			mes "[Réceptionniste]";
 			mes "Izlude elle-même est un port franc — ni l'Ordre de la Faille ni les Forgenoires n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
@@ -366,7 +366,7 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 			mes "Tu veux changer de métier ? Il faut d'abord être inscrit ici, et avoir atteint le niveau 10 de Novice — pas ton niveau de personnage, celui de ta formation. Bram et Sunna t'y mènent.";
 			next;
 			mes "[Réceptionniste]";
-			mes "Ceci fait, cinq métiers s'apprennent ici même : Mage et Merchant à l'étage, près des représentants des deux factions. Acolyte tout en haut, à l'ancienne Église. Archer et Thief ici, au rez-de-chaussée.";
+			mes "Ceci fait, cinq métiers s'apprennent ici même : Mage et Merchant dans la deuxième salle à gauche, près des représentants des deux factions. Acolyte plus loin, à l'ancienne Église. Archer et Thief ici, au rez-de-chaussée.";
 			next;
 			mes "[Réceptionniste]";
 			mes "Les autres — Swordman, et trois formateurs venus d'ailleurs — sont à La Lame Libre, en ville, tenue par un certain Torvald. Pas besoin de repasser par ici pour eux.";

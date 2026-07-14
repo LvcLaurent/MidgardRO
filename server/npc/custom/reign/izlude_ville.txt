@@ -1,0 +1,191 @@
+//===== Reign of Midgard ===================================================
+//= Izlude, la ville
+//===== Description: =======================================================
+//= PNJ d'ambiance et de service à Izlude : trois enfants près de l'Académie,
+//= une Kafra (entrepôt + point de sauvegarde), un stand de bénédictions à
+//= 100 zeny, et un éclaireur qui propose le choix de faction (facultatif,
+//= via getfaction()/setfaction() — cf. lore/reign-of-midgard-lore.md §6).
+//===========================================================================
+
+//== Freya — devant l'Académie (izlude) ======================================
+izlude,108,256,3	script	Freya#reign	4_F_KID2,{
+	mes "[Freya]";
+	mes "Attention, on joue à \"L'Ordre contre les Forgenoires\" ! Ketil, c'est encore toi le méchant Forgenoire, on a dit !";
+	next;
+	mes "[Freya]";
+	mes "Moi je fais l'arbitre. Personne ne meurt vraiment : on tombe, on compte jusqu'à dix, et on se relève. C'est les règles.";
+	next;
+	mes "[Freya]";
+	mes "Chez moi, à Lighthalzen... enfin, avant... on ne jouait pas à ça. On n'avait pas vraiment besoin d'imaginer.";
+	next;
+	mes "[Freya]";
+	mes "Bref ! Tu veux jouer ? Non ? Tant pis, occupe-toi de tes affaires d'adulte, alors.";
+	close;
+}
+izlude_a,108,256,3	duplicate(Freya#reign)	Freya#reign_a	4_F_KID2
+izlude_b,108,256,3	duplicate(Freya#reign)	Freya#reign_b	4_F_KID2
+izlude_c,108,256,3	duplicate(Freya#reign)	Freya#reign_c	4_F_KID2
+izlude_d,108,256,3	duplicate(Freya#reign)	Freya#reign_d	4_F_KID2
+
+//== Ketil — devant l'Académie (izlude) ======================================
+izlude,107,254,3	script	Ketil#reign	4_M_KID1,{
+	mes "[Ketil]";
+	mes "*Il brandit un bout de bois comme une épée.* Je suis un Forgenoire, tremblez ! J'ai pas de vraie machine, mais le bâton fait presque le même bruit si je crie assez fort.";
+	next;
+	mes "[Ketil]";
+	mes "Freya dit toujours que je dois perdre. C'est pas juste, mais bon — c'est elle l'arbitre, alors...";
+	next;
+	mes "[Ketil]";
+	mes "Quand je serai grand, je serai peut-être vraiment Forgenoire. Ou Mage. Ou les deux en même temps, en cachette. Ce serait drôle, non ?";
+	close;
+}
+izlude_a,107,254,3	duplicate(Ketil#reign)	Ketil#reign_a	4_M_KID1
+izlude_b,107,254,3	duplicate(Ketil#reign)	Ketil#reign_b	4_M_KID1
+izlude_c,107,254,3	duplicate(Ketil#reign)	Ketil#reign_c	4_M_KID1
+izlude_d,107,254,3	duplicate(Ketil#reign)	Ketil#reign_d	4_M_KID1
+
+//== Ivar — devant l'Académie (izlude) =======================================
+izlude,110,257,3	script	Ivar#reign	4_M_KID2,{
+	mes "[Ivar]";
+	mes "Psst. Toi, là. Tu vas à l'Académie ?";
+	next;
+	mes "[Ivar]";
+	mes "J'ai des \"diplômes de Novice\" tout prêts, dessinés à la main. Ça n'impressionne personne, mais c'est joli. Un zeny pièce.";
+	next;
+	if (select("Non merci.", "Voir le dessin.") == 2) {
+		mes "[Ivar]";
+		mes "*Il te montre un bout de papier froissé, avec un bonhomme et un chapeau pointu dessus.* Tiens, c'est toi, en Mage. Ou en Merchant. Tu choisiras plus tard.";
+		next;
+	}
+	mes "[Ivar]";
+	mes "Bram et Sunna me chassent à chaque fois. Ils disent que je \"nuis à l'image sérieuse de l'établissement\". Ivar aime pas ce mot, sérieux.";
+	close;
+}
+izlude_a,110,257,3	duplicate(Ivar#reign)	Ivar#reign_a	4_M_KID2
+izlude_b,110,257,3	duplicate(Ivar#reign)	Ivar#reign_b	4_M_KID2
+izlude_c,110,257,3	duplicate(Ivar#reign)	Ivar#reign_c	4_M_KID2
+izlude_d,110,257,3	duplicate(Ivar#reign)	Ivar#reign_d	4_M_KID2
+
+//== Kafra Elin (izlude) — entrepôt + point de sauvegarde ====================
+izlude,130,148,3	script	Kafra Elin#reign	4_F_KAFRA1,{
+	mes "[Kafra Elin]";
+	mes "Bienvenue au service Kafra d'Izlude ! Entrepôt, point de sauvegarde... que puis-je pour vous ?";
+	next;
+	switch (select("Accéder à l'entrepôt.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	case 1:
+		mes "[Kafra Elin]";
+		mes "Bien sûr. Voici votre entrepôt.";
+		close2;
+		openstorage;
+		end;
+	case 2:
+		mes "[Kafra Elin]";
+		mes "C'est fait. Izlude sera votre port d'attache, désormais — au sens propre.";
+		close2;
+		savepoint "izlude",130,148;
+		end;
+	case 3:
+		mes "[Kafra Elin]";
+		mes "On en voit passer, des naufragés, depuis quelque temps. Vous n'êtes pas les premiers, et sûrement pas les derniers.";
+		next;
+		mes "[Kafra Elin]";
+		mes "Kafra ne pose pas de questions sur d'où vous venez. On stocke vos affaires, on retient votre visage, et c'est tout ce qui compte pour nous.";
+		close;
+	case 4:
+		mes "[Kafra Elin]";
+		mes "Bon vent.";
+		close;
+	}
+}
+izlude_a,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_a	4_F_KAFRA1
+izlude_b,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_b	4_F_KAFRA1
+izlude_c,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_c	4_F_KAFRA1
+izlude_d,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_d	4_F_KAFRA1
+
+//== Bénédiction d'Izlude (izlude) — bénédictions de départ, 100 zeny =======
+izlude,125,148,3	script	Bénédiction d'Izlude#reign	1_F_MERCHANT,{
+	mes "[Bénédiction d'Izlude]";
+	mes "Une petite bénédiction avant de partir à l'aventure ? Pas de rituel, pas de prêtre, pas de question. 100 zeny, et vous voilà un peu plus vaillant.";
+	next;
+	switch (select("Payer 100 zeny.:Ça marche vraiment ?:Non merci.")) {
+	case 1:
+		if (Zeny < 100) {
+			mes "[Bénédiction d'Izlude]";
+			mes "100 zeny, pas un de moins. Même la chance a un prix, par ici.";
+			close;
+		}
+		Zeny -= 100;
+		sc_start SC_BLESSING,240000,10;
+		sc_start SC_INCREASEAGI,240000,10;
+		mes "[Bénédiction d'Izlude]";
+		mes "Voilà. Quatre minutes de bonne fortune. Ce que vous en faites ne me regarde plus.";
+		close;
+	case 2:
+		mes "[Bénédiction d'Izlude]";
+		mes "Officiellement ? Un vieux tour de la Foi, récupéré et vendu au détail. Officieusement : ça marche, et personne n'a jamais vraiment demandé pourquoi.";
+		next;
+		mes "[Bénédiction d'Izlude]";
+		mes "L'Ordre de la Faille dirait sûrement que c'est de l'énergie mal canalisée. Les Forgenoires, que c'est un tour de passe-passe. Moi je dis : les deux camps achètent chez moi, alors taisez-vous et payez.";
+		close;
+	case 3:
+		mes "[Bénédiction d'Izlude]";
+		mes "Comme vous voulez. La chance ne s'impose pas.";
+		close;
+	}
+}
+izlude_a,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_a	1_F_MERCHANT
+izlude_b,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_b	1_F_MERCHANT
+izlude_c,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_c	1_F_MERCHANT
+izlude_d,125,148,3	duplicate(Bénédiction d'Izlude#reign)	Bénédiction d'Izlude#reign_d	1_F_MERCHANT
+
+//== Herjolf (izlude) — éclaireur, choix de faction (facultatif) ============
+//= Utilise getfaction()/setfaction(), exposés côté serveur pour cette quête
+//= (cf. commit "Add faction system"). Le choix n'est jamais forcé et, une
+//= fois fait, n'est plus reproposé par ce PNJ.
+izlude,44,99,3	script	Herjolf#reign	8W_SOLDIER,{
+	.@faction = getfaction();
+	if (.@faction == 1) {
+		mes "[Herjolf]";
+		mes "L'Ordre de la Faille, toujours ? Bien. Un jour, ça se voit sur un visage.";
+		close;
+	} else if (.@faction == 2) {
+		mes "[Herjolf]";
+		mes "Les Forgenoires. Ça vous va bien, ce genre de certitude.";
+		close;
+	}
+	mes "[Herjolf]";
+	mes "*Il vous jauge un instant avant de reprendre son couteau et son bout de bois.*";
+	next;
+	mes "[Herjolf]";
+	mes "Encore un sans-faction. Ça se voit à la façon dont on vous regarde, ici. À Izlude, ça ne change rien. Ailleurs, ça peut vous coûter cher.";
+	next;
+	mes "[Herjolf]";
+	mes "Un garde de Prontera vous laissera peut-être tranquille. Un zélote de l'Ordre ou un chasseur de primes Forgenoire, sur les routes, ailleurs ? Nettement moins sûr.";
+	next;
+	mes "[Herjolf]";
+	mes "Je ne dis pas ça pour vous faire peur. Enfin — un peu, si. Mais surtout parce que personne ne me l'a dit, à moi, et j'ai mis longtemps à comprendre pourquoi on me regardait de travers à Geffen.";
+	next;
+	mes "[Herjolf]";
+	mes "Alors. Vous voulez choisir un camp, maintenant ? Ou vous préférez encore réfléchir ? Je ne serai pas toujours là pour vous le redemander gentiment.";
+	next;
+	switch (select("L'Ordre de la Faille.:Les Forgenoires.:Pas encore.")) {
+	case 1:
+		setfaction 1;
+		mes "[Herjolf]";
+		mes "L'Ordre de la Faille, donc. Geffen se souviendra de votre nom, tôt ou tard.";
+		close;
+	case 2:
+		setfaction 2;
+		mes "[Herjolf]";
+		mes "Les Forgenoires. Lighthalzen ne vous demandera jamais de croire — juste de construire.";
+		close;
+	case 3:
+		mes "[Herjolf]";
+		mes "Comme vous voulez. Ce n'est pas à moi de choisir à votre place. Juste... ne traînez pas trop hors des murs d'Izlude sans y avoir réfléchi.";
+		close;
+	}
+}
+izlude_a,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_a	8W_SOLDIER
+izlude_b,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_b	8W_SOLDIER
+izlude_c,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_c	8W_SOLDIER
+izlude_d,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_d	8W_SOLDIER

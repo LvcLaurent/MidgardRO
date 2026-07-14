@@ -27,6 +27,7 @@ iz_ac01,55,80,3	script	Sigrun#reign	1_M_WIZARD,{
 		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage). Bram et Sunna t'y mèneront.";
 		close;
 	}
+	.@e$ = (Sex ? "" : "e");
 	mes "[Sigrun]";
 	mes "Kell parle beaucoup de l'Ordre de la Faille. Moi, je préfère montrer.";
 	next;
@@ -34,7 +35,7 @@ iz_ac01,55,80,3	script	Sigrun#reign	1_M_WIZARD,{
 	mes "Canaliser l'énergie brute sans passer par la Foi, ce n'est pas un don — c'est une discipline. On apprend à écouter ce qui frémit sous la peau du monde depuis la Rupture.";
 	next;
 	mes "[Sigrun]";
-	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Mage — ce n'est pas rien, c'est un vrai choix. Tu es prêt ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Mage — ce n'est pas rien, c'est un vrai choix. Tu es prêt" + .@e$ + " ?";
 	next;
 	if (select("Pas encore.", "Oui, je veux devenir Mage.") == 1) {
 		mes "[Sigrun]";
@@ -113,6 +114,7 @@ iz_ac01,108,143,3	script	Sœur Helga#reign	4_F_ACOLYTE,{
 		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage).";
 		close;
 	}
+	.@e$ = (Sex ? "" : "e");
 	mes "[Sœur Helga]";
 	mes "Le Père Isengrim porte le poids de ce que la Foi était. Moi, je préfère m'occuper de ce qu'elle peut encore être utile.";
 	next;
@@ -120,7 +122,7 @@ iz_ac01,108,143,3	script	Sœur Helga#reign	4_F_ACOLYTE,{
 	mes "Soigner ne demande pas de croire à quoi que ce soit. Juste de tendre la main. Le reste vient avec la pratique.";
 	next;
 	mes "[Sœur Helga]";
-	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Acolyte — un vrai engagement. Tu es prêt ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Acolyte — un vrai engagement. Tu es prêt" + .@e$ + " ?";
 	next;
 	if (select("Pas encore.", "Oui, je veux devenir Acolyte.") == 1) {
 		mes "[Sœur Helga]";
@@ -156,6 +158,7 @@ iz_ac01,62,52,3	script	Ingrid#reign	4_F_04,{
 		mes "Reviens quand tu auras atteint le niveau 10 de Novice (ta formation, pas ton niveau de personnage).";
 		close;
 	}
+	.@e$ = (Sex ? "" : "e");
 	mes "[Ingrid]";
 	mes "Pas de faction, pas de dieu, pas de machine. Juste une corde tendue et un œil qui ne cille pas.";
 	next;
@@ -163,7 +166,7 @@ iz_ac01,62,52,3	script	Ingrid#reign	4_F_04,{
 	mes "On me demande parfois pourquoi je ne me suis pas installée à Geffen ou Lighthalzen. Franchement ? Aucune des deux n'a de vue dégagée sur l'horizon comme ici.";
 	next;
 	mes "[Ingrid]";
-	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Archer — un vrai choix. Tu es prête ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Archer — un vrai choix. Tu es prêt" + .@e$ + " ?";
 	next;
 	if (select("Pas maintenant.", "Oui, je veux devenir Archer.") == 1) {
 		mes "[Ingrid]";
@@ -200,8 +203,9 @@ iz_ac01,37,85,3	script	Skuld#reign	4_F_03,{
 		mes "Reviens plus aguerri. Niveau 10 de Novice (ta formation, pas ton niveau de personnage), pas moins.";
 		close;
 	}
+	.@e$ = (Sex ? "" : "e");
 	mes "[Skuld]";
-	mes "Personne ne vient me voir par hasard. Tu me cherchais, ou tu es juste doué pour te perdre ?";
+	mes "Personne ne vient me voir par hasard. Tu me cherchais, ou tu es juste doué" + .@e$ + " pour te perdre ?";
 	next;
 	mes "[Skuld]";
 	mes "Ce que j'enseigne ne s'affiche pas sur une bannière de faction. On se fait discret, on prend ce qu'il faut, on ne laisse rien derrière. Ni l'Ordre ni les Forgenoires ne comprennent vraiment ça.";
@@ -209,7 +213,7 @@ iz_ac01,37,85,3	script	Skuld#reign	4_F_03,{
 	mes "[Skuld]";
 	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Thief. Réfléchis bien — alors ?";
 	next;
-	if (select("Pas encore prêt.", "Oui, je veux devenir Thief.") == 1) {
+	if (select("Pas encore prêt" + .@e$ + ".", "Oui, je veux devenir Thief.") == 1) {
 		mes "[Skuld]";
 		mes "Je ne serai pas toujours là.";
 		close;
@@ -249,8 +253,9 @@ izlude_in,75,172,3	script	Torvald#reign	4_M_SWORDMAN,{
 	mes "[Torvald]";
 	mes "J'ai appelé ça \"La Lame Libre\", faute de mieux. Ça m'allait, et ça a fini par plaire à d'autres — tu croiseras trois voyageurs ici qui n'avaient nulle part ailleurs où aller.";
 	next;
+	.@e$ = (Sex ? "" : "e");
 	mes "[Torvald]";
-	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Swordman. Bref — prêt ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Swordman. Bref — prêt" + .@e$ + " ?";
 	next;
 	if (select("Pas encore.", "Oui, je veux devenir Swordman.") == 1) {
 		mes "[Torvald]";
@@ -291,8 +296,9 @@ izlude_in,121,164,3	script	Ren#reign	4_M_NINJA_BLUE,{
 	mes "[Ren]";
 	mes "Peut-être qu'un jour, un élève assez curieux ira voir l'école véritable par lui-même. Ce ne sera pas moi qui l'en empêcherai.";
 	next;
+	.@e$ = (Sex ? "" : "e");
 	mes "[Ren]";
-	mes "Pour l'instant : si tu acceptes, tu quittes la voie de Novice et deviens officiellement Ninja. Es-tu prêt ?";
+	mes "Pour l'instant : si tu acceptes, tu quittes la voie de Novice et deviens officiellement Ninja. Es-tu prêt" + .@e$ + " ?";
 	next;
 	if (select("Pas encore.", "Oui, je veux devenir Ninja.") == 1) {
 		mes "[Ren]";
@@ -332,8 +338,9 @@ izlude_in,130,169,3	script	Silas#reign	4_M_GUNSLINGER,{
 	mes "[Silas]";
 	mes "La vraie guilde des tireurs, la sérieuse, elle est loin d'ici. Peut-être que toi, tu pourras y retourner un jour. Moi, pas avant longtemps.";
 	next;
+	.@e$ = (Sex ? "" : "e");
 	mes "[Silas]";
-	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Gunslinger. Alors, prêt ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Gunslinger. Alors, prêt" + .@e$ + " ?";
 	next;
 	if (select("Pas encore.", "Oui, je veux devenir Gunslinger.") == 1) {
 		mes "[Silas]";
@@ -373,8 +380,9 @@ izlude_in,128,165,3	script	Joon#reign	4_F_TAEKWON,{
 	mes "[Joon]";
 	mes "Izlude n'est qu'une étape. La prochaine, ce sera peut-être la tienne autant que la mienne.";
 	next;
+	.@e$ = (Sex ? "" : "e");
 	mes "[Joon]";
-	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Taekwon. Prêt à commencer ?";
+	mes "Si tu acceptes, tu quittes la voie de Novice et deviens officiellement Taekwon. Prêt" + .@e$ + " à commencer ?";
 	next;
 	if (select("Pas encore.", "Oui, je veux devenir Taekwon.") == 1) {
 		mes "[Joon]";

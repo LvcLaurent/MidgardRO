@@ -61,6 +61,7 @@ iz_ac01,44,50,5	script	Instructrice Sunna#reign	4_F_04,{
 		close;
 	}
 	if (isbegin_quest(91006) == 0) {
+		.@e$ = (Sex ? "" : "e");
 		mes "[Instructrice Sunna]";
 		mes "Bram m'a dit du bien de toi. Voyons si on peut aller plus loin.";
 		next;
@@ -74,10 +75,10 @@ iz_ac01,44,50,5	script	Instructrice Sunna#reign	4_F_04,{
 		mes "Et si tu veux mener plutôt que suivre : tape /organize suivi d'un nom pour fonder ton propre groupe. Alt+Z pour le gérer.";
 		next;
 		mes "[Instructrice Sunna]";
-		mes "Voilà. Tu en sais maintenant assez pour te débrouiller seul, ou avec d'autres.";
+		mes "Voilà. Tu en sais maintenant assez pour te débrouiller seul" + .@e$ + ", ou avec d'autres.";
 		next;
 		mes "[Instructrice Sunna]";
-		mes "Une dernière chose. Tu es prêt à choisir ta voie, maintenant — celle de l'Ordre de la Faille, celle des Forgenoires, ou une toute autre qui ne doit rien ni à l'une ni à l'autre.";
+		mes "Une dernière chose. Tu es prêt" + .@e$ + " à choisir ta voie, maintenant — celle de l'Ordre de la Faille, celle des Forgenoires, ou une toute autre qui ne doit rien ni à l'une ni à l'autre.";
 		next;
 		mes "[Instructrice Sunna]";
 		mes "Ce choix n'appartient qu'à toi. Personne, ici, ne te forcera la main.";
