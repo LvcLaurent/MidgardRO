@@ -2,14 +2,16 @@ import { Component, computed, effect, ElementRef, inject, OnDestroy, OnInit } fr
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter, Subject, takeUntil } from 'rxjs';
 import { AppMenu } from './app.menu';
+import { AppServerStatus } from './app.server-status';
 import { LayoutService } from '@/app/layout/service/layout.service';
 
 @Component({
     selector: 'app-sidebar',
     standalone: true,
-    imports: [AppMenu, RouterModule],
+    imports: [AppMenu, AppServerStatus, RouterModule],
     template: `
         <div class="layout-sidebar">
+            <app-server-status />
             <app-menu></app-menu>
         </div>
     `

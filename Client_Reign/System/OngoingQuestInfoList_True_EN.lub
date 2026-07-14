@@ -68,5 +68,15 @@ QuestInfoList = {
 		Summary = "Parler à Instructrice Sunna",
 		RewardEXP = "100",
 		RewardJEXP = "100"
+	},
+	[91007] = {
+		Title = "Une éclosion inquiétante",
+		Description = {
+			"Geir, garde-champêtre du champ de Prontera, demande de l'aide contre une prolifération de Fabre et de Pupa avant qu'ils n'éclosent en quelque chose de bien plus vicieux.",
+			"Objectif : 20 Fabre, 10 Pupa."
+		},
+		Summary = "Chasser 20 Fabre et 10 Pupa pour Geir",
+		RewardEXP = "20303",
+		RewardJEXP = "0"
 	}
 }

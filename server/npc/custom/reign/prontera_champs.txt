@@ -1,0 +1,65 @@
+//===== Reign of Midgard ===================================================
+//= Prontera, les champs (prt_fild08)
+//===== Description: =======================================================
+//= PNJ d'ambiance et quête de chasse sur le champ à Fabre/Pupa de Prontera.
+//= Quête 91007 : cf. server/db/import-tmpl/quest_db.yml et
+//= Client_Reign/System/OngoingQuestInfoList_True_EN.lub.
+//===========================================================================
+
+//== Aventurier claudicant (prt_fild08) — pur PNJ d'ambiance =================
+prt_fild08,341,220,3	script	Aventurier claudicant#reign	1_M_KNIGHTMASTER,{
+	mes "[Aventurier claudicant]";
+	mes "*Il s'appuie lourdement sur une lance plantée dans le sol.*";
+	next;
+	mes "[Aventurier claudicant]";
+	mes "Je chassais le Fabre par ici, avant. Un des meilleurs du coin, si tu veux tout savoir. Peut-être même le meilleur.";
+	next;
+	mes "[Aventurier claudicant]";
+	mes "Et puis j'ai pris une flèche dans le genou. Depuis, disons que je me suis reconverti dans la contemplation du paysage.";
+	next;
+	mes "[Aventurier claudicant]";
+	mes "Tu comptes chasser par ici, toi ? Méfie-toi des archers invisibles. On ne les voit jamais venir. Jamais.";
+	close;
+}
+
+//== Geir (prt_fild08) — quête de chasse Fabre/Pupa (91007) ==================
+prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
+	if (checkquest(91007,HUNTING) == 2) {
+		mes "[Geir]";
+		mes "Vingt Fabre, dix Pupa. Tu as fait le compte. Le champ respire déjà mieux.";
+		next;
+		mes "[Geir]";
+		mes "Tiens, tu as gagné ça sur le terrain — c'est amplement mérité.";
+		close2;
+		getexp 20303,0;
+		erasequest 91007;
+		end;
+	} else if (isbegin_quest(91007) == 1) {
+		mes "[Geir]";
+		mes "Toujours pas fini ? Ils grouillent, tu ne devrais pas avoir de mal à trouver ton compte. Vingt Fabre, dix Pupa.";
+		close;
+	}
+	mes "[Geir]";
+	mes "Ne ris pas. Je sais de quoi ça a l'air, un garde-champêtre qui s'inquiète pour des Fabre et des Pupa.";
+	next;
+	mes "[Geir]";
+	mes "Mais regarde-les de plus près. Ils grossissent, ils s'agitent, ils se regroupent — bien plus qu'avant. Et quand un Pupa se referme trop longtemps sur lui-même...";
+	next;
+	mes "[Geir]";
+	mes "...ce qui en ressort n'a plus rien d'un ver de terre. Une sorte de papillon, mais raté, difforme. Vicieux. On en a vu deux, la semaine dernière. Ça a suffi à vider le champ de novices pendant trois jours.";
+	next;
+	mes "[Geir]";
+	mes "Alors oui, je paie en expérience pour qu'on m'en débarrasse avant qu'ils n'aient le temps d'éclore. Vingt Fabre, dix Pupa. Tu es partant ?";
+	next;
+	switch (select("Pas maintenant.", "Je m'en occupe.")) {
+	case 1:
+		mes "[Geir]";
+		mes "Comme tu veux. Ils ne vont nulle part, eux.";
+		close;
+	case 2:
+		setquest 91007;
+		mes "[Geir]";
+		mes "Vingt Fabre, dix Pupa. Reviens me voir une fois que c'est fait.";
+		close;
+	}
+}

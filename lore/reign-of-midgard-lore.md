@@ -234,3 +234,16 @@ Kafra, pour que la ville ne se résume pas à ses trainers :
   d'Izlude (mal vus, potentiellement pris pour cible par des gardes ou des zélotes
   de l'un ou l'autre camp) — un risque purement narratif pour l'instant, aucune
   mécanique d'agression n'est implémentée.
+
+## 10. Prontera, les champs
+
+Premier contenu hors Izlude, sur le champ à Fabre/Pupa (`prt_fild08`) — sert de
+zone de chasse "post-Académie" pour les novices qui viennent de changer de métier.
+
+- **Geir**, garde-champêtre, propose une chasse (20 Fabre, 10 Pupa) autour d'une
+  idée volontairement absurde-puis-sérieuse : laissés trop longtemps, les Pupa se
+  transformeraient en une sorte de papillon "raté, difforme, vicieux" — un soupçon
+  de menace bien réelle glissé sous un prétexte presque risible, plutôt qu'une
+  vraie créature scriptée pour l'instant.
+- Un **aventurier claudicant**, pur PNJ d'ambiance, raconte avoir "pris une flèche
+  dans le genou" — clin d'œil assumé, aucune portée narrative.

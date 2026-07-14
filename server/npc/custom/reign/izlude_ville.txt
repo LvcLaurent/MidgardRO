@@ -189,3 +189,6 @@ izlude_a,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_a	8W_SOLDIER
 izlude_b,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_b	8W_SOLDIER
 izlude_c,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_c	8W_SOLDIER
 izlude_d,44,99,3	duplicate(Herjolf#reign)	Herjolf#reign_d	8W_SOLDIER
+
+//== Marchande de potions (izlude_in) — objets courants =====================
+izlude_in,70,127,4	shop	Marchande de potions#reign	1_F_MERCHANT_01,501:-1,502:-1,503:-1,504:-1,505:-1,601:-1,602:-1

@@ -1,21 +1,23 @@
 import { Component, inject } from '@angular/core';
-import { TooltipModule } from 'primeng/tooltip';
 import { ServerStatusService } from '@/app/layout/service/server-status.service';
 
 @Component({
     selector: 'app-server-status',
     standalone: true,
-    imports: [TooltipModule],
+    imports: [],
     template: `
-        <div class="flex items-center gap-2 px-2" role="status">
-            <span class="flex items-center gap-1" pTooltip="Login" tooltipPosition="bottom">
+        <div class="flex flex-col gap-2 px-4 py-3 text-sm" role="status">
+            <span class="flex items-center gap-2">
                 <i class="pi pi-circle-fill text-xs" [class]="dotClass(serverStatusService.status()?.login)"></i>
+                <span class="text-muted-color">Connexion</span>
             </span>
-            <span class="flex items-center gap-1" pTooltip="Personnages" tooltipPosition="bottom">
+            <span class="flex items-center gap-2">
                 <i class="pi pi-circle-fill text-xs" [class]="dotClass(serverStatusService.status()?.character)"></i>
+                <span class="text-muted-color">Personnages</span>
             </span>
-            <span class="flex items-center gap-1" pTooltip="Jeu" tooltipPosition="bottom">
+            <span class="flex items-center gap-2">
                 <i class="pi pi-circle-fill text-xs" [class]="dotClass(serverStatusService.status()?.map)"></i>
+                <span class="text-muted-color">Jeu</span>
             </span>
         </div>
     `

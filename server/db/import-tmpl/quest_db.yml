@@ -66,3 +66,11 @@ Body:
     Title: Les rudiments de l'aventurier
   - Id: 91006
     Title: Prêt à embrasser son destin
+  # Reign of Midgard — Prontera, les champs
+  - Id: 91007
+    Title: Une éclosion inquiétante
+    Targets:
+      - Mob: FABRE
+        Count: 20
+      - Mob: PUPA
+        Count: 10
