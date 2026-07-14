@@ -64,6 +64,11 @@ services:
             - "./asset-prod/char_conf.txt:/rathena/conf/import/char_conf.txt"
             - "./asset-prod/map_conf.txt:/rathena/conf/import/map_conf.txt"
             - "./asset-prod/login_conf.txt:/rathena/conf/import/login_conf.txt"
+            # Content-only iteration: npc/ and db/ are bind-mounted over the image's
+            # baked-in copies so `deploy-content.sh` (git sync + container restart, no
+            # docker build) picks up npc script/db changes without a full C++ rebuild.
+            - "../../npc:/rathena/npc"
+            - "../../db:/rathena/db"
         restart: unless-stopped
         depends_on:
             - char
