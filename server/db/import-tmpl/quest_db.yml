@@ -48,3 +48,16 @@
 Header:
   Type: QUEST_DB
   Version: 3
+
+Body:
+  # Reign of Midgard — trame d'ouverture (naufrage / arrivée à Izlude)
+  - Id: 90000
+    Title: Le naufrage
+  - Id: 90001
+    Title: Le récit du capitaine
+  - Id: 90002
+    Title: Un visage sans mémoire
+  - Id: 90003
+    Title: Un coup de main avant l'accostage
+  - Id: 90004
+    Title: Inscription à l'Académie d'Izlude
