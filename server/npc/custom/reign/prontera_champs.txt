@@ -49,7 +49,7 @@ prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
 	mes "...ce qui en ressort n'a plus rien d'un ver de terre. Une sorte de papillon, mais raté, difforme. Vicieux. On en a vu deux, la semaine dernière. Ça a suffi à vider le champ de novices pendant trois jours.";
 	next;
 	mes "[Geir]";
-	mes "Alors oui, je paie en expérience pour qu'on m'en débarrasse avant qu'ils n'aient le temps d'éclore. Vingt Fabre, dix Pupa. Tu es partant ?";
+	mes "Alors oui, je préfère qu'on m'en débarrasse avant qu'ils n'aient le temps d'éclore — et à ce rythme de chasse, tu en repartiras changé. Vingt Fabre, dix Pupa. Tu es partant ?";
 	next;
 	switch (select("Pas maintenant.", "Je m'en occupe.")) {
 	case 1:

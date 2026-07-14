@@ -42,9 +42,10 @@ run_remote "if [ -d $REMOTE_DIR/.git ]; then cd $REMOTE_DIR && git fetch origin 
 echo "==> Reconstruction de db/import (gitignored, non couvert par le checkout)"
 # server/db/import est gitignored - le checkout ci-dessus ne le touche pas, et le bind
 # mount de server/db écrase la copie que l'image avait construite au build (via la
-# cible "import" du Makefile). On reproduit cette même logique ici : copier depuis
-# import-tmpl uniquement les fichiers absents, jamais écraser un import/ déjà présent.
-run_remote "cd $REMOTE_DIR/server/db && mkdir -p import && for f in \$(ls import-tmpl); do if [ ! -e import/\$f ]; then cp import-tmpl/\$f import/\$f; fi; done"
+# cible "import" du Makefile). Sur ce projet, import-tmpl est la seule source de vérité
+# (personne n'édite import/ à la main sur le serveur) - on écrase donc toujours, sans
+# quoi une modif d'un fichier déjà présent (ex: quest_db.yml) ne serait jamais reprise.
+run_remote "cd $REMOTE_DIR/server/db && mkdir -p import && cp -f import-tmpl/* import/"
 
 echo "==> Redémarrage du map-server (pas de rebuild)"
 run_remote "cd $REMOTE_DIR/server/tools/docker && docker-compose -f docker-compose.prod.yml restart map"
