@@ -32,8 +32,12 @@ run_remote() {
     echo y | "$PLINK" -ssh -pw "$DEPLOY_PASSWORD" "$DEPLOY_USER@$DEPLOY_HOST" "$1"
 }
 
-echo "==> Synchronisation du dépôt sur $DEPLOY_HOST"
-run_remote "if [ -d $REMOTE_DIR/.git ]; then cd $REMOTE_DIR && git fetch origin $BRANCH && git checkout $BRANCH && git reset --hard origin/$BRANCH; else git clone --branch $BRANCH $REPO_URL $REMOTE_DIR; fi"
+echo "==> Synchronisation de npc/ et db/ uniquement sur $DEPLOY_HOST"
+# Scoped à ces deux chemins seulement (pas de "git reset --hard" global) : ça évite de
+# toucher asset-prod/inter_conf.txt et tout le reste du dépôt. Une bascule complète
+# (git reset --hard) a déjà écrasé les identifiants réels une fois plus tôt ce soir -
+# ne pas y revenir.
+run_remote "if [ -d $REMOTE_DIR/.git ]; then cd $REMOTE_DIR && git fetch origin $BRANCH && git checkout origin/$BRANCH -- server/npc server/db; else git clone --branch $BRANCH $REPO_URL $REMOTE_DIR; fi"
 
 echo "==> Redémarrage du map-server (pas de rebuild)"
 run_remote "cd $REMOTE_DIR/server/tools/docker && docker-compose -f docker-compose.prod.yml restart map"
