@@ -3,28 +3,28 @@ QuestInfoList = {
 	[91000] = {
 		Title = "Le naufrage",
 		Description = {
-			"Une tempÃªte violente a frappÃ© le navire de plein fouet. Un passager blessÃ© a besoin d'aide."
+			"Une tempête violente a frappé le navire de plein fouet. Un passager blessé a besoin d'aide."
 		},
-		Summary = "Aider le passager blessÃ©"
+		Summary = "Aider le passager blessé"
 	},
 	[91001] = {
-		Title = "Le rÃ©cit du capitaine",
+		Title = "Le récit du capitaine",
 		Description = {
 			"Le Capitaine Halvard explique la situation et met le cap sur Izlude."
 		},
-		Summary = "Ã‰couter le Capitaine Halvard"
+		Summary = "Écouter le Capitaine Halvard"
 	},
 	[91002] = {
-		Title = "Un visage sans mÃ©moire",
+		Title = "Un visage sans mémoire",
 		Description = {
-			"Lumin ne se souvient de rien depuis le naufrage. Peut-Ãªtre vaut-il la peine de faire connaissance."
+			"Lumin ne se souvient de rien depuis le naufrage. Peut-être vaut-il la peine de faire connaissance."
 		},
-		Summary = "Parler Ã  Lumin"
+		Summary = "Parler à Lumin"
 	},
 	[91003] = {
 		Title = "Un coup de main avant l'accostage",
 		Description = {
-			"Le Marin a besoin de bois pour colmater la coque avant l'arrivÃ©e Ã  Izlude. Les Porings de l'Ã®le en ont rÃ©cupÃ©rÃ©."
+			"Le Marin a besoin de bois pour colmater la coque avant l'arrivée à Izlude. Les Porings de l'île en ont récupéré."
 		},
 		Summary = "Ramener 2 planches de bois au Marin",
 		RewardEXP = "100",
@@ -34,11 +34,11 @@ QuestInfoList = {
 		}
 	},
 	[91004] = {
-		Title = "Inscription Ã  l'AcadÃ©mie d'Izlude",
+		Title = "Inscription à l'Académie d'Izlude",
 		Description = {
-			"La RÃ©ceptionniste de l'AcadÃ©mie d'Izlude peut inscrire les nouveaux arrivants et leur fournir un Ã©quipement de dÃ©part."
+			"La Réceptionniste de l'Académie d'Izlude peut inscrire les nouveaux arrivants et leur fournir un équipement de départ."
 		},
-		Summary = "S'inscrire Ã  l'AcadÃ©mie d'Izlude",
+		Summary = "S'inscrire à l'Académie d'Izlude",
 		RewardEXP = "100",
 		RewardJEXP = "100",
 		RewardItemList = {
