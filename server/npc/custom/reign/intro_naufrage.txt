@@ -190,7 +190,6 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(90003) == 0 && Class == Job_Novice" );
-	questinfo( QTYPE_QUEST, QMARK_QUESTION, "isbegin_quest(90003) == 1 && countitem(6008) >= 2 && Class == Job_Novice" );
 	end;
 }
 int_land01,58,69,5	duplicate(Marin#reign)	Marin#reign01	4W_SAILOR
