@@ -183,7 +183,7 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 	mes "[Marin]";
 	mes "Parfait, ça devrait tenir jusqu'à Izlude.";
 	delitem 6008,7;
-	getexp 100,100;
+	getexp 100,0;
 	getitem 611,5;// Spectacles (Magnifier)
 	completequest 91003;
 	next;
@@ -335,7 +335,7 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 				getitem 1243,1;// Novice_Knife
 				getitem 2112,1;// Novice_Guard
 				getitem 569,300;// Novice_Potion
-				getexp 100,100;
+				getexp 100,0;
 				next;
 				mes "[Réceptionniste]";
 				mes "Bienvenue parmi nous. Reviens me voir si tu as des questions — sur l'Académie, ou sur ce monde en général.";
