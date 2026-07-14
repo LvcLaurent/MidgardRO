@@ -69,6 +69,10 @@ iz_int04,47,30,0	warp	#room_in04	1,1,iz_int04,22,30
 iz_int,56,15,0	script	#ship_out	WARPNPC,1,1,{
 	end;
 OnTouch:
+	if (isbegin_quest(91000) == 0) {
+		mes "^4d4dffQuelqu'un a besoin d'aide dans les cabines. Impossible de partir comme ça.^000000";
+		close;
+	}
 	.@num$ = replacestr( strnpcinfo(2), "ship_out", "" );
 	.@map$ = "int_land" + .@num$;
 	savepoint .@map$,77,101;
@@ -83,19 +87,9 @@ iz_int04,56,15,0	duplicate(#ship_out)	#ship_out04	WARPNPC,1,1
 int_land,49,57,0	script	#intro_to_izlude	WARPNPC,2,2,{
 	end;
 OnTouch:
-	if (isbegin_quest(91003) == 1) {
-		mes "^4d4dffUne fois cette île quittée, impossible de faire demi-tour.";
-		mes "Es-tu sûr de vouloir partir directement pour Izlude ?^000000";
-		next;
-		mes "^4d4dffSi tu pars maintenant, cette quête sera retirée de ton journal.^000000";
-		next;
-		if (select("Pas encore, j'attends.", "En route pour Izlude !") == 1) {
-			mes "[Marin]";
-			mes "Tu veux rester encore un peu ?";
-			mes "Pas de souci, j'attendrai que tu sois prêt~";
-			close;
-		}
-		completequest 91003;
+	if (isbegin_quest(91003) != 2) {
+		mes "^4d4dffLe marin attend encore son bois. Impossible de prendre la mer sans lui avoir donné un coup de main.^000000";
+		close;
 	}
 	mes "[Marin]";
 	mes "En route pour Izlude !";
