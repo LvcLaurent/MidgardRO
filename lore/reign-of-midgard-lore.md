@@ -139,3 +139,23 @@ jeu (à travers l'académie réécrite), mais le choix de faction reste — comm
 une question de bonus de branche de métier, pas un verrou d'accès. Rien n'empêche par
 la suite d'écrire des moments où ce choix est *proposé* narrativement sans jamais être
 un mur.
+
+## 7. Personnages récurrents — Académie d'Izlude
+
+L'Académie (bâtiment `iz_ac01`) a maintenant des zones identifiées, chacune avec ses
+habitués — pas juste des PNJ fonctionnels, un lieu vécu :
+
+- **Bibliothèque** : Père Isengrim (prêtre de la Foi, mélancolique — voix du déclin de
+  l'ancien ordre, cf. section 3) ; deux étudiants indécis, Ronan (penche pour l'Ordre
+  de la Faille) et Petra (penche pour les Forgenoires) — aucun des deux n'a encore
+  choisi, ce qui illustre concrètement le point 6 (le choix n'est jamais un mur).
+- **Cantine** : Chef Brokk, Fenn et Ludo — pur ton léger/vivant, sans enjeu narratif.
+
+> 🔮 Piste future : **Yrsa**, une chercheuse indépendante installée à la bibliothèque,
+> n'appartient à aucune des deux factions et étudie la Rupture pour elle-même. Elle
+> avance que la Rupture "a un rythme, une respiration" — ni purement magique, ni
+> purement mécanique. Personnage à garder en tête pour une éventuelle questline sur la
+> vraie nature de la Rupture (fait écho à la piste ouverte en section 2 : la Rupture
+> comme réveil délibéré plutôt qu'accident). Elle pourrait être la porte d'entrée d'un
+> "troisième camp" narratif — pas une faction jouable, mais un point de vue qui ne doit
+> rien ni à l'Ordre ni aux Forgenoires.

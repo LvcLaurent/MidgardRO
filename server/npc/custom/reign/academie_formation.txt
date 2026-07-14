@@ -9,7 +9,7 @@
 //===========================================================================
 
 //== Instructeur Bram (iz_ac01) — Basic Skill niveaux 1 à 4 =================
-iz_ac01,85,45,5	script	Instructeur Bram#reign	4_M_OLDSCHOLAR,{
+iz_ac01,52,50,5	script	Instructeur Bram#reign	4_M_OLDSCHOLAR,{
 	if (isbegin_quest(91004) < 2) {
 		mes "[Instructeur Bram]";
 		mes "Va d'abord t'inscrire auprès de la réceptionniste, on parlera ensuite.";
@@ -47,13 +47,13 @@ OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91004) == 2 && isbegin_quest(91005) == 0 && Class == Job_Novice" );
 	end;
 }
-iz_ac01_a,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_a	4_M_OLDSCHOLAR
-iz_ac01_b,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_b	4_M_OLDSCHOLAR
-iz_ac01_c,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_c	4_M_OLDSCHOLAR
-iz_ac01_d,85,45,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_d	4_M_OLDSCHOLAR
+iz_ac01_a,52,50,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_a	4_M_OLDSCHOLAR
+iz_ac01_b,52,50,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_b	4_M_OLDSCHOLAR
+iz_ac01_c,52,50,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_c	4_M_OLDSCHOLAR
+iz_ac01_d,52,50,5	duplicate(Instructeur Bram#reign)	Instructeur Bram#reign_d	4_M_OLDSCHOLAR
 
 //== Instructrice Sunna (iz_ac01) — Basic Skill niveaux 5 à 9 ===============
-iz_ac01,115,45,5	script	Instructrice Sunna#reign	4_F_04,{
+iz_ac01,44,50,5	script	Instructrice Sunna#reign	4_F_04,{
 	if (isbegin_quest(91005) < 2) {
 		mes "[Instructrice Sunna]";
 		mes "Va d'abord voir Bram, il t'apprendra les bases. Je reprendrai la suite ensuite.";
@@ -94,10 +94,10 @@ OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91005) == 2 && isbegin_quest(91006) == 0 && Class == Job_Novice" );
 	end;
 }
-iz_ac01_a,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_a	4_F_04
-iz_ac01_b,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_b	4_F_04
-iz_ac01_c,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_c	4_F_04
-iz_ac01_d,115,45,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_d	4_F_04
+iz_ac01_a,44,50,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_a	4_F_04
+iz_ac01_b,44,50,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_b	4_F_04
+iz_ac01_c,44,50,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_c	4_F_04
+iz_ac01_d,44,50,5	duplicate(Instructrice Sunna#reign)	Instructrice Sunna#reign_d	4_F_04
 
 //== Lumin (iz_ac01) — retrouvailles, pure texture ==========================
 iz_ac01,95,55,3	script	Lumin#reign_academy	4_M_NOV_RUMIN,{
@@ -120,7 +120,7 @@ iz_ac01_c,95,55,3	duplicate(Lumin#reign_academy)	Lumin#reign_academy_c	4_M_NOV_R
 iz_ac01_d,95,55,3	duplicate(Lumin#reign_academy)	Lumin#reign_academy_d	4_M_NOV_RUMIN
 
 //== Instructeur Kell (iz_ac01) — écho de l'Ordre de la Faille, texture =====
-iz_ac01,75,60,3	script	Instructeur Kell#reign	1_M_WIZARD,{
+iz_ac01,52,82,3	script	Instructeur Kell#reign	1_M_WIZARD,{
 	mes "[Instructeur Kell]";
 	mes "L'Ordre de la Faille ? On m'a vu porter ce nom, oui. Je ne recrute pas — je réponds, simplement, à qui pose les bonnes questions.";
 	next;
@@ -131,13 +131,13 @@ iz_ac01,75,60,3	script	Instructeur Kell#reign	1_M_WIZARD,{
 	mes "Si un jour tu sens l'appel, viens me trouver. Sinon, tant mieux : ce monde a besoin d'autre chose que de mages, aussi.";
 	close;
 }
-iz_ac01_a,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_a	1_M_WIZARD
-iz_ac01_b,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_b	1_M_WIZARD
-iz_ac01_c,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_c	1_M_WIZARD
-iz_ac01_d,75,60,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_d	1_M_WIZARD
+iz_ac01_a,52,82,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_a	1_M_WIZARD
+iz_ac01_b,52,82,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_b	1_M_WIZARD
+iz_ac01_c,52,82,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_c	1_M_WIZARD
+iz_ac01_d,52,82,3	duplicate(Instructeur Kell#reign)	Instructeur Kell#reign_d	1_M_WIZARD
 
 //== Contremaître Odger (iz_ac01) — écho des Forgenoires, texture ===========
-iz_ac01,125,60,3	script	Contremaître Odger#reign	4_M_MANAGER,{
+iz_ac01,40,74,3	script	Contremaître Odger#reign	4_M_MANAGER,{
 	mes "[Contremaître Odger]";
 	mes "Les Forgenoires ? Pas une secte, pas une religion. Juste des gens qui préfèrent réparer ce qui est cassé plutôt que prier pour qu'un dieu le fasse.";
 	next;
@@ -148,7 +148,157 @@ iz_ac01,125,60,3	script	Contremaître Odger#reign	4_M_MANAGER,{
 	mes "Si les rouages t'intéressent plus que les incantations, tu sais où me trouver. Sinon, pas de rancune.";
 	close;
 }
-iz_ac01_a,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_a	4_M_MANAGER
-iz_ac01_b,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_b	4_M_MANAGER
-iz_ac01_c,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_c	4_M_MANAGER
-iz_ac01_d,125,60,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_d	4_M_MANAGER
+iz_ac01_a,40,74,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_a	4_M_MANAGER
+iz_ac01_b,40,74,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_b	4_M_MANAGER
+iz_ac01_c,40,74,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_c	4_M_MANAGER
+iz_ac01_d,40,74,3	duplicate(Contremaître Odger#reign)	Contremaître Odger#reign_d	4_M_MANAGER
+
+//== Kafra Solveig (iz_ac01) — service neutre, coffre =======================
+iz_ac01,103,44,3	script	Kafra Solveig#reign	4_F_KAFRA1,{
+	mes "[Kafra Solveig]";
+	mes "Bienvenue au service Kafra ! Que puis-je faire pour vous aujourd'hui ?";
+	next;
+	switch (select("Accéder à l'entrepôt.:Discuter un peu.:Rien, merci.")) {
+	case 1:
+		mes "[Kafra Solveig]";
+		mes "Bien sûr. Voici votre entrepôt.";
+		close2;
+		openstorage;
+		end;
+	case 2:
+		mes "[Kafra Solveig]";
+		mes "Vous savez, chez Kafra, on ne prend pas parti. L'Ordre de la Faille, les Forgenoires, la vieille Foi — tout le monde paie le même tarif, et tout le monde est stocké avec le même soin.";
+		next;
+		mes "[Kafra Solveig]";
+		mes "C'est peut-être bête à dire, mais je crois que c'est pour ça qu'Izlude tient encore debout. Des gens comme nous, qui refusent de choisir un camp.";
+		close;
+	case 3:
+		mes "[Kafra Solveig]";
+		mes "À bientôt !";
+		close;
+	}
+}
+iz_ac01_a,103,44,3	duplicate(Kafra Solveig#reign)	Kafra Solveig#reign_a	4_F_KAFRA1
+iz_ac01_b,103,44,3	duplicate(Kafra Solveig#reign)	Kafra Solveig#reign_b	4_F_KAFRA1
+iz_ac01_c,103,44,3	duplicate(Kafra Solveig#reign)	Kafra Solveig#reign_c	4_F_KAFRA1
+iz_ac01_d,103,44,3	duplicate(Kafra Solveig#reign)	Kafra Solveig#reign_d	4_F_KAFRA1
+
+//== Bibliothèque (iz_ac01) — texture, échos du monde ========================
+iz_ac01,99,150,3	script	Père Isengrim#reign	4_M_OLDFRIAR,{
+	mes "[Père Isengrim]";
+	mes "Tu viens pour un livre, ou pour une oreille ? Les deux se trouvent ici, à défaut d'autre chose.";
+	next;
+	mes "[Père Isengrim]";
+	mes "J'ai vu Prontera pleine à craquer, autrefois. Aujourd'hui, on y prie surtout par habitude — ou par nostalgie.";
+	next;
+	mes "[Père Isengrim]";
+	mes "Les jeunes ne viennent plus me demander de bénir leurs armes. Ils viennent me demander où trouver Geffen, ou Lighthalzen. Je ne leur en veux pas.";
+	next;
+	mes "[Père Isengrim]";
+	mes "Entre nous... parfois je me demande si nos propres textes n'ont pas toujours caché plus qu'ils n'enseignaient. Mais chut. Ce sont des pensées de vieil homme fatigué.";
+	close;
+}
+iz_ac01_a,99,150,3	duplicate(Père Isengrim#reign)	Père Isengrim#reign_a	4_M_OLDFRIAR
+iz_ac01_b,99,150,3	duplicate(Père Isengrim#reign)	Père Isengrim#reign_b	4_M_OLDFRIAR
+iz_ac01_c,99,150,3	duplicate(Père Isengrim#reign)	Père Isengrim#reign_c	4_M_OLDFRIAR
+iz_ac01_d,99,150,3	duplicate(Père Isengrim#reign)	Père Isengrim#reign_d	4_M_OLDFRIAR
+
+iz_ac01,101,159,3	script	Yrsa#reign	4_F_02,{
+	mes "[Yrsa]";
+	mes "...Non, non, ça ne colle pas. Si l'énergie se dissipait de façon linéaire, Geffen aurait dû s'effondrer trois fois depuis la Rupture.";
+	next;
+	mes "[Yrsa]";
+	mes "Oh. Un public. Tant pis, je réfléchis à voix haute de toute façon.";
+	next;
+	mes "[Yrsa]";
+	mes "Je n'appartiens ni à l'Ordre, ni aux Forgenoires — eux ont déjà leurs réponses, moi je n'ai que des questions. La Rupture ne se comporte ni comme de la magie pure, ni comme un simple mécanisme.";
+	next;
+	mes "[Yrsa]";
+	mes "Elle a un rythme. Une respiration, presque. Personne ne veut m'écouter là-dessus. Ça ne m'empêchera pas d'avoir raison, un jour.";
+	close;
+}
+iz_ac01_a,101,159,3	duplicate(Yrsa#reign)	Yrsa#reign_a	4_F_02
+iz_ac01_b,101,159,3	duplicate(Yrsa#reign)	Yrsa#reign_b	4_F_02
+iz_ac01_c,101,159,3	duplicate(Yrsa#reign)	Yrsa#reign_c	4_F_02
+iz_ac01_d,101,159,3	duplicate(Yrsa#reign)	Yrsa#reign_d	4_F_02
+
+iz_ac01,106,125,3	script	Ronan#reign	4_M_02,{
+	mes "[Ronan]";
+	mes "Tu crois que je ferais un bon membre de l'Ordre de la Faille ? On me dit encore trop souvent ^777777mage^000000, j'ai du mal à me défaire du vieux mot.";
+	next;
+	mes "[Ronan]";
+	mes "Geffen, ça a l'air... intense. Toute cette énergie brute. Un peu effrayant, si je suis honnête. Mais aussi le genre de peur qu'on a envie d'avoir.";
+	next;
+	mes "[Ronan]";
+	mes "Enfin, j'hésite encore. Ne le répète pas à Petra, elle se moquerait de moi pendant des semaines.";
+	close;
+}
+iz_ac01_a,106,125,3	duplicate(Ronan#reign)	Ronan#reign_a	4_M_02
+iz_ac01_b,106,125,3	duplicate(Ronan#reign)	Ronan#reign_b	4_M_02
+iz_ac01_c,106,125,3	duplicate(Ronan#reign)	Ronan#reign_c	4_M_02
+iz_ac01_d,106,125,3	duplicate(Ronan#reign)	Ronan#reign_d	4_M_02
+
+iz_ac01,91,119,3	script	Petra#reign	4_F_02,{
+	mes "[Petra]";
+	mes "Les Forgenoires, clairement. Je veux quelque chose qui marche à chaque fois, pas quelque chose qui dépend de mon humeur du jour.";
+	next;
+	mes "[Petra]";
+	mes "Ronan penche pour l'Ordre. Je le laisse rêver. Moi, je préfère un bon outil fiable à une incantation qui foire un jour sur deux.";
+	next;
+	mes "[Petra]";
+	mes "Lighthalzen, ses machines, ses ateliers qui tournent depuis des générations sans qu'on sache trop comment... Ça, c'est du concret. Pas des racines qui murmurent dans le noir.";
+	close;
+}
+iz_ac01_a,91,119,3	duplicate(Petra#reign)	Petra#reign_a	4_F_02
+iz_ac01_b,91,119,3	duplicate(Petra#reign)	Petra#reign_b	4_F_02
+iz_ac01_c,91,119,3	duplicate(Petra#reign)	Petra#reign_c	4_F_02
+iz_ac01_d,91,119,3	duplicate(Petra#reign)	Petra#reign_d	4_F_02
+
+//== Cantine (iz_ac01) — texture, humour ====================================
+iz_ac01,151,46,5	script	Chef Brokk#reign	4_COOK,{
+	mes "[Chef Brokk]";
+	mes "Aujourd'hui c'est ragoût de Poring. Non, je plaisante. Enfin... presque.";
+	next;
+	mes "[Chef Brokk]";
+	mes "Un vrai forgeron sait qu'un bon repas vaut toutes les armures du monde. Mange, aventurier. Le combat attendra.";
+	next;
+	mes "[Chef Brokk]";
+	mes "Fenn te ramènera l'assiette. Ne le presse pas trop, il grogne — mais c'est bien tout ce qu'il sait faire de menaçant.";
+	close;
+}
+iz_ac01_a,151,46,5	duplicate(Chef Brokk#reign)	Chef Brokk#reign_a	4_COOK
+iz_ac01_b,151,46,5	duplicate(Chef Brokk#reign)	Chef Brokk#reign_b	4_COOK
+iz_ac01_c,151,46,5	duplicate(Chef Brokk#reign)	Chef Brokk#reign_c	4_COOK
+iz_ac01_d,151,46,5	duplicate(Chef Brokk#reign)	Chef Brokk#reign_d	4_COOK
+
+iz_ac01,154,46,3	script	Fenn#reign	4_M_02,{
+	mes "[Fenn]";
+	mes "Table pour un ? Je vous ai déjà vu, non ? Tout le monde se ressemble, ici, à force.";
+	next;
+	mes "[Fenn]";
+	mes "Entre nous, je ne suis pas payé assez pour supporter les étudiants qui posent des questions philosophiques en attendant leur plat. Mangez, discutez après.";
+	next;
+	mes "[Fenn]";
+	mes "Le chef est bourru, mais il cuisine bien. Ne lui dites pas que j'ai dit ça, il deviendrait insupportable.";
+	close;
+}
+iz_ac01_a,154,46,3	duplicate(Fenn#reign)	Fenn#reign_a	4_M_02
+iz_ac01_b,154,46,3	duplicate(Fenn#reign)	Fenn#reign_b	4_M_02
+iz_ac01_c,154,46,3	duplicate(Fenn#reign)	Fenn#reign_c	4_M_02
+iz_ac01_d,154,46,3	duplicate(Fenn#reign)	Fenn#reign_d	4_M_02
+
+iz_ac01,153,37,3	script	Ludo#reign	4_M_02,{
+	mes "[Ludo]";
+	mes "*mâche bruyamment* Quoi ? Ah — désolé. Je mange depuis le petit-déjeuner, je crois. Le temps passe différemment quand on a faim.";
+	next;
+	mes "[Ludo]";
+	mes "Tu veux un conseil ? Mange avant d'aller voir les instructeurs. Le ventre vide, on croit toujours qu'on est prêt à changer de classe. C'est rarement vrai.";
+	next;
+	mes "[Ludo]";
+	mes "Enfin, si t'as un peu de pain en trop, je suis preneur.";
+	close;
+}
+iz_ac01_a,153,37,3	duplicate(Ludo#reign)	Ludo#reign_a	4_M_02
+iz_ac01_b,153,37,3	duplicate(Ludo#reign)	Ludo#reign_b	4_M_02
+iz_ac01_c,153,37,3	duplicate(Ludo#reign)	Ludo#reign_c	4_M_02
+iz_ac01_d,153,37,3	duplicate(Ludo#reign)	Ludo#reign_d	4_M_02

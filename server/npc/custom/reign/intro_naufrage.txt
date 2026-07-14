@@ -225,7 +225,7 @@ izlude_c,198,213,3	duplicate(Capitaine Halvard#reign_iz)	Capitaine Halvard#reign
 izlude_d,198,213,3	duplicate(Capitaine Halvard#reign_iz)	Capitaine Halvard#reign_iz_d	4_M_REINDEER,5,5
 
 //== Vieux pêcheur (izlude, quai) — écho de la Rupture, pure texture ========
-izlude,193,208,3	script	Vieux pêcheur#reign	4_M_OLDSCHOLAR,{
+izlude,199,204,3	script	Vieux pêcheur#reign	4_M_OLDSCHOLAR,{
 	mes "[Vieux pêcheur]";
 	mes "Une tempête qui se lève d'un coup, sans un nuage à l'horizon avant ? J'en ai vu deux ou trois comme ça depuis la Rupture.";
 	next;
@@ -236,37 +236,53 @@ izlude,193,208,3	script	Vieux pêcheur#reign	4_M_OLDSCHOLAR,{
 	mes "Enfin. Bienvenue à Izlude, tout de même. Tu es en vie, c'est déjà pas mal.";
 	close;
 }
-izlude_a,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_a	4_M_OLDSCHOLAR
-izlude_b,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_b	4_M_OLDSCHOLAR
-izlude_c,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_c	4_M_OLDSCHOLAR
-izlude_d,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_d	4_M_OLDSCHOLAR
+izlude_a,199,204,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_a	4_M_OLDSCHOLAR
+izlude_b,199,204,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_b	4_M_OLDSCHOLAR
+izlude_c,199,204,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_c	4_M_OLDSCHOLAR
+izlude_d,199,204,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_d	4_M_OLDSCHOLAR
 
 //== Duo d'ambiance (izlude, quai) — factions & Foi, pure texture ===========
-izlude,203,207,4	script	Marchand ambulant#reign_magie	1_M_MERCHANT,{
+izlude,124,164,4	script	Marchand ambulant#reign_magie	1_M_MERCHANT,3,3,{
 	mes "[Marchand]";
 	mes "Des composants arcaniques, taillés à Geffen même ! Rien de tel pour canaliser proprement.";
 	mes "...Tu débarques, toi. Bienvenue. L'Académie est juste là.";
 	close;
-}
-izlude_a,203,207,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_a	1_M_MERCHANT
-izlude_b,203,207,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_b	1_M_MERCHANT
-izlude_c,203,207,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_c	1_M_MERCHANT
-izlude_d,203,207,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_d	1_M_MERCHANT
 
-izlude,206,207,4	script	Marchand ambulant#reign_techno	4_M_02,{
+OnTouch:
+	setarray .@lines$[0],
+		"Composants arcaniques, taillés à Geffen même !",
+		"Pas de rituel, pas d'attente — juste de la matière première, prête à canaliser.",
+		"Toujours moins cher qu'à Geffen, et sans la queue devant la guilde des mages.";
+	npctalk .@lines$[rand(3)], "", bc_self;
+	end;
+}
+izlude_a,124,164,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_a	1_M_MERCHANT,3,3
+izlude_b,124,164,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_b	1_M_MERCHANT,3,3
+izlude_c,124,164,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_c	1_M_MERCHANT,3,3
+izlude_d,124,164,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_d	1_M_MERCHANT,3,3
+
+izlude,126,157,4	script	Marchand ambulant#reign_techno	4_M_02,3,3,{
 	mes "[Marchand]";
 	mes "Pièces détachées, sorties d'atelier de Lighthalzen. Increvable, et ça ne demande pas trois rites avant de fonctionner.";
 	next;
 	mes "[Marchand]";
 	mes "Hé, l'ami de Geffen, tu recommences ? Chacun ses méthodes.";
 	close;
-}
-izlude_a,206,207,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_a	4_M_02
-izlude_b,206,207,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_b	4_M_02
-izlude_c,206,207,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_c	4_M_02
-izlude_d,206,207,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_d	4_M_02
 
-izlude,200,204,4	script	Moine mendiant#reign	4_M_OLDFRIAR,{
+OnTouch:
+	setarray .@lines$[0],
+		"Pièces détachées, direct de Lighthalzen. Increvable.",
+		"Toujours en état de marche, contrairement à certains sortilèges.",
+		"Hé, l'ami de Geffen ! Toujours à vendre du vent enchanté ?";
+	npctalk .@lines$[rand(3)], "", bc_self;
+	end;
+}
+izlude_a,126,157,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_a	4_M_02,3,3
+izlude_b,126,157,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_b	4_M_02,3,3
+izlude_c,126,157,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_c	4_M_02,3,3
+izlude_d,126,157,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_d	4_M_02,3,3
+
+izlude,141,207,4	script	Moine mendiant#reign	4_M_OLDFRIAR,{
 	mes "[Moine mendiant]";
 	mes "La Foi ne demande qu'une pièce, une prière, ou simplement un instant d'écoute. Pas d'arcane, pas de rouages. Juste ça.";
 	next;
@@ -274,13 +290,13 @@ izlude,200,204,4	script	Moine mendiant#reign	4_M_OLDFRIAR,{
 	mes "On ne me regarde plus tout à fait comme avant, à Prontera. Mais ici, à Izlude, personne ne chasse personne.";
 	close;
 }
-izlude_a,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_a	4_M_OLDFRIAR
-izlude_b,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_b	4_M_OLDFRIAR
-izlude_c,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_c	4_M_OLDFRIAR
-izlude_d,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_d	4_M_OLDFRIAR
+izlude_a,141,207,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_a	4_M_OLDFRIAR
+izlude_b,141,207,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_b	4_M_OLDFRIAR
+izlude_c,141,207,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_c	4_M_OLDFRIAR
+izlude_d,141,207,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_d	4_M_OLDFRIAR
 
 //== Réceptionniste — Académie d'Izlude (iz_ac01) ===========================
-iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
+iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 	if (isbegin_quest(91004) == 2) {
 		mes "[Réceptionniste]";
 		mes "Bonjour, " + strcharinfo(0) + ". Toujours ravie de te revoir à l'Académie d'Izlude.";
@@ -371,7 +387,7 @@ OnInit:
 	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(91004) && Class == Job_Novice" );
 	end;
 }
-iz_ac01_a,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_a	4_F_01
-iz_ac01_b,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_b	4_F_01
-iz_ac01_c,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_c	4_F_01
-iz_ac01_d,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_d	4_F_01
+iz_ac01_a,96,44,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_a	4_F_01
+iz_ac01_b,96,44,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_b	4_F_01
+iz_ac01_c,96,44,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_c	4_F_01
+iz_ac01_d,96,44,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_d	4_F_01
