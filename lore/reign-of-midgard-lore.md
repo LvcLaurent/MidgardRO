@@ -142,17 +142,26 @@ un mur.
 
 ## 7. Personnages récurrents — Académie d'Izlude
 
-L'Académie (bâtiment `iz_ac01`) a maintenant des zones identifiées, chacune avec ses
-habitués — pas juste des PNJ fonctionnels, un lieu vécu :
+L'Académie (bâtiment `iz_ac01`, au nord d'Izlude) a un plan des lieux fixé, chacun avec
+ses habitués — pas juste des PNJ fonctionnels, un lieu vécu :
 
-- **Bibliothèque** : Père Isengrim (prêtre de la Foi, mélancolique — voix du déclin de
-  l'ancien ordre, cf. section 3) ; deux étudiants indécis, Ronan (penche pour l'Ordre
-  de la Faille) et Petra (penche pour les Forgenoires) — aucun des deux n'a encore
-  choisi, ce qui illustre concrètement le point 6 (le choix n'est jamais un mur).
-- **Cantine** : Chef Brokk, Fenn et Ludo — pur ton léger/vivant, sans enjeu narratif.
-- **Archive** : Archiviste Bodvar (râle contre ses livres qui "s'envolent"), Tuva
-  (l'enfant qui les lui cache en cachette, sans malice) et Halfdan (étudiant flemmard
-  planqué pour échapper à Sunna) — même registre léger/vivant que la cantine.
+- **Rez-de-chaussée, salle de gauche** : les instructeurs (Bram, Sunna) — seuls PNJ à
+  accorder des niveaux de job (via `@joblvlup`), puisque l'XP de job est désactivée
+  côté serveur. Aucun autre PNJ ne doit en accorder.
+- **Rez-de-chaussée, salle de droite** : la cantine — Chef Brokk, Fenn et Ludo, pur ton
+  léger/vivant, sans enjeu narratif.
+- **Étage, au-dessus de la cantine** : les archives — Archiviste Bodvar (râle contre ses
+  livres qui "s'envolent"), Tuva (l'enfant qui les lui cache en cachette, sans malice)
+  et Halfdan (étudiant flemmard planqué pour échapper à Sunna).
+- **Étage, au-dessus des instructeurs** : représentants des deux factions — Instructeur
+  Kell (Ordre de la Faille) et Contremaître Odger (Forgenoires).
+- **Tout en haut, l'ancienne Église** : reconvertie en salle d'apprentissage et de
+  recherche — l'Académie a repris le bâtiment religieux plutôt que d'en construire un
+  nouveau, symbole concret du déclin de la Foi (section 3). Père Isengrim (prêtre de la
+  Foi, mélancolique — y officie encore, entre les étagères) ; deux étudiants indécis,
+  Ronan (penche pour l'Ordre de la Faille) et Petra (penche pour les Forgenoires) —
+  aucun des deux n'a encore choisi, ce qui illustre concrètement le point 6 (le choix
+  n'est jamais un mur) ; et Yrsa (voir piste ci-dessous).
 
 > 🔮 Piste future : **Yrsa**, une chercheuse indépendante installée à la bibliothèque,
 > n'appartient à aucune des deux factions et étudie la Rupture pour elle-même. Elle

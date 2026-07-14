@@ -212,7 +212,7 @@ izlude,198,213,3	script	Capitaine Halvard#reign_iz	4_M_REINDEER,5,5,{
 		mes "L'Académie d'Izlude accueille les nouveaux venus comme toi. Tu y trouveras un toit, de quoi t'équiper, et des gens pour t'expliquer ce monde.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "Va voir la réceptionniste là-bas. Et... prends soin de Lumin, tant que tu y es.";
+		mes "Elle est au nord de la ville, tu ne peux pas la manquer. Va voir la réceptionniste là-bas. Et... prends soin de Lumin, tant que tu y es.";
 		close;
 	}
 	mes "[Capitaine Halvard]";
@@ -347,10 +347,16 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 			}
 		case 2:
 			mes "[Réceptionniste]";
-			mes "Au rez-de-chaussée, des instructeurs t'apprendront les bases : soins, combat, cuisine.";
+			mes "La première salle à gauche, c'est nos instructeurs. Ils t'apprendront les gestes de base — vas-y avant tout le reste.";
 			next;
 			mes "[Réceptionniste]";
-			mes "À l'étage, d'autres te présenteront les différentes voies de métier. Écoute-les toutes avant de choisir.";
+			mes "À droite, tu trouveras la cantine, si une petite faim te prend. Et juste au-dessus, les archives — utile si tu cherches à en savoir plus sur ce monde.";
+			next;
+			mes "[Réceptionniste]";
+			mes "Au-dessus des instructeurs, à gauche, tu croiseras des représentants de l'Ordre de la Faille et des Forgenoires. Ils ne mordent pas — enfin, pas littéralement.";
+			next;
+			mes "[Réceptionniste]";
+			mes "Et tout en haut, c'est l'ancienne Église. On y donne encore cours, aujourd'hui — mais plutôt sur les livres que sur les prières.";
 			next;
 			mes "[Réceptionniste]";
 			mes "Izlude elle-même est un port franc — ni l'Ordre de la Faille ni les Forgenoires n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
