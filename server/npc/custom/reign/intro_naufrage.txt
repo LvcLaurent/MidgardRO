@@ -1,38 +1,38 @@
 //===== Reign of Midgard ===================================================
-//= Le naufrage â€” arrivÃ©e Ã  Izlude
+//= Le naufrage — arrivée à Izlude
 //===== Description: =======================================================
-//= Trame d'ouverture du serveur : le joueur se rÃ©veille sur un navire pris
-//= dans une tempÃªte, aide un passager blessÃ©, rencontre le Capitaine
-//= Halvard et Lumin (compagnon amnÃ©sique), puis dÃ©barque Ã  Izlude oÃ¹
-//= l'AcadÃ©mie l'accueille.
+//= Trame d'ouverture du serveur : le joueur se réveille sur un navire pris
+//= dans une tempête, aide un passager blessé, rencontre le Capitaine
+//= Halvard et Lumin (compagnon amnésique), puis débarque à Izlude où
+//= l'Académie l'accueille.
 //=
 //= Reprend la structure et les maps de npc/re/jobs/novice/academy.txt
-//= (rAthena, Kisuka & al. â€” laissÃ© dÃ©sactivÃ©, gardÃ© comme rÃ©fÃ©rence), mais
-//= entiÃ¨rement rÃ©Ã©crit : nouveaux PNJ, dialogues franÃ§ais, premier ancrage
+//= (rAthena, Kisuka & al. — laissé désactivé, gardé comme référence), mais
+//= entièrement réécrit : nouveaux PNJ, dialogues français, premier ancrage
 //= du lore de la Rupture. Voir lore/reign-of-midgard-lore.md pour la trame
-//= complÃ¨te. Ne couvre que l'ouverture narrative â€” les instructeurs de
-//= mÃ©caniques de jeu (inventaire, classes, etc.) restent hors scope pour
+//= complète. Ne couvre que l'ouverture narrative — les instructeurs de
+//= mécaniques de jeu (inventaire, classes, etc.) restent hors scope pour
 //= l'instant.
 //===========================================================================
 
-//== Point de dÃ©part (iz_int) ===============================================
-iz_int,18,30,0	script	RÃ©veil#reign	HIDDEN_WARP_NPC,6,6,{
+//== Point de départ (iz_int) ===============================================
+iz_int,18,30,0	script	Réveil#reign	HIDDEN_WARP_NPC,6,6,{
 	end;
 
 OnTouch:
 	if (getd(".start" + strnpcinfo(1)) == 0) {
 		setd ".start" + strnpcinfo(1), 1;
 		initnpctimer;
-		mapannounce strnpcinfo(4), "[Conseil] Clic gauche au sol pour vous dÃ©placer.", bc_map, 0xFF9900;
+		mapannounce strnpcinfo(4), "[Conseil] Clic gauche au sol pour vous déplacer.", bc_map, 0xFF9900;
 	}
 	end;
 
 OnTimer4000:
-	mapannounce strnpcinfo(4), "[Conseil] Maintenez le clic droit et faites glisser pour tourner la camÃ©ra.", bc_map, 0xFF9900;
+	mapannounce strnpcinfo(4), "[Conseil] Maintenez le clic droit et faites glisser pour tourner la caméra.", bc_map, 0xFF9900;
 	end;
 
 OnTimer9000:
-	mapannounce strnpcinfo(4), "Un gÃ©missement... quelqu'un appelle Ã  l'aide, non loin.", bc_map, 0xFF9900;
+	mapannounce strnpcinfo(4), "Un gémissement... quelqu'un appelle à l'aide, non loin.", bc_map, 0xFF9900;
 	end;
 
 OnTimer14000:
@@ -40,34 +40,34 @@ OnTimer14000:
 	setd ".start" + strnpcinfo(1), 0;
 	end;
 }
-iz_int01,18,30,0	duplicate(RÃ©veil#reign)	RÃ©veil#reign01	HIDDEN_WARP_NPC,6,6
-iz_int02,18,30,0	duplicate(RÃ©veil#reign)	RÃ©veil#reign02	HIDDEN_WARP_NPC,6,6
-iz_int03,18,30,0	duplicate(RÃ©veil#reign)	RÃ©veil#reign03	HIDDEN_WARP_NPC,6,6
-iz_int04,18,30,0	duplicate(RÃ©veil#reign)	RÃ©veil#reign04	HIDDEN_WARP_NPC,6,6
+iz_int01,18,30,0	duplicate(Réveil#reign)	Réveil#reign01	HIDDEN_WARP_NPC,6,6
+iz_int02,18,30,0	duplicate(Réveil#reign)	Réveil#reign02	HIDDEN_WARP_NPC,6,6
+iz_int03,18,30,0	duplicate(Réveil#reign)	Réveil#reign03	HIDDEN_WARP_NPC,6,6
+iz_int04,18,30,0	duplicate(Réveil#reign)	Réveil#reign04	HIDDEN_WARP_NPC,6,6
 
-//== Passager blessÃ© (iz_int) ===============================================
-iz_int,56,32,3	script	Passager blessÃ©#reign	4_TOWER_01,3,3,{
+//== Passager blessé (iz_int) ===============================================
+iz_int,56,32,3	script	Passager blessé#reign	4_TOWER_01,3,3,{
 	if (isbegin_quest(90000) == 0) {
-		mes "[Passager blessÃ©]";
+		mes "[Passager blessé]";
 		mes "Aah... par tous les Dieux... aide-moi...";
 		next;
-		mes "[Passager blessÃ©]";
+		mes "[Passager blessé]";
 		mes "La coque a pris un coup terrible, je ne peux plus tenir debout.";
-		mes "Va prÃ©venir le capitaine, il doit Ãªtre sur le pont.";
+		mes "Va prévenir le capitaine, il doit être sur le pont.";
 		next;
-		mes "[Passager blessÃ©]";
-		mes "Cette tempÃªte... elle est arrivÃ©e bien trop vite pour Ãªtre tout Ã  fait normale.";
-		mes "Mais peu importe pour l'instant. Va, je te suis dÃ¨s que je peux.";
+		mes "[Passager blessé]";
+		mes "Cette tempête... elle est arrivée bien trop vite pour être tout à fait normale.";
+		mes "Mais peu importe pour l'instant. Va, je te suis dès que je peux.";
 		setquest 90000;
 		close;
 	}
-	mes "[Passager blessÃ©]";
+	mes "[Passager blessé]";
 	mes "Va voir le capitaine, je vais m'en sortir.";
 	close;
 
 OnTouch:
 	if (isbegin_quest(90000) == 0) {
-		npctalk "Ã€ l'aide... je vous en supplie...", "", bc_self;
+		npctalk "À l'aide... je vous en supplie...", "", bc_self;
 	}
 	end;
 
@@ -75,30 +75,30 @@ OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(90000) && Class == Job_Novice" );
 	end;
 }
-iz_int01,56,32,3	duplicate(Passager blessÃ©#reign)	Passager blessÃ©#reign01	4_TOWER_01,3,3
-iz_int02,56,32,3	duplicate(Passager blessÃ©#reign)	Passager blessÃ©#reign02	4_TOWER_01,3,3
-iz_int03,56,32,3	duplicate(Passager blessÃ©#reign)	Passager blessÃ©#reign03	4_TOWER_01,3,3
-iz_int04,56,32,3	duplicate(Passager blessÃ©#reign)	Passager blessÃ©#reign04	4_TOWER_01,3,3
+iz_int01,56,32,3	duplicate(Passager blessé#reign)	Passager blessé#reign01	4_TOWER_01,3,3
+iz_int02,56,32,3	duplicate(Passager blessé#reign)	Passager blessé#reign02	4_TOWER_01,3,3
+iz_int03,56,32,3	duplicate(Passager blessé#reign)	Passager blessé#reign03	4_TOWER_01,3,3
+iz_int04,56,32,3	duplicate(Passager blessé#reign)	Passager blessé#reign04	4_TOWER_01,3,3
 
 //== Capitaine Halvard (int_land, pont du navire) ===========================
 int_land,78,103,5	script	Capitaine Halvard#reign_ship	4_M_REINDEER,{
 	if (isbegin_quest(90000) == 1) completequest 90000;
 	if (isbegin_quest(90001) == 0) {
 		mes "[Capitaine Halvard]";
-		mes "Toi aussi tu as survÃ©cu Ã  Ã§a ? Par les racines d'Yggdrasil...";
-		mes "Je n'avais jamais vu une tempÃªte se lever aussi vite. Pas une ride sur l'eau, puis plus rien n'existait que le vent.";
+		mes "Toi aussi tu as survécu à ça ? Par les racines d'Yggdrasil...";
+		mes "Je n'avais jamais vu une tempête se lever aussi vite. Pas une ride sur l'eau, puis plus rien n'existait que le vent.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "Bref, on verra Ã§a plus tard. Le bateau tient, c'est l'essentiel.";
-		mes "On met le cap sur Izlude â€” la cÃ´te la plus proche, et la seule oÃ¹ on est sÃ»rs d'Ãªtre accueillis plutÃ´t que dÃ©pouillÃ©s.";
+		mes "Bref, on verra ça plus tard. Le bateau tient, c'est l'essentiel.";
+		mes "On met le cap sur Izlude — la côte la plus proche, et la seule où on est sûrs d'être accueillis plutôt que dépouillés.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "Izlude est un port franc. Ni la Magie, ni la Technologie n'y font la loi â€” tout le monde a besoin de ce port pour passer d'un littoral Ã  l'autre.";
-		mes "Tu y seras en sÃ©curitÃ©, le temps de reprendre tes esprits.";
+		mes "Izlude est un port franc. Ni la Magie, ni la Technologie n'y font la loi — tout le monde a besoin de ce port pour passer d'un littoral à l'autre.";
+		mes "Tu y seras en sécurité, le temps de reprendre tes esprits.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "Tiens, en parlant de Ã§a â€” il y avait un autre passager avec toi. Il s'est rÃ©veillÃ©, mais... il ne se souvient de rien. Pas mÃªme de son nom.";
-		mes "Je lui en ai donnÃ© un : Lumin. Il est lÃ , sur le pont. Va lui parler, il a l'air perdu.";
+		mes "Tiens, en parlant de ça — il y avait un autre passager avec toi. Il s'est réveillé, mais... il ne se souvient de rien. Pas même de son nom.";
+		mes "Je lui en ai donné un : Lumin. Il est là, sur le pont. Va lui parler, il a l'air perdu.";
 		setquest 90001;
 		completequest 90001;
 		close;
@@ -126,28 +126,28 @@ int_land,73,100,3	script	Lumin#reign	4_M_NOV_RUMIN,{
 		if (select("Je m'appelle " + strcharinfo(0) + ".", "Et toi, qui es-tu ?") == 2) {
 			mes "[Lumin]";
 			mes "...Je ne sais pas.";
-			mes "Le capitaine dit que je m'appelle Lumin, maintenant. Je n'ai pas d'autre nom Ã  lui opposer.";
+			mes "Le capitaine dit que je m'appelle Lumin, maintenant. Je n'ai pas d'autre nom à lui opposer.";
 		} else {
 			mes "[" + strcharinfo(0) + "]";
 			mes "Je m'appelle " + strcharinfo(0) + ".";
 			next;
 			mes "[Lumin]";
-			mes "...Lumin. C'est ce qu'on m'appelle, depuis qu'on m'a repÃªchÃ©. Je n'ai rien retrouvÃ© d'autre.";
+			mes "...Lumin. C'est ce qu'on m'appelle, depuis qu'on m'a repêché. Je n'ai rien retrouvé d'autre.";
 		}
 		next;
 		mes "[Lumin]";
 		mes "Pas de nom, pas de visage familier, pas un souvenir d'avant l'eau froide.";
-		mes "Juste toi. Et cette tempÃªte, Ã  propos de laquelle personne ne veut vraiment parler.";
+		mes "Juste toi. Et cette tempête, à propos de laquelle personne ne veut vraiment parler.";
 		next;
 		mes "[Lumin]";
-		mes "On dirait qu'on recommence Ã  zÃ©ro, tous les deux. Retrouve-moi Ã  Izlude, si tu veux.";
+		mes "On dirait qu'on recommence à zéro, tous les deux. Retrouve-moi à Izlude, si tu veux.";
 		setquest 90002;
 		completequest 90002;
 		close;
 	}
 	mes "[Lumin]";
 	mes "...";
-	mes "On se retrouve Ã  Izlude.";
+	mes "On se retrouve à Izlude.";
 	close;
 
 OnInit:
@@ -159,16 +159,16 @@ int_land02,73,100,3	duplicate(Lumin#reign)	Lumin#reign02	4_M_NOV_RUMIN
 int_land03,73,100,3	duplicate(Lumin#reign)	Lumin#reign03	4_M_NOV_RUMIN
 int_land04,73,100,3	duplicate(Lumin#reign)	Lumin#reign04	4_M_NOV_RUMIN
 
-//== Marin (int_land, pont du navire) â€” collecte de bois ====================
+//== Marin (int_land, pont du navire) — collecte de bois ====================
 int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 	if (isbegin_quest(90003) == 0) {
 		mes "[Marin]";
 		mes "La coque a pris l'eau. Il me faut du bois pour colmater avant qu'on tente Izlude.";
-		mes "Les Porings qui traÃ®nent sur cette Ã®le ont dÃ» en rÃ©cupÃ©rer en fouillant l'Ã©pave â€” file leur en prendre deux.";
+		mes "Les Porings qui traînent sur cette île ont dû en récupérer en fouillant l'épave — file leur en prendre deux.";
 		setquest 90003;
 		next;
 		mes "[Marin]";
-		mes "RamÃ¨ne-m'en deux, et je te laisse embarquer pour de bon.";
+		mes "Ramène-m'en deux, et je te laisse embarquer pour de bon.";
 		close;
 	}
 	if (countitem(6008) < 2) {
@@ -177,14 +177,14 @@ int_land,58,69,5	script	Marin#reign	4W_SAILOR,{
 		close;
 	}
 	mes "[Marin]";
-	mes "Parfait, Ã§a devrait tenir jusqu'Ã  Izlude.";
+	mes "Parfait, ça devrait tenir jusqu'à Izlude.";
 	delitem 6008,2;
 	getexp 100,100;
 	getitem 611,5;// Spectacles (Magnifier)
 	completequest 90003;
 	next;
 	mes "[Marin]";
-	mes "Tiens, prends Ã§a â€” des loupes. Utiles pour identifier ce que tu ramasseras sur les monstres.";
+	mes "Tiens, prends ça — des loupes. Utiles pour identifier ce que tu ramasseras sur les monstres.";
 	mes "Tu peux filer vers la sortie du pont quand tu veux, maintenant.";
 	close;
 
@@ -197,18 +197,18 @@ int_land02,58,69,5	duplicate(Marin#reign)	Marin#reign02	4W_SAILOR
 int_land03,58,69,5	duplicate(Marin#reign)	Marin#reign03	4W_SAILOR
 int_land04,58,69,5	duplicate(Marin#reign)	Marin#reign04	4W_SAILOR
 
-//== Capitaine Halvard (izlude, quai â€” accostage) ===========================
+//== Capitaine Halvard (izlude, quai — accostage) ===========================
 izlude,198,213,3	script	Capitaine Halvard#reign_iz	4_M_REINDEER,5,5,{
 	if (Class == Job_Novice && BaseLevel < 15) {
 		mes "[Capitaine Halvard]";
-		mes "Nous y voilÃ . Izlude.";
-		mes "Je vais rester ici le temps de rÃ©parer le bateau â€” ne t'inquiÃ¨te pas pour moi.";
+		mes "Nous y voilà. Izlude.";
+		mes "Je vais rester ici le temps de réparer le bateau — ne t'inquiète pas pour moi.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "L'AcadÃ©mie d'Izlude accueille les nouveaux venus comme toi. Tu y trouveras un toit, de quoi t'Ã©quiper, et des gens pour t'expliquer ce monde.";
+		mes "L'Académie d'Izlude accueille les nouveaux venus comme toi. Tu y trouveras un toit, de quoi t'équiper, et des gens pour t'expliquer ce monde.";
 		next;
 		mes "[Capitaine Halvard]";
-		mes "Va voir la rÃ©ceptionniste lÃ -bas. Et... prends soin de Lumin, tant que tu y es.";
+		mes "Va voir la réceptionniste là-bas. Et... prends soin de Lumin, tant que tu y es.";
 		close;
 	}
 	mes "[Capitaine Halvard]";
@@ -220,28 +220,28 @@ izlude_b,198,213,3	duplicate(Capitaine Halvard#reign_iz)	Capitaine Halvard#reign
 izlude_c,198,213,3	duplicate(Capitaine Halvard#reign_iz)	Capitaine Halvard#reign_iz_c	4_M_REINDEER,5,5
 izlude_d,198,213,3	duplicate(Capitaine Halvard#reign_iz)	Capitaine Halvard#reign_iz_d	4_M_REINDEER,5,5
 
-//== Vieux pÃªcheur (izlude, quai) â€” Ã©cho de la Rupture, pure texture ========
-izlude,193,208,3	script	Vieux pÃªcheur#reign	4_M_OLDSCHOLAR,{
-	mes "[Vieux pÃªcheur]";
-	mes "Une tempÃªte qui se lÃ¨ve d'un coup, sans un nuage Ã  l'horizon avant ? J'en ai vu deux ou trois comme Ã§a depuis la Rupture.";
+//== Vieux pêcheur (izlude, quai) — écho de la Rupture, pure texture ========
+izlude,193,208,3	script	Vieux pêcheur#reign	4_M_OLDSCHOLAR,{
+	mes "[Vieux pêcheur]";
+	mes "Une tempête qui se lève d'un coup, sans un nuage à l'horizon avant ? J'en ai vu deux ou trois comme ça depuis la Rupture.";
 	next;
-	mes "[Vieux pÃªcheur]";
-	mes "Je ne dis pas que c'est liÃ©. Je dis juste que la mer n'oublie jamais vraiment ce qui s'est fissurÃ©, il y a une gÃ©nÃ©ration.";
+	mes "[Vieux pêcheur]";
+	mes "Je ne dis pas que c'est lié. Je dis juste que la mer n'oublie jamais vraiment ce qui s'est fissuré, il y a une génération.";
 	next;
-	mes "[Vieux pÃªcheur]";
-	mes "Enfin. Bienvenue Ã  Izlude, tout de mÃªme. Tu es en vie, c'est dÃ©jÃ  pas mal.";
+	mes "[Vieux pêcheur]";
+	mes "Enfin. Bienvenue à Izlude, tout de même. Tu es en vie, c'est déjà pas mal.";
 	close;
 }
-izlude_a,193,208,3	duplicate(Vieux pÃªcheur#reign)	Vieux pÃªcheur#reign_a	4_M_OLDSCHOLAR
-izlude_b,193,208,3	duplicate(Vieux pÃªcheur#reign)	Vieux pÃªcheur#reign_b	4_M_OLDSCHOLAR
-izlude_c,193,208,3	duplicate(Vieux pÃªcheur#reign)	Vieux pÃªcheur#reign_c	4_M_OLDSCHOLAR
-izlude_d,193,208,3	duplicate(Vieux pÃªcheur#reign)	Vieux pÃªcheur#reign_d	4_M_OLDSCHOLAR
+izlude_a,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_a	4_M_OLDSCHOLAR
+izlude_b,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_b	4_M_OLDSCHOLAR
+izlude_c,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_c	4_M_OLDSCHOLAR
+izlude_d,193,208,3	duplicate(Vieux pêcheur#reign)	Vieux pêcheur#reign_d	4_M_OLDSCHOLAR
 
-//== Duo d'ambiance (izlude, quai) â€” factions & Foi, pure texture ===========
+//== Duo d'ambiance (izlude, quai) — factions & Foi, pure texture ===========
 izlude,203,207,4	script	Marchand ambulant#reign_magie	1_M_MERCHANT,{
 	mes "[Marchand]";
-	mes "Des composants arcaniques, taillÃ©s Ã  Geffen mÃªme ! Rien de tel pour canaliser proprement.";
-	mes "...Tu dÃ©barques, toi. Bienvenue. L'AcadÃ©mie est juste lÃ .";
+	mes "Des composants arcaniques, taillés à Geffen même ! Rien de tel pour canaliser proprement.";
+	mes "...Tu débarques, toi. Bienvenue. L'Académie est juste là.";
 	close;
 }
 izlude_a,203,207,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#reign_magie_a	1_M_MERCHANT
@@ -251,10 +251,10 @@ izlude_d,203,207,4	duplicate(Marchand ambulant#reign_magie)	Marchand ambulant#re
 
 izlude,206,207,4	script	Marchand ambulant#reign_techno	4_M_02,{
 	mes "[Marchand]";
-	mes "PiÃ¨ces dÃ©tachÃ©es, sorties d'atelier de Lighthalzen. Increvable, et Ã§a ne demande pas trois rites avant de fonctionner.";
+	mes "Pièces détachées, sorties d'atelier de Lighthalzen. Increvable, et ça ne demande pas trois rites avant de fonctionner.";
 	next;
 	mes "[Marchand]";
-	mes "HÃ©, l'ami de Geffen, tu recommences ? Chacun ses mÃ©thodes.";
+	mes "Hé, l'ami de Geffen, tu recommences ? Chacun ses méthodes.";
 	close;
 }
 izlude_a,206,207,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#reign_techno_a	4_M_02
@@ -264,10 +264,10 @@ izlude_d,206,207,4	duplicate(Marchand ambulant#reign_techno)	Marchand ambulant#r
 
 izlude,200,204,4	script	Moine mendiant#reign	4_M_OLDFRIAR,{
 	mes "[Moine mendiant]";
-	mes "La Foi ne demande qu'une piÃ¨ce, une priÃ¨re, ou simplement un instant d'Ã©coute. Pas d'arcane, pas de rouages. Juste Ã§a.";
+	mes "La Foi ne demande qu'une pièce, une prière, ou simplement un instant d'écoute. Pas d'arcane, pas de rouages. Juste ça.";
 	next;
 	mes "[Moine mendiant]";
-	mes "On ne me regarde plus tout Ã  fait comme avant, Ã  Prontera. Mais ici, Ã  Izlude, personne ne chasse personne.";
+	mes "On ne me regarde plus tout à fait comme avant, à Prontera. Mais ici, à Izlude, personne ne chasse personne.";
 	close;
 }
 izlude_a,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_a	4_M_OLDFRIAR
@@ -275,24 +275,24 @@ izlude_b,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_b	4_M_OL
 izlude_c,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_c	4_M_OLDFRIAR
 izlude_d,200,204,4	duplicate(Moine mendiant#reign)	Moine mendiant#reign_d	4_M_OLDFRIAR
 
-//== RÃ©ceptionniste â€” AcadÃ©mie d'Izlude (iz_ac01) ===========================
-iz_ac01,100,39,5	script	RÃ©ceptionniste#reign	4_F_01,{
+//== Réceptionniste — Académie d'Izlude (iz_ac01) ===========================
+iz_ac01,100,39,5	script	Réceptionniste#reign	4_F_01,{
 	if (isbegin_quest(90004) == 2) {
-		mes "[RÃ©ceptionniste]";
-		mes "Bonjour, " + strcharinfo(0) + ". Toujours ravie de te revoir Ã  l'AcadÃ©mie d'Izlude.";
+		mes "[Réceptionniste]";
+		mes "Bonjour, " + strcharinfo(0) + ". Toujours ravie de te revoir à l'Académie d'Izlude.";
 	} else {
-		mes "[RÃ©ceptionniste]";
-		mes "Bienvenue Ã  l'AcadÃ©mie d'Izlude. Je m'occupe de l'accueil et de l'inscription des nouveaux venus.";
+		mes "[Réceptionniste]";
+		mes "Bienvenue à l'Académie d'Izlude. Je m'occupe de l'accueil et de l'inscription des nouveaux venus.";
 	}
 	next;
 	while (1) {
-		mes "[RÃ©ceptionniste]";
+		mes "[Réceptionniste]";
 		mes "En quoi puis-je t'aider ?";
 		next;
 		if (isbegin_quest(90004) == 2)
-			.@menu$ = "Ce qu'il y a dans l'AcadÃ©mie et alentour.:C'est quoi, la Rupture ?:Terminer la conversation.";
+			.@menu$ = "Ce qu'il y a dans l'Académie et alentour.:C'est quoi, la Rupture ?:Terminer la conversation.";
 		else
-			.@menu$ = "M'inscrire Ã  l'AcadÃ©mie:Explications sur l'AcadÃ©mie et Izlude:C'est quoi, la Rupture ?:Terminer la conversation";
+			.@menu$ = "M'inscrire à l'Académie:Explications sur l'Académie et Izlude:C'est quoi, la Rupture ?:Terminer la conversation";
 		.@choice = select(.@menu$);
 		if (isbegin_quest(90004) == 2)
 			.@choice += 1;
@@ -300,12 +300,12 @@ iz_ac01,100,39,5	script	RÃ©ceptionniste#reign	4_F_01,{
 		case 1:
 			if (Class == Job_Novice) {
 				if (!checkweight(1301,10)) {
-					mes "- Tu es trop chargÃ© pour continuer cette quÃªte. -";
+					mes "- Tu es trop chargé pour continuer cette quête. -";
 					close;
 				}
-				mes "[RÃ©ceptionniste]";
-				mes "Voyons... " + strcharinfo(0) + ", c'est Ã§a ? Je t'inscris tout de suite.";
-				mes "Voici de quoi commencer. Prends-en soin, on ne redonne pas deux fois un Ã©quipement de dÃ©part.";
+				mes "[Réceptionniste]";
+				mes "Voyons... " + strcharinfo(0) + ", c'est ça ? Je t'inscris tout de suite.";
+				mes "Voici de quoi commencer. Prends-en soin, on ne redonne pas deux fois un équipement de départ.";
 				setquest 90004;
 				completequest 90004;
 				getitem 2352,1;// Novice_Plate
@@ -317,47 +317,47 @@ iz_ac01,100,39,5	script	RÃ©ceptionniste#reign	4_F_01,{
 				getitem 569,300;// Novice_Potion
 				getexp 100,100;
 				next;
-				mes "[RÃ©ceptionniste]";
-				mes "Bienvenue parmi nous. Reviens me voir si tu as des questions â€” sur l'AcadÃ©mie, ou sur ce monde en gÃ©nÃ©ral.";
+				mes "[Réceptionniste]";
+				mes "Bienvenue parmi nous. Reviens me voir si tu as des questions — sur l'Académie, ou sur ce monde en général.";
 				close;
 			} else {
-				mes "[RÃ©ceptionniste]";
-				mes "L'inscription est rÃ©servÃ©e aux Novices. Mais tu peux tout Ã  fait rester te renseigner.";
+				mes "[Réceptionniste]";
+				mes "L'inscription est réservée aux Novices. Mais tu peux tout à fait rester te renseigner.";
 				close;
 			}
 		case 2:
-			mes "[RÃ©ceptionniste]";
-			mes "Au rez-de-chaussÃ©e, des instructeurs t'apprendront les bases : soins, combat, cuisine.";
+			mes "[Réceptionniste]";
+			mes "Au rez-de-chaussée, des instructeurs t'apprendront les bases : soins, combat, cuisine.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "Ã€ l'Ã©tage, d'autres te prÃ©senteront les diffÃ©rentes voies de mÃ©tier. Ã‰coute-les toutes avant de choisir.";
+			mes "[Réceptionniste]";
+			mes "À l'étage, d'autres te présenteront les différentes voies de métier. Écoute-les toutes avant de choisir.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "Izlude elle-mÃªme est un port franc â€” ni la Magie ni la Technologie n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
+			mes "[Réceptionniste]";
+			mes "Izlude elle-même est un port franc — ni la Magie ni la Technologie n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
 			next;
 			break;
 		case 3:
-			mes "[RÃ©ceptionniste]";
-			mes "Ah. Ã‡a, tout le monde le demande, tÃ´t ou tard.";
+			mes "[Réceptionniste]";
+			mes "Ah. Ça, tout le monde le demande, tôt ou tard.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "Il y a une gÃ©nÃ©ration, quelque chose s'est fissurÃ© sous Midgard â€” les racines d'Yggdrasil, dit-on. On appelle Ã§a simplement la Rupture.";
+			mes "[Réceptionniste]";
+			mes "Il y a une génération, quelque chose s'est fissuré sous Midgard — les racines d'Yggdrasil, dit-on. On appelle ça simplement la Rupture.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "De cette fissure sont nÃ©es deux choses : une Ã©nergie brute que certains ont appris Ã  canaliser sans passer par la Foi â€” la Magie. Et les vestiges d'une civilisation plus ancienne, ses machines encore actives â€” la Technologie.";
+			mes "[Réceptionniste]";
+			mes "De cette fissure sont nées deux choses : une énergie brute que certains ont appris à canaliser sans passer par la Foi — la Magie. Et les vestiges d'une civilisation plus ancienne, ses machines encore actives — la Technologie.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "Deux Ã©coles, deux faÃ§ons de refuser de prier pour obtenir de la force. La Foi a criÃ© Ã  l'hÃ©rÃ©sie. La guerre qui a suivi n'a jamais vraiment cessÃ©.";
+			mes "[Réceptionniste]";
+			mes "Deux écoles, deux façons de refuser de prier pour obtenir de la force. La Foi a crié à l'hérésie. La guerre qui a suivi n'a jamais vraiment cessé.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "Et la Rupture n'a pas libÃ©rÃ© que Ã§a. Des crÃ©atures qu'on croyait endormies depuis des siÃ¨cles ressurgissent, un peu partout. C'est pour Ã§a que le monde a autant besoin d'aventuriers, ces temps-ci.";
+			mes "[Réceptionniste]";
+			mes "Et la Rupture n'a pas libéré que ça. Des créatures qu'on croyait endormies depuis des siècles ressurgissent, un peu partout. C'est pour ça que le monde a autant besoin d'aventuriers, ces temps-ci.";
 			next;
-			mes "[RÃ©ceptionniste]";
-			mes "VoilÃ . Tu en sais autant que n'importe quel enfant d'ici, maintenant.";
+			mes "[Réceptionniste]";
+			mes "Voilà. Tu en sais autant que n'importe quel enfant d'ici, maintenant.";
 			next;
 			break;
 		case 4:
-			mes "[RÃ©ceptionniste]";
+			mes "[Réceptionniste]";
 			mes "Reviens quand tu veux.";
 			close;
 		}
@@ -367,7 +367,7 @@ OnInit:
 	questinfo( QTYPE_QUEST, QMARK_NONE, "!isbegin_quest(90004) && Class == Job_Novice" );
 	end;
 }
-iz_ac01_a,100,39,5	duplicate(RÃ©ceptionniste#reign)	RÃ©ceptionniste#reign_a	4_F_01
-iz_ac01_b,100,39,5	duplicate(RÃ©ceptionniste#reign)	RÃ©ceptionniste#reign_b	4_F_01
-iz_ac01_c,100,39,5	duplicate(RÃ©ceptionniste#reign)	RÃ©ceptionniste#reign_c	4_F_01
-iz_ac01_d,100,39,5	duplicate(RÃ©ceptionniste#reign)	RÃ©ceptionniste#reign_d	4_F_01
+iz_ac01_a,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_a	4_F_01
+iz_ac01_b,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_b	4_F_01
+iz_ac01_c,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_c	4_F_01
+iz_ac01_d,100,39,5	duplicate(Réceptionniste#reign)	Réceptionniste#reign_d	4_F_01

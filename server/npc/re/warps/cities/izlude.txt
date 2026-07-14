@@ -84,15 +84,15 @@ int_land,49,57,0	script	#intro_to_izlude	WARPNPC,2,2,{
 	end;
 OnTouch:
 	if (isbegin_quest(90003) == 1) {
-		mes "^4d4dffUne fois cette Ã®le quittÃ©e, impossible de faire demi-tour.";
-		mes "Es-tu sÃ»r de vouloir partir directement pour Izlude ?^000000";
+		mes "^4d4dffUne fois cette île quittée, impossible de faire demi-tour.";
+		mes "Es-tu sûr de vouloir partir directement pour Izlude ?^000000";
 		next;
-		mes "^4d4dffSi tu pars maintenant, cette quÃªte sera retirÃ©e de ton journal.^000000";
+		mes "^4d4dffSi tu pars maintenant, cette quête sera retirée de ton journal.^000000";
 		next;
 		if (select("Pas encore, j'attends.", "En route pour Izlude !") == 1) {
 			mes "[Marin]";
 			mes "Tu veux rester encore un peu ?";
-			mes "Pas de souci, j'attendrai que tu sois prÃªt~";
+			mes "Pas de souci, j'attendrai que tu sois prêt~";
 			close;
 		}
 		completequest 90003;
