@@ -10820,6 +10820,11 @@ void clif_parse_LoadEndAck(int32 fd,map_session_data *sd)
 		return;
 	clif_spawn(sd);
 
+	// Reign of Midgard: force a fresh nameplate push so the faction display
+	// (see clif_name()) is never stuck on whatever the client had cached
+	// from before this character last logged in.
+	clif_name_self(sd);
+
 	// Party
 	// (needs to go after clif_spawn() to show hp bars correctly)
 	if(sd->status.party_id) {
