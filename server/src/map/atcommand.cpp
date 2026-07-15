@@ -10041,7 +10041,7 @@ ACMD_FUNC(spawnfactionmob)
 	for (i = 0; i < amount; i++) {
 		map_search_freecell(sd, 0, &mx, &my, range, range, 0);
 
-		int32 gid = mob_once_spawn(sd, sd->m, mx, my, "", mob_id, 1, "", SZ_SMALL, AI_NONE);
+		int32 gid = mob_once_spawn(sd, sd->m, mx, my, nullptr, mob_id, 1, "", SZ_SMALL, AI_NONE);
 		mob_data* md = map_id2md(gid);
 		if (md == nullptr)
 			continue;

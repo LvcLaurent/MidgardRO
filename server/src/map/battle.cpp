@@ -8137,6 +8137,11 @@ int32 battle_check_target( const block_list* src, const block_list* target, int3
 						state &= ~BCT_ENEMY;
 						state |= BCT_PARTY;
 					}else{
+						// The "normal mobs are friendly to normal mobs" branch above may
+						// have already set BCT_PARTY for this same pair (both AI_NONE) -
+						// strip it, or the "alliance takes precedence" rule at the end of
+						// this function would silently cancel our BCT_ENEMY back out.
+						state &= ~(BCT_PARTY|BCT_GUILD|BCT_SELF);
 						state |= BCT_ENEMY;
 					}
 				}
