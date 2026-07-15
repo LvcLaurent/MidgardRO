@@ -8117,14 +8117,28 @@ int32 battle_check_target( const block_list* src, const block_list* target, int3
 			// Reign of Midgard: mobs tagged with a faction (see UMOB_FACTION) are
 			// hostile toward players outside that faction (including factionless
 			// ones) and friendly toward players in it, regardless of the above.
-			if( md->faction && t_bl->type == BL_PC ){
-				const map_session_data* tsd = static_cast<const map_session_data*>(t_bl);
+			// Also applies mob-vs-mob against other faction-tagged mobs (but not
+			// against ordinary untagged wildlife, which keeps the default
+			// mobs-are-friendly-with-mobs behavior above).
+			if( md->faction ){
+				uint8 t_faction = 0;
+				bool t_has_faction = false;
 
-				if( tsd->status.faction == md->faction ){
-					state &= ~BCT_ENEMY;
-					state |= BCT_PARTY;
-				}else{
-					state |= BCT_ENEMY;
+				if( t_bl->type == BL_PC ){
+					t_faction = static_cast<const map_session_data*>(t_bl)->status.faction;
+					t_has_faction = true;
+				}else if( t_bl->type == BL_MOB && static_cast<const mob_data*>(t_bl)->faction ){
+					t_faction = static_cast<const mob_data*>(t_bl)->faction;
+					t_has_faction = true;
+				}
+
+				if( t_has_faction ){
+					if( t_faction == md->faction ){
+						state &= ~BCT_ENEMY;
+						state |= BCT_PARTY;
+					}else{
+						state |= BCT_ENEMY;
+					}
 				}
 			}
 			break;

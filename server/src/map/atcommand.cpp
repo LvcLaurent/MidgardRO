@@ -10006,22 +10006,22 @@ ACMD_FUNC(setfaction)
 }
 
 /*==========================================
- * Reign of Midgard: spawn a mob tagged with a faction, hostile to anyone
+ * Reign of Midgard: spawn mobs tagged with a faction, hostile to anyone
  * not in it (see UMOB_FACTION / battle_check_target in battle.cpp).
- * @spawnfactionmob <1|2> {<mob name or id>}
+ * @spawnfactionmob <1|2> {<mob name or id> {<amount>}}
  *------------------------------------------*/
 ACMD_FUNC(spawnfactionmob)
 {
 	char mobname[NAME_LENGTH] = "Poring";
-	int32 faction = 0, mob_id;
+	int32 faction = 0, mob_id, amount = 1, i, count = 0, range;
 	int16 mx, my;
 
 	nullpo_retr(-1, sd);
 
-	sscanf(message, "%11d %23s", &faction, mobname);
+	sscanf(message, "%11d %23s %11d", &faction, mobname, &amount);
 
 	if (faction != 1 && faction != 2) {
-		clif_displaymessage(fd, "Usage: @spawnfactionmob <1|2> {<mob name or id>}");
+		clif_displaymessage(fd, "Usage: @spawnfactionmob <1|2> {<mob name or id> {<amount>}}");
 		return -1;
 	}
 
@@ -10032,17 +10032,26 @@ ACMD_FUNC(spawnfactionmob)
 		return -1;
 	}
 
-	map_search_freecell(sd, 0, &mx, &my, 2, 2, 0);
+	if (amount <= 0)
+		amount = 1;
+	if (battle_config.atc_spawn_quantity_limit && amount > battle_config.atc_spawn_quantity_limit)
+		amount = battle_config.atc_spawn_quantity_limit;
 
-	int32 gid = mob_once_spawn(sd, sd->m, mx, my, "", mob_id, 1, "", SZ_SMALL, AI_NONE);
-	mob_data* md = map_id2md(gid);
-	if (md == nullptr) {
-		clif_displaymessage(fd, "Failed to spawn monster.");
-		return -1;
+	range = (int32)sqrt((float)amount) + 2;
+	for (i = 0; i < amount; i++) {
+		map_search_freecell(sd, 0, &mx, &my, range, range, 0);
+
+		int32 gid = mob_once_spawn(sd, sd->m, mx, my, "", mob_id, 1, "", SZ_SMALL, AI_NONE);
+		mob_data* md = map_id2md(gid);
+		if (md == nullptr)
+			continue;
+
+		md->faction = static_cast<uint8>(faction);
+		count++;
 	}
 
-	md->faction = static_cast<uint8>(faction);
-	clif_displaymessage(fd, "Monstre invoque avec faction assignee.");
+	sprintf(atcmd_output, "%d monstre(s) invoque(s) avec faction assignee.", count);
+	clif_displaymessage(fd, atcmd_output);
 
 	return 0;
 }
