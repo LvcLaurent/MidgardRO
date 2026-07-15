@@ -24,6 +24,11 @@ prt_fild08,341,220,3	script	Aventurier claudicant#reign	1_M_KNIGHTMASTER,{
 
 //== Geir (prt_fild08) — quête de chasse Fabre/Pupa (91007) ==================
 prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
+	if (champs_pupa_fabre == 1) {
+		mes "[Geir]";
+		mes "Le champ est calme, grâce à toi. Plus besoin d'y retourner.";
+		close;
+	}
 	if (checkquest(91007,HUNTING) == 2) {
 		mes "[Geir]";
 		mes "Vingt Fabre, dix Pupa. Tu as fait le compte. Le champ respire déjà mieux.";
@@ -31,7 +36,7 @@ prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
 		mes "[Geir]";
 		mes "Tiens, tu as gagné ça sur le terrain — c'est amplement mérité.";
 		close2;
-		getexp 203030,0;
+		getexp 13535,0;
 		if (getfaction() == 1)
 			add_reputation_points(REPUTATION_ORDRE,10);
 		else if (getfaction() == 2)
@@ -41,6 +46,7 @@ prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
 			add_reputation_points(REPUTATION_FORGENOIRES,5);
 		}
 		erasequest 91007;
+		champs_pupa_fabre = 1;
 		end;
 	} else if (isbegin_quest(91007) == 1) {
 		mes "[Geir]";
