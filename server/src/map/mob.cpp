@@ -2999,6 +2999,8 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 	}
 
 	// Reign of Midgard: faction reputation on kill.
+	ShowInfo("REIGN_DEBUG: mob_dead faction check - sd=%d md->faction=%d sd->faction=%d md->level=%d base_level=%d\n",
+		sd != nullptr, md->faction, sd ? sd->status.faction : -1, md->level, sd ? sd->status.base_level : -1);
 	if( sd && md->faction && sd->status.faction ){
 		bool level_equivalent = md->level >= (int32)sd->status.base_level - REP_LEVEL_TOLERANCE;
 		// reputation_db Ids (5/6) are not the same numbers as status.faction (1/2) -
@@ -3006,11 +3008,20 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 		// directly here would silently edit the wrong reputation type.
 		int32 reputation_id = (sd->status.faction == 1) ? REPUTATION_ORDRE : REPUTATION_FORGENOIRES;
 
+		ShowInfo("REIGN_DEBUG: level_equivalent=%d reputation_id=%d same_faction=%d\n",
+			level_equivalent, reputation_id, sd->status.faction == md->faction);
+
 		if( sd->status.faction == md->faction ){
 			// Killed a mob of your own faction: 1/2 chance of a penalty, no daily limit.
 			// A level-equivalent kill (a "real" one, not a stray weak one) costs far more.
-			if( rnd()%2 == 0 )
+			int32 roll = rnd()%2;
+			ShowInfo("REIGN_DEBUG: own-faction kill, roll=%d (need 0)\n", roll);
+			if( roll == 0 ){
+				int32 before = (int32)pc_readreg2(sd, reputation_db.find(reputation_id)->variable.c_str());
 				mob_reward_faction_reputation(sd, reputation_id, level_equivalent ? -10 : -1);
+				int32 after = (int32)pc_readreg2(sd, reputation_db.find(reputation_id)->variable.c_str());
+				ShowInfo("REIGN_DEBUG: applied penalty, before=%d after=%d\n", before, after);
+			}
 		}else if( status_has_mode(status, MD_AGGRESSIVE) && level_equivalent ){
 			// Killed a hostile (non-passive) mob of the opposing faction, close enough to
 			// your own level: 1/15 chance of +1, capped at REP_DAILY_GAIN_CAP per day.

@@ -10044,6 +10044,7 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 			}else{
 				safestrncpy( name, md->name, NAME_LENGTH );
 			}
+			ShowInfo("REIGN_DEBUG: clif_name BL_MOB gid=%d md->faction=%d built_name='%s' target=%d\n", bl->id, md->faction, name, (int32)target);
 
 			if( md->guardian_data && md->guardian_data->guild_id ){
 				PACKET_ZC_ACK_REQNAMEALL packet = { 0 };
