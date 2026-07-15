@@ -44,19 +44,3 @@
 Header:
   Type: ACHIEVEMENT_DB
   Version: 2
-
-Body:
-  # Reign of Midgard — faction titles, granted directly by setfaction()/@setfaction
-  # (server/src/map/script.cpp, atcommand.cpp), never through real completion tracking.
-  - Id: 900000
-    Group: Adventure
-    Name: "Reign of Midgard: L'Ordre de la Faille"
-    Rewards:
-      TitleId: 90000
-    Score: 0
-  - Id: 900001
-    Group: Adventure
-    Name: "Reign of Midgard: Les Forgenoires"
-    Rewards:
-      TitleId: 90001
-    Score: 0

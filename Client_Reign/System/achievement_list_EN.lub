@@ -5332,35 +5332,6 @@ achievement_tbl = {
 		resource = { [1] = { text = "Obtain Level 1 Cooking" } },
 		reward = {},
 		score = 20
-	},
-	-- Reign of Midgard: faction titles, granted directly by setfaction()/@setfaction, never through real completion tracking.
-	[900000] = {
-		UI_Type = 0,
-		group = "ADVENTURE",
-		major = 2,
-		minor = 0,
-		title = "L'Ordre de la Faille",
-		content = {
-			summary = "Rejoindre L'Ordre de la Faille",
-			details = "Rejoindre L'Ordre de la Faille"
-		},
-		resource = { [1] = { text = "Rejoindre L'Ordre de la Faille" } },
-		reward = { title = 90000 },
-		score = 0
-	},
-	[900001] = {
-		UI_Type = 0,
-		group = "ADVENTURE",
-		major = 2,
-		minor = 0,
-		title = "Les Forgenoires",
-		content = {
-			summary = "Rejoindre Les Forgenoires",
-			details = "Rejoindre Les Forgenoires"
-		},
-		resource = { [1] = { text = "Rejoindre Les Forgenoires" } },
-		reward = { title = 90001 },
-		score = 0
 	}
 }
 

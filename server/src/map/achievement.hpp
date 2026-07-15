@@ -63,10 +63,10 @@ enum e_achievement_info {
 	ACHIEVEINFO_MAX,
 };
 
-enum e_title_table : uint32 {
+enum e_title_table : uint16 {
 	TITLE_NONE = 0,
 	TITLE_BASE = 1000,
-	TITLE_MAX = 90001, // Reign of Midgard: raised from 1046 to fit FACTION_TITLE_* (see common/mmo.hpp)
+	TITLE_MAX = 1046,
 };
 
 struct achievement_target {
