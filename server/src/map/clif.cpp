@@ -9947,7 +9947,17 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 				return;
 			}
 
-			safestrncpy( packet.name, sd->status.name, NAME_LENGTH );
+			// Reign of Midgard: prepend a short faction tag directly onto the displayed
+			// name. The base name field is the one part of this packet guaranteed to
+			// render on this client (party_name/title_id both turned out to be dead
+			// ends) - NAME_LENGTH is only 23 usable chars, hence the short tags.
+			if( sd->status.faction == 1 ){
+				safesnprintf( packet.name, NAME_LENGTH, "[Ordre] %s", sd->status.name );
+			}else if( sd->status.faction == 2 ){
+				safesnprintf( packet.name, NAME_LENGTH, "[Forge] %s", sd->status.name );
+			}else{
+				safestrncpy( packet.name, sd->status.name, NAME_LENGTH );
+			}
 
 			party_data *p = nullptr;
 
@@ -10813,6 +10823,10 @@ void clif_parse_LoadEndAck(int32 fd,map_session_data *sd)
 	if(map_addblock(sd))
 		return;
 	clif_spawn(sd);
+
+	// Reign of Midgard: force a fresh nameplate push on login/map-change so the
+	// faction tag is never stuck on whatever the client had cached from before.
+	clif_name_self(sd);
 
 	// Party
 	// (needs to go after clif_spawn() to show hp bars correctly)

@@ -1349,6 +1349,11 @@ int32 char_check_char_name(char * name, char * esc_name)
 	 **/
 	if( strlen( name ) < charserv_config.char_config.char_name_min_length )
 		return -2;
+	// Reign of Midgard: cap at 15 so "[Ordre] "/"[Forge] " (8 chars) + name never
+	// exceeds NAME_LENGTH's 23 usable chars and gets silently truncated in the
+	// nameplate (see clif_name() in map/clif.cpp).
+	if( strlen( name ) > 15 )
+		return -2;
 	// check content of character name
 	if( remove_control_chars(name) )
 		return -2; // control chars in name
