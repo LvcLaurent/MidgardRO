@@ -10006,6 +10006,47 @@ ACMD_FUNC(setfaction)
 }
 
 /*==========================================
+ * Reign of Midgard: spawn a mob tagged with a faction, hostile to anyone
+ * not in it (see UMOB_FACTION / battle_check_target in battle.cpp).
+ * @spawnfactionmob <1|2> {<mob name or id>}
+ *------------------------------------------*/
+ACMD_FUNC(spawnfactionmob)
+{
+	char mobname[NAME_LENGTH] = "Poring";
+	int32 faction = 0, mob_id, mx, my;
+
+	nullpo_retr(-1, sd);
+
+	sscanf(message, "%11d %23s", &faction, mobname);
+
+	if (faction != 1 && faction != 2) {
+		clif_displaymessage(fd, "Usage: @spawnfactionmob <1|2> {<mob name or id>}");
+		return -1;
+	}
+
+	std::shared_ptr<s_mob_db> mob = mobdb_search_aegisname(mobname);
+	mob_id = (mob != nullptr) ? mob->id : util::strtoint32def(mobname);
+	if (mob_id == 0 || mobdb_checkid(mob_id) == 0) {
+		clif_displaymessage(fd, "Invalid monster ID or name.");
+		return -1;
+	}
+
+	map_search_freecell(sd, 0, &mx, &my, 2, 2, 0);
+
+	int32 gid = mob_once_spawn(sd, sd->m, mx, my, "", mob_id, 1, "", SZ_SMALL, AI_NONE);
+	mob_data* md = map_id2md(gid);
+	if (md == nullptr) {
+		clif_displaymessage(fd, "Failed to spawn monster.");
+		return -1;
+	}
+
+	md->faction = static_cast<uint8>(faction);
+	clif_displaymessage(fd, "Monstre invoque avec faction assignee.");
+
+	return 0;
+}
+
+/*==========================================
  * Custom Fonts
  *------------------------------------------*/
 ACMD_FUNC(font)
@@ -11777,6 +11818,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(charcommands),
 		ACMD_DEF(font),
 		ACMD_DEF(setfaction),
+		ACMD_DEF(spawnfactionmob),
 		ACMD_DEF(accinfo),
 		ACMD_DEF(set),
 		ACMD_DEF(undisguiseguild),

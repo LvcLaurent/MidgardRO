@@ -8113,6 +8113,20 @@ int32 battle_check_target( const block_list* src, const block_list* target, int3
 				if( t_bl->type == BL_MOB && !(static_cast<const mob_data*>(t_bl)->special_state.ai ) )
 					state |= BCT_ENEMY; //Natural enemy for AI mobs are normal mobs.
 			}
+
+			// Reign of Midgard: mobs tagged with a faction (see UMOB_FACTION) are
+			// hostile toward players outside that faction (including factionless
+			// ones) and friendly toward players in it, regardless of the above.
+			if( md->faction && t_bl->type == BL_PC ){
+				const map_session_data* tsd = static_cast<const map_session_data*>(t_bl);
+
+				if( tsd->status.faction == md->faction ){
+					state &= ~BCT_ENEMY;
+					state |= BCT_PARTY;
+				}else{
+					state |= BCT_ENEMY;
+				}
+			}
 			break;
 		}
 		default:

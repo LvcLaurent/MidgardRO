@@ -373,6 +373,7 @@ struct mob_data : public block_list {
 	int32 target_id,attacked_id,norm_attacked_id;
 	int32 areanpc_id; //Required in OnTouchNPC (to avoid multiple area touchs)
 	int32 bg_id; // BattleGround System
+	uint8 faction; // Reign of Midgard: hostile toward players of a different (or no) faction, see battle_check_target(). 0 = none
 
 	t_tick next_walktime,next_thinktime,last_linktime,last_pcneartime,last_canmove,last_skillcheck;
 	t_tick trickcasting; // Special state where you show a fake castbar while moving
