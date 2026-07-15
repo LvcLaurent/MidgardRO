@@ -33,6 +33,15 @@ run_remote() {
 echo "==> Synchronisation du dépôt sur $DEPLOY_HOST"
 run_remote "if [ -d $REMOTE_DIR/.git ]; then cd $REMOTE_DIR && git fetch origin $BRANCH && git checkout $BRANCH && git reset --hard origin/$BRANCH; else git clone --branch $BRANCH $REPO_URL $REMOTE_DIR; fi"
 
+echo "==> Rafraîchissement de db/import depuis db/import-tmpl"
+# db/import est gitignored, donc git reset --hard ci-dessus ne le touche jamais - il peut
+# rester bloqué sur un vieux contenu indéfiniment. Le Makefile (make clean server, invoqué
+# par le Dockerfile) ne copie import-tmpl -> import que si le fichier n'existe pas encore,
+# donc un fichier déjà présent (même obsolète) n'est jamais mis à jour par le build seul.
+# Même classe de bug que l'incident inter_conf.txt - on force la copie ici pour ne jamais
+# servir un import-tmpl modifié sans que le changement n'atteigne la prod.
+run_remote "mkdir -p $REMOTE_DIR/server/db/import && cp -f $REMOTE_DIR/server/db/import-tmpl/* $REMOTE_DIR/server/db/import/"
+
 echo "==> Écriture du .env de production"
 run_remote "printf 'DB_PASSWORD=%s\n' '$DB_PASSWORD' > $REMOTE_DIR/server/tools/docker/.env"
 
