@@ -22425,8 +22425,6 @@ BUILDIN_FUNC(setfaction)
 
 	sd->status.faction = static_cast<uint8>(script_getnum(st,2));
 	status_calc_pc(sd, SCO_FORCE);
-	clif_name_self(sd);
-	clif_name_area(sd);
 
 	return SCRIPT_CMD_SUCCESS;
 }
