@@ -10027,6 +10027,26 @@ ACMD_FUNC(setfaction)
 }
 
 /*==========================================
+ * Reign of Midgard: TEMPORARY diagnostic command - grants the vanilla,
+ * untouched-by-us achievement 200000 (reward: TitleId 1000, "Junction of
+ * life"), to check whether title text renders on this client AT ALL,
+ * independent of anything we've built for the faction titles.
+ * Remove once the faction-title investigation is resolved.
+ *------------------------------------------*/
+ACMD_FUNC(testtitle)
+{
+	achievement_add( sd, 200000 );
+	achievement_update_achievement( sd, 200000, true );
+	achievement_get_reward( sd, 200000, time(nullptr) );
+	sd->status.title_id = 1000;
+	clif_name_self(sd);
+	clif_name_area(sd);
+	clif_displaymessage(fd, "Test titre officiel (200000/1000) applique.");
+
+	return 0;
+}
+
+/*==========================================
  * Custom Fonts
  *------------------------------------------*/
 ACMD_FUNC(font)
@@ -11798,6 +11818,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(charcommands),
 		ACMD_DEF(font),
 		ACMD_DEF(setfaction),
+		ACMD_DEF(testtitle),
 		ACMD_DEF(accinfo),
 		ACMD_DEF(set),
 		ACMD_DEF(undisguiseguild),
