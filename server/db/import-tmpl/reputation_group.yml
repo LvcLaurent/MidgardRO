@@ -31,3 +31,11 @@
 Header:
   Type: REPUTATION_GROUP_DB
   Version: 1
+
+Body:
+  - Id: 4
+    ScriptName: ReignFactions
+    Name: Reign of Midgard
+    ReputeList:
+      - 5
+      - 6

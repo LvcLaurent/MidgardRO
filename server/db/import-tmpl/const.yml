@@ -33,3 +33,9 @@
 Header:
   Type: CONSTANT_DB
   Version: 1
+
+Body:
+  - Name: REPUTATION_ORDRE
+    Value: 5
+  - Name: REPUTATION_FORGENOIRES
+    Value: 6

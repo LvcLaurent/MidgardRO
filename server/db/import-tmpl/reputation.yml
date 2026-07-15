@@ -32,3 +32,16 @@
 Header:
   Type: REPUTATION_DB
   Version: 1
+
+Body:
+  # Reign of Midgard: faction reputation
+  - Id: 5
+    Name: L'Ordre de la Faille
+    Variable: RepPointsOrdre
+    Minimum: 0
+    Maximum: 1000
+  - Id: 6
+    Name: Les Forgenoires
+    Variable: RepPointsForge
+    Minimum: 0
+    Maximum: 1000
