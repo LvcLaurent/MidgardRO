@@ -10013,7 +10013,8 @@ ACMD_FUNC(setfaction)
 ACMD_FUNC(spawnfactionmob)
 {
 	char mobname[NAME_LENGTH] = "Poring";
-	int32 faction = 0, mob_id, mx, my;
+	int32 faction = 0, mob_id;
+	int16 mx, my;
 
 	nullpo_retr(-1, sd);
 
