@@ -9955,14 +9955,8 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 				p = party_search( sd->status.party_id );
 			}
 
-			// Reign of Midgard: the party-name slot doubles as the faction display,
-			// which takes priority over the real party name when a faction is set.
-			if( sd->status.faction == 1 ){
-				safestrncpy( packet.party_name, "L'Ordre de la Faille", NAME_LENGTH );
-			}else if( sd->status.faction == 2 ){
-				safestrncpy( packet.party_name, "Les Forgenoires", NAME_LENGTH );
-			}else if( p && ( sd->guild || battle_config.display_party_name ) ){
-				// do not display party unless the player is also in a guild
+			// do not display party unless the player is also in a guild
+			if( p && ( sd->guild || battle_config.display_party_name ) ){
 				safestrncpy( packet.party_name, p->party.name, NAME_LENGTH );
 			}
 
