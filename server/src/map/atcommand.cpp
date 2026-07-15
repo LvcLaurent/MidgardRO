@@ -10001,21 +10001,11 @@ ACMD_FUNC(setfaction)
 	sd->status.faction = static_cast<uint8>(faction);
 	status_calc_pc(sd, SCO_FORCE);
 
-	int32 title_id = 0;
-
 	switch( sd->status.faction ){
-		case 1: title_id = FACTION_TITLE_ORDRE; break;
-		case 2: title_id = FACTION_TITLE_FORGENOIRES; break;
+		case 1: sd->status.title_id = FACTION_TITLE_ORDRE; break;
+		case 2: sd->status.title_id = FACTION_TITLE_FORGENOIRES; break;
+		default: sd->status.title_id = 0; break;
 	}
-	// The client only lets a title be equipped/rendered if it's in the player's
-	// "unlocked" list - normally populated by claiming an achievement reward.
-	// We bypass achievements entirely and just push it directly, same as
-	// achievement_get_reward() does in achievement.cpp.
-	if( title_id != 0 && std::find( sd->titles.begin(), sd->titles.end(), title_id ) == sd->titles.end() ){
-		sd->titles.push_back( title_id );
-	}
-	sd->status.title_id = title_id;
-	clif_achievement_list_all(sd);
 	clif_name_self(sd);
 	clif_name_area(sd);
 
