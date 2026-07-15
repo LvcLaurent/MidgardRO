@@ -560,7 +560,8 @@ struct hotkey {
 #endif
 
 // Reign of Midgard: title IDs used to display the character's faction next to their name (see status.title_id).
-// Text is defined client-side in System/TitleTable.lub, not through achievement_db.yml - these are assigned directly.
+// Text is defined client-side in reign_GRF's data/luafiles514/lua files/datainfo/titletable.lub (packed into
+// reign.grf, which has GRF priority - see client/reign.ini), not through achievement_db.yml - assigned directly.
 #define FACTION_TITLE_ORDRE 90000
 #define FACTION_TITLE_FORGENOIRES 90001
 

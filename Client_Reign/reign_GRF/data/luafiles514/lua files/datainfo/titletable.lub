@@ -51,7 +51,10 @@ title_tbl = {
 	[1043] = "Strouf Slayer",
 	[1044] = "Sting Slayer",
 	[1045] = "Conqueror of Illusion",
-	[1046] = "King Maker"
+	[1046] = "King Maker",
+	-- Reign of Midgard: faction titles (see FACTION_TITLE_* in server/src/common/mmo.hpp)
+	[90000] = "L'Ordre de la Faille",
+	[90001] = "Les Forgenoires"
 }
 
 GetTitleString = function(titleID)
