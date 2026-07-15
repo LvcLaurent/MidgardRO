@@ -31,7 +31,15 @@ prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
 		mes "[Geir]";
 		mes "Tiens, tu as gagné ça sur le terrain — c'est amplement mérité.";
 		close2;
-		getexp 20303,0;
+		getexp 203030,0;
+		if (getfaction() == 1)
+			add_reputation_points(REPUTATION_ORDRE,10);
+		else if (getfaction() == 2)
+			add_reputation_points(REPUTATION_FORGENOIRES,10);
+		else {
+			add_reputation_points(REPUTATION_ORDRE,5);
+			add_reputation_points(REPUTATION_FORGENOIRES,5);
+		}
 		erasequest 91007;
 		end;
 	} else if (isbegin_quest(91007) == 1) {
