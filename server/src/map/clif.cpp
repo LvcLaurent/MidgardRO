@@ -10033,12 +10033,24 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 		case BL_MOB: {
 			const mob_data* md = static_cast<const mob_data*>(bl);
 
+			// Reign of Midgard: prepend the same short faction tag used on players
+			// (see the BL_PC case above) onto faction-tagged mobs' displayed name.
+			char name[NAME_LENGTH];
+
+			if( md->faction == 1 ){
+				safesnprintf( name, NAME_LENGTH, "[Ordre] %s", md->name );
+			}else if( md->faction == 2 ){
+				safesnprintf( name, NAME_LENGTH, "[Forge] %s", md->name );
+			}else{
+				safestrncpy( name, md->name, NAME_LENGTH );
+			}
+
 			if( md->guardian_data && md->guardian_data->guild_id ){
 				PACKET_ZC_ACK_REQNAMEALL packet = { 0 };
 
 				packet.packet_id = HEADER_ZC_ACK_REQNAMEALL;
 				packet.gid = bl->id;
-				safestrncpy( packet.name, md->name, NAME_LENGTH );
+				safestrncpy( packet.name, name, NAME_LENGTH );
 				safestrncpy( packet.guild_name, md->guardian_data->guild_name, NAME_LENGTH );
 				safestrncpy( packet.position_name, md->guardian_data->castle->castle_name, NAME_LENGTH );
 
@@ -10048,7 +10060,7 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 
 				packet.packet_id = HEADER_ZC_ACK_REQNAMEALL;
 				packet.gid = bl->id;
-				safestrncpy( packet.name, md->name, NAME_LENGTH );
+				safestrncpy( packet.name, name, NAME_LENGTH );
 
 				char mobhp[50], *str_p = mobhp;
 
@@ -10076,7 +10088,7 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 
 				packet.packet_id = HEADER_ZC_ACK_REQNAMEALL_NPC;
 				packet.gid = bl->id;
-				safestrncpy(packet.name, md->name, NAME_LENGTH);
+				safestrncpy(packet.name, name, NAME_LENGTH);
 
 #if PACKETVER_MAIN_NUM >= 20180207 || PACKETVER_RE_NUM >= 20171129 || PACKETVER_ZERO_NUM >= 20171130
 				const unit_data* ud = unit_bl2ud(bl);

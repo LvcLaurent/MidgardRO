@@ -10057,6 +10057,41 @@ ACMD_FUNC(spawnfactionmob)
 }
 
 /*==========================================
+ * Reign of Midgard: manually adjust your own faction reputation, for testing
+ * without relying on the kill-reward odds in mob_dead() (mob.cpp).
+ * @addreputation <1|2> <amount>
+ *------------------------------------------*/
+ACMD_FUNC(addreputation)
+{
+	int32 faction = 0, amount = 0, reputation_id;
+
+	nullpo_retr(-1, sd);
+
+	if (sscanf(message, "%11d %11d", &faction, &amount) < 2 || (faction != 1 && faction != 2)) {
+		clif_displaymessage(fd, "Usage: @addreputation <1|2> <amount>");
+		return -1;
+	}
+
+	reputation_id = (faction == 1) ? REPUTATION_ORDRE : REPUTATION_FORGENOIRES;
+
+	std::shared_ptr<s_reputation> reputation = reputation_db.find(reputation_id);
+	if (reputation == nullptr) {
+		clif_displaymessage(fd, "Reputation type not found.");
+		return -1;
+	}
+
+	int64 points = pc_readreg2(sd, reputation->variable.c_str()) + amount;
+
+	points = cap_value(points, reputation->minimum, reputation->maximum);
+	pc_setreg2(sd, reputation->variable.c_str(), points);
+
+	sprintf(atcmd_output, "Reputation faction %d = %lld.", faction, (long long)points);
+	clif_displaymessage(fd, atcmd_output);
+
+	return 0;
+}
+
+/*==========================================
  * Custom Fonts
  *------------------------------------------*/
 ACMD_FUNC(font)
@@ -11829,6 +11864,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(font),
 		ACMD_DEF(setfaction),
 		ACMD_DEF(spawnfactionmob),
+		ACMD_DEF(addreputation),
 		ACMD_DEF(accinfo),
 		ACMD_DEF(set),
 		ACMD_DEF(undisguiseguild),

@@ -26,6 +26,7 @@
 #include "achievement.hpp"
 #include "battle.hpp"
 #include "clif.hpp"
+#include "date.hpp"
 #include "elemental.hpp"
 #include "guild.hpp"
 #include "homunculus.hpp"
@@ -2927,6 +2928,48 @@ map_session_data* mob_data::get_mvp_player(map_session_data* first_sd) {
 	return mvp_sd;
 }
 
+// Reign of Midgard: faction reputation on kill (see mob_dead() below).
+// A mob's level counts as "equivalent" to the killer's if it isn't more than this many levels below them.
+#define REP_LEVEL_TOLERANCE 10
+// Max reputation points a character can gain (not lose) from faction kills per calendar day.
+#define REP_DAILY_GAIN_CAP 5
+
+// Applies a reputation delta to one of the character's faction reputations (REPUTATION_ORDRE/
+// REPUTATION_FORGENOIRES), clamped to whatever reputation_db.yml configured as min/max for it.
+static void mob_reward_faction_reputation(map_session_data* sd, int32 faction, int32 delta)
+{
+	std::shared_ptr<s_reputation> reputation = reputation_db.find(faction);
+
+	if (reputation == nullptr)
+		return;
+
+	int64 points = pc_readreg2(sd, reputation->variable.c_str()) + delta;
+
+	points = cap_value(points, reputation->minimum, reputation->maximum);
+	pc_setreg2(sd, reputation->variable.c_str(), points);
+}
+
+// Same as above, but only for reputation gains - tracks how many points were gained today
+// (own two permanent char variables, reset lazily on day change) and refuses once
+// REP_DAILY_GAIN_CAP is reached. Kill penalties never go through this, only rewards.
+static void mob_reward_faction_reputation_capped(map_session_data* sd, int32 faction, int32 delta)
+{
+	int32 today = date_get(DT_YYYYMMDD);
+
+	if (pc_readreg2(sd, "rep_daily_date") != today) {
+		pc_setreg2(sd, "rep_daily_date", today);
+		pc_setreg2(sd, "rep_daily_gain", 0);
+	}
+
+	int64 gained_today = pc_readreg2(sd, "rep_daily_gain");
+
+	if (gained_today >= REP_DAILY_GAIN_CAP)
+		return;
+
+	mob_reward_faction_reputation(sd, faction, delta);
+	pc_setreg2(sd, "rep_daily_gain", gained_today + delta);
+}
+
 /*==========================================
  * Signals death of mob.
  * type&1 -> no drops, type&2 -> no exp
@@ -2953,6 +2996,23 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 	if( src && src->type == BL_PC ) {
 		sd = (map_session_data *)src;
 		first_sd = sd;
+	}
+
+	// Reign of Midgard: faction reputation on kill.
+	if( sd && md->faction && sd->status.faction ){
+		bool level_equivalent = md->level >= (int32)sd->status.base_level - REP_LEVEL_TOLERANCE;
+
+		if( sd->status.faction == md->faction ){
+			// Killed a mob of your own faction: 1/2 chance of a penalty, no daily limit.
+			// A level-equivalent kill (a "real" one, not a stray weak one) costs far more.
+			if( rnd()%2 == 0 )
+				mob_reward_faction_reputation(sd, sd->status.faction, level_equivalent ? -10 : -1);
+		}else if( status_has_mode(status, MD_AGGRESSIVE) && level_equivalent ){
+			// Killed a hostile (non-passive) mob of the opposing faction, close enough to
+			// your own level: 1/15 chance of +1, capped at REP_DAILY_GAIN_CAP per day.
+			if( rnd()%15 == 0 )
+				mob_reward_faction_reputation_capped(sd, sd->status.faction, 1);
+		}
 	}
 
 	if( md->guardian_data && md->guardian_data->number >= 0 && md->guardian_data->number < MAX_GUARDIANS )

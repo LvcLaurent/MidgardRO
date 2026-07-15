@@ -559,6 +559,12 @@ struct hotkey {
 };
 #endif
 
+// Reign of Midgard: reputation_db.yml Ids for the two factions (also registered as
+// REPUTATION_ORDRE/REPUTATION_FORGENOIRES script constants in const.yml) - these two
+// defines are the C++-side equivalent, used by the kill-reward logic in mob_dead() (mob.cpp).
+#define REPUTATION_ORDRE 5
+#define REPUTATION_FORGENOIRES 6
+
 struct mmo_charstatus {
 	uint32 char_id;
 	uint32 account_id;
@@ -623,7 +629,7 @@ struct mmo_charstatus {
 
 	unsigned char font;
 
-	// Reign of Midgard: faction chosen by the character (0 = none, 1 = L'Ordre de la Faille, 2 = Les Forgenoires)
+	// Reign of Midgard: faction chosen by the character (0 = none, 1 = L'Ordre de la Faille, 2 = Les Forgenoires).
 	unsigned char faction;
 
 	bool cashshop_sent; // Whether the player has received the CashShop list
