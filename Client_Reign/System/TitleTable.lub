@@ -1,9 +1,3 @@
--- Original translation works of zackdreaver: https://github.com/zackdreaver/ROenglishRE
--- Continuated by llchrisll at https://github.com/llchrisll/ROenglishRE
--- This file can be distributed, used and modified freely
--- This file shouldn't be claimed as part of your project, unless you fork it from https://github.com/llchrisll/ROenglishRE
--- Last updated: 20230321
-
 title_tbl = {
 	[1000] = "Junction of life",
 	[1001] = "Specialist",
@@ -50,8 +44,9 @@ title_tbl = {
 	[1042] = "Undead Slayer",
 	[1043] = "Strouf Slayer",
 	[1044] = "Sting Slayer",
-	[1045] = "Conqueror of Illusion",
-	[1046] = "King Maker"
+	-- Reign of Midgard: faction titles (see FACTION_TITLE_* in server/src/common/mmo.hpp)
+	[90000] = "L'Ordre de la Faille",
+	[90001] = "Les Forgenoires"
 }
 
 GetTitleString = function(titleID)
