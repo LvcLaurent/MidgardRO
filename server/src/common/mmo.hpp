@@ -560,10 +560,16 @@ struct hotkey {
 #endif
 
 // Reign of Midgard: title IDs used to display the character's faction next to their name (see status.title_id).
-// Text is defined client-side in reign_GRF's data/luafiles514/lua files/datainfo/titletable.lub (packed into
-// reign.grf, which has GRF priority - see client/reign.ini), not through achievement_db.yml - assigned directly.
+// The client only renders/lists a title it has locally resolved through its own achievement_list*.lub
+// (System/, cross-referenced against completed+rewarded achievements the server reports) - so these titles
+// are backed by real achievement_db.yml entries (db/import-tmpl/achievement_db.yml, Id 900000/900001) granted
+// directly via achievement_add()/achievement_update_achievement()/achievement_get_reward(), never through
+// real completion tracking. Title text itself is in reign_GRF's data/luafiles514/lua files/datainfo/titletable.lub
+// (packed into reign.grf, which has GRF priority - see client/reign.ini; must be Lua bytecode, not source text).
 #define FACTION_TITLE_ORDRE 90000
 #define FACTION_TITLE_FORGENOIRES 90001
+#define FACTION_ACHIEVEMENT_ORDRE 900000
+#define FACTION_ACHIEVEMENT_FORGENOIRES 900001
 
 struct mmo_charstatus {
 	uint32 char_id;

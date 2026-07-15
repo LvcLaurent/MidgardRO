@@ -317,7 +317,7 @@ uint64 AchievementDatabase::parseBodyNode(const ryml::NodeRef& node){
 			}
 
 			if (title < TITLE_BASE || title > TITLE_MAX) {
-				this->invalidWarning(rewardNode["TitleId"], "Reward Title ID %u does not exist (%hu~%hu), skipping.\n", title, TITLE_BASE, TITLE_MAX);
+				this->invalidWarning(rewardNode["TitleId"], "Reward Title ID %u does not exist (%u~%u), skipping.\n", title, TITLE_BASE, TITLE_MAX);
 				return 0;
 			}
 

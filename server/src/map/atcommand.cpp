@@ -10001,21 +10001,23 @@ ACMD_FUNC(setfaction)
 	sd->status.faction = static_cast<uint8>(faction);
 	status_calc_pc(sd, SCO_FORCE);
 
-	int32 title_id = 0;
+	int32 title_id = 0, achievement_id = 0;
 
 	switch( sd->status.faction ){
-		case 1: title_id = FACTION_TITLE_ORDRE; break;
-		case 2: title_id = FACTION_TITLE_FORGENOIRES; break;
+		case 1: title_id = FACTION_TITLE_ORDRE; achievement_id = FACTION_ACHIEVEMENT_ORDRE; break;
+		case 2: title_id = FACTION_TITLE_FORGENOIRES; achievement_id = FACTION_ACHIEVEMENT_FORGENOIRES; break;
 	}
-	// The client only lets a title be equipped/rendered if it's in the player's
-	// "unlocked" list - normally populated by claiming an achievement reward.
-	// We bypass achievements entirely and just push it directly, same as
-	// achievement_get_reward() does in achievement.cpp.
-	if( title_id != 0 && std::find( sd->titles.begin(), sd->titles.end(), title_id ) == sd->titles.end() ){
-		sd->titles.push_back( title_id );
+	// The client derives its title list purely from its own achievement_list*.lub,
+	// cross-referenced against which achievements the server reports as completed+
+	// rewarded (clif_achievement_list_all) - an sd->status.title_id / sd->titles
+	// value alone is never enough. Grant the matching achievement for real (see
+	// FACTION_ACHIEVEMENT_* in common/mmo.hpp) instead of trying to shortcut it.
+	if( achievement_id != 0 ){
+		achievement_add( sd, achievement_id );
+		achievement_update_achievement( sd, achievement_id, true );
+		achievement_get_reward( sd, achievement_id, time(nullptr) );
 	}
 	sd->status.title_id = title_id;
-	clif_achievement_list_all(sd);
 	clif_name_self(sd);
 	clif_name_area(sd);
 
