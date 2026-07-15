@@ -10000,6 +10000,15 @@ ACMD_FUNC(setfaction)
 
 	sd->status.faction = static_cast<uint8>(faction);
 	status_calc_pc(sd, SCO_FORCE);
+
+	switch( sd->status.faction ){
+		case 1: sd->status.title_id = FACTION_TITLE_ORDRE; break;
+		case 2: sd->status.title_id = FACTION_TITLE_FORGENOIRES; break;
+		default: sd->status.title_id = 0; break;
+	}
+	clif_name_self(sd);
+	clif_name_area(sd);
+
 	clif_displaymessage(fd, "Faction mise à jour.");
 
 	return 0;

@@ -559,6 +559,11 @@ struct hotkey {
 };
 #endif
 
+// Reign of Midgard: title IDs used to display the character's faction next to their name (see status.title_id).
+// Text is defined client-side in System/TitleTable.lub, not through achievement_db.yml - these are assigned directly.
+#define FACTION_TITLE_ORDRE 90000
+#define FACTION_TITLE_FORGENOIRES 90001
+
 struct mmo_charstatus {
 	uint32 char_id;
 	uint32 account_id;
@@ -624,6 +629,7 @@ struct mmo_charstatus {
 	unsigned char font;
 
 	// Reign of Midgard: faction chosen by the character (0 = none, 1 = L'Ordre de la Faille, 2 = Les Forgenoires)
+	// Displayed next to the name via title_id (see FACTION_TITLE_* below and System/TitleTable.lub on the client).
 	unsigned char faction;
 
 	bool cashshop_sent; // Whether the player has received the CashShop list
