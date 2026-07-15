@@ -38,10 +38,10 @@ Body:
   - Id: 5
     Name: L'Ordre de la Faille
     Variable: RepPointsOrdre
-    Minimum: -100000
-    Maximum: 100000
+    Minimum: -10000
+    Maximum: 10000
   - Id: 6
     Name: Les Forgenoires
     Variable: RepPointsForge
-    Minimum: -100000
-    Maximum: 100000
+    Minimum: -10000
+    Maximum: 10000

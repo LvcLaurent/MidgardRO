@@ -3001,17 +3001,21 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 	// Reign of Midgard: faction reputation on kill.
 	if( sd && md->faction && sd->status.faction ){
 		bool level_equivalent = md->level >= (int32)sd->status.base_level - REP_LEVEL_TOLERANCE;
+		// reputation_db Ids (5/6) are not the same numbers as status.faction (1/2) -
+		// Orc Village/Goblin Village already occupy Ids 1/2, so using status.faction
+		// directly here would silently edit the wrong reputation type.
+		int32 reputation_id = (sd->status.faction == 1) ? REPUTATION_ORDRE : REPUTATION_FORGENOIRES;
 
 		if( sd->status.faction == md->faction ){
 			// Killed a mob of your own faction: 1/2 chance of a penalty, no daily limit.
 			// A level-equivalent kill (a "real" one, not a stray weak one) costs far more.
 			if( rnd()%2 == 0 )
-				mob_reward_faction_reputation(sd, sd->status.faction, level_equivalent ? -10 : -1);
+				mob_reward_faction_reputation(sd, reputation_id, level_equivalent ? -10 : -1);
 		}else if( status_has_mode(status, MD_AGGRESSIVE) && level_equivalent ){
 			// Killed a hostile (non-passive) mob of the opposing faction, close enough to
 			// your own level: 1/15 chance of +1, capped at REP_DAILY_GAIN_CAP per day.
 			if( rnd()%15 == 0 )
-				mob_reward_faction_reputation_capped(sd, sd->status.faction, 1);
+				mob_reward_faction_reputation_capped(sd, reputation_id, 1);
 		}
 	}
 

@@ -10047,6 +10047,10 @@ ACMD_FUNC(spawnfactionmob)
 			continue;
 
 		md->faction = static_cast<uint8>(faction);
+		// mob_once_spawn() already broadcast this unit (and its un-tagged name) to
+		// nearby clients before we got to set faction above - push a fresh nameplate
+		// now so the [Ordre]/[Forge] tag (see clif_name() in clif.cpp) actually shows.
+		clif_name_area(md);
 		count++;
 	}
 
