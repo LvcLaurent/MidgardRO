@@ -1,4 +1,4 @@
-NV_BASIC#Basic_Skill#
+NV_BASIC#Compétence_de_Base#
 SM_SWORD#Sword_Mastery#
 SM_TWOHAND#Two-Handed_Sword_Mastery#
 SM_RECOVERY#Increase_HP_Recovery#

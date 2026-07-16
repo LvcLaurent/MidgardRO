@@ -7979,7 +7979,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.NV_BASIC] = {
 		"NV_BASIC",
-		SkillName = "Basic Skill",
+		SkillName = "Compétence de Base",
 		MaxLv = 9,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,

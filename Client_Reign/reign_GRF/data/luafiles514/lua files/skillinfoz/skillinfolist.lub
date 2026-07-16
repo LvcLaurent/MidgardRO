@@ -2395,7 +2395,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.SM_SWORD] = {
 		"SM_SWORD",
-		SkillName = "Sword Mastery",
+		SkillName = "Ma顃rise de l'蓀閑",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -4078,7 +4078,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.SM_TWOHAND] = {
 		"SM_TWOHAND",
-		SkillName = "Two-Handed Sword Mastery",
+		SkillName = "Ma顃rise 蓀閑 2 Mains",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -4494,7 +4494,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.SM_RECOVERY] = {
 		"SM_RECOVERY",
-		SkillName = "Increase HP Recovery",
+		SkillName = "R閏up. de PV Augment閑",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -5459,7 +5459,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.SM_PROVOKE] = {
 		"SM_PROVOKE",
-		SkillName = "Provoke",
+		SkillName = "Provocation",
 		MaxLv = 10,
 		SpAmount = { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 },
 		bSeperateLv = true,
@@ -6092,7 +6092,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.SM_ENDURE] = {
 		"SM_ENDURE",
-		SkillName = "Endure",
+		SkillName = "Endurance",
 		MaxLv = 10,
 		SpAmount = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
 		bSeperateLv = false,
@@ -6508,7 +6508,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MG_SRECOVERY] = {
 		"MG_SRECOVERY",
-		SkillName = "Increase SP Recovery",
+		SkillName = "R閏up. de PM Augment閑",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -6836,7 +6836,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MG_SIGHT] = {
 		"MG_SIGHT",
-		SkillName = "Sight",
+		SkillName = "Clairvoyance",
 		MaxLv = 1,
 		SpAmount = { 10 },
 		bSeperateLv = false,
@@ -8276,7 +8276,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.NV_BASIC] = {
 		"NV_BASIC",
-		SkillName = "Basic Skill",
+		SkillName = "Comp閠ence de Base",
 		MaxLv = 9,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -15364,7 +15364,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.NPC_DEADLYCURSE2] = {
 		"NPC_DEADLYCURSE2",
-		SkillName = "客捞靛 单甸府 目胶",
+		SkillName = "????? ???? ???",
 		MaxLv = 5,
 		SpAmount = { 0, 0, 0, 0, 0 },
 		bSeperateLv = true,
