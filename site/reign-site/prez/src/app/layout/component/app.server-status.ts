@@ -6,6 +6,7 @@ import { ServerStatusService } from '@/app/layout/service/server-status.service'
     standalone: true,
     imports: [],
     template: `
+        <div class="px-4 pt-2 text-[0.857rem] uppercase font-bold text-surface-900 dark:text-surface-0">Serveur</div>
         <div class="flex flex-col gap-2 px-4 py-3 text-sm" role="status">
             <span class="flex items-center gap-2">
                 <i class="pi pi-circle-fill text-xs" [class]="dotClass(serverStatusService.status()?.login)"></i>

@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
+import { ButtonModule } from 'primeng/button';
 import { AppConfigurator } from './app.configurator';
 import { LayoutService } from '@/app/layout/service/layout.service';
 import { AccountService } from '@/app/pages/auth/account.service';
@@ -10,7 +11,7 @@ import { AccountService } from '@/app/pages/auth/account.service';
 @Component({
     selector: 'app-topbar',
     standalone: true,
-    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator],
+    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator, ButtonModule],
     template: ` <div class="layout-topbar">
         <div class="layout-topbar-logo-container">
             <button class="layout-menu-button layout-topbar-action" (click)="layoutService.onMenuToggle()">
@@ -66,10 +67,26 @@ import { AccountService } from '@/app/pages/auth/account.service';
             <div class="layout-topbar-menu hidden lg:block">
                 <div class="layout-topbar-menu-content">
                     @if (accountService.account(); as account) {
-                        <button type="button" class="layout-topbar-action" routerLink="/profile">
-                            <i class="pi pi-user"></i>
-                            <span>{{ account.userId }}</span>
-                        </button>
+                        <div class="relative">
+                            <button
+                                type="button"
+                                class="layout-topbar-action"
+                                pStyleClass="@next"
+                                enterFromClass="hidden"
+                                enterActiveClass="animate-scalein"
+                                leaveToClass="hidden"
+                                leaveActiveClass="animate-fadeout"
+                                [hideOnOutsideClick]="true"
+                            >
+                                <i class="pi pi-user"></i>
+                                <span>{{ account.userId }}</span>
+                            </button>
+                            <div
+                                class="hidden absolute top-13 right-0 w-56 p-2 bg-surface-0 dark:bg-surface-900 border border-surface rounded-border origin-top shadow-[0px_3px_5px_rgba(0,0,0,0.02),0px_0px_2px_rgba(0,0,0,0.05),0px_1px_4px_rgba(0,0,0,0.08)] z-10"
+                            >
+                                <p-button label="Mon compte" icon="pi pi-user" routerLink="/profile" styleClass="w-full" [text]="true"></p-button>
+                            </div>
+                        </div>
                         <button type="button" class="layout-topbar-action" (click)="logout()">
                             <i class="pi pi-sign-out"></i>
                             <span>Déconnexion</span>
