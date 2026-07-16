@@ -1,0 +1,130 @@
+//===== Reign of Midgard ===================================================
+//= Postes d'investissement de faction - Prontera
+//===== Description: =======================================================
+//= Deux PNJ a l'entree de Prontera, un par faction. Si ma faction possede
+//= la ville (cf. $TOWN_OWNER_PRONTERA), le poste propose d'investir dans la
+//= defense. Sinon, il propose d'investir dans l'attaque - une fois le seuil
+//= atteint, le raid se declenche automatiquement (voir
+//= raid_faction_prontera.txt, PRC::OnTriggerRaid). Caisses = globales $
+//= persistees en SQL (mapreg), memes conventions que $WOE_CONTROL.
+//===========================================================================
+
+prontera,150,30,4	script	Poste de l'Ordre#reign	4_M_KNIGHTMASTER,{
+	.@my_faction = 1;
+	.@threshold = 5000;
+
+	if (getfaction() != .@my_faction) {
+		mes "[Poste de l'Ordre]";
+		mes "Seuls les membres de l'Ordre de la Faille peuvent investir ici.";
+		close;
+	}
+
+	if ($TOWN_OWNER_PRONTERA == .@my_faction) {
+		mes "[Poste de l'Ordre]";
+		mes "Prontera est sous notre controle. Chaque zeny investi ici renforce nos defenses pour le prochain assaut.";
+		mes "Caisse de defense actuelle : " + $FACTION_ORDRE_DEFENSE_CHEST + " z.";
+		next;
+		switch (select("Investir 500z", "Investir 1000z", "Investir 5000z", "Rien pour l'instant")) {
+		case 1: .@amount = 500; break;
+		case 2: .@amount = 1000; break;
+		case 3: .@amount = 5000; break;
+		default: close;
+		}
+		if (Zeny < .@amount) {
+			mes "[Poste de l'Ordre]";
+			mes "Tu n'as pas assez de zeny.";
+			close;
+		}
+		set Zeny, Zeny - .@amount;
+		set $FACTION_ORDRE_DEFENSE_CHEST, $FACTION_ORDRE_DEFENSE_CHEST + .@amount;
+		mes "[Poste de l'Ordre]";
+		mes "Investissement recu. Caisse de defense : " + $FACTION_ORDRE_DEFENSE_CHEST + " z.";
+		close;
+	}
+
+	mes "[Poste de l'Ordre]";
+	mes "Prontera ne nous appartient pas. Investis ici pour preparer l'assaut - une fois assez de moyens reunis, le raid se declenche.";
+	mes "Caisse d'attaque actuelle : " + $FACTION_ORDRE_ATTACK_CHEST + " z. (seuil : " + .@threshold + " z.)";
+	next;
+	switch (select("Investir 500z", "Investir 1000z", "Investir 5000z", "Rien pour l'instant")) {
+	case 1: .@amount = 500; break;
+	case 2: .@amount = 1000; break;
+	case 3: .@amount = 5000; break;
+	default: close;
+	}
+	if (Zeny < .@amount) {
+		mes "[Poste de l'Ordre]";
+		mes "Tu n'as pas assez de zeny.";
+		close;
+	}
+	set Zeny, Zeny - .@amount;
+	set $FACTION_ORDRE_ATTACK_CHEST, $FACTION_ORDRE_ATTACK_CHEST + .@amount;
+	mes "[Poste de l'Ordre]";
+	mes "Investissement recu. Caisse d'attaque : " + $FACTION_ORDRE_ATTACK_CHEST + " z.";
+	close2;
+	if ($FACTION_ORDRE_ATTACK_CHEST >= .@threshold) {
+		$@RAID_TRIGGER_FACTION = .@my_faction;
+		donpcevent "PRC_Prontera#reign::OnTriggerRaid";
+	}
+	end;
+}
+
+prontera,162,30,4	script	Poste des Forgenoires#reign	4_M_KNIGHTMASTER,{
+	.@my_faction = 2;
+	.@threshold = 5000;
+
+	if (getfaction() != .@my_faction) {
+		mes "[Poste des Forgenoires]";
+		mes "Seuls les membres des Forgenoires peuvent investir ici.";
+		close;
+	}
+
+	if ($TOWN_OWNER_PRONTERA == .@my_faction) {
+		mes "[Poste des Forgenoires]";
+		mes "Prontera est sous notre controle. Chaque zeny investi ici renforce nos defenses pour le prochain assaut.";
+		mes "Caisse de defense actuelle : " + $FACTION_FORGE_DEFENSE_CHEST + " z.";
+		next;
+		switch (select("Investir 500z", "Investir 1000z", "Investir 5000z", "Rien pour l'instant")) {
+		case 1: .@amount = 500; break;
+		case 2: .@amount = 1000; break;
+		case 3: .@amount = 5000; break;
+		default: close;
+		}
+		if (Zeny < .@amount) {
+			mes "[Poste des Forgenoires]";
+			mes "Tu n'as pas assez de zeny.";
+			close;
+		}
+		set Zeny, Zeny - .@amount;
+		set $FACTION_FORGE_DEFENSE_CHEST, $FACTION_FORGE_DEFENSE_CHEST + .@amount;
+		mes "[Poste des Forgenoires]";
+		mes "Investissement recu. Caisse de defense : " + $FACTION_FORGE_DEFENSE_CHEST + " z.";
+		close;
+	}
+
+	mes "[Poste des Forgenoires]";
+	mes "Prontera ne nous appartient pas. Investis ici pour preparer l'assaut - une fois assez de moyens reunis, le raid se declenche.";
+	mes "Caisse d'attaque actuelle : " + $FACTION_FORGE_ATTACK_CHEST + " z. (seuil : " + .@threshold + " z.)";
+	next;
+	switch (select("Investir 500z", "Investir 1000z", "Investir 5000z", "Rien pour l'instant")) {
+	case 1: .@amount = 500; break;
+	case 2: .@amount = 1000; break;
+	case 3: .@amount = 5000; break;
+	default: close;
+	}
+	if (Zeny < .@amount) {
+		mes "[Poste des Forgenoires]";
+		mes "Tu n'as pas assez de zeny.";
+		close;
+	}
+	set Zeny, Zeny - .@amount;
+	set $FACTION_FORGE_ATTACK_CHEST, $FACTION_FORGE_ATTACK_CHEST + .@amount;
+	mes "[Poste des Forgenoires]";
+	mes "Investissement recu. Caisse d'attaque : " + $FACTION_FORGE_ATTACK_CHEST + " z.";
+	close2;
+	if ($FACTION_FORGE_ATTACK_CHEST >= .@threshold) {
+		$@RAID_TRIGGER_FACTION = .@my_faction;
+		donpcevent "PRC_Prontera#reign::OnTriggerRaid";
+	}
+	end;
+}

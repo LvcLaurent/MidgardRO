@@ -51,6 +51,18 @@ Body:
     Sprite: PORING
   - Mob: PORING_FORGE
     Sprite: PORING
+  - Mob: BASTION_PRONTERA_NORD
+    Sprite: EMPELIUM
+  - Mob: BASTION_PRONTERA_OUEST
+    Sprite: EMPELIUM
+  - Mob: BASTION_PRONTERA_EST
+    Sprite: EMPELIUM
+  - Mob: COEUR_PRONTERA
+    Sprite: EMPELIUM
+  - Mob: MILICE_ORDRE
+    Sprite: SWORD_GUARDIAN
+  - Mob: MILICE_FORGE
+    Sprite: SWORD_GUARDIAN
 
 #Body:
   # Examples

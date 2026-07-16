@@ -9999,7 +9999,7 @@ int32 pc_dead(map_session_data *sd,block_list *src)
 	if(battle_config.death_penalty_type
 		&& (sd->class_&MAPID_SECONDMASK) != MAPID_NOVICE	// only novices will receive no penalty
 	    && !sd->sc.cant.deathpenalty
-		&& !mapdata->getMapFlag(MF_NOEXPPENALTY) && !mapdata_flag_gvg2(mapdata))
+		&& !mapdata->getMapFlag(MF_NOEXPPENALTY) && !mapdata_flag_gvg2(mapdata) && !mapdata->getMapFlag(MF_FACTION_RAID))
 	{
 		t_exp base_penalty = 0;
 		t_exp job_penalty = 0;
@@ -10125,7 +10125,7 @@ int32 pc_dead(map_session_data *sd,block_list *src)
 		}
 	}
 	//GvG
-	if( mapdata_flag_gvg2(mapdata) ) {
+	if( mapdata_flag_gvg2(mapdata) || mapdata->getMapFlag(MF_FACTION_RAID) ) {
 		sd->respawn_tid = add_timer(tick+1000, pc_respawn_timer, sd->id, 0);
 		return 1|8;
 	}

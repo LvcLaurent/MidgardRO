@@ -201,6 +201,138 @@ Body:
         Rate: 20
         StealProtected: true
 
+  # Reign of Midgard: raid de faction sur Prontera. 4 structures a detruire pour
+  # capturer la ville - une seule entree par structure (pas de clone par faction,
+  # contrairement aux mobs ci-dessus) car leur nom ne change jamais selon qui
+  # defend, seul md->faction (pose via setunitdata dans le script du raid) change.
+  # Deliberement PAS de Modes IgnoreMagic/Melee/Misc/Ranged ici, contrairement au
+  # vrai EMPELIUM (Id 1288) dont ces 4 flags le rendent invulnerable en dehors de la
+  # logique WoE native qu'on n'utilise pas - copier ce bloc Modes aurait rendu les
+  # structures indestructibles.
+  - Id: 30002
+    AegisName: BASTION_PRONTERA_NORD
+    Name: "Bastion Nord de Prontera"
+    Level: 90
+    Hp: 20000
+    Defense: 40
+    MagicDefense: 30
+    Size: Small
+    Race: Angel
+    Element: Holy
+    ElementLevel: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Ai: 06
+    Class: Boss
+  - Id: 30003
+    AegisName: BASTION_PRONTERA_OUEST
+    Name: "Bastion Ouest de Prontera"
+    Level: 90
+    Hp: 20000
+    Defense: 40
+    MagicDefense: 30
+    Size: Small
+    Race: Angel
+    Element: Holy
+    ElementLevel: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Ai: 06
+    Class: Boss
+  - Id: 30004
+    AegisName: BASTION_PRONTERA_EST
+    Name: "Bastion Est de Prontera"
+    Level: 90
+    Hp: 20000
+    Defense: 40
+    MagicDefense: 30
+    Size: Small
+    Race: Angel
+    Element: Holy
+    ElementLevel: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Ai: 06
+    Class: Boss
+  - Id: 30005
+    AegisName: COEUR_PRONTERA
+    Name: "Coeur de Prontera"
+    Level: 90
+    Hp: 20000
+    Defense: 40
+    MagicDefense: 30
+    Size: Small
+    Race: Angel
+    Element: Holy
+    ElementLevel: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Ai: 06
+    Class: Boss
+
+  # Renforts invoques automatiquement au declenchement d'un raid (voir
+  # raid_faction_prontera.txt), proportionnellement a la caisse investie de chaque
+  # camp. Clone par faction (comme PORING_ORDRE/PORING_FORGE ci-dessus) car leur nom
+  # affiche doit varier.
+  - Id: 30006
+    AegisName: MILICE_ORDRE
+    Name: "[Ordre] Milicien"
+    Level: 40
+    Hp: 3000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 80
+    Attack2: 20
+    Defense: 20
+    MagicDefense: 10
+    Str: 40
+    Agi: 20
+    Vit: 30
+    Dex: 30
+    AttackRange: 1
+    SkillRange: 6
+    ChaseRange: 9
+    Size: Medium
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 1500
+    AttackMotion: 500
+    DamageMotion: 300
+    Ai: 06
+  - Id: 30007
+    AegisName: MILICE_FORGE
+    Name: "[Forgenoires] Milicien"
+    Level: 40
+    Hp: 3000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 80
+    Attack2: 20
+    Defense: 20
+    MagicDefense: 10
+    Str: 40
+    Agi: 20
+    Vit: 30
+    Dex: 30
+    AttackRange: 1
+    SkillRange: 6
+    ChaseRange: 9
+    Size: Medium
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 1500
+    AttackMotion: 500
+    DamageMotion: 300
+    Ai: 06
+
 #Body:
 # eAthena Dev Team
 #=============================================================

@@ -8090,6 +8090,21 @@ int32 battle_check_target( const block_list* src, const block_list* target, int3
 				return 0; //If you don't belong to a guild, can't target emperium.
 			if( t_bl->type != BL_PC )
 				state |= BCT_ENEMY; //Natural enemy.
+
+			// Reign of Midgard: faction raid - while a raid is active on this map, two
+			// players of different, non-zero factions are hostile to each other
+			// directly, no gvg/guild involved. Mirrors the mob-faction block below
+			// (md->faction, ~line 8117), including stripping alliance flags so the
+			// "alliance takes precedence" rule at the end of this function doesn't
+			// silently cancel BCT_ENEMY back out.
+			if( t_bl->type == BL_PC && mapdata->getMapFlag(MF_FACTION_RAID) ){
+				uint8 t_faction = static_cast<const map_session_data*>(t_bl)->status.faction;
+
+				if( sd->status.faction && t_faction && sd->status.faction != t_faction ){
+					state |= BCT_ENEMY;
+					state &= ~(BCT_PARTY|BCT_GUILD|BCT_SELF);
+				}
+			}
 			break;
 		}
 		case BL_MOB:

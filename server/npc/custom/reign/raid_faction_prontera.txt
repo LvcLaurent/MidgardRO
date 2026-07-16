@@ -1,0 +1,159 @@
+//===== Reign of Midgard ===================================================
+//= Raid de faction sur Prontera
+//===== Description: =======================================================
+//= Controleur du raid FvF. Declenche par les postes d'investissement
+//= (poste_ordre_prontera.txt / poste_forgenoires_prontera.txt) une fois la
+//= caisse d'attaque d'une faction au-dessus du seuil - pas d'horaire fixe.
+//= Voir server/src/map/battle.cpp (battle_check_target, bloc BL_PC) et
+//= server/src/map/pc.cpp pour ce que le mapflag mf_faction_raid change
+//= reellement (hostilite PvP inter-factions, pas de perte d'XP, respawn
+//= force au lieu de vraie mort).
+//= Etat de possession/caisses = globales $ persistees en SQL (mapreg),
+//= etat du raid en cours = variables locales a ce NPC (ne survit pas a un
+//= redemarrage du map-server, comportement voulu).
+//===========================================================================
+
+-	script	PRC_Prontera#reign	-1,{
+	end;
+
+OnInit:
+	.Active = 0;
+	.Attacker = 0;
+	.Defender = 0;
+	.EmpLeft = 0;
+	// Duree du raid pilotee par le label OnTimer1800000 (30 min) plus bas - un
+	// label OnTimerXXXXX doit etre un litteral, pas une variable.
+	.ReinforceUnitPerWave = 500; // zeny investis par vague de renfort
+	.MaxWaves = 5;
+	setarray .BastionMob[0], 30002,30003,30004,30005;
+	setarray .BastionX[0], 156,30,280,156;
+	setarray .BastionY[0], 30,203,203,183;
+	setarray .BastionName$[0], "Bastion Nord de Prontera","Bastion Ouest de Prontera","Bastion Est de Prontera","Coeur de Prontera";
+	end;
+
+// Appele par le poste d'investissement dont la caisse d'attaque vient de
+// franchir le seuil. $@RAID_TRIGGER_FACTION doit etre pose juste avant l'appel.
+OnTriggerRaid:
+	if (.Active) {
+		// Un raid est deja en cours - la caisse reste investie, retentera au
+		// prochain declenchement possible (prochain appel une fois ce raid fini).
+		end;
+	}
+
+	.Attacker = $@RAID_TRIGGER_FACTION;
+	.Defender = (.Attacker == 1) ? 2 : 1;
+
+	.@attack_chest = (.Attacker == 1) ? $FACTION_ORDRE_ATTACK_CHEST : $FACTION_FORGE_ATTACK_CHEST;
+	.@defense_chest = (.Defender == 1) ? $FACTION_ORDRE_DEFENSE_CHEST : $FACTION_FORGE_DEFENSE_CHEST;
+
+	// La caisse d'attaque est toujours entierement depensee au declenchement,
+	// gagne ou perdu.
+	if (.Attacker == 1)
+		set $FACTION_ORDRE_ATTACK_CHEST, 0;
+	else
+		set $FACTION_FORGE_ATTACK_CHEST, 0;
+
+	.Active = 1;
+	.EmpLeft = 4;
+	setmapflag "prontera", mf_faction_raid;
+	announce "Raid de faction ! " + F_NomFaction(.Attacker) + " attaque Prontera, defendue par " + F_NomFaction(.Defender) + " !", bc_all;
+
+	for (.@i = 0; .@i < 4; .@i++) {
+		monster "prontera", .BastionX[.@i], .BastionY[.@i], .BastionName$[.@i], .BastionMob[.@i], 1, strnpcinfo(0)+"::OnEmperiumDown";
+		setunitdata $@mobid[0], UMOB_FACTION, .Defender;
+	}
+
+	// Renforts des deux camps, spawnes immediatement - la ville se defend meme
+	// sans defenseur en ligne, du moment que sa caisse de defense est fournie.
+	.@attacker_waves = min(.@attack_chest / .ReinforceUnitPerWave, .MaxWaves);
+	.@defender_waves = min(.@defense_chest / .ReinforceUnitPerWave, .MaxWaves);
+	.@attacker_mob = (.Attacker == 1) ? MILICE_ORDRE : MILICE_FORGE;
+	.@defender_mob = (.Defender == 1) ? MILICE_ORDRE : MILICE_FORGE;
+
+	for (.@w = 0; .@w < .@attacker_waves; .@w++) {
+		monster "prontera", .BastionX[.@w%4], .BastionY[.@w%4], "Milicien", .@attacker_mob, 3, strnpcinfo(0)+"::OnReinforceDead";
+		setunitdata $@mobid[0], UMOB_FACTION, .Attacker;
+	}
+	for (.@w = 0; .@w < .@defender_waves; .@w++) {
+		monster "prontera", .BastionX[.@w%4], .BastionY[.@w%4], "Milicien", .@defender_mob, 3, strnpcinfo(0)+"::OnReinforceDead";
+		setunitdata $@mobid[0], UMOB_FACTION, .Defender;
+	}
+
+	initnpctimer;
+	end;
+
+OnEmperiumDown:
+	if (!.Active) end;
+	.EmpLeft--;
+	if (.EmpLeft > 0)
+		announce .EmpLeft + " structure(s) restante(s) a Prontera !", bc_map, "prontera";
+	else
+		donpcevent strnpcinfo(0)+"::OnCaptureResolved";
+	end;
+
+OnReinforceDead:
+	end;
+
+OnCaptureResolved:
+	if (!.Active) end;
+	// La ville tombe : possession transferee, la caisse de defense de l'ex-
+	// defenseur est perdue avec la ville.
+	set $TOWN_OWNER_PRONTERA, .Attacker;
+	if (.Defender == 1)
+		set $FACTION_ORDRE_DEFENSE_CHEST, 0;
+	else
+		set $FACTION_FORGE_DEFENSE_CHEST, 0;
+	F_RecompenseRaid(.Attacker);
+	announce F_NomFaction(.Attacker) + " a capture Prontera !", bc_all;
+	donpcevent strnpcinfo(0)+"::OnEndRaid";
+	end;
+
+OnTimer1800000:
+	if (.Active) {
+		// Timer ecoule sans capture complete : le defenseur gagne par defaut,
+		// sa caisse de defense n'est PAS remise a zero (conservee).
+		F_RecompenseRaid(.Defender);
+		announce F_NomFaction(.Defender) + " a defendu Prontera avec succes.", bc_all;
+		donpcevent strnpcinfo(0)+"::OnEndRaid";
+	}
+	end;
+
+OnEndRaid:
+	if (!.Active) end;
+	.Active = 0;
+	stopnpctimer;
+	removemapflag "prontera", mf_faction_raid;
+	killmonster "prontera", strnpcinfo(0)+"::OnEmperiumDown";
+	killmonster "prontera", strnpcinfo(0)+"::OnReinforceDead";
+	.Attacker = 0;
+	.Defender = 0;
+	.EmpLeft = 0;
+	end;
+}
+
+// -- Fonctions utilitaires partagees avec les postes d'investissement --------
+function	script	F_NomFaction	{
+	if (getarg(0) == 1)
+		return "L'Ordre de la Faille";
+	else if (getarg(0) == 2)
+		return "Les Forgenoires";
+	return "Personne";
+}
+
+// Recompense la faction gagnante (piste initiale : presence sur la map au
+// moment de la resolution, a affiner plus tard vers une part de contribution).
+function	script	F_RecompenseRaid	{
+	.@faction = getarg(0);
+	.@reputation_id = (.@faction == 1) ? REPUTATION_ORDRE : REPUTATION_FORGENOIRES;
+	.@count = getmapunits(BL_PC, "prontera", .@unit_list);
+	for (.@i = 0; .@i < .@count; .@i++) {
+		.@aid = .@unit_list[.@i];
+		attachrid(.@aid);
+		if (getfaction() == .@faction) {
+			add_reputation_points(.@reputation_id, 20);
+			getexp 500, 100;
+		}
+		detachrid;
+	}
+	return;
+}

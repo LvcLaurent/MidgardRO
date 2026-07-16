@@ -695,6 +695,11 @@ enum e_mapflag : int16 {
 	MF_SPECIALPOPUP,
 	MF_NOMACROCHECKER,
 	MF_INVINCIBLE_TIME,
+	// Reign of Midgard: set while a faction raid is live on this map. Deliberately not
+	// gvg/pvp - see battle_check_target()'s BL_PC case and pc.cpp's death handling for
+	// what it actually gates. Owning/attacking faction state lives in the raid
+	// controller npc and $-scoped mapreg globals, not on this flag.
+	MF_FACTION_RAID,
 	MF_MAX
 };
 
