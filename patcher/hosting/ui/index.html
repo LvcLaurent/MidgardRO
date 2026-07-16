@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Reign of Midgard</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 780px;
+    height: 580px;
+    overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(160deg, #1a1420 0%, #0c0a10 100%);
+    color: #e8e0d8;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .titlebar {
+    padding: 24px 32px 0 32px;
+  }
+  .titlebar h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #d8b04a;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+  .titlebar p {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: #9a8f82;
+  }
+  .status-panel {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 96px;
+  }
+  #status-text {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #cfc6ba;
+    min-height: 18px;
+  }
+  .progress-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  #progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7a1f2b, #d8b04a);
+    transition: width 0.2s ease;
+  }
+  .actions {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .secondary-actions button {
+    background: none;
+    border: none;
+    color: #7a7066;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 8px;
+    text-decoration: underline;
+  }
+  .secondary-actions button:hover {
+    color: #cfc6ba;
+  }
+  #play-button {
+    background: linear-gradient(180deg, #d8b04a, #a8791f);
+    border: 1px solid #f0d488;
+    color: #241c10;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 12px 48px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #play-button:disabled {
+    background: #4a4238;
+    border-color: #5a5248;
+    color: #8a8278;
+    cursor: not-allowed;
+  }
+  #play-button:not(:disabled):hover {
+    filter: brightness(1.08);
+  }
+</style>
+</head>
+<body>
+
+<div class="titlebar">
+  <h1>REIGN OF MIDGARD</h1>
+  <p>Mise à jour du client en cours...</p>
+</div>
+
+<div class="status-panel">
+  <div id="status-text">Vérification des mises à jour...</div>
+  <div class="progress-track">
+    <div id="progress-fill"></div>
+  </div>
+</div>
+
+<div class="actions">
+  <div class="secondary-actions">
+    <button onclick="doResetCache()">Réinitialiser le cache</button>
+    <button onclick="doManualPatch()">Patch manuel</button>
+  </div>
+  <button id="play-button" disabled onclick="doPlay()">JOUER</button>
+</div>
+
+<script>
+  function setProgress(percent) {
+    document.getElementById('progress-fill').style.width = Math.max(0, Math.min(100, percent)) + '%';
+  }
+
+  function setStatus(text) {
+    document.getElementById('status-text').textContent = text;
+  }
+
+  function setPlayEnabled(enabled) {
+    document.getElementById('play-button').disabled = !enabled;
+  }
+
+  // --- Fonctions appelées par le patcheur (native -> JS) ---
+
+  function patchingStatusReady() {
+    setStatus('Client à jour.');
+    setProgress(100);
+    setPlayEnabled(true);
+  }
+
+  function patchingStatusError(msg) {
+    setStatus('Erreur : ' + msg);
+    setPlayEnabled(true);
+  }
+
+  function patchingStatusDownloading(nbDownloaded, nbTotal, bytesPerSec) {
+    var percent = nbTotal > 0 ? (nbDownloaded / nbTotal) * 100 : 0;
+    var speed = (bytesPerSec / 1024 / 1024).toFixed(2);
+    setStatus('Téléchargement des patchs (' + nbDownloaded + '/' + nbTotal + ') - ' + speed + ' Mo/s');
+    setProgress(percent);
+    setPlayEnabled(false);
+  }
+
+  function patchingStatusInstalling(nbInstalled, nbTotal) {
+    var percent = nbTotal > 0 ? (nbInstalled / nbTotal) * 100 : 0;
+    setStatus('Installation des patchs (' + nbInstalled + '/' + nbTotal + ')');
+    setProgress(percent);
+    setPlayEnabled(false);
+  }
+
+  function patchingStatusPatchApplied(name) {
+    setStatus('Patch appliqué : ' + name);
+  }
+
+  function notificationInProgress() {
+    setStatus('Une mise à jour est déjà en cours...');
+  }
+
+  // --- Actions déclenchées par l'utilisateur (JS -> native) ---
+
+  function doPlay() {
+    external.invoke('play');
+  }
+
+  function doResetCache() {
+    external.invoke('reset_cache');
+    setStatus('Cache réinitialisé, relance le patcheur.');
+  }
+
+  function doManualPatch() {
+    external.invoke('manual_patch');
+  }
+
+  // Lance la vérification des mises à jour automatiquement au démarrage.
+  window.onload = function () {
+    external.invoke('start_update');
+  };
+</script>
+
+</body>
+</html>

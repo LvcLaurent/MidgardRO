@@ -1,0 +1,15 @@
+# Modèle de définition de patch pour les fichiers hors GRF (Client_Reign/System, exe).
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign -o patcher/hosting/patches/data/<index>_loose.thor patcher/mkpatch/loose.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+#
+# Comme pour content.patch.yml, ne garder ici que les entrées réellement modifiées pour
+# les patchs suivant le premier. Pour distribuer une nouvelle version de l'exécutable
+# client, copier le fichier dans Client_Reign/ (ex: Client_Reign/nemo_Reign_Of_Midgard_patched.exe)
+# et ajouter une entrée `relative_path` correspondante ci-dessous.
+use_grf_merging: false
+include_checksums: true
+
+entries:
+  - relative_path: System

@@ -1,0 +1,16 @@
+# Modèle de définition de patch pour le contenu du GRF (Client_Reign/reign_GRF).
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign/reign_GRF -o patcher/hosting/patches/data/<index>_content.thor patcher/mkpatch/content.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+#
+# `entries` liste ici tout le dossier `data` (premier patch complet). Pour les patchs
+# suivants, ne lister que les fichiers/dossiers réellement modifiés depuis la dernière
+# publication (voir `git diff --name-only <ref précédente> -- Client_Reign/reign_GRF`)
+# pour garder les téléchargements incrémentaux petits.
+use_grf_merging: true
+target_grf_name: reign.grf
+include_checksums: true
+
+entries:
+  - relative_path: data

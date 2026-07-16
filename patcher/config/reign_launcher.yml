@@ -1,0 +1,34 @@
+# Configuration du patcheur RPatchur pour Reign of Midgard.
+# Ce fichier doit être copié à côté de l'exécutable du patcheur, avec le même nom de
+# base (ex: reign_patcher.exe -> reign_patcher.yml), dans le dossier du client.
+
+window:
+  title: Reign of Midgard
+  width: 780
+  height: 580
+  resizable: false
+
+play:
+  path: nemo_Reign_Of_Midgard_patched.exe
+  arguments: []
+  exit_on_success: true
+
+setup:
+  path: Setup.exe
+  arguments: []
+  exit_on_success: false
+
+web:
+  index_url: http://laurentetpauline.fr:8081/ui/index.html
+  patch_servers:
+    - name: Reign of Midgard
+      plist_url: http://laurentetpauline.fr:8081/patches/plist.txt
+      patch_url: http://laurentetpauline.fr:8081/patches/data/
+
+client:
+  default_grf_name: reign.grf
+
+patching:
+  in_place: true
+  check_integrity: true
+  create_grf: false

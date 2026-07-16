@@ -29,3 +29,10 @@ zren-resources.tar.gz
 site/zrenderer/secrets/
 site/zrenderer/output/
 zren-test/
+
+# Generated patch archives (.thor) and plist.txt - built locally via mkpatch and
+# published straight to the hosting server, never committed (same reasoning as the
+# packed client/ folder: these are build output, not source)
+/patcher/hosting/patches/
+# Built rpatchur/mkpatch binaries - platform-specific build output
+/patcher/dist/
