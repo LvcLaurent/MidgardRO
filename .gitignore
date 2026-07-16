@@ -36,3 +36,7 @@ zren-test/
 /patcher/hosting/patches/
 # Built rpatchur/mkpatch binaries - platform-specific build output
 /patcher/dist/
+
+# Compiled client installer (~4GB) - build output of installer/reign_installer.iss,
+# never committed
+/installer/output/
