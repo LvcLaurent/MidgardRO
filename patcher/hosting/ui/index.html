@@ -12,25 +12,23 @@
     height: 580px;
     overflow: hidden;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(160deg, #1a1420 0%, #0c0a10 100%);
+    background-color: #0c0a10;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
     color: #e8e0d8;
     user-select: none;
     -webkit-user-select: none;
   }
-  .titlebar {
-    padding: 24px 32px 0 32px;
-  }
-  .titlebar h1 {
-    margin: 0;
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: #d8b04a;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-  }
-  .titlebar p {
-    margin: 4px 0 0 0;
-    font-size: 13px;
-    color: #9a8f82;
+  .bottom-scrim {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 230px;
+    background: linear-gradient(to top, rgba(8,6,10,0.92) 0%, rgba(8,6,10,0.65) 55%, rgba(8,6,10,0) 100%);
+    pointer-events: none;
   }
   .status-panel {
     position: absolute;
@@ -103,10 +101,7 @@
 </head>
 <body>
 
-<div class="titlebar">
-  <h1>REIGN OF MIDGARD</h1>
-  <p>Mise à jour du client en cours...</p>
-</div>
+<div class="bottom-scrim"></div>
 
 <div class="status-panel">
   <div id="status-text">Vérification des mises à jour...</div>
