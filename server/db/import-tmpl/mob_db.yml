@@ -92,7 +92,7 @@ Body:
   # correctly the first time. Add one clone pair here (plus an entry in the
   # faction_mob_clones table in atcommand.cpp's spawnfactionmob) per mob type that
   # needs to be spawnable as a faction mob.
-  - Id: 90100
+  - Id: 30000
     AegisName: PORING_ORDRE
     Name: "[Ordre] Poring"
     Level: 1
@@ -146,7 +146,7 @@ Body:
         Index: 7
         Rate: 20
         StealProtected: true
-  - Id: 90101
+  - Id: 30001
     AegisName: PORING_FORGE
     Name: "[Forge] Poring"
     Level: 1

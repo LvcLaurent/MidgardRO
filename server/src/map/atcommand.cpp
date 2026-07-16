@@ -10000,7 +10000,7 @@ ACMD_FUNC(setfaction)
 
 	sd->status.faction = static_cast<uint8>(faction);
 	status_calc_pc(sd, SCO_FORCE);
-	clif_displaymessage(fd, "Faction mise à jour.");
+	clif_displaymessage(fd, "Faction mise ï¿½ jour.");
 
 	return 0;
 }
@@ -10022,7 +10022,7 @@ struct s_faction_mob_clone {
 };
 
 static const std::vector<s_faction_mob_clone> faction_mob_clones = {
-	{ 1002, 90100, 90101 }, // Poring -> PORING_ORDRE / PORING_FORGE
+	{ 1002, 30000, 30001 }, // Poring -> PORING_ORDRE / PORING_FORGE
 };
 
 /*==========================================
