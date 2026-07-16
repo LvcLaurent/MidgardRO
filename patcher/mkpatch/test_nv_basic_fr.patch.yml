@@ -1,0 +1,10 @@
+# Patch de test : traduction française de la compétence NV_BASIC (Basic Skill) uniquement.
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign/reign_GRF -o patcher/hosting/patches/data/3_test_nv_basic_fr.thor patcher/mkpatch/test_nv_basic_fr.patch.yml
+use_grf_merging: true
+target_grf_name: reign.grf
+include_checksums: true
+
+entries:
+  - relative_path: data/skillnametable.txt
+  - relative_path: data/skilldesctable.txt
