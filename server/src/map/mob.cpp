@@ -2947,6 +2947,11 @@ static void mob_reward_faction_reputation(map_session_data* sd, int32 faction, i
 
 	points = cap_value(points, reputation->minimum, reputation->maximum);
 	pc_setreg2(sd, reputation->variable.c_str(), points);
+
+	// Unlike add_reputation_points/set_reputation_points (script.cpp), this path never
+	// pushed the live update packet - the repute window stayed stale until the client
+	// resynced on a map change.
+	clif_reputation_type(*sd, faction, points);
 }
 
 // Same as above, but only for reputation gains - tracks how many points were gained today
