@@ -10006,6 +10006,26 @@ ACMD_FUNC(setfaction)
 }
 
 /*==========================================
+ * Reign of Midgard: base mob -> per-faction mob_db clone registry, used by
+ * @spawnfactionmob below. RO clients cache a monster's display name per Class ID, so
+ * spawning the vanilla mob and overriding its name at broadcast time never actually
+ * rendered client-side (confirmed: stayed stale even across a full @refresh). A
+ * dedicated Class ID has no prior client-side cache entry, so its baked-in Name field
+ * (see import-tmpl/mob_db.yml) renders correctly from the first spawn. Add a row here,
+ * plus the matching mob_db pair, for every mob type that needs to be spawnable as a
+ * faction mob.
+ *------------------------------------------*/
+struct s_faction_mob_clone {
+	int32 base_id;
+	int32 ordre_id;
+	int32 forge_id;
+};
+
+static const std::vector<s_faction_mob_clone> faction_mob_clones = {
+	{ 1002, 90100, 90101 }, // Poring -> PORING_ORDRE / PORING_FORGE
+};
+
+/*==========================================
  * Reign of Midgard: spawn mobs tagged with a faction, hostile to anyone
  * not in it (see UMOB_FACTION / battle_check_target in battle.cpp).
  * @spawnfactionmob <1|2> {<mob name or id> {<amount>}}
@@ -10032,6 +10052,18 @@ ACMD_FUNC(spawnfactionmob)
 		return -1;
 	}
 
+	int32 clone_id = 0;
+	for (const auto& entry : faction_mob_clones) {
+		if (entry.base_id == mob_id) {
+			clone_id = (faction == 1) ? entry.ordre_id : entry.forge_id;
+			break;
+		}
+	}
+	if (clone_id == 0) {
+		clif_displaymessage(fd, "Ce type de monstre n'a pas encore de clone de faction (voir faction_mob_clones dans atcommand.cpp).");
+		return -1;
+	}
+
 	if (amount <= 0)
 		amount = 1;
 	if (battle_config.atc_spawn_quantity_limit && amount > battle_config.atc_spawn_quantity_limit)
@@ -10041,16 +10073,12 @@ ACMD_FUNC(spawnfactionmob)
 	for (i = 0; i < amount; i++) {
 		map_search_freecell(sd, 0, &mx, &my, range, range, 0);
 
-		int32 gid = mob_once_spawn(sd, sd->m, mx, my, nullptr, mob_id, 1, "", SZ_SMALL, AI_NONE);
+		int32 gid = mob_once_spawn(sd, sd->m, mx, my, nullptr, clone_id, 1, "", SZ_SMALL, AI_NONE);
 		mob_data* md = map_id2md(gid);
 		if (md == nullptr)
 			continue;
 
 		md->faction = static_cast<uint8>(faction);
-		// mob_once_spawn() already broadcast this unit (and its un-tagged name) to
-		// nearby clients before we got to set faction above - push a fresh nameplate
-		// now so the [Ordre]/[Forge] tag (see clif_name() in clif.cpp) actually shows.
-		clif_name_area(md);
 		count++;
 	}
 

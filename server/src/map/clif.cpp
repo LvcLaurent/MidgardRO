@@ -10033,17 +10033,14 @@ void clif_name( const block_list* src, const block_list* bl, send_target target 
 		case BL_MOB: {
 			const mob_data* md = static_cast<const mob_data*>(bl);
 
-			// Reign of Midgard: prepend the same short faction tag used on players
-			// (see the BL_PC case above) onto faction-tagged mobs' displayed name.
+			// Reign of Midgard: faction mobs are dedicated mob_db clones with the
+			// [Ordre]/[Forge] tag already baked into their Name field (see
+			// import-tmpl/mob_db.yml) - RO clients cache a monster's display name per
+			// Class ID, so overriding an existing mob type's name at broadcast time
+			// never actually rendered client-side, even across a full @refresh.
 			char name[NAME_LENGTH];
 
-			if( md->faction == 1 ){
-				safesnprintf( name, NAME_LENGTH, "[Ordre] %s", md->name );
-			}else if( md->faction == 2 ){
-				safesnprintf( name, NAME_LENGTH, "[Forge] %s", md->name );
-			}else{
-				safestrncpy( name, md->name, NAME_LENGTH );
-			}
+			safestrncpy( name, md->name, NAME_LENGTH );
 			ShowInfo("REIGN_DEBUG: clif_name BL_MOB gid=%d md->faction=%d built_name='%s' target=%d\n", bl->id, md->faction, name, (int32)target);
 
 			if( md->guardian_data && md->guardian_data->guild_id ){

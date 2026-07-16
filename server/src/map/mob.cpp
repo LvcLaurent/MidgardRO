@@ -2932,7 +2932,7 @@ map_session_data* mob_data::get_mvp_player(map_session_data* first_sd) {
 // A mob's level counts as "equivalent" to the killer's if it isn't more than this many levels below them.
 #define REP_LEVEL_TOLERANCE 10
 // Max reputation points a character can gain (not lose) from faction kills per calendar day.
-#define REP_DAILY_GAIN_CAP 5
+#define REP_DAILY_GAIN_CAP 25
 
 // Applies a reputation delta to one of the character's faction reputations (REPUTATION_ORDRE/
 // REPUTATION_FORGENOIRES), clamped to whatever reputation_db.yml configured as min/max for it.
@@ -3017,13 +3017,13 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 			level_equivalent, reputation_id, sd->status.faction == md->faction);
 
 		if( sd->status.faction == md->faction ){
-			// Killed a mob of your own faction: 1/2 chance of a penalty, no daily limit.
-			// A level-equivalent kill (a "real" one, not a stray weak one) costs far more.
+			// Killed a mob of your own faction: 1/2 chance of a flat -5 penalty, no
+			// daily limit, regardless of the mob's level.
 			int32 roll = rnd()%2;
 			ShowInfo("REIGN_DEBUG: own-faction kill, roll=%d (need 0)\n", roll);
 			if( roll == 0 ){
 				int32 before = (int32)pc_readreg2(sd, reputation_db.find(reputation_id)->variable.c_str());
-				mob_reward_faction_reputation(sd, reputation_id, level_equivalent ? -10 : -1);
+				mob_reward_faction_reputation(sd, reputation_id, -5);
 				int32 after = (int32)pc_readreg2(sd, reputation_db.find(reputation_id)->variable.c_str());
 				ShowInfo("REIGN_DEBUG: applied penalty, before=%d after=%d\n", before, after);
 			}
