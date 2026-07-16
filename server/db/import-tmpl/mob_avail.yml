@@ -43,6 +43,15 @@ Header:
   Type: MOB_AVAIL_DB
   Version: 1
 
+Body:
+  # Reign of Midgard: faction mob clones (see import-tmpl/mob_db.yml) have their own
+  # Class ID with no matching client-side sprite resource - without an alias here the
+  # client hard-crashes (access violation) trying to render an unknown sprite on spawn.
+  - Mob: PORING_ORDRE
+    Sprite: PORING
+  - Mob: PORING_FORGE
+    Sprite: PORING
+
 #Body:
   # Examples
 #  - Mob: PORING
