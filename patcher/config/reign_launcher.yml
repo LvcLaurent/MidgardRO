@@ -9,7 +9,7 @@ window:
   resizable: false
 
 play:
-  path: nemo_Reign_Of_Midgard_patched.exe
+  path: "Reign of Midgard.exe"
   arguments: []
   exit_on_success: true
 
