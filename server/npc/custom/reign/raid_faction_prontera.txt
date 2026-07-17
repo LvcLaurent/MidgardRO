@@ -28,7 +28,7 @@ OnInit:
 	setarray .BastionMob[0], 30002,30003,30004,30005;
 	setarray .BastionX[0], 156,30,280,156;
 	setarray .BastionY[0], 30,203,203,183;
-	setarray .BastionName$[0], "Bastion Nord de Prontera","Bastion Ouest de Prontera","Bastion Est de Prontera","Coeur de Prontera";
+	setarray .BastionName$[0], "Bastion Nord","Bastion Ouest","Bastion Est","Coeur de Prontera";
 	end;
 
 // Appele par le poste d'investissement dont la caisse d'attaque vient de
@@ -56,7 +56,7 @@ OnTriggerRaid:
 	.Active = 1;
 	.EmpLeft = 4;
 	setmapflag "prontera", mf_faction_raid;
-	announce "Raid de faction ! " + F_NomFaction(.Attacker) + " attaque Prontera, defendue par " + F_NomFaction(.Defender) + " !", bc_all;
+	announce "Raid de faction ! " + callfunc("F_NomFaction",.Attacker) + " attaque Prontera, defendue par " + callfunc("F_NomFaction",.Defender) + " !", bc_all;
 
 	for (.@i = 0; .@i < 4; .@i++) {
 		monster "prontera", .BastionX[.@i], .BastionY[.@i], .BastionName$[.@i], .BastionMob[.@i], 1, strnpcinfo(0)+"::OnEmperiumDown";
@@ -103,8 +103,8 @@ OnCaptureResolved:
 		set $FACTION_ORDRE_DEFENSE_CHEST, 0;
 	else
 		set $FACTION_FORGE_DEFENSE_CHEST, 0;
-	F_RecompenseRaid(.Attacker);
-	announce F_NomFaction(.Attacker) + " a capture Prontera !", bc_all;
+	callfunc("F_RecompenseRaid",.Attacker);
+	announce callfunc("F_NomFaction",.Attacker) + " a capture Prontera !", bc_all;
 	donpcevent strnpcinfo(0)+"::OnEndRaid";
 	end;
 
@@ -112,8 +112,8 @@ OnTimer1800000:
 	if (.Active) {
 		// Timer ecoule sans capture complete : le defenseur gagne par defaut,
 		// sa caisse de defense n'est PAS remise a zero (conservee).
-		F_RecompenseRaid(.Defender);
-		announce F_NomFaction(.Defender) + " a defendu Prontera avec succes.", bc_all;
+		callfunc("F_RecompenseRaid",.Defender);
+		announce callfunc("F_NomFaction",.Defender) + " a defendu Prontera avec succes.", bc_all;
 		donpcevent strnpcinfo(0)+"::OnEndRaid";
 	}
 	end;

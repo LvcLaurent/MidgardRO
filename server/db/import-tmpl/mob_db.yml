@@ -211,7 +211,7 @@ Body:
   # structures indestructibles.
   - Id: 30002
     AegisName: BASTION_PRONTERA_NORD
-    Name: "Bastion Nord de Prontera"
+    Name: "Bastion Nord"
     Level: 90
     Hp: 20000
     Defense: 40
@@ -227,7 +227,7 @@ Body:
     Class: Boss
   - Id: 30003
     AegisName: BASTION_PRONTERA_OUEST
-    Name: "Bastion Ouest de Prontera"
+    Name: "Bastion Ouest"
     Level: 90
     Hp: 20000
     Defense: 40
@@ -243,7 +243,7 @@ Body:
     Class: Boss
   - Id: 30004
     AegisName: BASTION_PRONTERA_EST
-    Name: "Bastion Est de Prontera"
+    Name: "Bastion Est"
     Level: 90
     Hp: 20000
     Defense: 40
