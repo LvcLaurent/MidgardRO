@@ -9,7 +9,7 @@
 //= persistees en SQL (mapreg), memes conventions que $WOE_CONTROL.
 //===========================================================================
 
-prontera,150,30,4	script	Poste de l'Ordre#reign	1_M_KNIGHTMASTER,{
+prt_fild08,166,371,4	script	Poste de l'Ordre#reign	1_M_KNIGHTMASTER,{
 	.@my_faction = 1;
 	.@threshold = 5000;
 
@@ -69,7 +69,7 @@ prontera,150,30,4	script	Poste de l'Ordre#reign	1_M_KNIGHTMASTER,{
 	end;
 }
 
-prontera,162,30,4	script	Poste des Forgenoires#reign	4_M_SWORDMAN,{
+prt_fild05,366,211,4	script	Poste des Forgenoires#reign	4_M_SWORDMAN,{
 	.@my_faction = 2;
 	.@threshold = 5000;
 
