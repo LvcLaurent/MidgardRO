@@ -1,16 +1,32 @@
 //===== Reign of Midgard ===================================================
 //= Raid de faction sur Prontera
 //===== Description: =======================================================
-//= Controleur du raid FvF. Declenche par les postes d'investissement
-//= (poste_ordre_prontera.txt / poste_forgenoires_prontera.txt) une fois la
-//= caisse d'attaque d'une faction au-dessus du seuil - pas d'horaire fixe.
+//= Controleur du raid FvF. Le "Poste de garde" de la faction non-proprietaire
+//= (voir postes_faction_prontera.txt) declenche l'attaque contre 5000z - pas
+//= d'horaire fixe, pas de seuil d'investissement a atteindre. L'attaque part
+//= reellement 5 minutes apres l'annonce, le temps de prevenir tout le monde.
 //= Voir server/src/map/battle.cpp (battle_check_target, bloc BL_PC) et
 //= server/src/map/pc.cpp pour ce que le mapflag mf_faction_raid change
 //= reellement (hostilite PvP inter-factions, pas de perte d'XP, respawn
 //= force au lieu de vraie mort).
-//= Etat de possession/caisses = globales $ persistees en SQL (mapreg),
-//= etat du raid en cours = variables locales a ce NPC (ne survit pas a un
-//= redemarrage du map-server, comportement voulu).
+//=
+//= Catalogue de gardiens (mob_db 30008-30019, clones par faction des vrais
+//= gardiens rAthena) partage avec les postes via F_Guardian*() plus bas :
+//=   0: Knight Guardian (50 000z/5) - KNIGHT_GRD
+//=   1: Archer Guardian (50 000z/5) - ARCHER_GRD
+//=   2: Bow Guardian    (100 000z/5) - BOW_GRD
+//=   3: Sword Guardian  (100 000z/5) - SWORD_GRD2
+//=   4: Camp Archer     (150 000z/5) - CAMPBB_GRD
+//=   5: Camp Guerrier   (150 000z/5) - CAMPBS_GRD
+//=
+//= Etat persistant (SQL via mapreg, comme $WOE_CONTROL) :
+//=   $TOWN_OWNER_PRONTERA                     0=neutre/1=Ordre/2=Forgenoires
+//=   $FACTION_<ORDRE|FORGE>_ATK_<AegisType>    vague d'attaque en preparation
+//=   $FACTION_<ORDRE|FORGE>_DEF_<AegisType>    garnison defensive investie
+//= La garnison defensive est reellement spawnee en permanence (voir
+//= F_RefreshGarnison) - la ville se defend meme sans personne en ligne.
+//= Etat du raid en cours (structures restantes, camps) = variables locales a
+//= ce NPC, ne survit pas a un redemarrage (voulu).
 //===========================================================================
 
 -	script	PRC_Prontera#reign	-1,{
@@ -21,65 +37,59 @@ OnInit:
 	.Attacker = 0;
 	.Defender = 0;
 	.EmpLeft = 0;
-	// Duree du raid pilotee par le label OnTimer1800000 (30 min) plus bas - un
-	// label OnTimerXXXXX doit etre un litteral, pas une variable.
-	.ReinforceUnitPerWave = 500; // zeny investis par vague de renfort
-	.MaxWaves = 5;
 	setarray .BastionMob[0], 30002,30003,30004,30005;
-	setarray .BastionX[0], 156,30,280,156;
-	setarray .BastionY[0], 30,203,203,183;
+	setarray .BastionX[0], 156,252,104,205;
+	setarray .BastionY[0], 188,282,162,178;
 	setarray .BastionName$[0], "Bastion Nord","Bastion Ouest","Bastion Est","Coeur de Prontera";
+	callfunc("F_SyncPostesVisibility");
+	callfunc("F_RefreshGarnison");
 	end;
 
-// Appele par le poste d'investissement dont la caisse d'attaque vient de
-// franchir le seuil. $@RAID_TRIGGER_FACTION doit etre pose juste avant l'appel.
-OnTriggerRaid:
-	if (.Active) {
-		// Un raid est deja en cours - la caisse reste investie, retentera au
-		// prochain declenchement possible (prochain appel une fois ce raid fini).
-		end;
-	}
-
+// Appele par le poste de garde de la faction attaquante une fois les 5000z
+// payes (voir postes_faction_prontera.txt). $@RAID_TRIGGER_FACTION doit etre
+// pose juste avant l'appel.
+OnLaunchAttack:
+	if (.Active) end; // un raid est deja en cours, ignore
 	.Attacker = $@RAID_TRIGGER_FACTION;
 	.Defender = (.Attacker == 1) ? 2 : 1;
-
-	.@attack_chest = (.Attacker == 1) ? $FACTION_ORDRE_ATTACK_CHEST : $FACTION_FORGE_ATTACK_CHEST;
-	.@defense_chest = (.Defender == 1) ? $FACTION_ORDRE_DEFENSE_CHEST : $FACTION_FORGE_DEFENSE_CHEST;
-
-	// La caisse d'attaque est toujours entierement depensee au declenchement,
-	// gagne ou perdu.
-	if (.Attacker == 1)
-		set $FACTION_ORDRE_ATTACK_CHEST, 0;
-	else
-		set $FACTION_FORGE_ATTACK_CHEST, 0;
+	if ($TOWN_OWNER_PRONTERA == .Attacker) end; // garde-fou, ne devrait pas arriver (poste cache)
 
 	.Active = 1;
+	announce callfunc("F_NomFaction",.Attacker) + " prepare l'assaut sur Prontera ! L'attaque sera lancee dans 5 minutes.", bc_all;
+	initnpctimer;
+	end;
+
+// L'attaque part reellement ici, 5 min apres OnLaunchAttack.
+OnTimer300000:
+	if (!.Active) end;
+
 	.EmpLeft = 4;
 	setmapflag "prontera", mf_faction_raid;
-	announce "Raid de faction ! " + callfunc("F_NomFaction",.Attacker) + " attaque Prontera, defendue par " + callfunc("F_NomFaction",.Defender) + " !", bc_all;
+	announce "L'assaut commence ! " + callfunc("F_NomFaction",.Attacker) + " attaque Prontera, defendue par " + callfunc("F_NomFaction",.Defender) + " !", bc_all;
 
 	for (.@i = 0; .@i < 4; .@i++) {
 		monster "prontera", .BastionX[.@i], .BastionY[.@i], .BastionName$[.@i], .BastionMob[.@i], 1, strnpcinfo(0)+"::OnEmperiumDown";
 		setunitdata $@mobid[0], UMOB_FACTION, .Defender;
 	}
 
-	// Renforts des deux camps, spawnes immediatement - la ville se defend meme
-	// sans defenseur en ligne, du moment que sa caisse de defense est fournie.
-	.@attacker_waves = min(.@attack_chest / .ReinforceUnitPerWave, .MaxWaves);
-	.@defender_waves = min(.@defense_chest / .ReinforceUnitPerWave, .MaxWaves);
-	.@attacker_mob = (.Attacker == 1) ? MILICE_ORDRE : MILICE_FORGE;
-	.@defender_mob = (.Defender == 1) ? MILICE_ORDRE : MILICE_FORGE;
-
-	for (.@w = 0; .@w < .@attacker_waves; .@w++) {
-		monster "prontera", .BastionX[.@w%4], .BastionY[.@w%4], "Milicien", .@attacker_mob, 3, strnpcinfo(0)+"::OnReinforceDead";
-		setunitdata $@mobid[0], UMOB_FACTION, .Attacker;
+	// Vague d'attaque : ce qui a ete achete au poste de garde, toujours
+	// entierement depense (voir OnRaidResolved), spawne eparpille pres des
+	// 4 structures.
+	.@attacker_name$ = (.Attacker == 1) ? "ORDRE" : "FORGE";
+	.@spot = 0;
+	for (.@t = 0; .@t < 6; .@t++) {
+		.@count = getd("$FACTION_"+.@attacker_name$+"_ATK_"+callfunc("F_GuardianAegis",.@t));
+		if (.@count <= 0) continue;
+		.@mobid = callfunc("F_GuardianMobId",.@t,.Attacker);
+		for (.@n = 0; .@n < .@count; .@n++) {
+			.@bx = .BastionX[.@spot%4] + rand(-5,5);
+			.@by = .BastionY[.@spot%4] + rand(-5,5);
+			monster "prontera", .@bx, .@by, callfunc("F_GuardianLabel",.@t), .@mobid, 1, strnpcinfo(0)+"::OnAttackWaveDead";
+			setunitdata $@mobid[0], UMOB_FACTION, .Attacker;
+			.@spot++;
+		}
+		setd "$FACTION_"+.@attacker_name$+"_ATK_"+callfunc("F_GuardianAegis",.@t), 0;
 	}
-	for (.@w = 0; .@w < .@defender_waves; .@w++) {
-		monster "prontera", .BastionX[.@w%4], .BastionY[.@w%4], "Milicien", .@defender_mob, 3, strnpcinfo(0)+"::OnReinforceDead";
-		setunitdata $@mobid[0], UMOB_FACTION, .Defender;
-	}
-
-	initnpctimer;
 	end;
 
 OnEmperiumDown:
@@ -91,27 +101,31 @@ OnEmperiumDown:
 		donpcevent strnpcinfo(0)+"::OnCaptureResolved";
 	end;
 
-OnReinforceDead:
+OnAttackWaveDead:
+	end;
+
+// Garnison defensive permanente - meurt en dehors ou pendant un raid, F_RefreshGarnison
+// (tick periodique ou raid suivant) la repop, rien a faire ici.
+OnGarnisonDead:
 	end;
 
 OnCaptureResolved:
 	if (!.Active) end;
-	// La ville tombe : possession transferee, la caisse de defense de l'ex-
-	// defenseur est perdue avec la ville.
+	// La ville tombe : possession transferee, la garnison defensive de l'ex-
+	// defenseur est perdue avec la ville (voir F_RefreshGarnison plus bas).
 	set $TOWN_OWNER_PRONTERA, .Attacker;
-	if (.Defender == 1)
-		set $FACTION_ORDRE_DEFENSE_CHEST, 0;
-	else
-		set $FACTION_FORGE_DEFENSE_CHEST, 0;
+	.@loser_name$ = (.Defender == 1) ? "ORDRE" : "FORGE";
+	for (.@t = 0; .@t < 6; .@t++)
+		setd "$FACTION_"+.@loser_name$+"_DEF_"+callfunc("F_GuardianAegis",.@t), 0;
 	callfunc("F_RecompenseRaid",.Attacker);
 	announce callfunc("F_NomFaction",.Attacker) + " a capture Prontera !", bc_all;
 	donpcevent strnpcinfo(0)+"::OnEndRaid";
 	end;
 
-OnTimer1800000:
-	if (.Active) {
-		// Timer ecoule sans capture complete : le defenseur gagne par defaut,
-		// sa caisse de defense n'est PAS remise a zero (conservee).
+OnTimer2100000: // 5 min de preparation + 30 min de raid
+	if (.Active && .EmpLeft > 0) {
+		// Temps ecoule sans capture complete : le defenseur gagne par defaut,
+		// sa garnison n'est PAS remise a zero (conservee).
 		callfunc("F_RecompenseRaid",.Defender);
 		announce callfunc("F_NomFaction",.Defender) + " a defendu Prontera avec succes.", bc_all;
 		donpcevent strnpcinfo(0)+"::OnEndRaid";
@@ -124,10 +138,25 @@ OnEndRaid:
 	stopnpctimer;
 	removemapflag "prontera", mf_faction_raid;
 	killmonster "prontera", strnpcinfo(0)+"::OnEmperiumDown";
-	killmonster "prontera", strnpcinfo(0)+"::OnReinforceDead";
+	killmonster "prontera", strnpcinfo(0)+"::OnAttackWaveDead";
 	.Attacker = 0;
 	.Defender = 0;
 	.EmpLeft = 0;
+	callfunc("F_SyncPostesVisibility");
+	callfunc("F_RefreshGarnison");
+	end;
+
+// Toutes les 10 min, s'assure que la garnison defensive du proprietaire actuel
+// est bien au complet (repop les gardiens tues entre deux raids). Ignore si un
+// raid est en cours pour ne pas perturber un combat en direct.
+OnMinute00:
+OnMinute10:
+OnMinute20:
+OnMinute30:
+OnMinute40:
+OnMinute50:
+	if (!.Active)
+		callfunc("F_RefreshGarnison");
 	end;
 }
 
@@ -140,20 +169,205 @@ function	script	F_NomFaction	{
 	return "Personne";
 }
 
+// Catalogue de gardiens - index 0-5, voir le commentaire d'en-tete du fichier.
+function	script	F_GuardianLabel	{
+	switch (getarg(0)) {
+		case 0: return "Knight Guardian";
+		case 1: return "Archer Guardian";
+		case 2: return "Bow Guardian";
+		case 3: return "Sword Guardian";
+		case 4: return "Camp Archer";
+		case 5: return "Camp Guerrier";
+	}
+	return "?";
+}
+
+function	script	F_GuardianCost	{
+	switch (getarg(0)) {
+		case 0: case 1: return 50000;
+		case 2: case 3: return 100000;
+		case 4: case 5: return 150000;
+	}
+	return 0;
+}
+
+// Fragment utilise pour construire dynamiquement le nom des variables $
+// persistantes ($FACTION_ORDRE_ATK_KNIGHT_GRD, etc. - voir getd/setd).
+function	script	F_GuardianAegis	{
+	switch (getarg(0)) {
+		case 0: return "KNIGHT_GRD";
+		case 1: return "ARCHER_GRD";
+		case 2: return "BOW_GRD";
+		case 3: return "SWORD_GRD2";
+		case 4: return "CAMPBB_GRD";
+		case 5: return "CAMPBS_GRD";
+	}
+	return "";
+}
+
+function	script	F_GuardianMobId	{
+	.@t = getarg(0);
+	.@f = getarg(1);
+	if (.@f == 1) {
+		switch (.@t) {
+			case 0: return KNIGHT_GRD_ORDRE;
+			case 1: return ARCHER_GRD_ORDRE;
+			case 2: return BOW_GRD_ORDRE;
+			case 3: return SWORD_GRD2_ORDRE;
+			case 4: return CAMPBB_GRD_ORDRE;
+			case 5: return CAMPBS_GRD_ORDRE;
+		}
+	} else {
+		switch (.@t) {
+			case 0: return KNIGHT_GRD_FORGE;
+			case 1: return ARCHER_GRD_FORGE;
+			case 2: return BOW_GRD_FORGE;
+			case 3: return SWORD_GRD2_FORGE;
+			case 4: return CAMPBB_GRD_FORGE;
+			case 5: return CAMPBS_GRD_FORGE;
+		}
+	}
+	return 0;
+}
+
+// Affiche/masque les 4 postes selon le proprietaire actuel de Prontera - un
+// poste d'attaque n'a pas de sens si sa faction possede deja la ville, un
+// poste de defense n'a pas de sens si elle ne la possede pas.
+function	script	F_SyncPostesVisibility	{
+	if ($TOWN_OWNER_PRONTERA == 1) {
+		disablenpc "Poste de l'Ordre#reign";
+		enablenpc "Poste des Forgenoires#reign";
+		enablenpc "Gardien de l'Ordre#reign";
+		disablenpc "Gardien des Forgenoires#reign";
+	} else if ($TOWN_OWNER_PRONTERA == 2) {
+		enablenpc "Poste de l'Ordre#reign";
+		disablenpc "Poste des Forgenoires#reign";
+		disablenpc "Gardien de l'Ordre#reign";
+		enablenpc "Gardien des Forgenoires#reign";
+	} else {
+		enablenpc "Poste de l'Ordre#reign";
+		enablenpc "Poste des Forgenoires#reign";
+		disablenpc "Gardien de l'Ordre#reign";
+		disablenpc "Gardien des Forgenoires#reign";
+	}
+	return;
+}
+
+// (Re)spawn la garnison defensive permanente des deux factions a partir des
+// compteurs persistants $FACTION_<X>_DEF_<Type>, repartie autour des 4 points
+// de structure. Purge d'abord tout ce qui existe deja pour eviter les doublons
+// en cas d'appel repete (OnInit, tick periodique).
+function	script	F_RefreshGarnison	{
+	// Coordonnees des 4 structures dupliquees ici (donnees constantes, voir
+	// PRC_Prontera#reign::OnInit) - les variables locales "." d'un NPC ne sont
+	// pas fiables a lire depuis un function script externe.
+	setarray .@bx0[0], 156,252,104,205;
+	setarray .@by0[0], 188,282,162,178;
+
+	killmonster "prontera", "PRC_Prontera#reign::OnGarnisonDead";
+	for (.@f = 1; .@f <= 2; .@f++) {
+		.@faction_name$ = (.@f == 1) ? "ORDRE" : "FORGE";
+		.@spot = 0;
+		for (.@t = 0; .@t < 6; .@t++) {
+			.@count = getd("$FACTION_"+.@faction_name$+"_DEF_"+callfunc("F_GuardianAegis",.@t));
+			if (.@count <= 0) continue;
+			.@mobid = callfunc("F_GuardianMobId",.@t,.@f);
+			for (.@n = 0; .@n < .@count; .@n++) {
+				.@bx = .@bx0[.@spot%4] + rand(-8,8);
+				.@by = .@by0[.@spot%4] + rand(-8,8);
+				monster "prontera", .@bx, .@by, callfunc("F_GuardianLabel",.@t), .@mobid, 1, "PRC_Prontera#reign::OnGarnisonDead";
+				setunitdata $@mobid[0], UMOB_FACTION, .@f;
+				.@spot++;
+			}
+		}
+	}
+	return;
+}
+
+// Menu d'achat de gardiens partage par les 4 postes (attaque ou defense).
+// mode$ = "ATK" (prepare la prochaine vague d'attaque, pas de spawn tout de
+// suite) ou "DEF" (garnison defensive, spawn immediat). cap = plafond total
+// (70 attaque / 50 defense).
+function	script	F_MenuAchatGardiens	{
+	.@faction = getarg(0);
+	.@mode$ = getarg(1);
+	.@cap = getarg(2);
+	.@faction_name$ = (.@faction == 1) ? "ORDRE" : "FORGE";
+
+	.@total = 0;
+	for (.@t = 0; .@t < 6; .@t++)
+		.@total += getd("$FACTION_"+.@faction_name$+"_"+.@mode$+"_"+callfunc("F_GuardianAegis",.@t));
+
+	mes "[Recrutement]";
+	mes "Effectif actuel : " + .@total + " / " + .@cap + ".";
+	next;
+	.@sel = select(
+		callfunc("F_GuardianLabel",0)+" (5x, "+callfunc("F_GuardianCost",0)+"z)",
+		callfunc("F_GuardianLabel",1)+" (5x, "+callfunc("F_GuardianCost",1)+"z)",
+		callfunc("F_GuardianLabel",2)+" (5x, "+callfunc("F_GuardianCost",2)+"z)",
+		callfunc("F_GuardianLabel",3)+" (5x, "+callfunc("F_GuardianCost",3)+"z)",
+		callfunc("F_GuardianLabel",4)+" (5x, "+callfunc("F_GuardianCost",4)+"z)",
+		callfunc("F_GuardianLabel",5)+" (5x, "+callfunc("F_GuardianCost",5)+"z)",
+		"Annuler"
+	) - 1;
+	if (.@sel < 0 || .@sel > 5)
+		close;
+
+	if (.@total + 5 > .@cap) {
+		mes "[Recrutement]";
+		mes "Effectif maximum atteint (" + .@cap + ").";
+		close;
+	}
+	.@cost = callfunc("F_GuardianCost",.@sel);
+	if (Zeny < .@cost) {
+		mes "[Recrutement]";
+		mes "Tu n'as pas assez de zeny.";
+		close;
+	}
+	set Zeny, Zeny - .@cost;
+	.@varname$ = "$FACTION_"+.@faction_name$+"_"+.@mode$+"_"+callfunc("F_GuardianAegis",.@sel);
+	setd .@varname$, getd(.@varname$) + 5;
+
+	if (.@mode$ == "DEF") {
+		// Garnison defensive : spawn immediat, eparpille pres des 4 structures -
+		// toujours presente, meme sans defenseur en ligne.
+		setarray .@bx0[0], 156,252,104,205;
+		setarray .@by0[0], 188,282,162,178;
+		.@mobid = callfunc("F_GuardianMobId",.@sel,.@faction);
+		for (.@n = 0; .@n < 5; .@n++) {
+			.@spot = rand(0,3);
+			.@bx = .@bx0[.@spot] + rand(-8,8);
+			.@by = .@by0[.@spot] + rand(-8,8);
+			monster "prontera", .@bx, .@by, callfunc("F_GuardianLabel",.@sel), .@mobid, 1, "PRC_Prontera#reign::OnGarnisonDead";
+			setunitdata $@mobid[0], UMOB_FACTION, .@faction;
+		}
+	}
+
+	mes "[Recrutement]";
+	mes "5x " + callfunc("F_GuardianLabel",.@sel) + " recrutes.";
+	close;
+}
+
 // Recompense la faction gagnante (piste initiale : presence sur la map au
 // moment de la resolution, a affiner plus tard vers une part de contribution).
+// Deliberement SANS attachrid/detachrid : appele depuis une chaine d'evenements
+// de mort de mob (potentiellement plusieurs structures qui tombent dans le meme
+// tick), attacher/detacher des joueurs ici a deja provoque un crash serveur
+// ("Unable to restore stack! Double continuation!"). getmapunits+getcharid+
+// query_sql donnent le char_id sans jamais toucher au contexte d'attachement, et
+// add_reputation_points/getexp acceptent un char_id explicite en dernier argument.
 function	script	F_RecompenseRaid	{
 	.@faction = getarg(0);
 	.@reputation_id = (.@faction == 1) ? REPUTATION_ORDRE : REPUTATION_FORGENOIRES;
-	.@count = getmapunits(BL_PC, "prontera", .@unit_list);
+	.@count = getmapunits(BL_PC, "prontera", .@names$);
 	for (.@i = 0; .@i < .@count; .@i++) {
-		.@aid = .@unit_list[.@i];
-		attachrid(.@aid);
-		if (getfaction() == .@faction) {
-			add_reputation_points(.@reputation_id, 20);
-			getexp 500, 100;
+		.@cid = getcharid(0, .@names$[.@i]);
+		if (!.@cid) continue;
+		if (query_sql("SELECT `faction` FROM `char` WHERE `char_id` = " + .@cid, .@char_faction) <= 0) continue;
+		if (.@char_faction[0] == .@faction) {
+			add_reputation_points(.@reputation_id, 20, .@cid);
+			getexp 500, 100, .@cid;
 		}
-		detachrid;
 	}
 	return;
 }

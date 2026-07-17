@@ -59,10 +59,30 @@ Body:
     Sprite: EMPELIUM
   - Mob: COEUR_PRONTERA
     Sprite: EMPELIUM
-  - Mob: MILICE_ORDRE
-    Sprite: SWORD_GUARDIAN
-  - Mob: MILICE_FORGE
-    Sprite: SWORD_GUARDIAN
+  - Mob: KNIGHT_GRD_ORDRE
+    Sprite: KNIGHT_GUARDIAN
+  - Mob: KNIGHT_GRD_FORGE
+    Sprite: KNIGHT_GUARDIAN
+  - Mob: ARCHER_GRD_ORDRE
+    Sprite: ARCHER_GUARDIAN
+  - Mob: ARCHER_GRD_FORGE
+    Sprite: ARCHER_GUARDIAN
+  - Mob: BOW_GRD_ORDRE
+    Sprite: BOW_GUARDIAN
+  - Mob: BOW_GRD_FORGE
+    Sprite: BOW_GUARDIAN
+  - Mob: SWORD_GRD2_ORDRE
+    Sprite: SWORD_GUARDIAN_
+  - Mob: SWORD_GRD2_FORGE
+    Sprite: SWORD_GUARDIAN_
+  - Mob: CAMPBB_GRD_ORDRE
+    Sprite: B_B_GUARDIAN
+  - Mob: CAMPBB_GRD_FORGE
+    Sprite: B_B_GUARDIAN
+  - Mob: CAMPBS_GRD_ORDRE
+    Sprite: B_S_GUARDIAN
+  - Mob: CAMPBS_GRD_FORGE
+    Sprite: B_S_GUARDIAN
 
 #Body:
   # Examples

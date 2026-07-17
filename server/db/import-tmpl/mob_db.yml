@@ -274,64 +274,370 @@ Body:
     Ai: 06
     Class: Boss
 
-  # Renforts invoques automatiquement au declenchement d'un raid (voir
-  # raid_faction_prontera.txt), proportionnellement a la caisse investie de chaque
-  # camp. Clone par faction (comme PORING_ORDRE/PORING_FORGE ci-dessus) car leur nom
-  # affiche doit varier.
-  - Id: 30006
-    AegisName: MILICE_ORDRE
-    Name: "[Ordre] Milicien"
-    Level: 40
-    Hp: 3000
+  # Renforts (garnison defensive permanente + vagues d'attaque), catalogue de 6
+  # gardiens rAthena existants clones par faction (nom affiche doit varier, comme
+  # PORING_ORDRE/PORING_FORGE) mais stats/sprite identiques a l'original. BaseExp/
+  # JobExp a 0 pour eviter le farming XP sur des mobs achetes.
+  - Id: 30008
+    AegisName: KNIGHT_GRD_ORDRE
+    Name: "[Ordre] Knight Guardian"
+    Level: 86
+    Hp: 30214
     BaseExp: 0
     JobExp: 0
-    Attack: 80
-    Attack2: 20
-    Defense: 20
-    MagicDefense: 10
-    Str: 40
-    Agi: 20
-    Vit: 30
-    Dex: 30
-    AttackRange: 1
-    SkillRange: 6
-    ChaseRange: 9
-    Size: Medium
+    Attack: 1408
+    Attack2: 280
+    Defense: 88
+    MagicDefense: 30
+    Str: 110
+    Agi: 40
+    Vit: 140
+    Int: 65
+    Dex: 150
+    Luk: 65
+    AttackRange: 2
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
     Race: Demihuman
     Element: Neutral
-    ElementLevel: 1
-    WalkSpeed: 200
-    AttackDelay: 1500
-    AttackMotion: 500
-    DamageMotion: 300
-    Ai: 06
-  - Id: 30007
-    AegisName: MILICE_FORGE
-    Name: "[Forgenoires] Milicien"
-    Level: 40
-    Hp: 3000
+    ElementLevel: 4
+    WalkSpeed: 275
+    AttackDelay: 1200
+    AttackMotion: 1200
+    DamageMotion: 384
+    Ai: 12
+    Class: Guardian
+  - Id: 30009
+    AegisName: KNIGHT_GRD_FORGE
+    Name: "[Forge] Knight Guardian"
+    Level: 86
+    Hp: 30214
     BaseExp: 0
     JobExp: 0
-    Attack: 80
-    Attack2: 20
-    Defense: 20
-    MagicDefense: 10
-    Str: 40
-    Agi: 20
-    Vit: 30
-    Dex: 30
-    AttackRange: 1
-    SkillRange: 6
-    ChaseRange: 9
-    Size: Medium
+    Attack: 1408
+    Attack2: 280
+    Defense: 88
+    MagicDefense: 30
+    Str: 110
+    Agi: 40
+    Vit: 140
+    Int: 65
+    Dex: 150
+    Luk: 65
+    AttackRange: 2
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
     Race: Demihuman
     Element: Neutral
-    ElementLevel: 1
-    WalkSpeed: 200
-    AttackDelay: 1500
-    AttackMotion: 500
-    DamageMotion: 300
-    Ai: 06
+    ElementLevel: 4
+    WalkSpeed: 275
+    AttackDelay: 1200
+    AttackMotion: 1200
+    DamageMotion: 384
+    Ai: 12
+    Class: Guardian
+  - Id: 30010
+    AegisName: ARCHER_GRD_ORDRE
+    Name: "[Ordre] Archer Guardian"
+    Level: 74
+    Hp: 28634
+    BaseExp: 0
+    JobExp: 0
+    Attack: 1232
+    Attack2: 480
+    Defense: 56
+    MagicDefense: 60
+    Str: 95
+    Agi: 80
+    Vit: 80
+    Int: 90
+    Dex: 198
+    Luk: 55
+    AttackRange: 12
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 265
+    AttackDelay: 1200
+    AttackMotion: 1200
+    DamageMotion: 384
+    Ai: 12
+    Class: Guardian
+  - Id: 30011
+    AegisName: ARCHER_GRD_FORGE
+    Name: "[Forge] Archer Guardian"
+    Level: 74
+    Hp: 28634
+    BaseExp: 0
+    JobExp: 0
+    Attack: 1232
+    Attack2: 480
+    Defense: 56
+    MagicDefense: 60
+    Str: 95
+    Agi: 80
+    Vit: 80
+    Int: 90
+    Dex: 198
+    Luk: 55
+    AttackRange: 12
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 265
+    AttackDelay: 1200
+    AttackMotion: 1200
+    DamageMotion: 384
+    Ai: 12
+    Class: Guardian
+  - Id: 30012
+    AegisName: BOW_GRD_ORDRE
+    Name: "[Ordre] Bow Guardian"
+    Level: 132
+    Hp: 63000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 1149
+    Attack2: 120
+    Defense: 127
+    MagicDefense: 62
+    Str: 109
+    Agi: 80
+    Vit: 65
+    Int: 52
+    Dex: 183
+    Luk: 55
+    AttackRange: 12
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 76
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 26
+    Class: Boss
+  - Id: 30013
+    AegisName: BOW_GRD_FORGE
+    Name: "[Forge] Bow Guardian"
+    Level: 132
+    Hp: 63000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 1149
+    Attack2: 120
+    Defense: 127
+    MagicDefense: 62
+    Str: 109
+    Agi: 80
+    Vit: 65
+    Int: 52
+    Dex: 183
+    Luk: 55
+    AttackRange: 12
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 76
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 26
+    Class: Boss
+  - Id: 30014
+    AegisName: SWORD_GRD2_ORDRE
+    Name: "[Ordre] Sword Guardian"
+    Level: 133
+    Hp: 70000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 677
+    Attack2: 129
+    Defense: 122
+    MagicDefense: 33
+    Str: 122
+    Agi: 87
+    Vit: 54
+    Int: 65
+    Dex: 155
+    Luk: 65
+    AttackRange: 2
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 140
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 12
+    Class: Boss
+  - Id: 30015
+    AegisName: SWORD_GRD2_FORGE
+    Name: "[Forge] Sword Guardian"
+    Level: 133
+    Hp: 70000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 677
+    Attack2: 129
+    Defense: 122
+    MagicDefense: 33
+    Str: 122
+    Agi: 87
+    Vit: 54
+    Int: 65
+    Dex: 155
+    Luk: 65
+    AttackRange: 2
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 140
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 12
+    Class: Boss
+  - Id: 30016
+    AegisName: CAMPBB_GRD_ORDRE
+    Name: "[Ordre] Camp Archer"
+    Level: 80
+    Hp: 241212
+    BaseExp: 0
+    JobExp: 0
+    Attack: 2024
+    Attack2: 680
+    Defense: 64
+    MagicDefense: 62
+    Str: 95
+    Agi: 80
+    Vit: 5
+    Int: 90
+    Dex: 198
+    Luk: 55
+    AttackRange: 12
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 76
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 12
+    Class: Boss
+  - Id: 30017
+    AegisName: CAMPBB_GRD_FORGE
+    Name: "[Forge] Camp Archer"
+    Level: 80
+    Hp: 241212
+    BaseExp: 0
+    JobExp: 0
+    Attack: 2024
+    Attack2: 680
+    Defense: 64
+    MagicDefense: 62
+    Str: 95
+    Agi: 80
+    Vit: 5
+    Int: 90
+    Dex: 198
+    Luk: 55
+    AttackRange: 12
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 76
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 12
+    Class: Boss
+  - Id: 30018
+    AegisName: CAMPBS_GRD_ORDRE
+    Name: "[Ordre] Camp Guerrier"
+    Level: 86
+    Hp: 457599
+    BaseExp: 0
+    JobExp: 0
+    Attack: 8349
+    Attack2: 1550
+    Defense: 96
+    MagicDefense: 33
+    Str: 110
+    Agi: 40
+    Vit: 5
+    Int: 65
+    Dex: 150
+    Luk: 65
+    AttackRange: 2
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 140
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 12
+    Class: Boss
+  - Id: 30019
+    AegisName: CAMPBS_GRD_FORGE
+    Name: "[Forge] Camp Guerrier"
+    Level: 86
+    Hp: 457599
+    BaseExp: 0
+    JobExp: 0
+    Attack: 8349
+    Attack2: 1550
+    Defense: 96
+    MagicDefense: 33
+    Str: 110
+    Agi: 40
+    Vit: 5
+    Int: 65
+    Dex: 150
+    Luk: 65
+    AttackRange: 2
+    SkillRange: 14
+    ChaseRange: 16
+    Size: Large
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 4
+    WalkSpeed: 170
+    AttackDelay: 140
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 12
+    Class: Boss
 
 #Body:
 # eAthena Dev Team
