@@ -240,16 +240,38 @@ payon,152,182,3	script	Gudrun#reign	4_F_02,{
 	close;
 }
 
-//== Kolgrim (Payon) - forgeron, raffinage (Refine UI natif) ================
+//== Kolgrim (Payon) - forgeron, raffinage (Refine UI natif) + materiaux =====
+//= Le "Ameliorer" ouvre l'UI de raffinage native (refineui, cf. Vestri en
+//= vanilla). Le "Acheter des materiaux" ouvre une boutique invisible
+//= (callshop, view -1, jamais placee sur la carte) vendant les minerais
+//= Enrichis/HD et le Blacksmith Blessing necessaires aux paliers eleves -
+//= accessible a n'importe quel joueur, aucune restriction de metier :
+//= callshop/le systeme d'achat natif ne verifie jamais la classe du
+//= personnage, seulement son inventaire/poids et ses zeny.
 payon,141,174,3	script	Kolgrim#reign	4_M_DWARF,{
-	if (getbattleflag("feature.refineui")) {
-		mes "[Kolgrim]";
-		mes "Le meilleur forgeron a l'est de Prontera, et je ne dis pas ca pour vendre. Montrez-moi ce qu'il faut ameliorer.";
-		close2;
-		refineui();
-		end;
-	}
 	mes "[Kolgrim]";
-	mes "L'atelier est ferme pour l'instant. Revenez plus tard.";
-	close;
+	mes "Le meilleur forgeron a l'est de Prontera, et je ne dis pas ca pour vendre. Montrez-moi ce qu'il faut ameliorer, ou dites-moi ce qu'il vous faut.";
+	next;
+	switch (select("Ameliorer un equipement.:Acheter des materiaux.:Rien, merci.")) {
+	case 1:
+		if (getbattleflag("feature.refineui")) {
+			close2;
+			refineui();
+			end;
+		}
+		mes "[Kolgrim]";
+		mes "L'atelier est ferme pour l'instant. Revenez plus tard.";
+		close;
+	case 2:
+		mes "[Kolgrim]";
+		mes "Oridecon, Elunium, leurs versions Enrichies, du minerai HD pour ceux qui n'aiment pas le risque, et de quoi satisfaire un Blacksmith Blessing. Pas besoin d'etre du metier pour acheter, servez-vous.";
+		close2;
+		callshop "Materiaux de Kolgrim#reign",1;
+		end;
+	case 3:
+		mes "[Kolgrim]";
+		mes "Comme vous voulez.";
+		close;
+	}
 }
+-	shop	Materiaux de Kolgrim#reign	4_M_DWARF,984:1100,985:1100,7619:5000,7620:5000,6240:50000,6241:50000,6635:30000
