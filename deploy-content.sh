@@ -47,6 +47,13 @@ echo "==> Reconstruction de db/import (gitignored, non couvert par le checkout)"
 # quoi une modif d'un fichier déjà présent (ex: quest_db.yml) ne serait jamais reprise.
 run_remote "cd $REMOTE_DIR/server/db && mkdir -p import && cp -f import-tmpl/* import/"
 
+echo "==> Avertissement en jeu (redémarrage dans 20s)"
+# Best-effort : passe par la commande console du map-server (voir cli.cpp/parse_console),
+# qui bypass les vérifications de permission GM habituelles. Silencieux si le conteneur ne
+# tourne pas encore ou si stdin_open n'a pas encore été déployé (ne bloque jamais le reste).
+run_remote "docker exec rathena-map sh -c \"echo 'admin:@broadcast Redemarrage du serveur dans 20 secondes...' > /proc/1/fd/0\" 2>/dev/null || true"
+sleep 20
+
 echo "==> Redémarrage du map-server (pas de rebuild)"
 run_remote "cd $REMOTE_DIR/server/tools/docker && docker-compose -f docker-compose.prod.yml restart map"
 

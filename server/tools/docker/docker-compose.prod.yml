@@ -57,6 +57,11 @@ services:
         image: "rathena-midgardro:prod"
         container_name: "rathena-map"
         command: sh -c "/bin/wait-for db:3306 -- /rathena/map-server"
+        # Garde le stdin du process ouvert (equivalent docker run -i) pour que les scripts
+        # de deploiement puissent y injecter une commande console ("admin:@broadcast ...",
+        # voir cli.cpp/parse_console dans le serveur) juste avant un redemarrage, sans quoi
+        # il n'y a rien a ecrire dans /proc/1/fd/0 depuis l'exterieur.
+        stdin_open: true
         ports:
             - "5121:5121" # map server
         volumes:
