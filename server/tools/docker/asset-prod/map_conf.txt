@@ -1,3 +1,8 @@
 char_ip: char
 char_port: 16121
 map_ip: laurentetpauline.fr
+
+// Console desactivee par defaut (conf/map_athena.conf) - reactivee ici pour que
+// les scripts de deploiement puissent injecter "admin:@broadcast ..." via stdin
+// (voir cli.cpp/parse_console) juste avant un redemarrage.
+console: on
