@@ -46,4 +46,15 @@ pay_fild01,328,348,3	script	Frida#reign	4_F_02,{
 		mes "Comme vous voulez. Le pont attendra, en esperant qu'il tienne.";
 		close;
 	}
+OnQuestIcon:
+	if (payon_pont == 1) {
+		showevent QTYPE_NONE;
+	} else if (checkquest(91202,HUNTING) == 2) {
+		showevent QTYPE_QUEST;
+	} else if (isbegin_quest(91202) == 1) {
+		showevent QTYPE_QUEST2;
+	} else {
+		showevent QTYPE_QUEST;
+	}
+	end;
 }

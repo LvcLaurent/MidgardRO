@@ -1,0 +1,29 @@
+//===== Reign of Midgard ===================================================
+//= Icones de quete (! / ?) au-dessus des PNJ donneurs de quete
+//===== Description: =======================================================
+//= showevent() ne cible que le PNJ dont le script l'appelle (voir
+//= BUILDIN_FUNC(showevent), server/src/map/script.cpp) - impossible de
+//= l'appeler depuis un script central pour marquer un AUTRE PNJ. Chaque
+//= PNJ de quete porte donc son propre label OnQuestIcon: (verifie son etat
+//= de quete, appelle showevent), et ce script central se contente de
+//= declencher ces labels via donpcevent a la connexion et a chaque
+//= changement de carte, pour que l'icone soit a jour des que le joueur
+//= peut voir le PNJ. QTYPE_QUEST (!) = disponible ou pret a rendre,
+//= QTYPE_QUEST2 (?) = en cours, QTYPE_NONE = rien a signaler. ASCII pur.
+//===========================================================================
+
+-	script	Icones de quete#reign	-1,{
+OnPCLoginEvent:
+OnPCLoadMapEvent:
+	donpcevent "Geir#reign::OnQuestIcon";
+	donpcevent "La folle de Prontera#reign::OnQuestIcon";
+	donpcevent "Sigrid#reign::OnQuestIcon";
+	donpcevent "Eskil#reign::OnQuestIcon";
+	donpcevent "Villy#reign::OnQuestIcon";
+	donpcevent "Hakon le Passeur#reign::OnQuestIcon";
+	donpcevent "Ottar#reign::OnQuestIcon";
+	donpcevent "Steinar#reign::OnQuestIcon";
+	donpcevent "Frida#reign::OnQuestIcon";
+	donpcevent "Vigdis#reign::OnQuestIcon";
+	end;
+}

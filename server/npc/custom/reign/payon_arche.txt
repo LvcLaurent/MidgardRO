@@ -1,12 +1,17 @@
 //===== Reign of Midgard ===================================================
-//= Village Archer (pay_arche) - Kafra, benediction, chaine des catacombes
+//= Village Archer (pay_arche) - Kafra, benediction, chaine de la grotte
 //===== Description: =======================================================
 //= Extension de Payon vers son village satellite. Kafra sans service de
 //= teleportation (assume comme un choix du village, pas un manque), meme
 //= benediction de depart que Payon/Izlude recadree pour les archers, et une
-//= chaine de 3 quetes (catacombes) avec Vigdis - ton sombre/dramatique,
+//= chaine de 3 quetes (l'entree de la grotte/donjon de Payon, PAS des
+//= "catacombes" - correction explicite) avec Vigdis - ton sombre/dramatique,
 //= contraste volontaire avec le registre plus leger de Steinar (meme motif
-//= post-Rupture, voir lore section 13). ASCII pur.
+//= post-Rupture, voir lore section 13). Cadrage important : il s'agit de
+//= contenir ce qui vit dans la grotte, pas de monter en niveau/difficulte -
+//= les Poporing du 3e tour sont au meme niveau que le reste, pas "plus bas".
+//= Sert de mise en place pour un futur event d'invasion de zombies a Payon
+//= (pas encore implemente). ASCII pur.
 //===========================================================================
 
 //== Kafra Astrid (Village Archer) - pas de teleportation ==================
@@ -67,40 +72,45 @@ pay_arche,45,150,3	script	Benediction du Village Archer#reign	1_F_MERCHANT_01,{
 	}
 }
 
-//== Vigdis (Village Archer) - chaine des catacombes (91203-91205) ==========
+//== Vigdis (Village Archer) - chaine de la grotte de Payon (91203-91205) ===
+//= Cadrage : elle surveille l'entree de la grotte/donjon de Payon (pas des
+//= "catacombes"). Les tours de garde sont une contention necessaire, pas une
+//= escalade de difficulte - ne jamais dire que les monstres montent en
+//= niveau. Le 3e tour (Poporing) est au meme niveau que le reste, on ne
+//= s'enfonce pas plus loin pour l'instant.
 pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
-	if (payon_catacombes_stage >= 3) {
+	if (payon_grotte_stage >= 3) {
 		mes "[Vigdis]";
-		mes "Les catacombes sont calmes, pour l'instant. Trois veilles montees, trois veilles tenues. Je ne demande rien de plus.";
+		mes "L'entree de la grotte est calme, pour l'instant. Trois tours de garde montes, trois tenus. Ca ne durera pas eternellement - rien ne dure, avec ce qui vit la-dedans.";
 		close;
 	}
 
-	if (payon_catacombes_stage == 0) {
+	if (payon_grotte_stage == 0) {
 		if (checkquest(91203,HUNTING) == 2) {
 			mes "[Vigdis]";
-			mes "Dix morts-vivants de moins a remuer la terre. La premiere veille est tenue.";
+			mes "Dix morts-vivants de moins a remuer la terre. Le premier tour de garde est tenu.";
 			next;
 			mes "[Vigdis]";
-			mes "Ne vous relachez pas. Ce n'etait que la premiere.";
+			mes "Ca ne les empechera pas de revenir, mais au moins l'entree respire un peu mieux pour un moment.";
 			close2;
 			getexp 27070,0;
 			add_reputation_points(REPUTATION_PAYON,100);
 			erasequest 91203;
-			payon_catacombes_stage = 1;
+			payon_grotte_stage = 1;
 			end;
 		} else if (isbegin_quest(91203) == 1) {
 			mes "[Vigdis]";
-			mes "La premiere veille n'est pas tenue. Dix morts-vivants remuent encore sous les catacombes.";
+			mes "Le premier tour de garde n'est pas tenu. Dix morts-vivants remuent encore a l'entree de la grotte.";
 			close;
 		}
 		mes "[Vigdis]";
-		mes "*Elle garde les yeux fixes sur l'entree des catacombes, une main sur la garde de son epee.*";
+		mes "*Elle garde les yeux fixes sur l'entree de la grotte, une main sur la garde de son epee.*";
 		next;
 		mes "[Vigdis]";
-		mes "Depuis la Rupture, ce qui dort la-dessous dort moins bien. Trois veilles a tenir, dans l'ordre, sans quoi ca remontera plus fort que prevu.";
+		mes "Depuis la Rupture, ce qui vit la-dedans est plus nombreux et plus agite. Si personne ne s'en occupe regulierement, ca finira par sortir - et ce sera Payon qui en fera les frais, pas nous.";
 		next;
 		mes "[Vigdis]";
-		mes "La premiere : dix morts-vivants, pour degager l'entree. Vous en etes capable ?";
+		mes "Trois tours de garde, dans l'ordre. Rien d'heroique, juste ce qu'il faut pour que ca reste contenu. Le premier : dix morts-vivants, a l'entree. Vous en etes capable ?";
 		next;
 		switch (select("Je monte la garde.:Pas cette fois.")) {
 		case 1:
@@ -110,31 +120,31 @@ pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
 			close;
 		case 2:
 			mes "[Vigdis]";
-			mes "Comme vous voulez. Les catacombes attendront, elles ont l'habitude.";
+			mes "Comme vous voulez. La grotte attendra, elle a l'habitude.";
 			close;
 		}
 	}
 
-	if (payon_catacombes_stage == 1) {
+	if (payon_grotte_stage == 1) {
 		if (checkquest(91204,HUNTING) == 2) {
 			mes "[Vigdis]";
-			mes "Squelettes et familiers vaincus. La deuxieme veille est tenue - ca devient serieux, a partir d'ici.";
+			mes "Squelettes et familiers repousses. Le deuxieme tour de garde est tenu.";
 			next;
 			mes "[Vigdis]";
-			mes "Il ne reste qu'une veille. La pire, a mon avis.";
+			mes "Il reste un dernier tour.";
 			close2;
 			getexp 27070,0;
 			add_reputation_points(REPUTATION_PAYON,100);
 			erasequest 91204;
-			payon_catacombes_stage = 2;
+			payon_grotte_stage = 2;
 			end;
 		} else if (isbegin_quest(91204) == 1) {
 			mes "[Vigdis]";
-			mes "La deuxieme veille n'est pas tenue. Squelettes et familiers grouillent plus profond.";
+			mes "Le deuxieme tour de garde n'est pas tenu. Squelettes et familiers rodent encore plus loin dans la grotte.";
 			close;
 		}
 		mes "[Vigdis]";
-		mes "La premiere veille est tenue. La deuxieme s'annonce moins simple : dix squelettes, et cinq familiers qui leur tournent autour comme des charognards.";
+		mes "Le premier tour de garde est tenu. Plus loin dans la grotte, dix squelettes et cinq familiers rodent encore.";
 		next;
 		switch (select("Je continue.:Pas cette fois.")) {
 		case 1:
@@ -149,40 +159,66 @@ pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
 		}
 	}
 
-	if (payon_catacombes_stage == 2) {
+	if (payon_grotte_stage == 2) {
 		if (checkquest(91205,HUNTING) == 2) {
 			mes "[Vigdis]";
-			mes "...Des Poporing ? Vraiment ? Apres deux veilles a affronter la mort elle-meme, la troisieme se termine sur des Poporing.";
+			mes "...Des Poporing ? Apres deux tours de garde contre des morts-vivants, celui-la se termine sur des Poporing.";
 			next;
 			mes "[Vigdis]";
-			mes "Enfin. Trois veilles tenues. Vous avez fait plus pour ce village que bien des gardes en uniforme.";
+			mes "Trois tours de garde tenus. Vous avez fait plus pour ce village que bien des gardes en uniforme.";
 			close2;
 			getexp 27070,0;
 			add_reputation_points(REPUTATION_PAYON,100);
 			erasequest 91205;
-			payon_catacombes_stage = 3;
+			payon_grotte_stage = 3;
 			end;
 		} else if (isbegin_quest(91205) == 1) {
 			mes "[Vigdis]";
-			mes "La derniere veille n'est pas tenue. Dix Poporing, aussi absurde que ca paraisse.";
+			mes "Le dernier tour de garde n'est pas tenu. Dix Poporing, au meme niveau que le reste.";
 			close;
 		}
 		mes "[Vigdis]";
-		mes "Deux veilles tenues. La troisieme est... differente. Des Poporing se sont installes dans les niveaux les plus bas, attires par on ne sait quoi.";
-		next;
-		mes "[Vigdis]";
-		mes "Moins dangereux que le reste, mais ne les sous-estimez pas sous pretexte qu'ils sont ridicules. Dix, et les catacombes seront calmes.";
+		mes "Deux tours de garde tenus. Le troisieme : des Poporing, au meme niveau que le reste. Rien de plus dangereux, juste une bete de plus a tenir a l'oeil.";
 		next;
 		switch (select("Je termine ce qui a commence.:Pas cette fois.")) {
 		case 1:
 			setquest 91205;
 			mes "[Vigdis]";
-			mes "Dix Poporing. La derniere veille - et la plus etrange, je l'admets.";
+			mes "Dix Poporing. Le dernier tour de garde.";
 			close;
 		case 2:
 			mes "[Vigdis]";
-			mes "Comme vous voulez. Je ne vous en voudrai pas d'hesiter, ce sont quand meme des catacombes.";
+			mes "Comme vous voulez. Je ne vous en voudrai pas d'hesiter.";
 			close;
 		}
 	}
+OnQuestIcon:
+	if (payon_grotte_stage >= 3) {
+		showevent QTYPE_NONE;
+	} else if (payon_grotte_stage == 0) {
+		if (checkquest(91203,HUNTING) == 2) {
+			showevent QTYPE_QUEST;
+		} else if (isbegin_quest(91203) == 1) {
+			showevent QTYPE_QUEST2;
+		} else {
+			showevent QTYPE_QUEST;
+		}
+	} else if (payon_grotte_stage == 1) {
+		if (checkquest(91204,HUNTING) == 2) {
+			showevent QTYPE_QUEST;
+		} else if (isbegin_quest(91204) == 1) {
+			showevent QTYPE_QUEST2;
+		} else {
+			showevent QTYPE_QUEST;
+		}
+	} else {
+		if (checkquest(91205,HUNTING) == 2) {
+			showevent QTYPE_QUEST;
+		} else if (isbegin_quest(91205) == 1) {
+			showevent QTYPE_QUEST2;
+		} else {
+			showevent QTYPE_QUEST;
+		}
+	}
+	end;
 }

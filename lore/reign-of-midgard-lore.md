@@ -360,10 +360,18 @@ village plutôt qu'un manque), et la **Bénédiction du Village Archer** reprend
 la même mécanique que celle de Payon, recadrée comme un rituel de tir (main
 sûre, œil clair) plutôt qu'une superstition de chasseur.
 
-**Vigdis**, gardienne postée à l'entrée des catacombes du village, propose une
-chaîne de trois « veilles » (dix morts-vivants, puis dix squelettes et cinq
+**Vigdis**, gardienne postée à l'entrée de la **grotte** de Payon (un vrai
+donjon, pas des catacombes — correction explicite), propose une chaîne de
+trois « tours de garde » (dix morts-vivants, puis dix squelettes et cinq
 familiers, puis dix Poporing) — même motif de dérèglement post-Rupture que le
-reste de Payon, mais décliné sur un registre délibérément plus sombre et
+reste de Payon, décliné sur un registre délibérément plus sombre et
 dramatique, en contraste avec le ton plus léger de Steinar sur le même sujet
-(section 6, ton des villes). La troisième veille (Poporing) introduit une
-pointe d'absurde volontaire après la gravité des deux premières.
+(section 6, ton des villes). Cadrage important, à respecter dans tout
+contenu futur touchant cette chaîne : il ne s'agit pas d'une escalade de
+danger (les monstres ne « montent pas de niveau ») mais d'un effort de
+**contention** — si personne ne maintient la pression, ce qui vit dans la
+grotte finira par en sortir et menacer Payon directement. Les Poporing du
+troisième tour sont au même niveau que le reste de la grotte, pas « plus
+bas » — pour l'instant, on ne s'enfonce pas plus loin dans le donjon. Cette
+chaîne sert de mise en place pour un futur event d'invasion de zombies à
+Payon (non encore implémenté).

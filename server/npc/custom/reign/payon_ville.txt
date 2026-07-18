@@ -162,6 +162,17 @@ payon,145,219,3	script	Ottar#reign	4_M_02,{
 		mes "Comme vous voulez. Le passage restera ferme, alors.";
 		close;
 	}
+OnQuestIcon:
+	if (payon_bigfoot == 1) {
+		showevent QTYPE_NONE;
+	} else if (checkquest(91200,HUNTING) == 2) {
+		showevent QTYPE_QUEST;
+	} else if (isbegin_quest(91200) == 1) {
+		showevent QTYPE_QUEST2;
+	} else {
+		showevent QTYPE_QUEST;
+	}
+	end;
 }
 
 //== Steinar (Payon) - chasse Boa/Spore/Wormtail, plein sud de la ville =====
@@ -205,6 +216,17 @@ payon,161,68,3	script	Steinar#reign	4_M_02,{
 		mes "Tant pis. Je vais devoir dormir avec un baton pres du lit, comme d'habitude.";
 		close;
 	}
+OnQuestIcon:
+	if (payon_vermine == 1) {
+		showevent QTYPE_NONE;
+	} else if (checkquest(91201,HUNTING) == 2) {
+		showevent QTYPE_QUEST;
+	} else if (isbegin_quest(91201) == 1) {
+		showevent QTYPE_QUEST2;
+	} else {
+		showevent QTYPE_QUEST;
+	}
+	end;
 }
 
 //== Gudrun (Payon) - identification d'objets, 100z par objet ==============

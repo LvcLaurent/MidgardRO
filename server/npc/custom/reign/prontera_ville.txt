@@ -53,6 +53,13 @@ prontera,146,69,3	script	Sigrid#reign	4_F_02,{
 		mes "Merci. Dis-lui... non, rien. Le colis parlera pour moi.";
 		close;
 	}
+OnQuestIcon:
+	if (isbegin_quest(91101) == 0) {
+		showevent QTYPE_QUEST;
+	} else {
+		showevent QTYPE_NONE;
+	}
+	end;
 }
 
 //== Eskil (izlude_in, 59,127) - reception du colis, recompense =============
@@ -107,6 +114,13 @@ izlude_in,59,127,3	script	Eskil#reign	4_M_02,{
 	mes "[Eskil]";
 	mes "Voila. Prends-en soin, et prends soin de la route aussi - elle le merite plus qu'on ne le croit.";
 	close;
+OnQuestIcon:
+	if (isbegin_quest(91101) == 1) {
+		showevent QTYPE_QUEST;
+	} else {
+		showevent QTYPE_NONE;
+	}
+	end;
 }
 
 //== Villy (Prontera, 166,76) - vengeance contre les Poring ==================
@@ -159,4 +173,15 @@ prontera,166,76,3	script	Villy#reign	4W_KID,{
 		mes "ENFIN quelqu'un qui prend cette tragedie au serieux. Quarante Poring. Vas-y. Venge le gateau.";
 		close;
 	}
+OnQuestIcon:
+	if (isbegin_quest(91102) == 2) {
+		showevent QTYPE_NONE;
+	} else if (checkquest(91102,HUNTING) == 2) {
+		showevent QTYPE_QUEST;
+	} else if (isbegin_quest(91102) == 1) {
+		showevent QTYPE_QUEST2;
+	} else {
+		showevent QTYPE_QUEST;
+	}
+	end;
 }

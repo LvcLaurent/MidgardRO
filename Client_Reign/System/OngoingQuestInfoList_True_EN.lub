@@ -148,9 +148,9 @@ QuestInfoList = {
 		RewardJEXP = "0"
 	},
 	[91203] = {
-		Title = "Les catacombes, première veille",
+		Title = "La grotte de Payon, premier tour de garde",
 		Description = {
-			"Vigdis, gardienne postée à l'entrée des catacombes du Village Archer, demande de l'aide contre les morts-vivants qui remuent depuis la Rupture.",
+			"Vigdis, gardienne postée à l'entrée de la grotte du Village Archer, demande de l'aide pour contenir les morts-vivants qui y sont plus nombreux depuis la Rupture.",
 			"Objectif : 10 Zombie."
 		},
 		Summary = "Chasser 10 Zombie pour Vigdis",
@@ -158,9 +158,9 @@ QuestInfoList = {
 		RewardJEXP = "0"
 	},
 	[91204] = {
-		Title = "Les catacombes, deuxième veille",
+		Title = "La grotte de Payon, deuxième tour de garde",
 		Description = {
-			"Vigdis demande de repousser les squelettes et les familiers qui grouillent plus profond dans les catacombes.",
+			"Vigdis demande de repousser les squelettes et les familiers qui rôdent plus loin dans la grotte.",
 			"Objectif : 10 Skeleton, 5 Familiar."
 		},
 		Summary = "Chasser 10 Skeleton et 5 Familiar pour Vigdis",
@@ -168,9 +168,9 @@ QuestInfoList = {
 		RewardJEXP = "0"
 	},
 	[91205] = {
-		Title = "Les catacombes, dernière veille",
+		Title = "La grotte de Payon, troisième tour de garde",
 		Description = {
-			"Vigdis demande de chasser les Poporing installés dans les niveaux les plus bas des catacombes.",
+			"Vigdis demande de chasser des Poporing présents au même niveau que le reste de la grotte.",
 			"Objectif : 10 Poporing."
 		},
 		Summary = "Chasser 10 Poporing pour Vigdis",

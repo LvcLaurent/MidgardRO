@@ -135,6 +135,22 @@ iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 	close2;
 	warp "1@spa",38,41;
 	end;
+OnQuestIcon:
+	if (Class != Job_Swordman && Class != Job_Mage && Class != Job_Acolyte &&
+	    Class != Job_Archer && Class != Job_Merchant && Class != Job_Thief) {
+		showevent QTYPE_NONE;
+	} else if (job_tier1 >= 1) {
+		showevent QTYPE_NONE;
+	} else if (BaseLevel < 20) {
+		showevent QTYPE_NONE;
+	} else if (JobLevel >= 10) {
+		showevent QTYPE_QUEST;
+	} else if (job_tier1_stage >= 1) {
+		showevent QTYPE_QUEST2;
+	} else {
+		showevent QTYPE_QUEST;
+	}
+	end;
 }
 
 //== Prisonnier oublie (1@spa, catacombes) - liberation vers la bibliotheque =

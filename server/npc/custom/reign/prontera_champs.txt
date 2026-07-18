@@ -76,4 +76,15 @@ prt_fild08,316,234,3	script	Geir#reign	4_M_04,{
 		mes "Vingt Fabre, dix Pupa. Reviens me voir une fois que c'est fait.";
 		close;
 	}
+OnQuestIcon:
+	if (champs_pupa_fabre == 1) {
+		showevent QTYPE_NONE;
+	} else if (checkquest(91007,HUNTING) == 2) {
+		showevent QTYPE_QUEST;
+	} else if (isbegin_quest(91007) == 1) {
+		showevent QTYPE_QUEST2;
+	} else {
+		showevent QTYPE_QUEST;
+	}
+	end;
 }

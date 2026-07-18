@@ -118,21 +118,21 @@ Body:
     Targets:
       - Mob: WILOW
         Count: 20
-  # Reign of Midgard — Village Archer (pay_arche), chaine des catacombes
+  # Reign of Midgard — Village Archer (pay_arche), grotte de Payon
   - Id: 91203
-    Title: Les catacombes, premiere veille
+    Title: La grotte de Payon, premier tour de garde
     Targets:
       - Mob: ZOMBIE
         Count: 10
   - Id: 91204
-    Title: Les catacombes, deuxieme veille
+    Title: La grotte de Payon, deuxieme tour de garde
     Targets:
       - Mob: SKELETON
         Count: 10
       - Mob: FARMILIAR
         Count: 5
   - Id: 91205
-    Title: Les catacombes, derniere veille
+    Title: La grotte de Payon, troisieme tour de garde
     Targets:
       - Mob: POPORING
         Count: 10
