@@ -118,3 +118,21 @@ Body:
     Targets:
       - Mob: WILOW
         Count: 20
+  # Reign of Midgard — Village Archer (pay_arche), chaine des catacombes
+  - Id: 91203
+    Title: Les catacombes, premiere veille
+    Targets:
+      - Mob: ZOMBIE
+        Count: 10
+  - Id: 91204
+    Title: Les catacombes, deuxieme veille
+    Targets:
+      - Mob: SKELETON
+        Count: 10
+      - Mob: FARMILIAR
+        Count: 5
+  - Id: 91205
+    Title: Les catacombes, derniere veille
+    Targets:
+      - Mob: POPORING
+        Count: 10

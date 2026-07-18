@@ -1,0 +1,188 @@
+//===== Reign of Midgard ===================================================
+//= Village Archer (pay_arche) - Kafra, benediction, chaine des catacombes
+//===== Description: =======================================================
+//= Extension de Payon vers son village satellite. Kafra sans service de
+//= teleportation (assume comme un choix du village, pas un manque), meme
+//= benediction de depart que Payon/Izlude recadree pour les archers, et une
+//= chaine de 3 quetes (catacombes) avec Vigdis - ton sombre/dramatique,
+//= contraste volontaire avec le registre plus leger de Steinar (meme motif
+//= post-Rupture, voir lore section 13). ASCII pur.
+//===========================================================================
+
+//== Kafra Astrid (Village Archer) - pas de teleportation ==================
+pay_arche,41,137,3	script	Kafra Astrid#reign	4_F_KAFRA1,{
+	mes "[Kafra Astrid]";
+	mes "Service Kafra du village archer. Pas de teleportation depuis ce comptoir - on n'a jamais eu assez de passage pour le justifier. Entrepot et point de sauvegarde, en revanche, oui.";
+	next;
+	switch (select("Acceder a l'entrepot.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	case 1:
+		mes "[Kafra Astrid]";
+		mes "Bien sur. Voici votre entrepot.";
+		close2;
+		openstorage;
+		end;
+	case 2:
+		mes "[Kafra Astrid]";
+		mes "C'est fait. Le village archer sera votre port d'attache, desormais.";
+		close2;
+		savepoint "pay_arche",41,137;
+		end;
+	case 3:
+		mes "[Kafra Astrid]";
+		mes "On m'a propose un comptoir de teleportation, une fois. J'ai refuse - ici, les gens restent. Ils ne font que passer par Payon meme.";
+		close;
+	case 4:
+		mes "[Kafra Astrid]";
+		mes "Bonne route.";
+		close;
+	}
+}
+
+//== Benediction du Village Archer - benediction de depart, 100 zeny =======
+pay_arche,45,150,3	script	Benediction du Village Archer#reign	1_F_MERCHANT_01,{
+	mes "[Benediction du Village Archer]";
+	mes "Un rituel de tir avant de partir en chasse ? Main sure, oeil clair, souffle regulier. 100 zeny, et la corde ne tremble plus.";
+	next;
+	switch (select("Payer 100 zeny.:Ca marche vraiment ?:Non merci.")) {
+	case 1:
+		if (Zeny < 100) {
+			mes "[Benediction du Village Archer]";
+			mes "100 zeny. Meme la precision se paie, par ici.";
+			close;
+		}
+		Zeny -= 100;
+		sc_start SC_BLESSING,240000,10;
+		sc_start SC_INCREASEAGI,240000,10;
+		mes "[Benediction du Village Archer]";
+		mes "Voila. Quatre minutes de main sure et de bonne fortune. Visez juste.";
+		close;
+	case 2:
+		mes "[Benediction du Village Archer]";
+		mes "Un vieux rituel d'archer, transmis de maitre a eleve depuis des generations. Ca marche, ou alors on y croit assez fort pour que ca revienne au meme.";
+		close;
+	case 3:
+		mes "[Benediction du Village Archer]";
+		mes "Comme vous voulez. La corde attendra.";
+		close;
+	}
+}
+
+//== Vigdis (Village Archer) - chaine des catacombes (91203-91205) ==========
+pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
+	if (payon_catacombes_stage >= 3) {
+		mes "[Vigdis]";
+		mes "Les catacombes sont calmes, pour l'instant. Trois veilles montees, trois veilles tenues. Je ne demande rien de plus.";
+		close;
+	}
+
+	if (payon_catacombes_stage == 0) {
+		if (checkquest(91203,HUNTING) == 2) {
+			mes "[Vigdis]";
+			mes "Dix morts-vivants de moins a remuer la terre. La premiere veille est tenue.";
+			next;
+			mes "[Vigdis]";
+			mes "Ne vous relachez pas. Ce n'etait que la premiere.";
+			close2;
+			getexp 27070,0;
+			add_reputation_points(REPUTATION_PAYON,100);
+			erasequest 91203;
+			payon_catacombes_stage = 1;
+			end;
+		} else if (isbegin_quest(91203) == 1) {
+			mes "[Vigdis]";
+			mes "La premiere veille n'est pas tenue. Dix morts-vivants remuent encore sous les catacombes.";
+			close;
+		}
+		mes "[Vigdis]";
+		mes "*Elle garde les yeux fixes sur l'entree des catacombes, une main sur la garde de son epee.*";
+		next;
+		mes "[Vigdis]";
+		mes "Depuis la Rupture, ce qui dort la-dessous dort moins bien. Trois veilles a tenir, dans l'ordre, sans quoi ca remontera plus fort que prevu.";
+		next;
+		mes "[Vigdis]";
+		mes "La premiere : dix morts-vivants, pour degager l'entree. Vous en etes capable ?";
+		next;
+		switch (select("Je monte la garde.:Pas cette fois.")) {
+		case 1:
+			setquest 91203;
+			mes "[Vigdis]";
+			mes "Dix morts-vivants. Revenez me voir une fois l'entree degagee.";
+			close;
+		case 2:
+			mes "[Vigdis]";
+			mes "Comme vous voulez. Les catacombes attendront, elles ont l'habitude.";
+			close;
+		}
+	}
+
+	if (payon_catacombes_stage == 1) {
+		if (checkquest(91204,HUNTING) == 2) {
+			mes "[Vigdis]";
+			mes "Squelettes et familiers vaincus. La deuxieme veille est tenue - ca devient serieux, a partir d'ici.";
+			next;
+			mes "[Vigdis]";
+			mes "Il ne reste qu'une veille. La pire, a mon avis.";
+			close2;
+			getexp 27070,0;
+			add_reputation_points(REPUTATION_PAYON,100);
+			erasequest 91204;
+			payon_catacombes_stage = 2;
+			end;
+		} else if (isbegin_quest(91204) == 1) {
+			mes "[Vigdis]";
+			mes "La deuxieme veille n'est pas tenue. Squelettes et familiers grouillent plus profond.";
+			close;
+		}
+		mes "[Vigdis]";
+		mes "La premiere veille est tenue. La deuxieme s'annonce moins simple : dix squelettes, et cinq familiers qui leur tournent autour comme des charognards.";
+		next;
+		switch (select("Je continue.:Pas cette fois.")) {
+		case 1:
+			setquest 91204;
+			mes "[Vigdis]";
+			mes "Dix squelettes, cinq familiers. Ne les laissez pas vous encercler.";
+			close;
+		case 2:
+			mes "[Vigdis]";
+			mes "Comme vous voulez. Je resterai postee ici, avec ou sans vous.";
+			close;
+		}
+	}
+
+	if (payon_catacombes_stage == 2) {
+		if (checkquest(91205,HUNTING) == 2) {
+			mes "[Vigdis]";
+			mes "...Des Poporing ? Vraiment ? Apres deux veilles a affronter la mort elle-meme, la troisieme se termine sur des Poporing.";
+			next;
+			mes "[Vigdis]";
+			mes "Enfin. Trois veilles tenues. Vous avez fait plus pour ce village que bien des gardes en uniforme.";
+			close2;
+			getexp 27070,0;
+			add_reputation_points(REPUTATION_PAYON,100);
+			erasequest 91205;
+			payon_catacombes_stage = 3;
+			end;
+		} else if (isbegin_quest(91205) == 1) {
+			mes "[Vigdis]";
+			mes "La derniere veille n'est pas tenue. Dix Poporing, aussi absurde que ca paraisse.";
+			close;
+		}
+		mes "[Vigdis]";
+		mes "Deux veilles tenues. La troisieme est... differente. Des Poporing se sont installes dans les niveaux les plus bas, attires par on ne sait quoi.";
+		next;
+		mes "[Vigdis]";
+		mes "Moins dangereux que le reste, mais ne les sous-estimez pas sous pretexte qu'ils sont ridicules. Dix, et les catacombes seront calmes.";
+		next;
+		switch (select("Je termine ce qui a commence.:Pas cette fois.")) {
+		case 1:
+			setquest 91205;
+			mes "[Vigdis]";
+			mes "Dix Poporing. La derniere veille - et la plus etrange, je l'admets.";
+			close;
+		case 2:
+			mes "[Vigdis]";
+			mes "Comme vous voulez. Je ne vous en voudrai pas d'hesiter, ce sont quand meme des catacombes.";
+			close;
+		}
+	}
+}

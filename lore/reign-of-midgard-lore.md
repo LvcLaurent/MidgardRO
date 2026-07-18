@@ -334,7 +334,7 @@ ville, indépendamment de l'Ordre ou des Forgenoires.
   seulement aux ruines.
 - **Ottar**, chasseur, et **Steinar**, garde forestier, portent chacun une
   quête de chasse liée à ce dérèglement (Bigfoot au sud-est, Boa/Spore/Wormtail
-  au nord) — ton grave et concret pour Ottar (un passage de chasse devenu
+  plein sud) — ton grave et concret pour Ottar (un passage de chasse devenu
   dangereux), ton plus léger et acerbe pour Steinar (une infestation traitée
   avec un humour fatigué), contraste volontaire dans le registre comme
   pratiqué ailleurs (Geir/Aventurier claudicant, Palais Oublié/Villy).
@@ -349,3 +349,21 @@ ville, indépendamment de l'Ordre ou des Forgenoires.
   recadrée comme une superstition locale de chasseurs plutôt qu'un tour lié à
   la Foi. **Gudrun** (identification) et **Kolgrim** (raffinage, via le Refine
   UI natif) complètent l'offre de service sans lien direct avec la trame.
+  Kolgrim vend aussi les minerais Enrichis/HD et le Blacksmith Blessing
+  nécessaires aux paliers de raffinage élevés (aucune restriction de métier).
+
+Le **Village Archer** (`pay_arche`), satellite traditionnel de Payon, reçoit
+son propre service Kafra et sa propre bénédiction de départ plutôt que de
+dépendre de la ville principale : **Kafra Astrid** n'offre volontairement pas
+de téléportation (trop peu de passage pour le justifier, un choix assumé du
+village plutôt qu'un manque), et la **Bénédiction du Village Archer** reprend
+la même mécanique que celle de Payon, recadrée comme un rituel de tir (main
+sûre, œil clair) plutôt qu'une superstition de chasseur.
+
+**Vigdis**, gardienne postée à l'entrée des catacombes du village, propose une
+chaîne de trois « veilles » (dix morts-vivants, puis dix squelettes et cinq
+familiers, puis dix Poporing) — même motif de dérèglement post-Rupture que le
+reste de Payon, mais décliné sur un registre délibérément plus sombre et
+dramatique, en contraste avec le ton plus léger de Steinar sur le même sujet
+(section 6, ton des villes). La troisième veille (Poporing) introduit une
+pointe d'absurde volontaire après la gravité des deux premières.

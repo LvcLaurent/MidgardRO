@@ -164,7 +164,7 @@ payon,145,219,3	script	Ottar#reign	4_M_02,{
 	}
 }
 
-//== Steinar (Payon) - chasse Boa/Spore/Wormtail, nord de la ville =========
+//== Steinar (Payon) - chasse Boa/Spore/Wormtail, plein sud de la ville =====
 payon,161,68,3	script	Steinar#reign	4_M_02,{
 	if (payon_vermine == 1) {
 		mes "[Steinar]";
@@ -185,14 +185,14 @@ payon,161,68,3	script	Steinar#reign	4_M_02,{
 		end;
 	} else if (isbegin_quest(91201) == 1) {
 		mes "[Steinar]";
-		mes "Toujours pas fini ? La foret au nord grouille, prenez votre temps mais ne trainez pas trop non plus.";
+		mes "Toujours pas fini ? La foret plein sud grouille, prenez votre temps mais ne trainez pas trop non plus.";
 		close;
 	}
 	mes "[Steinar]";
 	mes "Le monde a failli finir et mon probleme du jour, c'est une invasion de serpents. La Rupture a du bon sens de l'humour, je trouve.";
 	next;
 	mes "[Steinar]";
-	mes "Trente Boa, dix Spore, dix Wormtail, au nord. Rien d'heroique, juste du menage. Mais quelqu'un doit le faire, et ce ne sera pas moi.";
+	mes "Trente Boa, dix Spore, dix Wormtail, plein sud. Rien d'heroique, juste du menage. Mais quelqu'un doit le faire, et ce ne sera pas moi.";
 	next;
 	switch (select("Je m'en occupe.:Trouvez un autre menagere.")) {
 	case 1:
