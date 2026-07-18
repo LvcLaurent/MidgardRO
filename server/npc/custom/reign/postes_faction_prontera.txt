@@ -26,6 +26,9 @@ prt_fild08,166,371,4	script	Poste de l'Ordre#reign	1_M_KNIGHTMASTER,{
 		close;
 	}
 
+	if (getvariableofnpc(.Active, "PRC_Prontera#reign"))
+		callfunc("F_AnnonceProchaineAttaque", "[Poste de l'Ordre]");
+
 	mes "[Poste de l'Ordre]";
 	mes "Prontera ne nous appartient pas. Lance l'assaut ou prepare nos troupes avant l'attaque.";
 	next;
@@ -49,7 +52,7 @@ prt_fild08,166,371,4	script	Poste de l'Ordre#reign	1_M_KNIGHTMASTER,{
 	}
 }
 
-prt_fild05,366,211,4	script	Poste des Forgenoires#reign	4_M_SWORDMAN,{
+prt_fild08,177,372,4	script	Poste des Forgenoires#reign	4_M_SWORDMAN,{
 	.@my_faction = 2;
 
 	if (getfaction() != .@my_faction) {
@@ -57,6 +60,9 @@ prt_fild05,366,211,4	script	Poste des Forgenoires#reign	4_M_SWORDMAN,{
 		mes "Seuls les membres des Forgenoires peuvent utiliser ce poste.";
 		close;
 	}
+
+	if (getvariableofnpc(.Active, "PRC_Prontera#reign"))
+		callfunc("F_AnnonceProchaineAttaque", "[Poste des Forgenoires]");
 
 	mes "[Poste des Forgenoires]";
 	mes "Prontera ne nous appartient pas. Lance l'assaut ou prepare nos troupes avant l'attaque.";

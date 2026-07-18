@@ -167,6 +167,25 @@ OnMinute50:
 }
 
 // -- Fonctions utilitaires partagees avec les postes d'investissement --------
+
+// Appelee par un poste d'attaque quand on lui reparle alors qu'un assaut a
+// deja ete declenche (.Active) - communique juste l'heure, pas de nouveau
+// menu (payer a nouveau ne ferait que gaspiller le zeny, OnLaunchAttack
+// ignore silencieusement tout declenchement pendant que .Active est deja a 1).
+function	script	F_AnnonceProchaineAttaque	{
+	.@label$ = getarg(0);
+	.@elapsed = getnpctimer(0, "PRC_Prontera#reign");
+
+	mes .@label$;
+	if (.@elapsed < 300000) {
+		.@remain = (300000 - .@elapsed) / 1000;
+		mes "Une attaque a deja ete lancee. Elle commencera dans " + (.@remain / 60) + " min " + (.@remain % 60) + "s.";
+	} else {
+		mes "L'assaut est en cours.";
+	}
+	close;
+}
+
 function	script	F_NomFaction	{
 	if (getarg(0) == 1)
 		return "L'Ordre de la Faille";
