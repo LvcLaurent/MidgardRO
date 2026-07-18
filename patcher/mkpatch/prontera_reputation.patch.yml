@@ -1,0 +1,16 @@
+# Patch : ajoute l'entrée de réputation "Prontera" (Id 7) côté client - la fenêtre
+# de réputation est pilotée par ContentData/Repute/*.bson (données BSON packées
+# dans reign.grf), pas par un fichier .lub texte comme les quêtes. Sans ça, le
+# serveur envoie bien le type 7 dans le paquet ZC_REPUTE_INFO mais le client
+# n'a aucun nom/échelle à afficher pour cet ID et l'ignore silencieusement.
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign/reign_GRF -o patcher/hosting/patches/data/11_prontera_reputation.thor patcher/mkpatch/prontera_reputation.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: true
+target_grf_name: reign.grf
+include_checksums: true
+
+entries:
+  - relative_path: data/contentdata/repute/reputeinfodata.bson
+  - relative_path: data/contentdata/repute/reputegroupdata.bson
