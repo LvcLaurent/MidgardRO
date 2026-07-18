@@ -1,0 +1,15 @@
+# Patch : traduction française des 11 compétences du métier Marchand (MC_*) -
+# noms courts (skillinfolist.lub) et descriptions complètes (skilldescript.lub).
+# Suite du chantier de traduction des compétences commencé avec NV_BASIC/patch #3
+# puis les 10 premières compétences Novice/Épéiste/Mage (patch #8).
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign/reign_GRF -o patcher/hosting/patches/data/15_merchant_skills.thor patcher/mkpatch/merchant_skills.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: true
+target_grf_name: reign.grf
+include_checksums: true
+
+entries:
+  - relative_path: data/luafiles514/lua files/skillinfoz/skilldescript.lub
+  - relative_path: data/luafiles514/lua files/skillinfoz/skillinfolist.lub

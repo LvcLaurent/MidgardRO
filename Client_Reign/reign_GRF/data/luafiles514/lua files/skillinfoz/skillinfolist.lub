@@ -2917,7 +2917,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_INCCARRY] = {
 		"MC_INCCARRY",
-		SkillName = "Enlarge Weight Limit",
+		SkillName = "Charge Maximale",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -3037,7 +3037,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_DISCOUNT] = {
 		"MC_DISCOUNT",
-		SkillName = "Discount",
+		SkillName = "Réduction",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -3168,7 +3168,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_OVERCHARGE] = {
 		"MC_OVERCHARGE",
-		SkillName = "Overcharge",
+		SkillName = "Survente",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -3299,7 +3299,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_PUSHCART] = {
 		"MC_PUSHCART",
-		SkillName = "Pushcart",
+		SkillName = "Charrette",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -3438,7 +3438,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_IDENTIFY] = {
 		"MC_IDENTIFY",
-		SkillName = "Item Appraisal",
+		SkillName = "Identification d'Objet",
 		MaxLv = 1,
 		SpAmount = { 10 },
 		bSeperateLv = false,
@@ -3598,7 +3598,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_VENDING] = {
 		"MC_VENDING",
-		SkillName = "Vending",
+		SkillName = "Vente",
 		MaxLv = 10,
 		SpAmount = { 30, 30, 30, 30, 30, 30, 30, 30, 30, 30 },
 		bSeperateLv = false,
@@ -6697,7 +6697,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_CARTREVOLUTION] = {
 		"MC_CARTREVOLUTION",
-		SkillName = "Cart Revolution",
+		SkillName = "Révolution de Charrette",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 12 },
@@ -6740,7 +6740,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_CHANGECART] = {
 		"MC_CHANGECART",
-		SkillName = "Change Cart",
+		SkillName = "Changement de Charrette",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 40 },
@@ -6771,7 +6771,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_LOUD] = {
 		"MC_LOUD",
-		SkillName = "Crazy Uproar",
+		SkillName = "Vacarme Déchaîné",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 8 },
@@ -11587,7 +11587,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.MC_CARTDECORATE] = {
 		"MC_CARTDECORATE",
-		SkillName = "Change Cart 2",
+		SkillName = "Décoration de Charrette",
 		MaxLv = 1,
 		SpAmount = { 40 },
 		bSeperateLv = false,
