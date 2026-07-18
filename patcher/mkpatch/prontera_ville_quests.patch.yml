@@ -1,0 +1,11 @@
+# Patch : ajout des quêtes 91101 (Un colis pour Eskil) et 91102 (La vengeance
+# du gâteau) au journal de quêtes du client.
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign -o patcher/hosting/patches/data/10_prontera_ville_quests.thor patcher/mkpatch/prontera_ville_quests.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: false
+include_checksums: true
+
+entries:
+  - relative_path: System/OngoingQuestInfoList_True_EN.lub
