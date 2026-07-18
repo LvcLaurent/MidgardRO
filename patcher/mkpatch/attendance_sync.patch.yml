@@ -1,0 +1,11 @@
+# Patch : synchronise l'aperçu client du calendrier de connexion (dates + objets
+# de récompense) avec la vraie configuration serveur (attendance.yml).
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign -o patcher/hosting/patches/data/12_attendance_sync.thor patcher/mkpatch/attendance_sync.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: false
+include_checksums: true
+
+entries:
+  - relative_path: System/CheckAttendance_EN.lub
