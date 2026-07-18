@@ -174,7 +174,9 @@ iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 }
 
 //== Bibliotheque du palais (1@spa) - le premier vrai indice =================
-1@spa,135,106,3	script	Bibliotheque du palais#reign	45,{
+1@spa,135,106,3	script	Bibliotheque du palais#reign	45,1,1,{
+	end;
+OnTouch:
 	if (job_tier1_stage < 2) {
 		mes "[Bibliotheque du palais]";
 		mes "*Des etageres entieres, couvertes de poussiere. Rien ne semble avoir ete lu depuis des generations.*";
@@ -205,7 +207,9 @@ iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 }
 
 //== Sortie du palais (1@spa) - passage vers la salle du trone ==============
-1@spa,124,142,3	script	Sortie du palais#reign	45,{
+1@spa,124,142,3	script	Sortie du palais#reign	45,1,1,{
+	end;
+OnTouch:
 	if (job_tier1_stage < 3) {
 		mes "[Sortie du palais]";
 		mes "*Une porte lourde, fermee. Elle ne bougera pas tant que tu n'auras pas fini ce qu'il y a a faire ici.*";
