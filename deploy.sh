@@ -61,13 +61,6 @@ log_db_ip: db
 log_db_pw: $DB_PASSWORD
 EOF_INTER"
 
-echo "==> Avertissement en jeu (redémarrage dans 20s)"
-# Best-effort : passe par la commande console du map-server (voir cli.cpp/parse_console),
-# qui bypass les vérifications de permission GM habituelles. Silencieux si le conteneur ne
-# tourne pas encore ou si stdin_open n'a pas encore été déployé (ne bloque jamais le reste).
-run_remote "docker exec rathena-map sh -c \"echo 'admin:@broadcast Redemarrage du serveur dans 20 secondes...' > /proc/1/fd/0\" 2>/dev/null || true"
-sleep 20
-
 echo "==> Build et démarrage des conteneurs"
 run_remote "cd $REMOTE_DIR/server/tools/docker && docker-compose -f docker-compose.prod.yml up -d --build --force-recreate"
 
