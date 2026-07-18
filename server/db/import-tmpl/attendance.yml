@@ -32,3 +32,416 @@
 Header:
   Type: ATTENDANCE_DB
   Version: 1
+
+# Reign of Midgard: calendrier de connexion quotidienne, remplace le hook
+# OnPCLoginEvent custom (voir server/npc/custom/reign/daily_bonus.txt,
+# retire au meme commit). Recompense en jetons de roulette (voir
+# db/import-tmpl/item_db.yml, 90000-90002) - motif cyclique sur 10 jours
+# (8x Bronze, 1x Argent, 1x Or) repete jusqu'au plafond natif de 200 jours
+# (src/map/pc.cpp, pc_attendance_counter). Periode large (3 ans) pour que ce
+# soit le plafond de 200 qui limite, pas la fenetre de dates - ca repousse
+# d'autant le prochain entretien manuel de ce fichier.
+Body:
+  - Start: 20260718
+    End: 20290717
+    Rewards:
+      - Day: 1
+        ItemId: 90000
+      - Day: 2
+        ItemId: 90000
+      - Day: 3
+        ItemId: 90000
+      - Day: 4
+        ItemId: 90000
+      - Day: 5
+        ItemId: 90001
+      - Day: 6
+        ItemId: 90000
+      - Day: 7
+        ItemId: 90000
+      - Day: 8
+        ItemId: 90000
+      - Day: 9
+        ItemId: 90000
+      - Day: 10
+        ItemId: 90002
+      - Day: 11
+        ItemId: 90000
+      - Day: 12
+        ItemId: 90000
+      - Day: 13
+        ItemId: 90000
+      - Day: 14
+        ItemId: 90000
+      - Day: 15
+        ItemId: 90001
+      - Day: 16
+        ItemId: 90000
+      - Day: 17
+        ItemId: 90000
+      - Day: 18
+        ItemId: 90000
+      - Day: 19
+        ItemId: 90000
+      - Day: 20
+        ItemId: 90002
+      - Day: 21
+        ItemId: 90000
+      - Day: 22
+        ItemId: 90000
+      - Day: 23
+        ItemId: 90000
+      - Day: 24
+        ItemId: 90000
+      - Day: 25
+        ItemId: 90001
+      - Day: 26
+        ItemId: 90000
+      - Day: 27
+        ItemId: 90000
+      - Day: 28
+        ItemId: 90000
+      - Day: 29
+        ItemId: 90000
+      - Day: 30
+        ItemId: 90002
+      - Day: 31
+        ItemId: 90000
+      - Day: 32
+        ItemId: 90000
+      - Day: 33
+        ItemId: 90000
+      - Day: 34
+        ItemId: 90000
+      - Day: 35
+        ItemId: 90001
+      - Day: 36
+        ItemId: 90000
+      - Day: 37
+        ItemId: 90000
+      - Day: 38
+        ItemId: 90000
+      - Day: 39
+        ItemId: 90000
+      - Day: 40
+        ItemId: 90002
+      - Day: 41
+        ItemId: 90000
+      - Day: 42
+        ItemId: 90000
+      - Day: 43
+        ItemId: 90000
+      - Day: 44
+        ItemId: 90000
+      - Day: 45
+        ItemId: 90001
+      - Day: 46
+        ItemId: 90000
+      - Day: 47
+        ItemId: 90000
+      - Day: 48
+        ItemId: 90000
+      - Day: 49
+        ItemId: 90000
+      - Day: 50
+        ItemId: 90002
+      - Day: 51
+        ItemId: 90000
+      - Day: 52
+        ItemId: 90000
+      - Day: 53
+        ItemId: 90000
+      - Day: 54
+        ItemId: 90000
+      - Day: 55
+        ItemId: 90001
+      - Day: 56
+        ItemId: 90000
+      - Day: 57
+        ItemId: 90000
+      - Day: 58
+        ItemId: 90000
+      - Day: 59
+        ItemId: 90000
+      - Day: 60
+        ItemId: 90002
+      - Day: 61
+        ItemId: 90000
+      - Day: 62
+        ItemId: 90000
+      - Day: 63
+        ItemId: 90000
+      - Day: 64
+        ItemId: 90000
+      - Day: 65
+        ItemId: 90001
+      - Day: 66
+        ItemId: 90000
+      - Day: 67
+        ItemId: 90000
+      - Day: 68
+        ItemId: 90000
+      - Day: 69
+        ItemId: 90000
+      - Day: 70
+        ItemId: 90002
+      - Day: 71
+        ItemId: 90000
+      - Day: 72
+        ItemId: 90000
+      - Day: 73
+        ItemId: 90000
+      - Day: 74
+        ItemId: 90000
+      - Day: 75
+        ItemId: 90001
+      - Day: 76
+        ItemId: 90000
+      - Day: 77
+        ItemId: 90000
+      - Day: 78
+        ItemId: 90000
+      - Day: 79
+        ItemId: 90000
+      - Day: 80
+        ItemId: 90002
+      - Day: 81
+        ItemId: 90000
+      - Day: 82
+        ItemId: 90000
+      - Day: 83
+        ItemId: 90000
+      - Day: 84
+        ItemId: 90000
+      - Day: 85
+        ItemId: 90001
+      - Day: 86
+        ItemId: 90000
+      - Day: 87
+        ItemId: 90000
+      - Day: 88
+        ItemId: 90000
+      - Day: 89
+        ItemId: 90000
+      - Day: 90
+        ItemId: 90002
+      - Day: 91
+        ItemId: 90000
+      - Day: 92
+        ItemId: 90000
+      - Day: 93
+        ItemId: 90000
+      - Day: 94
+        ItemId: 90000
+      - Day: 95
+        ItemId: 90001
+      - Day: 96
+        ItemId: 90000
+      - Day: 97
+        ItemId: 90000
+      - Day: 98
+        ItemId: 90000
+      - Day: 99
+        ItemId: 90000
+      - Day: 100
+        ItemId: 90002
+      - Day: 101
+        ItemId: 90000
+      - Day: 102
+        ItemId: 90000
+      - Day: 103
+        ItemId: 90000
+      - Day: 104
+        ItemId: 90000
+      - Day: 105
+        ItemId: 90001
+      - Day: 106
+        ItemId: 90000
+      - Day: 107
+        ItemId: 90000
+      - Day: 108
+        ItemId: 90000
+      - Day: 109
+        ItemId: 90000
+      - Day: 110
+        ItemId: 90002
+      - Day: 111
+        ItemId: 90000
+      - Day: 112
+        ItemId: 90000
+      - Day: 113
+        ItemId: 90000
+      - Day: 114
+        ItemId: 90000
+      - Day: 115
+        ItemId: 90001
+      - Day: 116
+        ItemId: 90000
+      - Day: 117
+        ItemId: 90000
+      - Day: 118
+        ItemId: 90000
+      - Day: 119
+        ItemId: 90000
+      - Day: 120
+        ItemId: 90002
+      - Day: 121
+        ItemId: 90000
+      - Day: 122
+        ItemId: 90000
+      - Day: 123
+        ItemId: 90000
+      - Day: 124
+        ItemId: 90000
+      - Day: 125
+        ItemId: 90001
+      - Day: 126
+        ItemId: 90000
+      - Day: 127
+        ItemId: 90000
+      - Day: 128
+        ItemId: 90000
+      - Day: 129
+        ItemId: 90000
+      - Day: 130
+        ItemId: 90002
+      - Day: 131
+        ItemId: 90000
+      - Day: 132
+        ItemId: 90000
+      - Day: 133
+        ItemId: 90000
+      - Day: 134
+        ItemId: 90000
+      - Day: 135
+        ItemId: 90001
+      - Day: 136
+        ItemId: 90000
+      - Day: 137
+        ItemId: 90000
+      - Day: 138
+        ItemId: 90000
+      - Day: 139
+        ItemId: 90000
+      - Day: 140
+        ItemId: 90002
+      - Day: 141
+        ItemId: 90000
+      - Day: 142
+        ItemId: 90000
+      - Day: 143
+        ItemId: 90000
+      - Day: 144
+        ItemId: 90000
+      - Day: 145
+        ItemId: 90001
+      - Day: 146
+        ItemId: 90000
+      - Day: 147
+        ItemId: 90000
+      - Day: 148
+        ItemId: 90000
+      - Day: 149
+        ItemId: 90000
+      - Day: 150
+        ItemId: 90002
+      - Day: 151
+        ItemId: 90000
+      - Day: 152
+        ItemId: 90000
+      - Day: 153
+        ItemId: 90000
+      - Day: 154
+        ItemId: 90000
+      - Day: 155
+        ItemId: 90001
+      - Day: 156
+        ItemId: 90000
+      - Day: 157
+        ItemId: 90000
+      - Day: 158
+        ItemId: 90000
+      - Day: 159
+        ItemId: 90000
+      - Day: 160
+        ItemId: 90002
+      - Day: 161
+        ItemId: 90000
+      - Day: 162
+        ItemId: 90000
+      - Day: 163
+        ItemId: 90000
+      - Day: 164
+        ItemId: 90000
+      - Day: 165
+        ItemId: 90001
+      - Day: 166
+        ItemId: 90000
+      - Day: 167
+        ItemId: 90000
+      - Day: 168
+        ItemId: 90000
+      - Day: 169
+        ItemId: 90000
+      - Day: 170
+        ItemId: 90002
+      - Day: 171
+        ItemId: 90000
+      - Day: 172
+        ItemId: 90000
+      - Day: 173
+        ItemId: 90000
+      - Day: 174
+        ItemId: 90000
+      - Day: 175
+        ItemId: 90001
+      - Day: 176
+        ItemId: 90000
+      - Day: 177
+        ItemId: 90000
+      - Day: 178
+        ItemId: 90000
+      - Day: 179
+        ItemId: 90000
+      - Day: 180
+        ItemId: 90002
+      - Day: 181
+        ItemId: 90000
+      - Day: 182
+        ItemId: 90000
+      - Day: 183
+        ItemId: 90000
+      - Day: 184
+        ItemId: 90000
+      - Day: 185
+        ItemId: 90001
+      - Day: 186
+        ItemId: 90000
+      - Day: 187
+        ItemId: 90000
+      - Day: 188
+        ItemId: 90000
+      - Day: 189
+        ItemId: 90000
+      - Day: 190
+        ItemId: 90002
+      - Day: 191
+        ItemId: 90000
+      - Day: 192
+        ItemId: 90000
+      - Day: 193
+        ItemId: 90000
+      - Day: 194
+        ItemId: 90000
+      - Day: 195
+        ItemId: 90001
+      - Day: 196
+        ItemId: 90000
+      - Day: 197
+        ItemId: 90000
+      - Day: 198
+        ItemId: 90000
+      - Day: 199
+        ItemId: 90000
+      - Day: 200
+        ItemId: 90002
