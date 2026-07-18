@@ -67,9 +67,15 @@ OnTimer300000:
 	setmapflag "prontera", mf_faction_raid;
 	announce "L'assaut commence ! " + callfunc("F_NomFaction",.Attacker) + " attaque Prontera, defendue par " + callfunc("F_NomFaction",.Defender) + " !", bc_all;
 
+	// Delibrement PAS de UMOB_FACTION ici : un mob tague hostile a l'autre
+	// faction (voir battle.cpp, bloc md->faction) - si on taguait la structure
+	// avec la faction du defenseur, la vague d'attaque adverse la traiterait
+	// comme un ennemi et la detruirait elle-meme. Sans tag, les gardiens des
+	// deux camps la traitent comme un mob neutre ordinaire (amical, regle par
+	// defaut) - seuls les joueurs restent naturellement hostiles a tout mob et
+	// peuvent donc encore l'attaquer.
 	for (.@i = 0; .@i < 4; .@i++) {
 		monster "prontera", .BastionX[.@i], .BastionY[.@i], .BastionName$[.@i], .BastionMob[.@i], 1, strnpcinfo(0)+"::OnEmperiumDown";
-		setunitdata $@mobid[0], UMOB_FACTION, .Defender;
 	}
 
 	// Vague d'attaque : ce qui a ete achete au poste de garde, toujours
