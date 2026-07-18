@@ -360,6 +360,8 @@ iz_ac01,96,44,5	script	Réceptionniste#reign	4_F_01,{
 			mes "[Réceptionniste]";
 			mes "Izlude elle-même est un port franc — ni l'Ordre de la Faille ni les Forgenoires n'y imposent leur loi. C'est voulu : aucune des deux factions ne peut se permettre de fermer ce port.";
 			next;
+			mes "[Réceptionniste]";
+			mes "Tout en haut, à l'étage : un passeur du nom d'Hakon. Il fait revivre des échos du passé à qui a déjà choisi un métier - une façon d'y gagner en expérience, disons, plus mouvementée qu'un simple entraînement.";
 			break;
 		case 3:
 			mes "[Réceptionniste]";

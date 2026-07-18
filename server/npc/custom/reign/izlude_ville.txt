@@ -71,7 +71,7 @@ izlude,130,148,3	script	Kafra Elin#reign	4_F_KAFRA1,{
 	mes "[Kafra Elin]";
 	mes "Bienvenue au service Kafra d'Izlude ! Entrepôt, point de sauvegarde... que puis-je pour vous ?";
 	next;
-	switch (select("Accéder à l'entrepôt.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	switch (select("Accéder à l'entrepôt.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.:Voyager ailleurs.")) {
 	case 1:
 		mes "[Kafra Elin]";
 		mes "Bien sûr. Voici votre entrepôt.";
@@ -95,6 +95,31 @@ izlude,130,148,3	script	Kafra Elin#reign	4_F_KAFRA1,{
 		mes "[Kafra Elin]";
 		mes "Bon vent.";
 		close;
+	case 5:
+		mes "[Kafra Elin]";
+		mes "Geffen, Aldebaran, Morroc, Payon... le monde est plus grand qu'Izlude, figurez-vous. Ou voulez-vous aller ?";
+		next;
+		switch (select("Geffen (4200z).:Aldebaran (4200z).:Morroc (8100z).:Payon (3600z).:Laisser tomber.")) {
+		case 1: .@map$ = "geffen"; .@x = 119; .@y = 59; .@cost = 4200; break;
+		case 2: .@map$ = "aldebaran"; .@x = 139; .@y = 131; .@cost = 4200; break;
+		case 3: .@map$ = "morocc"; .@x = 159; .@y = 93; .@cost = 8100; break;
+		case 4: .@map$ = "payon"; .@x = 162; .@y = 233; .@cost = 3600; break;
+		case 5:
+			mes "[Kafra Elin]";
+			mes "Une autre fois, alors.";
+			close;
+		}
+		if (Zeny < .@cost) {
+			mes "[Kafra Elin]";
+			mes "Il vous manque des zeny pour ce trajet.";
+			close;
+		}
+		Zeny -= .@cost;
+		mes "[Kafra Elin]";
+		mes "Voila. Bon voyage.";
+		close2;
+		warp .@map$,.@x,.@y;
+		end;
 	}
 }
 izlude_a,130,148,3	duplicate(Kafra Elin#reign)	Kafra Elin#reign_a	4_F_KAFRA1

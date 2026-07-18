@@ -61,11 +61,12 @@ OnGuardDown:
 
 // -- Recompense partagee du palier 1 -----------------------------------
 // @joblvlup jusqu'a job 10 pile (jamais un nombre fixe - correct quel que
-// soit le job level de depart), un peu de reputation (meme pattern que
-// Geir : faction du joueur -> sa faction seule, sinon split Ordre/Forge).
+// soit le job level de depart), 10000z, un peu de reputation (meme pattern
+// que Geir : faction du joueur -> sa faction seule, sinon split Ordre/Forge).
 function	script	F_RecompensePalier1	{
 	if (JobLevel < 10)
 		atcommand "@joblvlup " + (10 - JobLevel);
+	Zeny += 10000;
 	if (getfaction() == 1)
 		add_reputation_points(REPUTATION_ORDRE,10);
 	else if (getfaction() == 2)
