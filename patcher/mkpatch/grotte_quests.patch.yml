@@ -1,0 +1,12 @@
+# Patch : corrige le journal de quete client pour les quetes 91203-91205 -
+# "grotte" au lieu de "catacombes", cadrage contention/pas d'escalade,
+# Poporing au meme niveau que le reste (cf. commit correspondant).
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign -o patcher/hosting/patches/data/17_grotte_quests.thor patcher/mkpatch/grotte_quests.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: false
+include_checksums: true
+
+entries:
+  - relative_path: System/OngoingQuestInfoList_True_EN.lub
