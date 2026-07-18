@@ -56,41 +56,58 @@ prontera,146,69,3	script	Sigrid#reign	4_F_02,{
 }
 
 //== Eskil (izlude_in, 59,127) - reception du colis, recompense =============
+// La proposition de charrette n'arrive jamais a la livraison elle-meme -
+// seulement si on revient lui reparler ensuite (demande explicite). Le don
+// de charrette suit le pattern vanilla confirme (functions_kafras.txt,
+// quests_16_1.txt, breeder.txt) : garde checkcart()/getskilllv() avec le nom
+// de competence entre guillemets, jamais d'ordre "exotique". eskil_cart_given
+// ne se pose que quand la charrette est reellement donnee, pas juste tentee -
+// un joueur qui revient plus tard, devenu marchand entre-temps, est donc
+// toujours reteste plutot que definitivement ignore.
 izlude_in,59,127,3	script	Eskil#reign	4_M_02,{
-	if (isbegin_quest(91101) == 2) {
-		mes "[Eskil]";
-		mes "Merci encore pour le voyage. Ma soeur a de la chance d'avoir croise quelqu'un comme toi.";
-		close;
-	}
-	if (isbegin_quest(91101) != 1) {
+	if (isbegin_quest(91101) != 1 && isbegin_quest(91101) != 2) {
 		mes "[Eskil]";
 		mes "*Il regarde vers Prontera, au loin, sans vraiment la voir.*";
 		close;
 	}
-	mes "[Eskil]";
-	mes "Un colis de Sigrid ? *Il le prend avec une douceur qui tranche avec ses mains calleuses.*";
-	next;
-	mes "[Eskil]";
-	mes "Elle ne sort plus de la ville, tu sais. Alors quand quelqu'un accepte de porter ca a sa place... ca compte plus qu'elle ne l'admettra jamais.";
-	next;
+	if (isbegin_quest(91101) == 1) {
+		mes "[Eskil]";
+		mes "Un colis de Sigrid ? *Il le prend avec une douceur qui tranche avec ses mains calleuses.*";
+		next;
+		mes "[Eskil]";
+		mes "Elle ne sort plus de la ville, tu sais. Alors quand quelqu'un accepte de porter ca a sa place... ca compte plus qu'elle ne l'admettra jamais.";
+		next;
+		mes "[Eskil]";
+		mes "Merci d'avoir fait la route. Je ne t'attendais pas vraiment, et pourtant.";
+		close2;
+		getexp 6768,0;
+		add_reputation_points(REPUTATION_PRONTERA,50);
+		completequest 91101;
+		end;
+	}
+
+	// isbegin_quest(91101) == 2 - colis deja livre.
+	if (eskil_cart_given >= 1) {
+		mes "[Eskil]";
+		mes "Merci encore pour le voyage. Ma soeur a de la chance d'avoir croise quelqu'un comme toi.";
+		close;
+	}
 	if (callfunc("F_EstMarchand")) {
 		mes "[Eskil]";
-		mes "Tiens - j'ai plus de charrettes que de raisons de voyager, ces temps-ci. Une de moins ne me manquera pas, et un marchand sans charrette, ca n'a jamais rien vendu de serieux.";
+		mes "Attends - je viens d'y repenser. Tiens, j'ai plus de charrettes que de raisons de voyager, ces temps-ci. Une de moins ne me manquera pas, et un marchand sans charrette, ca n'a jamais rien vendu de serieux.";
 		next;
-		if (getskilllv(MC_PUSHCART) < 1)
-			skill MC_PUSHCART,1,0;
-		setcart 1;
+		if (!checkcart() && getskilllv("MC_PUSHCART") == 0)
+			skill "MC_PUSHCART",1,0;
+		if (!checkcart())
+			setcart 1;
 		mes "[Eskil]";
 		mes "Voila. Prends-en soin, et prends soin de la route aussi - elle le merite plus qu'on ne le croit.";
-	} else {
-		mes "[Eskil]";
-		mes "Je n'ai rien d'utile a offrir a quelqu'un qui ne pousse pas de charrette, mais sache que ce petit voyage vaut plus que tu ne le penses, par ici.";
+		eskil_cart_given = 1;
+		close;
 	}
-	close2;
-	getexp 6768,0;
-	add_reputation_points(REPUTATION_PRONTERA,50);
-	completequest 91101;
-	end;
+	mes "[Eskil]";
+	mes "Je n'ai rien d'utile a offrir a quelqu'un qui ne pousse pas de charrette, mais sache que ce petit voyage vaut plus que tu ne le penses, par ici.";
+	close;
 }
 
 //== Villy (Prontera, 166,76) - vengeance contre les Poring ==================
