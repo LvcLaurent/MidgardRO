@@ -41,3 +41,5 @@ Body:
     Value: 6
   - Name: REPUTATION_PRONTERA
     Value: 7
+  - Name: REPUTATION_PAYON
+    Value: 8

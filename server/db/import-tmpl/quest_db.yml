@@ -98,3 +98,23 @@ Body:
     Targets:
       - Mob: PORING
         Count: 40
+  # Reign of Midgard — Payon
+  - Id: 91200
+    Title: Les géants aux grands pieds
+    Targets:
+      - Mob: BIGFOOT
+        Count: 10
+  - Id: 91201
+    Title: Nettoyage en forêt
+    Targets:
+      - Mob: SNAKE
+        Count: 30
+      - Mob: SPORE
+        Count: 10
+      - Mob: WORM_TAIL
+        Count: 10
+  - Id: 91202
+    Title: Le pont branlant
+    Targets:
+      - Mob: WILOW
+        Count: 20

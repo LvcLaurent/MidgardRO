@@ -1,0 +1,49 @@
+//===== Reign of Midgard ===================================================
+//= Payon, les champs (pay_fild01) - quete de chasse
+//===== Description: =======================================================
+//= Meme gabarit que Geir/Ottar/Steinar (checkquest+HUNTING, flag permanent
+//= sans prefixe, erasequest a la fin plutot que completequest). ASCII pur.
+//===========================================================================
+
+//== Frida (pay_fild01) - le pont branlant, chasse aux Willow ==============
+pay_fild01,328,348,3	script	Frida#reign	4_F_02,{
+	if (payon_pont == 1) {
+		mes "[Frida]";
+		mes "Le pont tient toujours. Merci encore pour ca.";
+		close;
+	}
+	if (checkquest(91202,HUNTING) == 2) {
+		mes "[Frida]";
+		mes "Vingt Willow de moins pres des piles du pont. Ca devrait tenir un moment.";
+		next;
+		mes "[Frida]";
+		mes "Ce n'est pas grand-chose, mais prenez au moins ca pour la peine.";
+		close2;
+		getexp 20303,0;
+		add_reputation_points(REPUTATION_PAYON,50);
+		erasequest 91202;
+		payon_pont = 1;
+		end;
+	} else if (isbegin_quest(91202) == 1) {
+		mes "[Frida]";
+		mes "Toujours occupe avec les Willow ? Elles ne payent pas de mine, mais elles rongent le bois du pont depuis des semaines.";
+		close;
+	}
+	mes "[Frida]";
+	mes "Vous voyez ce pont ? Depuis la Rupture, les Willow d'ici se sont mises a s'attaquer au bois plutot qu'aux voyageurs. Allez comprendre.";
+	next;
+	mes "[Frida]";
+	mes "A ce rythme, il ne tiendra plus tres longtemps, et c'est le seul passage correct vers le nord. Vingt Willow, ca devrait suffire a les faire fuir un moment.";
+	next;
+	switch (select("Je m'en occupe.:Pas le temps.")) {
+	case 1:
+		setquest 91202;
+		mes "[Frida]";
+		mes "Vingt Willow, autour du pont. Merci - je n'ose plus trop m'en approcher moi-meme.";
+		close;
+	case 2:
+		mes "[Frida]";
+		mes "Comme vous voulez. Le pont attendra, en esperant qu'il tienne.";
+		close;
+	}
+}

@@ -1,0 +1,252 @@
+//===== Reign of Midgard ===================================================
+//= Payon, la ville - PNJ de service et d'ambiance
+//===== Description: =======================================================
+//= Premiere vague de contenu custom sur Payon : Kafra (service de
+//= teleportation en premier dans le menu, cf. izlude_ville.txt reordonne
+//= dans le meme commit), benediction de depart (meme mecanique qu'a
+//= Izlude), une habitante qui raconte la position de Payon dans le conflit
+//= des deux factions (cf. lore/reign-of-midgard-lore.md, section Payon),
+//= deux quetes de chasse, un identificateur d'objets et un forgeron
+//= (refineui natif). ASCII pur, comme le reste des fichiers reign/ non
+//= convertis en CP1252.
+//===========================================================================
+
+//== Kafra Ragnhild (Payon) - service de teleportation, en premier =========
+payon,164,233,3	script	Kafra Ragnhild#reign	4_F_KAFRA1,{
+	mes "[Kafra Ragnhild]";
+	mes "Service Kafra de Payon. On ne voit pas beaucoup de monde ici, mais ceux qui passent repartent toujours satisfaits.";
+	next;
+	switch (select("Service de teleportation.:Acceder a l'entrepot.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	case 1:
+		mes "[Kafra Ragnhild]";
+		mes "Izlude, Alberta, Morocc... la foret ne mene nulle part toute seule. Ou voulez-vous aller ?";
+		next;
+		switch (select("Izlude (3600z).:Alberta (3200z).:Morocc (8700z).:Laisser tomber.")) {
+		case 1: .@map$ = "izlude"; .@x = 128; .@y = 246; .@cost = 3600; break;
+		case 2: .@map$ = "alberta"; .@x = 192; .@y = 147; .@cost = 3200; break;
+		case 3: .@map$ = "morocc"; .@x = 159; .@y = 93; .@cost = 8700; break;
+		case 4:
+			mes "[Kafra Ragnhild]";
+			mes "Une autre fois, alors.";
+			close;
+		}
+		if (Zeny < .@cost) {
+			mes "[Kafra Ragnhild]";
+			mes "Il vous manque des zeny pour ce trajet.";
+			close;
+		}
+		Zeny -= .@cost;
+		mes "[Kafra Ragnhild]";
+		mes "Voila. Bon voyage - la foret sera toujours la a votre retour.";
+		close2;
+		warp .@map$,.@x,.@y;
+		end;
+	case 2:
+		mes "[Kafra Ragnhild]";
+		mes "Bien sur. Voici votre entrepot.";
+		close2;
+		openstorage;
+		end;
+	case 3:
+		mes "[Kafra Ragnhild]";
+		mes "C'est fait. Payon sera votre port d'attache, desormais.";
+		close2;
+		savepoint "payon",164,233;
+		end;
+	case 4:
+		mes "[Kafra Ragnhild]";
+		mes "Payon n'a jamais vraiment choisi de camp, vous savez. Ni l'Ordre, ni les Forgenoires. On les laisse se battre pour Prontera et on continue de chasser.";
+		next;
+		mes "[Kafra Ragnhild]";
+		mes "Ca ne nous protegera pas eternellement, je sais. Mais pour l'instant, ca marche.";
+		close;
+	case 5:
+		mes "[Kafra Ragnhild]";
+		mes "Bonne route.";
+		close;
+	}
+}
+
+//== Benediction de Payon (Payon) - benedictions de depart, 100 zeny =======
+payon,168,233,3	script	Benediction de Payon#reign	1_F_MERCHANT_01,{
+	mes "[Benediction de Payon]";
+	mes "Un charme de chasseur avant de partir en foret ? Ca ne vient pas de la Foi, ni de l'Ordre, ni des Forgenoires. Juste une vieille habitude d'ici. 100 zeny.";
+	next;
+	switch (select("Payer 100 zeny.:Ca marche vraiment ?:Non merci.")) {
+	case 1:
+		if (Zeny < 100) {
+			mes "[Benediction de Payon]";
+			mes "100 zeny. Meme la foret ne donne rien pour rien.";
+			close;
+		}
+		Zeny -= 100;
+		sc_start SC_BLESSING,240000,10;
+		sc_start SC_INCREASEAGI,240000,10;
+		mes "[Benediction de Payon]";
+		mes "Voila. Quatre minutes de bonnes jambes et de bonne fortune. Ne trainez pas trop loin quand meme.";
+		close;
+	case 2:
+		mes "[Benediction de Payon]";
+		mes "Aucune idee. Ma grand-mere le faisait, sa grand-mere le faisait. Personne n'est mort en l'essayant, alors on continue.";
+		next;
+		mes "[Benediction de Payon]";
+		mes "A Izlude, il parait qu'on vend la meme chose en accusant la Foi ou en s'en moquant. Ici, on evite juste le sujet.";
+		close;
+	case 3:
+		mes "[Benediction de Payon]";
+		mes "Comme vous voulez. La foret ne vous en voudra pas.";
+		close;
+	}
+}
+
+//== Halla (Payon) - PNJ d'ambiance, lore de la ville =======================
+payon,145,225,3	script	Halla#reign	4_F_02,{
+	mes "[Halla]";
+	mes "*Assise sur le pas de sa porte, elle regarde la foret plutot que la route.*";
+	next;
+	mes "[Halla]";
+	mes "Vous venez de Prontera, non ? Ca s'entend a votre pas - toujours presse, toujours a regarder derriere vous. Ici, personne ne regarde derriere.";
+	next;
+	mes "[Halla]";
+	mes "Payon n'a jamais eu de faction. On a laisse l'Ordre et les Forgenoires se disputer la capitale et on a garde nos arcs pointes vers la foret, pas vers nos voisins.";
+	next;
+	mes "[Halla]";
+	mes "Mais depuis la Rupture, la foret nous le rend mal. Les betes qu'on chassait sans y penser sont plus grosses, plus nombreuses, plus enervees. Comme si elle aussi, elle s'etait reveillee.";
+	next;
+	mes "[Halla]";
+	mes "Enfin. Vous n'etes pas venu pour ecouter une vieille femme radoter sur des pieds geants et des serpents de mauvaise humeur. Ou peut-etre que si. On ne sait jamais, avec les gens de passage.";
+	close;
+}
+
+//== Ottar (Payon) - chasse aux Bigfoot, sud-est de la ville ===============
+payon,145,219,3	script	Ottar#reign	4_M_02,{
+	if (payon_bigfoot == 1) {
+		mes "[Ottar]";
+		mes "Le passage reste degage, grace a vous. Pas besoin d'y retourner pour l'instant.";
+		close;
+	}
+	if (checkquest(91200,HUNTING) == 2) {
+		mes "[Ottar]";
+		mes "Dix Bigfoot au sol. Vous n'avez pas trop souffert ? Revenez me voir, je vous dois quelque chose.";
+		next;
+		mes "[Ottar]";
+		mes "Voila. Merite, celui-la.";
+		close2;
+		getexp 27070,0;
+		add_reputation_points(REPUTATION_PAYON,100);
+		erasequest 91200;
+		payon_bigfoot = 1;
+		end;
+	} else if (isbegin_quest(91200) == 1) {
+		mes "[Ottar]";
+		mes "Toujours en chasse ? Ils trainent au sud-est, dans les collines. Vous les entendrez avant de les voir.";
+		close;
+	}
+	mes "[Ottar]";
+	mes "Depuis la Rupture, les Bigfoot du sud-est ont pris du poids et perdu toute patience. Un ancien passage de chasse est devenu une zone qu'on evite.";
+	next;
+	mes "[Ottar]";
+	mes "Dix. Pas un pour le trophee, un vrai chiffre - de quoi degager le passage pour un moment. Ca vous interesse ?";
+	next;
+	switch (select("Compte sur moi.:Trouvez quelqu'un d'autre.")) {
+	case 1:
+		setquest 91200;
+		mes "[Ottar]";
+		mes "Dix Bigfoot, au sud-est. Ne sous-estimez pas leurs poings sous pretexte qu'ils ont l'air empruntes.";
+		close;
+	case 2:
+		mes "[Ottar]";
+		mes "Comme vous voulez. Le passage restera ferme, alors.";
+		close;
+	}
+}
+
+//== Steinar (Payon) - chasse Boa/Spore/Wormtail, nord de la ville =========
+payon,161,68,3	script	Steinar#reign	4_M_02,{
+	if (payon_vermine == 1) {
+		mes "[Steinar]";
+		mes "Un peu de calme, enfin. Ca ne durera pas, mais je vais en profiter.";
+		close;
+	}
+	if (checkquest(91201,HUNTING) == 2) {
+		mes "[Steinar]";
+		mes "Trente serpents, dix spores, dix vers. Vous avez du sentir la foret jusque dans vos bottes.";
+		next;
+		mes "[Steinar]";
+		mes "Merci. Sincerement. Je commencais a ne plus dormir.";
+		close2;
+		getexp 27070,0;
+		add_reputation_points(REPUTATION_PAYON,100);
+		erasequest 91201;
+		payon_vermine = 1;
+		end;
+	} else if (isbegin_quest(91201) == 1) {
+		mes "[Steinar]";
+		mes "Toujours pas fini ? La foret au nord grouille, prenez votre temps mais ne trainez pas trop non plus.";
+		close;
+	}
+	mes "[Steinar]";
+	mes "Le monde a failli finir et mon probleme du jour, c'est une invasion de serpents. La Rupture a du bon sens de l'humour, je trouve.";
+	next;
+	mes "[Steinar]";
+	mes "Trente Boa, dix Spore, dix Wormtail, au nord. Rien d'heroique, juste du menage. Mais quelqu'un doit le faire, et ce ne sera pas moi.";
+	next;
+	switch (select("Je m'en occupe.:Trouvez un autre menagere.")) {
+	case 1:
+		setquest 91201;
+		mes "[Steinar]";
+		mes "Trente, dix, dix. Ne les confondez pas, meme si je doute que ca change grand-chose a la fin.";
+		close;
+	case 2:
+		mes "[Steinar]";
+		mes "Tant pis. Je vais devoir dormir avec un baton pres du lit, comme d'habitude.";
+		close;
+	}
+}
+
+//== Gudrun (Payon) - identification d'objets, 100z par objet ==============
+payon,152,182,3	script	Gudrun#reign	4_F_02,{
+	mes "[Gudrun]";
+	mes "Un oeil pour ce que vous trainez sans savoir ce que c'est ? 100 zeny par objet, pas plus, pas moins.";
+	.@count = identifyall(false);
+	if (.@count == 0) {
+		next;
+		mes "[Gudrun]";
+		mes "Rien a identifier dans votre sac. Revenez quand vous aurez trouve quelque chose d'interessant.";
+		close;
+	}
+	.@cost = .@count * 100;
+	next;
+	mes "[Gudrun]";
+	mes .@count + " objet(s) non identifie(s). Ca fera " + .@cost + " zeny pour tout.";
+	next;
+	if (select("Payer " + .@cost + " zeny.:Non merci.") == 2) {
+		mes "[Gudrun]";
+		mes "Comme vous voulez. Ils resteront des mysteres.";
+		close;
+	}
+	if (Zeny < .@cost) {
+		mes "[Gudrun]";
+		mes "Il vous manque des zeny.";
+		close;
+	}
+	Zeny -= .@cost;
+	identifyall(true);
+	mes "[Gudrun]";
+	mes "Voila. Plus aucun mystere dans ce sac.";
+	close;
+}
+
+//== Kolgrim (Payon) - forgeron, raffinage (Refine UI natif) ================
+payon,141,174,3	script	Kolgrim#reign	4_M_DWARF,{
+	if (getbattleflag("feature.refineui")) {
+		mes "[Kolgrim]";
+		mes "Le meilleur forgeron a l'est de Prontera, et je ne dis pas ca pour vendre. Montrez-moi ce qu'il faut ameliorer.";
+		close2;
+		refineui();
+		end;
+	}
+	mes "[Kolgrim]";
+	mes "L'atelier est ferme pour l'instant. Revenez plus tard.";
+	close;
+}

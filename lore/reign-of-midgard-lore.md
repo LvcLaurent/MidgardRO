@@ -311,3 +311,39 @@ que l'engagement envers l'Ordre ou les Forgenoires.
   gâteau offert par sa mère — pur registre comique, mélodrame enfantin totalement
   disproportionné pour un incident trivial, contrepoint volontaire au ton sombre
   du Palais Oublié (section 11).
+
+## 13. Payon, la ville-forêt neutre
+
+Première zone hors de l'axe Izlude/Prontera. Contrairement à Prontera, Payon
+n'a jamais pris parti dans la guerre de l'Ordre de la Faille contre les
+Forgenoires : la ville a laissé les deux camps se disputer la capitale et a
+continué de vivre de la chasse et de l'artisanat forestier, une neutralité
+prudente plutôt qu'un désintérêt réel. Une **réputation locale** (Payon,
+-2 000 000/+2 000 000 — volontairement beaucoup plus large que celle de
+Prontera, pensée comme un compteur de long terme plutôt qu'une jauge qui se
+remplit vite) récompense les services rendus à la ville, indépendamment de
+l'Ordre ou des Forgenoires.
+
+- **Halla**, une habitante âgée assise devant sa porte, explique cette
+  neutralité et introduit l'idée que la Rupture n'a pas seulement réveillé des
+  monstres en ville : elle a aussi rendu la faune de la forêt payonnaise plus
+  grosse, plus nombreuse et plus agressive — un echo du motif déjà présent
+  autour d'Yrsa et du champ de Prontera (sections 10-11), la Rupture comme
+  perturbation qui se propage au vivant, pas seulement aux ruines.
+- **Ottar**, chasseur, et **Steinar**, garde forestier, portent chacun une
+  quête de chasse liée à ce dérèglement (Bigfoot au sud-est, Boa/Spore/Wormtail
+  au nord) — ton grave et concret pour Ottar (un passage de chasse devenu
+  dangereux), ton plus léger et acerbe pour Steinar (une infestation traitée
+  avec un humour fatigué), contraste volontaire dans le registre comme
+  pratiqué ailleurs (Geir/Aventurier claudicant, Palais Oublié/Villy).
+- **Frida**, sur le champ au nord (`pay_fild01`), demande de chasser des
+  Willow qui rongent les piles du pont menant plus loin dans la région — même
+  motif de dérèglement post-Rupture, décliné une troisième fois sur une
+  échelle plus modeste (un pont plutôt qu'un passage ou une ville).
+- **Kafra Ragnhild** reprend le même service que Torhild/Elin, mais avec la
+  téléportation en première option du menu plutôt qu'en dernière (choix
+  repris rétroactivement pour Kafra Elin à Izlude, cf. commit correspondant) ;
+  **Bénédiction de Payon** offre la même bénédiction de départ qu'à Izlude,
+  recadrée comme une superstition locale de chasseurs plutôt qu'un tour lié à
+  la Foi. **Gudrun** (identification) et **Kolgrim** (raffinage, via le Refine
+  UI natif) complètent l'offre de service sans lien direct avec la trame.
