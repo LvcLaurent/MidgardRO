@@ -22776,8 +22776,22 @@ void clif_parse_refineui_refine( int32 fd, map_session_data* sd ){
 		return;
 	}
 
+	// Reign of Midgard: la maitrise du metier du Marchand garantit la reussite
+	// du raffinage jusqu'a un certain palier - Marchand +6, Forgeron +8,
+	// Forgeron Maitre +10 - le reste du systeme (materiaux, cout, casse a
+	// l'echec au-dela du palier garanti) reste inchange.
+	int16 guaranteed_refine = 0;
+	if( sd->class_ == MAPID_WHITESMITH ){
+		guaranteed_refine = 10;
+	}else if( sd->class_ == MAPID_BLACKSMITH ){
+		guaranteed_refine = 8;
+	}else if( sd->class_ == MAPID_MERCHANT ){
+		guaranteed_refine = 6;
+	}
+	bool refine_guaranteed = ( item->refine + 1 ) <= guaranteed_refine;
+
 	// Try to refine the item
-	if( cost->chance >= ( rnd() % 10000 ) ){
+	if( refine_guaranteed || cost->chance >= ( rnd() % 10000 ) ){
 		log_pick_pc( sd, LOG_TYPE_OTHER, -1, item );
 		// Success
 		item->refine = cap_value( item->refine + 1, 0, MAX_REFINE );
