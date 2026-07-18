@@ -9,38 +9,57 @@
 //= construit que le palier 1 (Job 10 @ Base 20) - paliers 2-5 suivront le
 //= meme gabarit plus tard (voir job_tier1, verrou sequentiel pour job_tier2).
 //=
-//= Pool UNIQUE de 5 quetes, partage par les 6 premiers metiers (Swordman,
-//= Mage, Acolyte, Archer, Merchant, Thief) - pas de contenu specifique par
-//= metier, seul le PNJ hub verifie qu'on est bien dans l'un des 6.
+//= UNE seule quete pour ce palier (91100), commune aux 6 premiers metiers
+//= (Swordman, Mage, Acolyte, Archer, Merchant, Thief) - pas de tirage
+//= aleatoire pour l'instant (a revoir plus tard).
 //=
-//= Cadre narratif : la Rupture n'a pas seulement reveille des monstres, elle
-//= a aussi fait resurgir des fragments de memoire de la vieille Prontera
-//= d'avant son declin (echo a la piste Yrsa du lore : "la Rupture a un
-//= rythme, une respiration"). La carte iz_ac02 (batiment vanilla
-//= "Instructeurs de metier", desaffecte sur ce projet - npc/re/jobs/novice/
-//= academy.txt est commente dans npc/re/scripts_jobs.conf, aucun conflit)
-//= sert de decor a cet echo. Aucune instance rAthena utilisee pour ce
-//= prototype : tout se passe sur iz_ac02 en carte partagee/persistante,
-//= comme le champ de Geir sur prt_fild08 - ca evite tout probleme de
-//= mort/deconnexion qui bloquerait un joueur hors d'une instance privee,
-//= puisqu'il n'y a pas d'instance a etre bloque hors de.
+//= Cadre : Hakon le Passeur (iz_ac02, meme batiment que l'Academie, juste
+//= l'etage superieur - npc/re/jobs/novice/academy.txt est commente dans
+//= npc/re/scripts_jobs.conf, aucun conflit) ouvre un echo du passe sur
+//= 1@spa (carte "Ghost Palace" du client, chargeable directement sans
+//= passer par le systeme d'instance - confirmee presente dans
+//= db/map_index.txt). Le palais appartenait a un juge de l'ancien monde,
+//= Kolvar, qui a decouvert des signes avant-coureurs de la Rupture et a
+//= choisi de faire taire ceux qui les avaient vus plutot que d'en parler -
+//= premisses de la piste ouverte dans lore/reign-of-midgard-lore.md section 2 sur
+//= la nature reelle de la Rupture. Volontairement laisse en suggestion, pas
+//= en reponse.
+//=
+//= Pas d'instance rAthena : tout se passe sur 1@spa en carte partagee/
+//= persistante, comme le champ de Geir sur prt_fild08. Ca evite le probleme
+//= de mort/deconnexion qui bloquerait un joueur hors d'une instance privee.
+//= La derniere phase (duel invoque, non trackee par le systeme de quete
+//= natif) utilise mobcount() sur un evenement de mort partage plutot qu'un
+//= compteur par joueur - dans de tres rares cas de deux joueurs sur cette
+//= phase exactement en meme temps, ca peut juste faire attendre un peu plus
+//= longtemps que necessaire, jamais casser quoi que ce soit.
+//=
+//= Progression (var permanente par personnage, sans prefixe) :
+//=   job_tier1_stage  0=pas commence, 1=catacombes, 2=bibliotheque,
+//=                    3=salle du trone, 4=duel invoque en cours
+//=   job_tier1        0/1, passe a 1 une fois le palier complete
 //===========================================================================
 
 -	script	PalierJob1#reign	-1,{
 	end;
 
 OnInit:
-	// Garnison "echos" permanente sur iz_ac02 - assez dense pour plusieurs
-	// chasseurs en meme temps (91100 demande 12 Zombie, 91104 en demande 6
-	// de plus + 6 Skeleton, 91101 demande 10 Skeleton).
-	for (.@i = 0; .@i < 15; .@i++)
-		monster "iz_ac02", 103 + rand(-20,20), 200 + rand(-20,20), "Echo de la Garde", 1015, 1; // ZOMBIE
-	for (.@i = 0; .@i < 12; .@i++)
-		monster "iz_ac02", 103 + rand(-20,20), 200 + rand(-20,20), "Echo Endormi", 1076, 1; // SKELETON
+	// Prisonniers des catacombes - garnison permanente, melange de deux
+	// epoques du meme crime (zombie = plus recents, squelette = plus anciens).
+	for (.@i = 0; .@i < 10; .@i++)
+		monster "1@spa", 38 + rand(-10,10), 41 + rand(-10,10), "Prisonnier decompose", 1015, 1; // ZOMBIE
+	for (.@i = 0; .@i < 10; .@i++)
+		monster "1@spa", 38 + rand(-10,10), 41 + rand(-10,10), "Prisonnier oublie depuis longtemps", 1076, 1; // SKELETON
+	end;
+
+// Landing label pour les gardes invoques par le Juge (salle du trone) -
+// aucune logique ici, juste un event a rattacher pour que mobcount() puisse
+// les compter. Rien a faire au deces (voir Le Juge#reign pour la logique).
+OnGuardDown:
 	end;
 }
 
-// -- Recompense partagee par les 5 quetes du palier 1 -----------------------
+// -- Recompense partagee du palier 1 -----------------------------------
 // @joblvlup jusqu'a job 10 pile (jamais un nombre fixe - correct quel que
 // soit le job level de depart), un peu de reputation (meme pattern que
 // Geir : faction du joueur -> sa faction seule, sinon split Ordre/Forge).
@@ -56,133 +75,198 @@ function	script	F_RecompensePalier1	{
 		add_reputation_points(REPUTATION_FORGENOIRES,5);
 	}
 	job_tier1 = 1;
+	job_tier1_stage = 0;
 	return;
 }
 
-//== Gardien de l'Echo (iz_ac02) - PNJ hub du palier 1 =======================
-iz_ac02,103,200,3	script	Gardien de l'Echo#reign	4_M_OLDSCHOLAR,{
+//== Hakon le Passeur (iz_ac02) - PNJ hub du palier 1 ========================
+iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 	if (Class != Job_Swordman && Class != Job_Mage && Class != Job_Acolyte &&
 	    Class != Job_Archer && Class != Job_Merchant && Class != Job_Thief) {
-		mes "[Gardien de l'Echo]";
+		mes "[Hakon le Passeur]";
 		mes "Rien pour toi ici. Pas encore, ou plus - selon d'ou tu regardes les choses. Reviens quand tu porteras un vrai metier.";
 		close;
 	}
 	if (job_tier1 >= 1) {
-		mes "[Gardien de l'Echo]";
+		mes "[Hakon le Passeur]";
 		mes "Tu as deja traverse l'echo. Il ne reste plus rien d'autre a y trouver, pour l'instant - la suite viendra en temps voulu.";
 		close;
 	}
 	if (BaseLevel < 20) {
-		mes "[Gardien de l'Echo]";
+		mes "[Hakon le Passeur]";
 		mes "Trop tot. L'echo ne s'ouvre qu'a ceux qui ont deja un peu vecu. Reviens quand tu auras use quelques certitudes de plus.";
 		close;
 	}
 	if (JobLevel >= 10) {
-		mes "[Gardien de l'Echo]";
+		mes "[Hakon le Passeur]";
 		mes "Tu portes deja assez d'experience dans ce metier. Inutile de te faire traverser l'echo pour si peu.";
 		close2;
 		job_tier1 = 1;
 		end;
 	}
-
-	.@active = 0;
-	for (.@i = 91100; .@i <= 91104; .@i++) {
-		if (isbegin_quest(.@i) == 1) {
-			.@active = .@i;
-			break;
-		}
-	}
-
-	if (.@active == 0) {
-		mes "[Gardien de l'Echo]";
-		mes "La Rupture n'a pas seulement reveille des monstres, tu sais. Elle a fissure autre chose aussi - le temps lui-meme, par endroits. Ici, un peu de la vieille Prontera continue de se rejouer, encore et encore.";
-		next;
-		mes "[Gardien de l'Echo]";
-		mes "Ceux d'avant l'Ordre, avant les Forgenoires, avant meme que la Faille ne s'ouvre. Une capitale entiere, qui ne sait pas encore qu'elle va decliner.";
-		next;
-		mes "[Gardien de l'Echo]";
-		mes "Marche dedans. Prouve que tu tiens debout dans ton metier, pas seulement dans ton nom. Es-tu pret" + (Sex ? "" : "e") + " ?";
-		next;
-		if (select("Pas maintenant.", "Oui, montre-moi.") == 1) {
-			mes "[Gardien de l'Echo]";
-			mes "L'echo attendra. Il a tout son temps - bien plus que toi.";
-			close;
-		}
-		.@pick = 91100 + rand(0,4);
-		setquest .@pick;
-		mes "[Gardien de l'Echo]";
-		switch (.@pick) {
-		case 91100:
-			mes "Les remparts n'ont jamais appris a tomber. Les gardes qui les tenaient non plus - ils y sont toujours, a leur maniere. Douze d'entre eux, ici sur cette carte. Libere-les de leur ronde.";
-			break;
-		case 91101:
-			mes "Sous tes pieds, une crypte que personne ne visite plus. Dix dormeurs que l'echo n'a jamais laisses vraiment dormir. Occupe-t'en, ici meme.";
-			break;
-		case 91102:
-			mes "Les gardes en decomposition qui trainent ici laissent parfois tomber un fragment - un ongle, rien de plus, mais assez ancien pour interesser qui etudie encore la Foi d'avant. Rapporte-m'en huit.";
-			break;
-		case 91103:
-			mes "Tout le monde ne s'est pas transforme en menace, dans cet echo. Un pretre erre encore pres d'ici, fige dans une priere qu'il ne finit jamais. Va l'ecouter jusqu'au bout, pour une fois.";
-			break;
-		case 91104:
-			mes "Une derniere garde, melangee - remparts et crypte a la fois, mais en moins grand nombre. Six d'un cote, six de l'autre. De quoi voir si tu tiens face a un peu de tout.";
-			break;
-		}
+	if (job_tier1_stage >= 1) {
+		mes "[Hakon le Passeur]";
+		mes "Tu es deja dedans, quelque part entre ces murs qui n'existent plus vraiment. Termine ce que tu as commence - je ne peux pas t'y renvoyer, seulement t'y avoir laisse entrer une fois.";
 		close;
 	}
 
-	if (.@active == 91102) {
-		if (countitem(957) < 8) {
-			mes "[Gardien de l'Echo]";
-			mes "Huit fragments, pas un de moins. Les gardes en decomposition de l'echo en portent encore, quelque part sur eux.";
-			close;
-		}
-		delitem 957,8;
-		mes "[Gardien de l'Echo]";
-		mes "Huit fragments d'un ongle decompose - une relique bien modeste pour ce qu'elle raconte. Meme ca, la Foi d'avant l'aurait beni.";
-		close2;
-		callfunc("F_RecompensePalier1");
-		completequest 91102;
-		end;
-	} else if (.@active == 91103) {
-		mes "[Gardien de l'Echo]";
-		mes "Le pretre est toujours la, pres d'ici. Va l'ecouter - vraiment l'ecouter, jusqu'au bout de sa priere. Il n'y a rien de plus a faire ici pour ca.";
+	mes "[Hakon le Passeur]";
+	mes "*Il ne leve pas les yeux tout de suite, comme s'il t'avait entendu approcher depuis longtemps.*";
+	next;
+	mes "[Hakon le Passeur]";
+	mes "J'ai perdu quelque chose pour comprendre ce que je vais te montrer. Je ne te dirai pas quoi. Ce n'est pas la partie interessante de l'histoire.";
+	next;
+	mes "[Hakon le Passeur]";
+	mes "Il existe un palais qui n'existe plus - enfin, plus vraiment. Un juge y a siege, avant l'Ordre, avant les Forgenoires, avant meme que la Faille ne s'ouvre. L'echo s'en souvient encore, alors moi aussi.";
+	next;
+	mes "[Hakon le Passeur]";
+	mes "Ce que tu y trouveras ne te sera pas confortable. Mais tu en ressortiras capable de tenir ton metier sans qu'on ait besoin de te tenir la main. Es-tu pret" + (Sex ? "" : "e") + " ?";
+	next;
+	if (select("Pas maintenant.", "Oui, montre-moi.") == 1) {
+		mes "[Hakon le Passeur]";
+		mes "L'echo attendra. Il a tout son temps - bien plus que toi.";
 		close;
-	} else {
-		if (checkquest(.@active,HUNTING) != 2) {
-			mes "[Gardien de l'Echo]";
-			mes "L'echo n'a pas encore fini de te tester. Reviens quand ce sera fait.";
-			close;
-		}
-		mes "[Gardien de l'Echo]";
-		mes "L'echo se tait, pour cette fois. Tu as tenu - c'est deja plus que ce que la plupart tiennent, dans un souvenir qui ne demande jamais la permission de recommencer.";
-		close2;
-		callfunc("F_RecompensePalier1");
-		completequest .@active;
-		end;
 	}
+	setquest 91100;
+	job_tier1_stage = 1;
+	mes "[Hakon le Passeur]";
+	mes "Tu vas arriver directement dans les cellules. Il n'y a pas d'autre porte - le palais ne laisse entrer que par le bas.";
+	close2;
+	warp "1@spa",38,41;
+	end;
 }
 
-//== Le pretre fige (iz_ac02) - objectif de la quete 91103 ==================
-iz_ac02,95,205,3	script	Pretre fige#reign	4_M_OLDFRIAR,{
-	if (isbegin_quest(91103) != 1) {
-		mes "[Pretre fige]";
-		mes "*Il murmure une priere que tu ne reconnais pas, les yeux fermes, comme s'il etait seul au monde.*";
+//== Prisonnier oublie (1@spa, catacombes) - liberation vers la bibliotheque =
+1@spa,55,67,3	script	Prisonnier oublie#reign	4_M_02,{
+	if (job_tier1_stage < 1) {
+		mes "[Prisonnier oublie]";
+		mes "*Une silhouette immobile, derriere une grille brisee depuis longtemps. Elle ne reagit a rien.*";
 		close;
 	}
-	mes "[Pretre fige]";
-	mes "*Il murmure une priere que tu ne reconnais pas, les yeux fermes, comme s'il etait seul au monde.*";
-	next;
-	mes "[Pretre fige]";
-	mes "\"...et que la Rupture, quand elle viendra, nous trouve encore debout, encore fideles, encore...\"";
-	next;
-	mes "[Pretre fige]";
-	mes "\"...encore un peu de temps. C'est tout ce que je demande. Un peu de temps.\"";
-	next;
-	mes "[Pretre fige]";
-	mes "*Sa voix s'eteint, reprend, s'eteint encore - la meme priere, depuis toujours, sans jamais l'achever. Tu restes jusqu'au bout, cette fois.*";
+	if (job_tier1_stage == 1) {
+		if (checkquest(91100,HUNTING) != 2) {
+			mes "[Prisonnier oublie]";
+			mes "*Il releve a peine la tete.*";
+			next;
+			mes "[Prisonnier oublie]";
+			mes "Encore du bruit. Encore des chaines qui tombent, quelque part dans le noir. Reviens quand ce sera vraiment fini.";
+			close;
+		}
+		mes "[Prisonnier oublie]";
+		mes "*Il te regarde vraiment, cette fois, comme si le silence qui vient de tomber le surprenait autant que toi.*";
+		next;
+		mes "[Prisonnier oublie]";
+		mes "On m'a enferme pour avoir vu quelque chose sous le palais. Une fissure qui parlait, disait le juge - un ecart de langage pour dire que j'avais raison et que ca le derangeait.";
+		next;
+		mes "[Prisonnier oublie]";
+		mes "Ceux d'en haut ont des reponses ecrites quelque part. La bibliotheque, plus loin. Trouve-les. Moi, je n'ai plus la force de les lire moi-meme.";
+		next;
+		mes "[Prisonnier oublie]";
+		mes "*Il s'efface plutot qu'il ne bouge, comme une page qu'on tourne.*";
+		close2;
+		job_tier1_stage = 2;
+		warp "1@spa",96,124;
+		end;
+	}
+	mes "[Prisonnier oublie]";
+	mes "*La cellule est vide, maintenant. Il ne reste que la grille brisee.*";
+	close;
+}
+
+//== Bibliotheque du palais (1@spa) - le premier vrai indice =================
+1@spa,135,106,3	script	Bibliotheque du palais#reign	45,{
+	if (job_tier1_stage < 2) {
+		mes "[Bibliotheque du palais]";
+		mes "*Des etageres entieres, couvertes de poussiere. Rien ne semble avoir ete lu depuis des generations.*";
+		close;
+	}
+	if (job_tier1_stage == 2) {
+		mes "[Bibliotheque du palais]";
+		mes "*Un journal, cache derriere une rangee de livres de compte. L'ecriture est nerveuse, pressee, tres differente du reste de la bibliotheque.*";
+		next;
+		mes "[Bibliotheque du palais]";
+		mes "\"...la terre a nouveau, cette nuit. Pas un tremblement - un souffle. Comme si quelque chose respirait juste sous nos pieds et attendait qu'on l'entende.\"";
+		next;
+		mes "[Bibliotheque du palais]";
+		mes "\"...j'ai fait taire Aldric. Il en parlait trop fort, trop souvent. Le royaume n'a pas besoin de paniquer pour un bruit sous la pierre. Je le fais pour le proteger. Je continue de me le repeter.\"";
+		next;
+		mes "[Bibliotheque du palais]";
+		mes "\"...Juge Kolvar, ce dixieme jour. Si quelqu'un lit ceci apres moi : je ne sais pas ce que c'etait. Je sais seulement que j'ai prefere le silence a la question.\"";
+		next;
+		mes "[Bibliotheque du palais]";
+		mes "*Le journal s'arrete la. Les pages suivantes sont vierges - ou ont ete arrachees.*";
+		close2;
+		job_tier1_stage = 3;
+		end;
+	}
+	mes "[Bibliotheque du palais]";
+	mes "*Tu as deja lu ce qu'il y avait a lire ici. Le silence de Kolvar, couche sur le papier.*";
+	close;
+}
+
+//== Sortie du palais (1@spa) - passage vers la salle du trone ==============
+1@spa,124,142,3	script	Sortie du palais#reign	45,{
+	if (job_tier1_stage < 3) {
+		mes "[Sortie du palais]";
+		mes "*Une porte lourde, fermee. Elle ne bougera pas tant que tu n'auras pas fini ce qu'il y a a faire ici.*";
+		close;
+	}
+	mes "[Sortie du palais]";
+	mes "*La porte cede sans bruit, comme si elle n'avait attendu que ca depuis toujours.*";
 	close2;
-	callfunc("F_RecompensePalier1");
-	completequest 91103;
+	warp "1@spa",41,173;
 	end;
+}
+
+//== Le Juge Kolvar (1@spa, salle du trone) - confrontation finale ==========
+1@spa,41,217,3	script	Le Juge Kolvar#reign	4_M_OLDFRIAR,{
+	if (job_tier1_stage < 3) {
+		mes "[Le Juge Kolvar]";
+		mes "*Une silhouette assise sur un trone vide, immobile.*";
+		close;
+	}
+	if (job_tier1_stage == 3) {
+		mes "[Le Juge Kolvar]";
+		mes "Tu as lu mon journal. Je le sens sur toi - cette facon de me regarder que seuls ont ceux qui savent deja.";
+		next;
+		mes "[Le Juge Kolvar]";
+		mes "Je n'ai jamais menti a personne. J'ai juste choisi, pour eux, ce qu'ils avaient besoin d'entendre. Aldric, les autres - je les ai fait taire, pas tuer. Le palais s'est charge du reste, avec le temps.";
+		next;
+		mes "[Le Juge Kolvar]";
+		mes "Et toi, maintenant, tu viens ecouter un vieux juge se justifier dans un souvenir qui ne le laisse jamais partir ? Tres bien. Ecoute-moi juger une derniere fois, alors - a ma facon.";
+		next;
+		mes "[Le Juge Kolvar]";
+		mes "*Il leve la main. Les ombres pres du trone se redressent, une a une - dix gardes qui n'ont jamais vraiment cesse de veiller.*";
+		close2;
+		job_tier1_stage = 4;
+		for (.@i = 0; .@i < 10; .@i++) {
+			.@gx = 42 + rand(-6,6);
+			.@gy = 202 + rand(-6,6);
+			monster "1@spa", .@gx, .@gy, "Garde du Juge", 1015, 1, "PalierJob1#reign::OnGuardDown"; // ZOMBIE
+		}
+		end;
+	}
+	if (job_tier1_stage == 4) {
+		if (mobcount("1@spa","PalierJob1#reign::OnGuardDown") > 0) {
+			mes "[Le Juge Kolvar]";
+			mes "Mes gardes tiennent encore. Ils ont toujours tenu.";
+			close;
+		}
+		mes "[Le Juge Kolvar]";
+		mes "*Le silence retombe, complet cette fois. Il ne reste plus rien a lever contre toi.*";
+		next;
+		mes "[Le Juge Kolvar]";
+		mes "Alors voila. Tu sais, maintenant, et le monde continuera sans que ca change grand-chose - comme il a continue apres moi. Peut-etre que c'est ca, la seule vraie condamnation.";
+		next;
+		mes "[Le Juge Kolvar]";
+		mes "Pars. L'echo n'a plus besoin de toi, et moi, j'ai deja tout le temps du monde pour y repenser.";
+		close2;
+		callfunc("F_RecompensePalier1");
+		completequest 91100;
+		warp "iz_ac02",103,200;
+		end;
+	}
+	mes "[Le Juge Kolvar]";
+	mes "*Le trone est vide de sens, maintenant. Il n'y a plus rien a juger ici.*";
+	close;
 }

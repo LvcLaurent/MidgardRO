@@ -78,5 +78,24 @@ QuestInfoList = {
 		Summary = "Chasser 20 Fabre et 10 Pupa pour Geir",
 		RewardEXP = "20303",
 		RewardJEXP = "0"
+	},
+	[91008] = {
+		Title = "Une écharpe pour l'hiver",
+		Description = {
+			"La folle de Prontera tisse une écharpe et te demande des plumes de Lunatic pour la terminer.",
+			"Objectif : 15 Feather."
+		},
+		Summary = "Rapporter 15 Feather à la folle de Prontera",
+		RewardEXP = "13535",
+		RewardJEXP = "0"
+	},
+	[91100] = {
+		Title = "L'écho du Palais Oublié",
+		Description = {
+			"Hakon le Passeur, à l'Académie d'Izlude, ouvre un écho du passé : un palais oublié où un juge d'autrefois a étouffé une vérité dérangeante.",
+			"Libère les prisonniers des catacombes, découvre ce que la bibliothèque du palais a gardé secret, puis confronte le Juge Kolvar et ses derniers gardes.",
+			"Récompense : ce métier atteint aussitôt le niveau de job 10."
+		},
+		Summary = "Traverser l'écho du Palais Oublié pour Hakon le Passeur"
 	}
 }
