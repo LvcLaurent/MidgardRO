@@ -3,32 +3,41 @@
 -- This file can be distributed, used and modified freely
 -- This file shouldn't be claimed as part of your project, unless you fork it from https://github.com/llchrisll/ROenglishRE
 -- Last updated: 20230321
+--
+-- Reign of Midgard: kept in sync by hand with server/db/import-tmpl/attendance.yml -
+-- the client has no protocol-level way to learn the server's real Start/End dates or
+-- per-day reward items for this UI (confirmed: PACKET_ZC_UI_OPEN and the 0xAF0 claim
+-- response only ever carry a day counter, never item/date data), so this local copy
+-- is purely cosmetic preview data the admin must maintain manually. StartDate/EndDate
+-- display month+day only (client format string has no year field at all).
+-- Reward day 1-20 alternates Silver_Coin(675)/Gold_Coin(671) to match the real
+-- server-side calendar (also alternating, days 1-200).
 
-Config = {	
-	StartDate = 20230105,
-	EndDate = 20230131
+Config = {
+	StartDate = 20260718,
+	EndDate = 20290717
 }
 Reward = {
-	{ 1, 100933, 2 },
-	{ 2, 25464, 10 },
-	{ 3, 23582, 1 },
-	{ 4, 14533, 1 },
-	{ 5, 23307, 10 },
-	{ 6, 23012, 10 },
-	{ 7, 23043, 1 },
-	{ 8, 6413, 2 },
-	{ 9, 9587, 1 },
-	{ 10, 23047, 5 },
-	{ 11, 23048, 5 },
-	{ 12, 14533, 2 },
-	{ 13, 23041, 1 },
-	{ 14, 100934, 1 },
-	{ 15, 6316, 2 },
-	{ 16, 12264, 5 },
-	{ 17, 23899, 5 },
-	{ 18, 23898, 5 },
-	{ 19, 100333, 5 },
-	{ 20, 25464, 10 }
+	{ 1, 675, 1 },
+	{ 2, 671, 1 },
+	{ 3, 675, 1 },
+	{ 4, 671, 1 },
+	{ 5, 675, 1 },
+	{ 6, 671, 1 },
+	{ 7, 675, 1 },
+	{ 8, 671, 1 },
+	{ 9, 675, 1 },
+	{ 10, 671, 1 },
+	{ 11, 675, 1 },
+	{ 12, 671, 1 },
+	{ 13, 675, 1 },
+	{ 14, 671, 1 },
+	{ 15, 675, 1 },
+	{ 16, 671, 1 },
+	{ 17, 675, 1 },
+	{ 18, 671, 1 },
+	{ 19, 675, 1 },
+	{ 20, 671, 1 }
 }
 function main()
 	result, msg = InsertCheckAttendanceConfig(Config.EvendOnOff, Config.StartDate, Config.EndDate)
