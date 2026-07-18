@@ -60,10 +60,11 @@ prontera,146,69,3	script	Sigrid#reign	4_F_02,{
 // seulement si on revient lui reparler ensuite (demande explicite). Le don
 // de charrette suit le pattern vanilla confirme (functions_kafras.txt,
 // quests_16_1.txt, breeder.txt) : garde checkcart()/getskilllv() avec le nom
-// de competence entre guillemets, jamais d'ordre "exotique". eskil_cart_given
-// ne se pose que quand la charrette est reellement donnee, pas juste tentee -
-// un joueur qui revient plus tard, devenu marchand entre-temps, est donc
-// toujours reteste plutot que definitivement ignore.
+// de competence entre guillemets, jamais d'ordre "exotique". Verifie
+// checkcart() en direct a chaque visite plutot qu'un flag "deja donne" -
+// une charrette peut etre desactivee/perdue, donc un marchand qui n'en a
+// plus doit pouvoir s'en faire redonner une, pas rester bloque parce qu'il
+// en a eu une un jour.
 izlude_in,59,127,3	script	Eskil#reign	4_M_02,{
 	if (isbegin_quest(91101) != 1 && isbegin_quest(91101) != 2) {
 		mes "[Eskil]";
@@ -87,26 +88,24 @@ izlude_in,59,127,3	script	Eskil#reign	4_M_02,{
 	}
 
 	// isbegin_quest(91101) == 2 - colis deja livre.
-	if (eskil_cart_given >= 1) {
+	if (!callfunc("F_EstMarchand")) {
 		mes "[Eskil]";
-		mes "Merci encore pour le voyage. Ma soeur a de la chance d'avoir croise quelqu'un comme toi.";
+		mes "Je n'ai rien d'utile a offrir a quelqu'un qui ne pousse pas de charrette, mais sache que ce petit voyage vaut plus que tu ne le penses, par ici.";
 		close;
 	}
-	if (callfunc("F_EstMarchand")) {
+	if (checkcart()) {
 		mes "[Eskil]";
-		mes "Attends - je viens d'y repenser. Tiens, j'ai plus de charrettes que de raisons de voyager, ces temps-ci. Une de moins ne me manquera pas, et un marchand sans charrette, ca n'a jamais rien vendu de serieux.";
-		next;
-		if (!checkcart() && getskilllv("MC_PUSHCART") == 0)
-			skill "MC_PUSHCART",1,0;
-		if (!checkcart())
-			setcart 1;
-		mes "[Eskil]";
-		mes "Voila. Prends-en soin, et prends soin de la route aussi - elle le merite plus qu'on ne le croit.";
-		eskil_cart_given = 1;
+		mes "Toujours cette charrette, a ce que je vois. Elle te sert bien, au moins ?";
 		close;
 	}
 	mes "[Eskil]";
-	mes "Je n'ai rien d'utile a offrir a quelqu'un qui ne pousse pas de charrette, mais sache que ce petit voyage vaut plus que tu ne le penses, par ici.";
+	mes "Attends - je viens d'y repenser. Tiens, j'ai plus de charrettes que de raisons de voyager, ces temps-ci. Une de moins ne me manquera pas, et un marchand sans charrette, ca n'a jamais rien vendu de serieux.";
+	next;
+	if (getskilllv("MC_PUSHCART") == 0)
+		skill "MC_PUSHCART",1,0;
+	setcart 1;
+	mes "[Eskil]";
+	mes "Voila. Prends-en soin, et prends soin de la route aussi - elle le merite plus qu'on ne le croit.";
 	close;
 }
 
