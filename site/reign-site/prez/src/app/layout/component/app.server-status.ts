@@ -20,6 +20,10 @@ import { ServerStatusService } from '@/app/layout/service/server-status.service'
                 <i class="pi pi-circle-fill text-xs" [class]="dotClass(serverStatusService.status()?.map)"></i>
                 <span class="text-muted-color">Jeu</span>
             </span>
+            <span class="flex items-center gap-2 pt-1">
+                <i class="pi pi-users text-xs text-muted-color"></i>
+                <span class="text-muted-color">{{ serverStatusService.status()?.onlineCount ?? 0 }} joueur{{ (serverStatusService.status()?.onlineCount ?? 0) > 1 ? 's' : '' }} en ligne</span>
+            </span>
         </div>
     `
 })

@@ -10,6 +10,7 @@ export interface ServerStatus {
     login: boolean;
     character: boolean;
     map: boolean;
+    onlineCount: number;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -26,7 +27,7 @@ export class ServerStatusService implements OnDestroy {
     refresh(): void {
         this.http.get<ServerStatus>(`${API_BASE_URL}/server/status`).subscribe({
             next: (status) => this.status.set(status),
-            error: () => this.status.set({ login: false, character: false, map: false })
+            error: () => this.status.set({ login: false, character: false, map: false, onlineCount: 0 })
         });
     }
 

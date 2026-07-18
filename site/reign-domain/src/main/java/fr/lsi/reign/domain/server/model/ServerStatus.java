@@ -1,6 +1,6 @@
 package fr.lsi.reign.domain.server.model;
 
-/** Disponibilité (simple test de connexion TCP) des trois serveurs rAthena. */
+/** Disponibilité (simple test de connexion TCP) des trois serveurs rAthena, plus le nombre de joueurs connectés. */
 public class ServerStatus {
 
     private final boolean loginUp;
@@ -9,10 +9,13 @@ public class ServerStatus {
 
     private final boolean mapUp;
 
-    public ServerStatus(boolean loginUp, boolean charUp, boolean mapUp) {
+    private final long onlineCount;
+
+    public ServerStatus(boolean loginUp, boolean charUp, boolean mapUp, long onlineCount) {
         this.loginUp = loginUp;
         this.charUp = charUp;
         this.mapUp = mapUp;
+        this.onlineCount = onlineCount;
     }
 
     public boolean isLoginUp() {
@@ -25,5 +28,9 @@ public class ServerStatus {
 
     public boolean isMapUp() {
         return mapUp;
+    }
+
+    public long getOnlineCount() {
+        return onlineCount;
     }
 }

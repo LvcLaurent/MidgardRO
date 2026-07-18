@@ -25,24 +25,30 @@ class GameServerStatusRepositoryAdapter implements GameServerStatusRepository {
 
     private final int mapPort;
 
+    private final OnlineCharacterJpaRepository onlineCharacterJpaRepository;
+
     GameServerStatusRepositoryAdapter(
             @Value("${reign.gameserver.login-host}") String loginHost,
             @Value("${reign.gameserver.login-port}") int loginPort,
             @Value("${reign.gameserver.char-host}") String charHost,
             @Value("${reign.gameserver.char-port}") int charPort,
             @Value("${reign.gameserver.map-host}") String mapHost,
-            @Value("${reign.gameserver.map-port}") int mapPort) {
+            @Value("${reign.gameserver.map-port}") int mapPort,
+            OnlineCharacterJpaRepository onlineCharacterJpaRepository) {
         this.loginHost = loginHost;
         this.loginPort = loginPort;
         this.charHost = charHost;
         this.charPort = charPort;
         this.mapHost = mapHost;
         this.mapPort = mapPort;
+        this.onlineCharacterJpaRepository = onlineCharacterJpaRepository;
     }
 
     @Override
     public ServerStatus check() {
-        return new ServerStatus(isReachable(loginHost, loginPort), isReachable(charHost, charPort), isReachable(mapHost, mapPort));
+        return new ServerStatus(
+                isReachable(loginHost, loginPort), isReachable(charHost, charPort), isReachable(mapHost, mapPort),
+                onlineCharacterJpaRepository.countOnline());
     }
 
     private boolean isReachable(String host, int port) {
