@@ -122,7 +122,7 @@ OnCaptureResolved:
 	donpcevent strnpcinfo(0)+"::OnEndRaid";
 	end;
 
-OnTimer2100000: // 5 min de preparation + 30 min de raid
+OnTimer1200000: // 5 min de preparation + 15 min de raid
 	if (.Active && .EmpLeft > 0) {
 		// Temps ecoule sans capture complete : le defenseur gagne par defaut,
 		// sa garnison n'est PAS remise a zero (conservee).
@@ -205,26 +205,32 @@ function	script	F_GuardianAegis	{
 	return "";
 }
 
+// IDs numeriques litteraux (mob_db.yml, 30008-30019) - PAS les AegisName bruts.
+// rAthena n'exporte pas les AegisName des mob_db custom comme constantes de
+// script ici (confirme : aucun script vanilla de cette codebase n'utilise un
+// AegisName sans guillemets comme ID de mob, toujours un nombre litteral).
+// Utiliser le bareword faisait silencieusement retourner 0 (variable joueur
+// inconnue par defaut) - aucun gardien ne spawnait, ni en defense ni en attaque.
 function	script	F_GuardianMobId	{
 	.@t = getarg(0);
 	.@f = getarg(1);
 	if (.@f == 1) {
 		switch (.@t) {
-			case 0: return KNIGHT_GRD_ORDRE;
-			case 1: return ARCHER_GRD_ORDRE;
-			case 2: return BOW_GRD_ORDRE;
-			case 3: return SWORD_GRD2_ORDRE;
-			case 4: return CAMPBB_GRD_ORDRE;
-			case 5: return CAMPBS_GRD_ORDRE;
+			case 0: return 30008; // KNIGHT_GRD_ORDRE
+			case 1: return 30010; // ARCHER_GRD_ORDRE
+			case 2: return 30012; // BOW_GRD_ORDRE
+			case 3: return 30014; // SWORD_GRD2_ORDRE
+			case 4: return 30016; // CAMPBB_GRD_ORDRE
+			case 5: return 30018; // CAMPBS_GRD_ORDRE
 		}
 	} else {
 		switch (.@t) {
-			case 0: return KNIGHT_GRD_FORGE;
-			case 1: return ARCHER_GRD_FORGE;
-			case 2: return BOW_GRD_FORGE;
-			case 3: return SWORD_GRD2_FORGE;
-			case 4: return CAMPBB_GRD_FORGE;
-			case 5: return CAMPBS_GRD_FORGE;
+			case 0: return 30009; // KNIGHT_GRD_FORGE
+			case 1: return 30011; // ARCHER_GRD_FORGE
+			case 2: return 30013; // BOW_GRD_FORGE
+			case 3: return 30015; // SWORD_GRD2_FORGE
+			case 4: return 30017; // CAMPBB_GRD_FORGE
+			case 5: return 30019; // CAMPBS_GRD_FORGE
 		}
 	}
 	return 0;
