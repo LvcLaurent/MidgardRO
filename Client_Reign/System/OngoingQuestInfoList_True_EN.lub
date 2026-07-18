@@ -146,5 +146,35 @@ QuestInfoList = {
 		Summary = "Chasser 20 Willow pour Frida",
 		RewardEXP = "20303",
 		RewardJEXP = "0"
+	},
+	[91203] = {
+		Title = "Les catacombes, première veille",
+		Description = {
+			"Vigdis, gardienne postée à l'entrée des catacombes du Village Archer, demande de l'aide contre les morts-vivants qui remuent depuis la Rupture.",
+			"Objectif : 10 Zombie."
+		},
+		Summary = "Chasser 10 Zombie pour Vigdis",
+		RewardEXP = "27070",
+		RewardJEXP = "0"
+	},
+	[91204] = {
+		Title = "Les catacombes, deuxième veille",
+		Description = {
+			"Vigdis demande de repousser les squelettes et les familiers qui grouillent plus profond dans les catacombes.",
+			"Objectif : 10 Skeleton, 5 Familiar."
+		},
+		Summary = "Chasser 10 Skeleton et 5 Familiar pour Vigdis",
+		RewardEXP = "27070",
+		RewardJEXP = "0"
+	},
+	[91205] = {
+		Title = "Les catacombes, dernière veille",
+		Description = {
+			"Vigdis demande de chasser les Poporing installés dans les niveaux les plus bas des catacombes.",
+			"Objectif : 10 Poporing."
+		},
+		Summary = "Chasser 10 Poporing pour Vigdis",
+		RewardEXP = "27070",
+		RewardJEXP = "0"
 	}
 }
