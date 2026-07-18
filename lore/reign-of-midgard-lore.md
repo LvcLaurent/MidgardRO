@@ -312,24 +312,26 @@ que l'engagement envers l'Ordre ou les Forgenoires.
   disproportionné pour un incident trivial, contrepoint volontaire au ton sombre
   du Palais Oublié (section 11).
 
-## 13. Payon, la ville-forêt neutre
+## 13. Payon, la ville-forêt sous surveillance
 
-Première zone hors de l'axe Izlude/Prontera. Contrairement à Prontera, Payon
-n'a jamais pris parti dans la guerre de l'Ordre de la Faille contre les
-Forgenoires : la ville a laissé les deux camps se disputer la capitale et a
-continué de vivre de la chasse et de l'artisanat forestier, une neutralité
-prudente plutôt qu'un désintérêt réel. Une **réputation locale** (Payon,
--2 000 000/+2 000 000 — volontairement beaucoup plus large que celle de
-Prontera, pensée comme un compteur de long terme plutôt qu'une jauge qui se
-remplit vite) récompense les services rendus à la ville, indépendamment de
-l'Ordre ou des Forgenoires.
+Première zone hors de l'axe Izlude/Prontera — mais, à la différence d'Izlude
+(port franc délibérément tenu à l'écart de la guerre, section 4), Payon n'est
+pas un havre neutre par éloignement : la ville n'a certes jamais formellement
+choisi de camp, mais elle sent la guerre se rapprocher. Éclaireurs de l'Ordre
+et des Forgenoires commencent à apparaître à ses abords, en amont de
+campements que les deux factions doivent y installer prochainement (à
+détailler dans une prochaine passe). Une **réputation locale** (Payon,
+-2000/+2000, même échelle que Prontera) récompense les services rendus à la
+ville, indépendamment de l'Ordre ou des Forgenoires.
 
 - **Halla**, une habitante âgée assise devant sa porte, explique cette
-  neutralité et introduit l'idée que la Rupture n'a pas seulement réveillé des
-  monstres en ville : elle a aussi rendu la faune de la forêt payonnaise plus
-  grosse, plus nombreuse et plus agressive — un echo du motif déjà présent
-  autour d'Yrsa et du champ de Prontera (sections 10-11), la Rupture comme
-  perturbation qui se propage au vivant, pas seulement aux ruines.
+  neutralité fragile — Payon n'a pas choisi de camp, mais la guerre n'attend
+  pas sa permission pour s'approcher — et introduit l'idée que la Rupture n'a
+  pas seulement réveillé des monstres en ville : elle a aussi rendu la faune
+  de la forêt payonnaise plus grosse, plus nombreuse et plus agressive — un
+  echo du motif déjà présent autour d'Yrsa et du champ de Prontera (sections
+  10-11), la Rupture comme perturbation qui se propage au vivant, pas
+  seulement aux ruines.
 - **Ottar**, chasseur, et **Steinar**, garde forestier, portent chacun une
   quête de chasse liée à ce dérèglement (Bigfoot au sud-est, Boa/Spore/Wormtail
   au nord) — ton grave et concret pour Ottar (un passage de chasse devenu

@@ -55,10 +55,10 @@ payon,164,233,3	script	Kafra Ragnhild#reign	4_F_KAFRA1,{
 		end;
 	case 4:
 		mes "[Kafra Ragnhild]";
-		mes "Payon n'a jamais vraiment choisi de camp, vous savez. Ni l'Ordre, ni les Forgenoires. On les laisse se battre pour Prontera et on continue de chasser.";
+		mes "Payon n'a jamais vraiment choisi de camp, vous savez. Ni l'Ordre, ni les Forgenoires. Mais on en voit de plus en plus trainer aux abords de la ville, ces derniers temps.";
 		next;
 		mes "[Kafra Ragnhild]";
-		mes "Ca ne nous protegera pas eternellement, je sais. Mais pour l'instant, ca marche.";
+		mes "Ca ne nous protegera pas eternellement, je sais. J'ai bien peur qu'on doive finir par choisir, tot ou tard.";
 		close;
 	case 5:
 		mes "[Kafra Ragnhild]";
@@ -105,16 +105,19 @@ payon,145,225,3	script	Halla#reign	4_F_02,{
 	mes "*Assise sur le pas de sa porte, elle regarde la foret plutot que la route.*";
 	next;
 	mes "[Halla]";
-	mes "Vous venez de Prontera, non ? Ca s'entend a votre pas - toujours presse, toujours a regarder derriere vous. Ici, personne ne regarde derriere.";
+	mes "Vous venez de Prontera, non ? Ca s'entend a votre pas - toujours presse, toujours a regarder derriere vous. Ici, on n'a pas encore ce reflexe. Pas encore.";
 	next;
 	mes "[Halla]";
-	mes "Payon n'a jamais eu de faction. On a laisse l'Ordre et les Forgenoires se disputer la capitale et on a garde nos arcs pointes vers la foret, pas vers nos voisins.";
+	mes "Payon n'a jamais vraiment choisi de camp. Mais ne croyez pas qu'on soit a l'abri pour autant - la guerre n'a pas besoin de notre permission pour s'approcher.";
 	next;
 	mes "[Halla]";
-	mes "Mais depuis la Rupture, la foret nous le rend mal. Les betes qu'on chassait sans y penser sont plus grosses, plus nombreuses, plus enervees. Comme si elle aussi, elle s'etait reveillee.";
+	mes "On voit passer plus d'eclaireurs qu'avant, des deux cotes. Ils ne disent pas grand-chose, mais ils regardent la foret comme s'ils y cherchaient deja un endroit ou planter leur banniere.";
 	next;
 	mes "[Halla]";
-	mes "Enfin. Vous n'etes pas venu pour ecouter une vieille femme radoter sur des pieds geants et des serpents de mauvaise humeur. Ou peut-etre que si. On ne sait jamais, avec les gens de passage.";
+	mes "Et depuis la Rupture, la foret elle-meme nous le rend mal. Les betes qu'on chassait sans y penser sont plus grosses, plus nombreuses, plus enervees. Comme si elle aussi, elle s'etait reveillee.";
+	next;
+	mes "[Halla]";
+	mes "Enfin. Vous n'etes pas venu pour ecouter une vieille femme radoter sur des soldats curieux et des pieds geants. Ou peut-etre que si. On ne sait jamais, avec les gens de passage.";
 	close;
 }
 

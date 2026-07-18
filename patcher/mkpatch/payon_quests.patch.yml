@@ -1,0 +1,11 @@
+# Patch : ajoute les quêtes 91200 (Les géants aux grands pieds), 91201
+# (Nettoyage en forêt) et 91202 (Le pont branlant) au journal de quêtes du client.
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign -o patcher/hosting/patches/data/14_payon_quests.thor patcher/mkpatch/payon_quests.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: false
+include_checksums: true
+
+entries:
+  - relative_path: System/OngoingQuestInfoList_True_EN.lub

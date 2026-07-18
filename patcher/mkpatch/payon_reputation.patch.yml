@@ -1,0 +1,15 @@
+# Patch : ajoute l'entrée de réputation "Payon" (Id 8) côté client et l'inclut dans
+# le groupe "Reign of Midgard" (au même titre que Prontera, Id 7, qui manquait aussi
+# côté serveur - corrigé dans le même commit). Voir prontera_reputation.patch.yml pour
+# le contexte complet sur pourquoi ces deux fichiers BSON sont nécessaires.
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign/reign_GRF -o patcher/hosting/patches/data/13_payon_reputation.thor patcher/mkpatch/payon_reputation.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: true
+target_grf_name: reign.grf
+include_checksums: true
+
+entries:
+  - relative_path: data/contentdata/repute/reputeinfodata.bson
+  - relative_path: data/contentdata/repute/reputegroupdata.bson

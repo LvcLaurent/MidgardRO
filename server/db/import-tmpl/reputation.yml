@@ -53,5 +53,5 @@ Body:
   - Id: 8
     Name: Payon
     Variable: RepPointsPayon
-    Minimum: -2000000
-    Maximum: 2000000
+    Minimum: -2000
+    Maximum: 2000

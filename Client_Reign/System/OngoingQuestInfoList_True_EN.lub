@@ -116,5 +116,35 @@ QuestInfoList = {
 		Summary = "Tuer 40 Poring pour Villy",
 		RewardEXP = "16242",
 		RewardJEXP = "0"
+	},
+	[91200] = {
+		Title = "Les géants aux grands pieds",
+		Description = {
+			"Ottar, chasseur à Payon, demande de l'aide contre des Bigfoot devenus trop nombreux et trop agressifs sur un passage au sud-est de la ville.",
+			"Objectif : 10 Bigfoot."
+		},
+		Summary = "Chasser 10 Bigfoot pour Ottar",
+		RewardEXP = "27070",
+		RewardJEXP = "0"
+	},
+	[91201] = {
+		Title = "Nettoyage en forêt",
+		Description = {
+			"Steinar, garde forestier à Payon, demande de l'aide contre une invasion de Boa, de Spore et de Wormtail au nord de la ville.",
+			"Objectif : 30 Boa, 10 Spore, 10 Wormtail."
+		},
+		Summary = "Chasser 30 Boa, 10 Spore et 10 Wormtail pour Steinar",
+		RewardEXP = "27070",
+		RewardJEXP = "0"
+	},
+	[91202] = {
+		Title = "Le pont branlant",
+		Description = {
+			"Frida, sur le champ au nord de Payon, demande de l'aide contre des Willow qui rongent les piles du pont.",
+			"Objectif : 20 Willow."
+		},
+		Summary = "Chasser 20 Willow pour Frida",
+		RewardEXP = "20303",
+		RewardJEXP = "0"
 	}
 }
