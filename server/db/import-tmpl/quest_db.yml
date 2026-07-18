@@ -90,3 +90,11 @@ Body:
       - Mob: SKELETON
         Count: 8
         Location: 1@spa
+  # Reign of Midgard — Prontera, la ville
+  - Id: 91101
+    Title: Un colis pour Eskil
+  - Id: 91102
+    Title: La vengeance du gâteau
+    Targets:
+      - Mob: PORING
+        Count: 40

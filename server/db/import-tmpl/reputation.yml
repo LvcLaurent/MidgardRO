@@ -45,3 +45,8 @@ Body:
     Variable: RepPointsForge
     Minimum: -10000
     Maximum: 10000
+  - Id: 7
+    Name: Prontera
+    Variable: RepPointsProntera
+    Minimum: -2000
+    Maximum: 2000

@@ -51,6 +51,13 @@ villes, affaiblies par la guerre entre factions, peinent à s'en défendre seule
 > réveil délibéré — quelqu'un (ou quelque chose) ayant provoqué la fissure
 > précisément pour libérer ce que la Foi retenait ? Angle possible pour un
 > antagoniste de fond, distinct des deux factions.
+>
+> Premier indice concret posé dans le jeu (voir section 11, palier de métier
+> 1) : le Juge Kolvar, qui présidait un palais aujourd'hui disparu, avait
+> perçu des signes avant-coureurs de la Rupture des années avant qu'elle
+> n'ait lieu — et a choisi de faire taire ceux qui les avaient remarqués
+> plutôt que d'en parler. Volontairement laissé en suggestion : on ne sait
+> pas s'il a agi seul, sur ordre, ou par pure lâcheté personnelle.
 
 ## 3. Les deux factions
 
@@ -247,3 +254,60 @@ zone de chasse "post-Académie" pour les novices qui viennent de changer de mét
   vraie créature scriptée pour l'instant.
 - Un **aventurier claudicant**, pur PNJ d'ambiance, raconte avoir "pris une flèche
   dans le genou" — clin d'œil assumé, aucune portée narrative.
+- **La folle de Prontera**, sur le même champ, demande des plumes de Lunatic pour
+  tisser une écharpe — personnage haut en couleur, inoffensif, contraste volontaire
+  avec le ton plus sombre de Geir juste à côté.
+- Un **voyageur réticent** refuse d'entrer dans Prontera à cause de la guerre de
+  faction en cours — pur PNJ d'exposition, explique le système de faction (mobs
+  marqués, réputation) et renvoie vers les postes d'attaque à l'entrée de la ville
+  (voir section 12 sur la possession de territoire, déjà partiellement en place).
+
+## 11. Paliers de métier — L'écho du Palais Oublié
+
+Une fois le premier métier choisi (section 8), plus aucun PNJ n'accompagnait la
+progression du Job Level — l'XP de job étant désactivée côté serveur, c'était un
+angle mort. Des **paliers** comblent ce trou, liés au Base Level (Job 10 @ Base 20,
+Job 20 @ Base 30, Job 30 @ Base 40, Job 40 @ Base 50, Job 50 @ Base 55) : à ce
+stade, seul le palier 1 existe.
+
+**Hakon le Passeur**, à l'Académie d'Izlude (même bâtiment que Bram/Sunna, à
+l'étage), ouvre un **écho du passé** — la Rupture n'a pas seulement réveillé des
+monstres, elle a aussi fait resurgir des fragments de mémoire d'une époque
+antérieure à l'Ordre et aux Forgenoires. Hakon a personnellement payé un prix
+(non précisé) pour comprendre ce phénomène et peut y faire entrer d'autres
+personnes.
+
+L'écho du palier 1 montre le **Palais Oublié** : un juge de l'ancien monde,
+**Kolvar**, y a fait taire ceux qui avaient remarqué des signes avant-coureurs de
+la Rupture, des années avant qu'elle ne survienne (voir section 2, piste sur la
+nature réelle de la Rupture — premier indice concret posé dans le jeu). Le
+parcours traverse trois actes : les catacombes (libérer les prisonniers, dont un
+"prisonnier oublié" qui a personnellement payé pour avoir vu la vérité), la
+bibliothèque (le journal de Kolvar, aveu à demi-mot), et la salle du trône
+(confrontation, Kolvar invoque ses derniers gardes pour un dernier semblant
+d'autorité). Le juge ne se repent pas vraiment — il se justifie, jusqu'au bout.
+
+> 🔮 Piste future : Kolvar n'est qu'un juge local, pas nécessairement un acteur
+> majeur de la Foi elle-même — de quoi laisser ouverte la question de savoir si
+> d'autres, plus haut placés, savaient aussi et ont fait le même choix. À
+> recroiser avec la piste Yrsa (section 7) le moment venu.
+
+## 12. Prontera, la ville
+
+Au-delà des champs (section 10) et du conflit de faction pour la possession de
+la ville (raid de territoire, en place côté mécanique), Prontera reste habitée
+par des gens ordinaires, pris entre le déclin de la Foi et la guerre des deux
+factions. Une **réputation locale** (Prontera, -2000/+2000, distincte des
+réputations de faction) récompense les petits services rendus à la ville plutôt
+que l'engagement envers l'Ordre ou les Forgenoires.
+
+- **Sigrid**, qui ne quitte plus la ville pour une raison qu'elle ne s'explique
+  pas vraiment elle-même, demande de porter un colis à son frère **Eskil**,
+  installé à Izlude près du port — une petite tendresse familiale discrète,
+  dans une ville qui a de moins en moins de raisons d'être tendre. Eskil, s'il
+  reçoit un marchand, offre une charrette (accès à `MC_PUSHCART` + `setcart`) —
+  un vrai marchand sans charrette, dit-il, n'a jamais rien vendu de sérieux.
+- **Villy**, un enfant, réclame vengeance contre les Poring qui ont dévoré un
+  gâteau offert par sa mère — pur registre comique, mélodrame enfantin totalement
+  disproportionné pour un incident trivial, contrepoint volontaire au ton sombre
+  du Palais Oublié (section 11).

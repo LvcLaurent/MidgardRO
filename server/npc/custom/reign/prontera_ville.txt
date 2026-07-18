@@ -1,0 +1,146 @@
+//===== Reign of Midgard ===================================================
+//= Prontera, la ville
+//===== Description: =======================================================
+//= PNJ de quete en ville (pas les champs, deja couverts par
+//= prontera_champs*.txt). Recompenses en reputation locale REPUTATION_PRONTERA
+//= (voir db/import-tmpl/reputation.yml, -2000/+2000) plutot qu'en reputation
+//= de faction - ces deux quetes n'ont rien a voir avec l'Ordre ou les
+//= Forgenoires, juste des gens de la ville.
+//= ASCII pur, comme le reste des fichiers reign/ non convertis en CP1252.
+//===========================================================================
+
+// Verifie si le joueur est de la branche Marchand (Merchant/Blacksmith/
+// Whitesmith/Merchant_High/Mechanic) - utilise pour le cadeau d'Eskil.
+function	script	F_EstMarchand	{
+	if (Class == Job_Merchant || Class == Job_Blacksmith || Class == Job_Whitesmith ||
+	    Class == Job_Merchant_High || Class == Job_Mechanic)
+		return true;
+	return false;
+}
+
+//== Sigrid (Prontera, 146,69) - demande de livraison a son frere a Izlude ===
+prontera,146,69,3	script	Sigrid#reign	4_F_02,{
+	if (isbegin_quest(91101) == 2) {
+		mes "[Sigrid]";
+		mes "Eskil a bien recu mon colis, alors ? Tant mieux. Il n'a jamais aime attendre.";
+		close;
+	}
+	if (isbegin_quest(91101) == 1) {
+		mes "[Sigrid]";
+		mes "Le colis est toujours dans tes mains, j'espere. Izlude n'est pas si loin - enfin, pas pour toi.";
+		close;
+	}
+	mes "[Sigrid]";
+	mes "*Elle serre un petit paquet contre elle, comme si elle hesitait encore a le laisser partir.*";
+	next;
+	mes "[Sigrid]";
+	mes "Mon frere vit a Izlude, maintenant. Moi, je ne quitte plus vraiment Prontera - je ne saurais pas te dire pourquoi exactement, juste que la route ne m'appelle plus comme avant.";
+	next;
+	mes "[Sigrid]";
+	mes "Ce colis, c'est pour lui. Rien d'important a l'interieur, juste... des nouvelles, sous une autre forme. Tu accepterais de le lui porter ?";
+	next;
+	mes "[Sigrid]";
+	mes "Il s'appelle Eskil. Tu le trouveras a Izlude, pres du port. Il te reconnaitra au colis, pas la peine de te presenter en detail.";
+	next;
+	switch (select("Pas le temps pour ca.", "D'accord, je m'en occupe.")) {
+	case 1:
+		mes "[Sigrid]";
+		mes "Ce n'est rien. Je trouverai quelqu'un d'autre - ou pas. Ca attendra, comme le reste.";
+		close;
+	case 2:
+		setquest 91101;
+		mes "[Sigrid]";
+		mes "Merci. Dis-lui... non, rien. Le colis parlera pour moi.";
+		close;
+	}
+}
+
+//== Eskil (izlude_in, 59,127) - reception du colis, recompense =============
+izlude_in,59,127,3	script	Eskil#reign	4_M_02,{
+	if (isbegin_quest(91101) == 2) {
+		mes "[Eskil]";
+		mes "Merci encore pour le voyage. Ma soeur a de la chance d'avoir croise quelqu'un comme toi.";
+		close;
+	}
+	if (isbegin_quest(91101) != 1) {
+		mes "[Eskil]";
+		mes "*Il regarde vers Prontera, au loin, sans vraiment la voir.*";
+		close;
+	}
+	mes "[Eskil]";
+	mes "Un colis de Sigrid ? *Il le prend avec une douceur qui tranche avec ses mains calleuses.*";
+	next;
+	mes "[Eskil]";
+	mes "Elle ne sort plus de la ville, tu sais. Alors quand quelqu'un accepte de porter ca a sa place... ca compte plus qu'elle ne l'admettra jamais.";
+	next;
+	if (callfunc("F_EstMarchand")) {
+		mes "[Eskil]";
+		mes "Tiens - j'ai plus de charrettes que de raisons de voyager, ces temps-ci. Une de moins ne me manquera pas, et un marchand sans charrette, ca n'a jamais rien vendu de serieux.";
+		next;
+		if (getskilllv(MC_PUSHCART) < 1)
+			skill MC_PUSHCART,1,0;
+		setcart 1;
+		mes "[Eskil]";
+		mes "Voila. Prends-en soin, et prends soin de la route aussi - elle le merite plus qu'on ne le croit.";
+	} else {
+		mes "[Eskil]";
+		mes "Je n'ai rien d'utile a offrir a quelqu'un qui ne pousse pas de charrette, mais sache que ce petit voyage vaut plus que tu ne le penses, par ici.";
+	}
+	close2;
+	getexp 6768,0;
+	add_reputation_points(REPUTATION_PRONTERA,50);
+	completequest 91101;
+	end;
+}
+
+//== Villy (Prontera, 166,76) - vengeance contre les Poring ==================
+prontera,166,76,3	script	Villy#reign	4W_KID,{
+	if (isbegin_quest(91102) == 2) {
+		mes "[Villy]";
+		mes "Justice a ete rendue. Je peux enfin dormir tranquille - jusqu'au prochain Poring qui s'approche trop pres de la maison, en tout cas.";
+		close;
+	}
+	if (checkquest(91102,HUNTING) == 2) {
+		mes "[Villy]";
+		mes "*Il te regarde avec des yeux immenses.*";
+		next;
+		mes "[Villy]";
+		mes "QUARANTE. Tu en as VRAIMENT tue quarante. Je... je ne pensais meme pas que tu irais jusqu'au bout, pour de vrai.";
+		next;
+		mes "[Villy]";
+		mes "Maman ne saura jamais a quel point je l'ai vengee. Enfin, si, je vais tout lui raconter, en fait. Plusieurs fois. Avec des details.";
+		close2;
+		getexp 16242,0;
+		add_reputation_points(REPUTATION_PRONTERA,50);
+		completequest 91102;
+		end;
+	}
+	if (isbegin_quest(91102) == 1) {
+		mes "[Villy]";
+		mes "Quarante. J'ai bien dit QUARANTE. Un de moins et ce ne sera pas de la justice, ce sera juste... presque de la justice.";
+		close;
+	}
+	mes "[Villy]";
+	mes "*Il te fixe avec une intensite totalement disproportionnee pour son age.*";
+	next;
+	mes "[Villy]";
+	mes "Un Poring. A mange. Le cadeau. Que maman m'avait offert. TU COMPRENDS LA GRAVITE DE LA SITUATION ?";
+	next;
+	mes "[Villy]";
+	mes "C'etait un gateau. En forme d'ours. Il a fondu dans cette... cette chose gelatineuse, sous mes yeux, et personne ne semble s'en soucier autant que moi.";
+	next;
+	mes "[Villy]";
+	mes "Alors voila ce que je te propose : tue quarante Poring. Pas trente-neuf. Quarante. C'est le prix du sang. Enfin, le prix du gateau.";
+	next;
+	switch (select("Euh... non merci.", "J'accepte cette noble quete.")) {
+	case 1:
+		mes "[Villy]";
+		mes "Lache. Le gateau se souviendra de ta faiblesse. Moi aussi, d'ailleurs.";
+		close;
+	case 2:
+		setquest 91102;
+		mes "[Villy]";
+		mes "ENFIN quelqu'un qui prend cette tragedie au serieux. Quarante Poring. Vas-y. Venge le gateau.";
+		close;
+	}
+}

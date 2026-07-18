@@ -97,5 +97,24 @@ QuestInfoList = {
 			"Récompense : ce métier atteint aussitôt le niveau de job 10."
 		},
 		Summary = "Traverser l'écho du Palais Oublié pour Hakon le Passeur"
+	},
+	[91101] = {
+		Title = "Un colis pour Eskil",
+		Description = {
+			"Sigrid, à Prontera, te confie un colis pour son frère Eskil, qui vit à Izlude près du port.",
+		},
+		Summary = "Livrer le colis de Sigrid à Eskil (Izlude)",
+		RewardEXP = "6768",
+		RewardJEXP = "0"
+	},
+	[91102] = {
+		Title = "La vengeance du gâteau",
+		Description = {
+			"Villy réclame vengeance contre les Poring qui ont dévoré le gâteau offert par sa mère.",
+			"Objectif : 40 Poring."
+		},
+		Summary = "Tuer 40 Poring pour Villy",
+		RewardEXP = "16242",
+		RewardJEXP = "0"
 	}
 }
