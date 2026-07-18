@@ -1791,7 +1791,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      RouletteGold++;
+      RouletteGold += 10;
   - Id: 673
     AegisName: Copper_Coin
     Name: Bronze Coin
@@ -1814,7 +1814,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      RouletteSilver++;
+      RouletteSilver += 10;
   - Id: 678
     AegisName: Poison_Bottle
     Name: Poison Bottle
