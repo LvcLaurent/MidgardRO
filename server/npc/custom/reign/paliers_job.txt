@@ -1,0 +1,188 @@
+//===== Reign of Midgard ===================================================
+//= Paliers de Job Level (post-Novice)
+//===== Description: =======================================================
+//= L'XP de job est desactivee cote serveur (job_exp_rate a 0) - depuis
+//= toujours, le Job Level ne monte que par @joblvlup accorde par un PNJ
+//= autorise (Bram/Sunna pour Novice, les 6 formateurs de premiers_metiers.txt
+//= pour le premier changement de metier). Ce fichier comble la suite :
+//= paliers de Job Level lies au Base Level, un par un. Cette passe ne
+//= construit que le palier 1 (Job 10 @ Base 20) - paliers 2-5 suivront le
+//= meme gabarit plus tard (voir job_tier1, verrou sequentiel pour job_tier2).
+//=
+//= Pool UNIQUE de 5 quetes, partage par les 6 premiers metiers (Swordman,
+//= Mage, Acolyte, Archer, Merchant, Thief) - pas de contenu specifique par
+//= metier, seul le PNJ hub verifie qu'on est bien dans l'un des 6.
+//=
+//= Cadre narratif : la Rupture n'a pas seulement reveille des monstres, elle
+//= a aussi fait resurgir des fragments de memoire de la vieille Prontera
+//= d'avant son declin (echo a la piste Yrsa du lore : "la Rupture a un
+//= rythme, une respiration"). La carte iz_ac02 (batiment vanilla
+//= "Instructeurs de metier", desaffecte sur ce projet - npc/re/jobs/novice/
+//= academy.txt est commente dans npc/re/scripts_jobs.conf, aucun conflit)
+//= sert de decor a cet echo. Aucune instance rAthena utilisee pour ce
+//= prototype : tout se passe sur iz_ac02 en carte partagee/persistante,
+//= comme le champ de Geir sur prt_fild08 - ca evite tout probleme de
+//= mort/deconnexion qui bloquerait un joueur hors d'une instance privee,
+//= puisqu'il n'y a pas d'instance a etre bloque hors de.
+//===========================================================================
+
+-	script	PalierJob1#reign	-1,{
+	end;
+
+OnInit:
+	// Garnison "echos" permanente sur iz_ac02 - assez dense pour plusieurs
+	// chasseurs en meme temps (91100 demande 12 Zombie, 91104 en demande 6
+	// de plus + 6 Skeleton, 91101 demande 10 Skeleton).
+	for (.@i = 0; .@i < 15; .@i++)
+		monster "iz_ac02", 103 + rand(-20,20), 200 + rand(-20,20), "Echo de la Garde", 1015, 1; // ZOMBIE
+	for (.@i = 0; .@i < 12; .@i++)
+		monster "iz_ac02", 103 + rand(-20,20), 200 + rand(-20,20), "Echo Endormi", 1076, 1; // SKELETON
+	end;
+}
+
+// -- Recompense partagee par les 5 quetes du palier 1 -----------------------
+// @joblvlup jusqu'a job 10 pile (jamais un nombre fixe - correct quel que
+// soit le job level de depart), un peu de reputation (meme pattern que
+// Geir : faction du joueur -> sa faction seule, sinon split Ordre/Forge).
+function	script	F_RecompensePalier1	{
+	if (JobLevel < 10)
+		atcommand "@joblvlup " + (10 - JobLevel);
+	if (getfaction() == 1)
+		add_reputation_points(REPUTATION_ORDRE,10);
+	else if (getfaction() == 2)
+		add_reputation_points(REPUTATION_FORGENOIRES,10);
+	else {
+		add_reputation_points(REPUTATION_ORDRE,5);
+		add_reputation_points(REPUTATION_FORGENOIRES,5);
+	}
+	job_tier1 = 1;
+	return;
+}
+
+//== Gardien de l'Echo (iz_ac02) - PNJ hub du palier 1 =======================
+iz_ac02,103,200,3	script	Gardien de l'Echo#reign	4_M_OLDSCHOLAR,{
+	if (Class != Job_Swordman && Class != Job_Mage && Class != Job_Acolyte &&
+	    Class != Job_Archer && Class != Job_Merchant && Class != Job_Thief) {
+		mes "[Gardien de l'Echo]";
+		mes "Rien pour toi ici. Pas encore, ou plus - selon d'ou tu regardes les choses. Reviens quand tu porteras un vrai metier.";
+		close;
+	}
+	if (job_tier1 >= 1) {
+		mes "[Gardien de l'Echo]";
+		mes "Tu as deja traverse l'echo. Il ne reste plus rien d'autre a y trouver, pour l'instant - la suite viendra en temps voulu.";
+		close;
+	}
+	if (BaseLevel < 20) {
+		mes "[Gardien de l'Echo]";
+		mes "Trop tot. L'echo ne s'ouvre qu'a ceux qui ont deja un peu vecu. Reviens quand tu auras use quelques certitudes de plus.";
+		close;
+	}
+	if (JobLevel >= 10) {
+		mes "[Gardien de l'Echo]";
+		mes "Tu portes deja assez d'experience dans ce metier. Inutile de te faire traverser l'echo pour si peu.";
+		close2;
+		job_tier1 = 1;
+		end;
+	}
+
+	.@active = 0;
+	for (.@i = 91100; .@i <= 91104; .@i++) {
+		if (isbegin_quest(.@i) == 1) {
+			.@active = .@i;
+			break;
+		}
+	}
+
+	if (.@active == 0) {
+		mes "[Gardien de l'Echo]";
+		mes "La Rupture n'a pas seulement reveille des monstres, tu sais. Elle a fissure autre chose aussi - le temps lui-meme, par endroits. Ici, un peu de la vieille Prontera continue de se rejouer, encore et encore.";
+		next;
+		mes "[Gardien de l'Echo]";
+		mes "Ceux d'avant l'Ordre, avant les Forgenoires, avant meme que la Faille ne s'ouvre. Une capitale entiere, qui ne sait pas encore qu'elle va decliner.";
+		next;
+		mes "[Gardien de l'Echo]";
+		mes "Marche dedans. Prouve que tu tiens debout dans ton metier, pas seulement dans ton nom. Es-tu pret" + (Sex ? "" : "e") + " ?";
+		next;
+		if (select("Pas maintenant.", "Oui, montre-moi.") == 1) {
+			mes "[Gardien de l'Echo]";
+			mes "L'echo attendra. Il a tout son temps - bien plus que toi.";
+			close;
+		}
+		.@pick = 91100 + rand(0,4);
+		setquest .@pick;
+		mes "[Gardien de l'Echo]";
+		switch (.@pick) {
+		case 91100:
+			mes "Les remparts n'ont jamais appris a tomber. Les gardes qui les tenaient non plus - ils y sont toujours, a leur maniere. Douze d'entre eux, ici sur cette carte. Libere-les de leur ronde.";
+			break;
+		case 91101:
+			mes "Sous tes pieds, une crypte que personne ne visite plus. Dix dormeurs que l'echo n'a jamais laisses vraiment dormir. Occupe-t'en, ici meme.";
+			break;
+		case 91102:
+			mes "Les gardes en decomposition qui trainent ici laissent parfois tomber un fragment - un ongle, rien de plus, mais assez ancien pour interesser qui etudie encore la Foi d'avant. Rapporte-m'en huit.";
+			break;
+		case 91103:
+			mes "Tout le monde ne s'est pas transforme en menace, dans cet echo. Un pretre erre encore pres d'ici, fige dans une priere qu'il ne finit jamais. Va l'ecouter jusqu'au bout, pour une fois.";
+			break;
+		case 91104:
+			mes "Une derniere garde, melangee - remparts et crypte a la fois, mais en moins grand nombre. Six d'un cote, six de l'autre. De quoi voir si tu tiens face a un peu de tout.";
+			break;
+		}
+		close;
+	}
+
+	if (.@active == 91102) {
+		if (countitem(957) < 8) {
+			mes "[Gardien de l'Echo]";
+			mes "Huit fragments, pas un de moins. Les gardes en decomposition de l'echo en portent encore, quelque part sur eux.";
+			close;
+		}
+		delitem 957,8;
+		mes "[Gardien de l'Echo]";
+		mes "Huit fragments d'un ongle decompose - une relique bien modeste pour ce qu'elle raconte. Meme ca, la Foi d'avant l'aurait beni.";
+		close2;
+		callfunc("F_RecompensePalier1");
+		completequest 91102;
+		end;
+	} else if (.@active == 91103) {
+		mes "[Gardien de l'Echo]";
+		mes "Le pretre est toujours la, pres d'ici. Va l'ecouter - vraiment l'ecouter, jusqu'au bout de sa priere. Il n'y a rien de plus a faire ici pour ca.";
+		close;
+	} else {
+		if (checkquest(.@active,HUNTING) != 2) {
+			mes "[Gardien de l'Echo]";
+			mes "L'echo n'a pas encore fini de te tester. Reviens quand ce sera fait.";
+			close;
+		}
+		mes "[Gardien de l'Echo]";
+		mes "L'echo se tait, pour cette fois. Tu as tenu - c'est deja plus que ce que la plupart tiennent, dans un souvenir qui ne demande jamais la permission de recommencer.";
+		close2;
+		callfunc("F_RecompensePalier1");
+		completequest .@active;
+		end;
+	}
+}
+
+//== Le pretre fige (iz_ac02) - objectif de la quete 91103 ==================
+iz_ac02,95,205,3	script	Pretre fige#reign	4_M_OLDFRIAR,{
+	if (isbegin_quest(91103) != 1) {
+		mes "[Pretre fige]";
+		mes "*Il murmure une priere que tu ne reconnais pas, les yeux fermes, comme s'il etait seul au monde.*";
+		close;
+	}
+	mes "[Pretre fige]";
+	mes "*Il murmure une priere que tu ne reconnais pas, les yeux fermes, comme s'il etait seul au monde.*";
+	next;
+	mes "[Pretre fige]";
+	mes "\"...et que la Rupture, quand elle viendra, nous trouve encore debout, encore fideles, encore...\"";
+	next;
+	mes "[Pretre fige]";
+	mes "\"...encore un peu de temps. C'est tout ce que je demande. Un peu de temps.\"";
+	next;
+	mes "[Pretre fige]";
+	mes "*Sa voix s'eteint, reprend, s'eteint encore - la meme priere, depuis toujours, sans jamais l'achever. Tu restes jusqu'au bout, cette fois.*";
+	close2;
+	callfunc("F_RecompensePalier1");
+	completequest 91103;
+	end;
+}

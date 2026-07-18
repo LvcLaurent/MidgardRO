@@ -74,3 +74,32 @@ Body:
         Count: 20
       - Mob: PUPA
         Count: 10
+  - Id: 91008
+    Title: Une écharpe pour l'hiver
+  # Reign of Midgard — Palier de Job 1 (Job 10 @ Base 20), pool commun aux 6 premiers
+  # métiers - voir server/npc/custom/reign/paliers_job.txt
+  - Id: 91100
+    Title: Les remparts oubliés
+    Targets:
+      - Mob: ZOMBIE
+        Count: 12
+        Location: iz_ac02
+  - Id: 91101
+    Title: Le sommeil interrompu
+    Targets:
+      - Mob: SKELETON
+        Count: 10
+        Location: iz_ac02
+  - Id: 91102
+    Title: Fragments de la Foi
+  - Id: 91103
+    Title: La voix qui ne s'éteint pas
+  - Id: 91104
+    Title: Une dernière garde
+    Targets:
+      - Mob: ZOMBIE
+        Count: 6
+        Location: iz_ac02
+      - Mob: SKELETON
+        Count: 6
+        Location: iz_ac02

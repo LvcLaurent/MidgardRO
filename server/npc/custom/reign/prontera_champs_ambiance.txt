@@ -1,0 +1,100 @@
+//===== Reign of Midgard ===================================================
+//= Prontera, les champs (prt_fild08) - PNJ d'ambiance supplementaires
+//===== Description: =======================================================
+//= Deux PNJ purs texte/collecte, complementaires a prontera_champs.txt
+//= (Geir, Aventurier claudicant) sur la meme carte. Fichier separe : l'autre
+//= fichier est deja encode en CP1252 (accents reels), retoucher directement
+//= dedans avec les outils texte risquerait de corrompre les caracteres deja
+//= convertis - celui-ci reste en ASCII pur, sans accent, comme le reste des
+//= fichiers reign/ ecrits cette session.
+//= Quete 91008 : cf. server/db/import-tmpl/quest_db.yml. Titre seulement
+//= (pas de Targets), meme convention que 91000-91006 - la collecte se fait
+//= via countitem/delitem directement dans le script, pas via le systeme de
+//= suivi de kills natif (l'objectif ici est un objet a livrer, pas un
+//= compteur de chasse).
+//===========================================================================
+
+//== La folle de Prontera (prt_fild08) - collecte de Feather (LUNATIC) =======
+prt_fild08,164,370,3	script	La folle de Prontera#reign	4_F_02,{
+	.@feather_needed = 15;
+
+	if (isbegin_quest(91008) == 2) {
+		mes "[La folle de Prontera]";
+		mes "Mon echarpe est finie. Regarde-moi cette douceur - qui aurait cru que ces sales bestioles cachaient ca sous leurs plumes.";
+		close;
+	}
+	if (isbegin_quest(91008) == 1) {
+		if (countitem(949) < .@feather_needed) {
+			mes "[La folle de Prontera]";
+			mes "Toujours pas assez de plumes. Il m'en faut " + .@feather_needed + " en tout. Les Lunatic trainent un peu partout sur le champ.";
+			close;
+		}
+		delitem 949,.@feather_needed;
+		mes "[La folle de Prontera]";
+		mes "Ah ! Voila qui est mieux. Laisse-moi juste... oui, comme ca, et ca...";
+		next;
+		mes "[La folle de Prontera]";
+		mes "Une echarpe pour l'hiver, tissee avec ce que le champ veut bien donner. Les gens rient de moi, tu sais. Ils riront moins quand il fera froid et qu'ils grelotteront sans la leur.";
+		close2;
+		getexp 13535,0;
+		if (getfaction() == 1)
+			add_reputation_points(REPUTATION_ORDRE,10);
+		else if (getfaction() == 2)
+			add_reputation_points(REPUTATION_FORGENOIRES,10);
+		else {
+			add_reputation_points(REPUTATION_ORDRE,5);
+			add_reputation_points(REPUTATION_FORGENOIRES,5);
+		}
+		completequest 91008;
+		end;
+	}
+
+	mes "[La folle de Prontera]";
+	mes "*Elle fredonne en triant un tas de brindilles, sans lever les yeux.*";
+	next;
+	mes "[La folle de Prontera]";
+	mes "Tu regardes mes mains ? Tout le monde regarde mes mains. Personne ne demande jamais ce qu'elles fabriquent.";
+	next;
+	mes "[La folle de Prontera]";
+	mes "Une echarpe. La plus douce du royaume, si j'y arrive. Mais il me manque des plumes - celles des Lunatic, ici meme, sur le champ.";
+	next;
+	mes "[La folle de Prontera]";
+	mes "" + .@feather_needed + " plumes, pas une de moins. Les Lunatic n'en meurent pas, ils en ont trop. Ca ne te derangerait pas de m'en rapporter, dis ?";
+	next;
+	switch (select("Pas le temps.", "D'accord, je vais chercher ca.")) {
+	case 1:
+		mes "[La folle de Prontera]";
+		mes "Personne n'a jamais le temps pour une vieille folle et ses fils. Tant pis.";
+		close;
+	case 2:
+		setquest 91008;
+		mes "[La folle de Prontera]";
+		mes "" + .@feather_needed + " plumes de Lunatic. Reviens quand tu les as, je ne bouge pas d'ici - je n'ai nulle part ou aller, de toute facon.";
+		close;
+	}
+}
+
+//== Le voyageur reticent (prt_fild08) - expose le systeme de faction =======
+prt_fild08,181,377,3	script	Voyageur reticent#reign	4_M_02,{
+	mes "[Voyageur reticent]";
+	mes "*Il fait les cent pas devant la porte, sans jamais s'en approcher vraiment.*";
+	next;
+	mes "[Voyageur reticent]";
+	mes "Non, non, apres toi. J'attends encore un peu.";
+	next;
+	mes "[Voyageur reticent]";
+	mes "Prontera, l'ancienne capitale - regarde-la. On dirait encore une ville, de loin. De pres, c'est un champ de bataille qui ne dit pas son nom.";
+	next;
+	mes "[Voyageur reticent]";
+	mes "L'Ordre de la Faille et les Forgenoires se disputent la ville. Chacun a ses propres monstres qui trainent la-dedans, marques a sa faction - tu les reconnais a leur nom, en combat. Ils ne s'attaquent jamais entre eux, seulement l'autre camp.";
+	next;
+	mes "[Voyageur reticent]";
+	mes "Choisis un camp - ou pas, personne ne t'y forcera - et ta reputation change selon ce que tu fais pour lui. Tue les mauvais monstres, gagne des points ; tue les mauvais monstres du mauvais cote, tu en perds.";
+	next;
+	mes "[Voyageur reticent]";
+	mes "Tu vois les deux personnages postes devant les portes ? L'un pour l'Ordre, l'autre pour les Forgenoires. C'est a eux qu'on s'adresse pour lancer l'assaut et reprendre la ville, si elle n'appartient pas deja a ta faction.";
+	next;
+	mes "[Voyageur reticent]";
+	mes "Moi, je reste ici. J'ai vu ce que ca donne, la-dedans, la derniere fois. Toi, vas-y si le coeur t'en dit - mais ne dis pas que je ne t'avais pas prevenu.";
+	close;
+}
