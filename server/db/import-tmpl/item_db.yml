@@ -88,6 +88,47 @@ Header:
   Type: ITEM_DB
   Version: 3
 
+Body:
+  # Reign of Midgard: jetons de roulette - pont entre "recompense obtenue" et
+  # "point de roulette applique". Voir server/npc/custom/reign/daily_bonus.txt
+  # (bonus de connexion quotidien) qui les distribue. Icone non fournie (pas
+  # de resource client custom) - le client affichera l'icone generique par
+  # defaut, contrairement a un mob_db custom sans mob_avail.yml qui plante,
+  # un item sans icone dediee reste juste cosmetiquement generique.
+  - Id: 90000
+    AegisName: Jeton_Roulette_Bronze
+    Name: Jeton Bronze de la Roulette
+    Type: Usable
+    Buy: 0
+    Weight: 10
+    Trade:
+      NoSell: true
+    Script: |
+      RouletteBronze = RouletteBronze + 1;
+      dispbottom "Jeton echange : +1 ticket Bronze pour la roulette.";
+  - Id: 90001
+    AegisName: Jeton_Roulette_Argent
+    Name: Jeton Argent de la Roulette
+    Type: Usable
+    Buy: 0
+    Weight: 10
+    Trade:
+      NoSell: true
+    Script: |
+      RouletteSilver = RouletteSilver + 1;
+      dispbottom "Jeton echange : +1 ticket Argent pour la roulette.";
+  - Id: 90002
+    AegisName: Jeton_Roulette_Or
+    Name: Jeton Or de la Roulette
+    Type: Usable
+    Buy: 0
+    Weight: 10
+    Trade:
+      NoSell: true
+    Script: |
+      RouletteGold = RouletteGold + 1;
+      dispbottom "Jeton echange : +1 ticket Or pour la roulette.";
+
 #Body:
 # THQ Quest Items
 #=============================================================
