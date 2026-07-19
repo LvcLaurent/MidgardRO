@@ -91,8 +91,11 @@ Body:
   # spawn call in raid_faction_prontera.txt passed a hardcoded literal name (e.g.
   # "Poring", "Knight Guardian") as the 4th argument, which always overrides
   # mob_db's Name field (see mob_once_spawn_sub/mob_parse_dataset in mob.cpp).
-  # Fixed by passing "" from those calls instead, so mob_db's Name is actually
-  # used. The server DOES transmit mob_db's Name field to the client directly
+  # Fixed by passing the literal "--en--" from those calls instead (a sentinel
+  # mob_parse_dataset checks for via strcmp - see mob.cpp - that makes it fall
+  # back to mob_db's own Name field; an empty string "" does NOT trigger this
+  # fallback and instead produces a genuinely blank name, so don't use that).
+  # The server DOES transmit mob_db's Name field to the client directly
   # (clif_spawn_unit/clif_name use status_get_name()/md->name) - there is no
   # client-side Class-ID-to-name table for monsters, unlike items/jobs. Dedicated
   # Class IDs are still needed here regardless, simply because two factions need
