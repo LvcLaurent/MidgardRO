@@ -83,15 +83,24 @@ Header:
   Version: 5
 
 Body:
-  # Reign of Midgard: faction-tagged mob clones. Dedicated mob_db entries, not the
-  # vanilla mob with a runtime name override - RO clients cache a monster's display
-  # name per Class ID, so tagging an existing mob type's name at spawn time never
-  # renders (confirmed: the base "Poring" name was already cached client-side before
-  # our override packet arrived, and it stayed stale even across a full @refresh).
-  # A dedicated Class ID has no prior cache entry, so the client reads our Name field
-  # correctly the first time. Add one clone pair here (plus an entry in the
-  # faction_mob_clones table in atcommand.cpp's spawnfactionmob) per mob type that
-  # needs to be spawnable as a faction mob.
+  # Reign of Midgard: faction-tagged mob clones. Dedicated mob_db entries, one per
+  # faction, so each can carry its own "[Ordre]"/"[Forge]" Name prefix.
+  # Correction: an earlier version of this comment claimed the "[Ordre]"/"[Forge]"
+  # prefix not rendering was a client-side name-caching bug requiring a dedicated
+  # Class ID to fix - that diagnosis was wrong. The real cause: every monster()
+  # spawn call in raid_faction_prontera.txt passed a hardcoded literal name (e.g.
+  # "Poring", "Knight Guardian") as the 4th argument, which always overrides
+  # mob_db's Name field (see mob_once_spawn_sub/mob_parse_dataset in mob.cpp).
+  # Fixed by passing "" from those calls instead, so mob_db's Name is actually
+  # used. The server DOES transmit mob_db's Name field to the client directly
+  # (clif_spawn_unit/clif_name use status_get_name()/md->name) - there is no
+  # client-side Class-ID-to-name table for monsters, unlike items/jobs. Dedicated
+  # Class IDs are still needed here regardless, simply because two factions need
+  # two different Name strings for what would otherwise be the same mob_id. Add
+  # one clone pair here (plus an entry in the faction_mob_clones table in
+  # atcommand.cpp's spawnfactionmob) per mob type that needs to be spawnable as a
+  # faction mob - and remember to pass "" as the monster() name argument wherever
+  # you spawn it.
   - Id: 30000
     AegisName: PORING_ORDRE
     Name: "[Ordre] Poring"
