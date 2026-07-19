@@ -23,6 +23,14 @@
 //= pense pour detourner le regard du peuple plutot que comme revelation
 //= sincere. Voir lore/reign-of-midgard-lore.md section correspondante.
 //=
+//= Convention a suivre pour chaque palier futur : Hakon rappelle toujours
+//= l'echo precedent en plusieurs phrases (un vrai resume, pas juste une
+//= ligne) avant d'evoquer le palier suivant - dans le message de palier
+//= insuffisant (BaseLevel trop bas), dans l'offre principale une fois le
+//= niveau atteint, ET dans le message "deja fait" une fois le palier
+//= termine. Voir les trois branches de la section palier 2 ci-dessous pour
+//= le gabarit exact.
+//=
 //= UNE seule quete pour ce palier (91100), commune aux 6 premiers metiers
 //= (Swordman, Mage, Acolyte, Archer, Merchant, Thief) - pas de tirage
 //= aleatoire pour l'instant (a revoir plus tard).
@@ -199,6 +207,12 @@ iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 		close;
 	}
 
+	mes "[Hakon le Passeur]";
+	mes "Avant d'aller plus loin - tu te souviens de Kolvar ? Ce juge d'un palais qui n'existe plus, qui a vu venir la Rupture des annees a l'avance et a choisi de faire taire ceux qui l'avaient vue avec lui.";
+	next;
+	mes "[Hakon le Passeur]";
+	mes "Pas par malice. Juste par lachete, habillee en prudence. Garde ca en tete, parce que ce que tu vas voir maintenant va plus loin encore.";
+	next;
 	mes "[Hakon le Passeur]";
 	mes "*Il te regarde un long moment, comme s'il soupesait quelque chose.*";
 	next;
