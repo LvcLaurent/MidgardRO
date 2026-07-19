@@ -62,6 +62,19 @@ export class Story {
                 "Izlude est restée neutre - et c'est une nécessité, pas un hasard. C'est le dernier grand port en eau profonde reliant les deux littoraux du monde : aucune des deux factions ne peut se permettre de le fermer sans s'étrangler elle-même. Marchands, déserteurs, réfugiés et agents des deux camps s'y croisent sans s'affronter ouvertement.",
                 "C'est là que votre histoire commence : un navire, pris dans une tempête, fait naufrage près d'Izlude - la seule côte où l'on est certain d'être secouru plutôt que recruté de force ou attaqué. Sans camp, sans attache, c'est à vous d'écrire la suite."
             ]
+        },
+        {
+            title: 'Prontera, la capitale assiégée',
+            paragraphs: [
+                "Malgré son déclin, Prontera reste un enjeu que personne ne peut ignorer. L'Ordre de la Faille et les Forgenoires s'y affrontent ouvertement pour le contrôle de la ville, qui peut changer de main au fil des combats. Une réputation locale, distincte de celle des deux factions, récompense aussi ceux qui rendent service aux habitants ordinaires, pris entre deux feux."
+            ]
+        },
+        {
+            title: 'Payon, la ville-forêt',
+            paragraphs: [
+                "Loin des remous d'Izlude et de Prontera, Payon a bâti sa réputation sur la chasse et l'artisanat forestier plutôt que sur les grands discours. La ville n'a jamais formellement choisi de camp - mais depuis quelque temps, des éclaireurs de l'Ordre de la Faille et des Forgenoires rôdent à ses abords, comme si la guerre cherchait déjà où planter sa prochaine bannière.",
+                "Depuis la Rupture, la forêt elle-même semble avoir changé : les créatures qui y vivaient sans déranger personne sont devenues plus nombreuses, plus grosses, plus agressives. Payon reste, pour l'instant, un endroit où l'on peut encore respirer un peu - mais rien ne dit que ça durera."
+            ]
         }
     ];
 }

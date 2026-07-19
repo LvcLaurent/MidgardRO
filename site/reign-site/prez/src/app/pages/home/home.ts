@@ -49,7 +49,12 @@ export class Home {
 
     articles: NewsArticle[] = [
         {
-            date: frenchDate(new Date()),
+            date: '19 juillet 2026',
+            title: 'Prontera et Payon prennent vie',
+            body: "Prontera et Payon disposent désormais chacune d'une réputation locale, qui récompense les services rendus à leurs habitants indépendamment de votre faction. Prontera peut déjà être assiégée et défendue par l'Ordre de la Faille et les Forgenoires - le même système arrivera pour Payon très prochainement. Les quêtes de Novice sont maintenant terminées, et celles du premier métier ont dépassé la moitié du chemin. La traduction française des compétences a également commencé, en partant du métier de Marchand. La suite arrive vite."
+        },
+        {
+            date: '14 juillet 2026',
             title: 'Les factions arrivent sur Reign of Midgard',
             body: "Depuis toujours, Midgard vivait sous la Foi du Panthéon nordique - jusqu'à la Rupture, l'événement qui a fait naître deux voies nouvelles : l'Ordre de la Faille et les Forgenoires. Chaque personnage peut désormais s'engager dans l'une de ces deux factions et en tirer un bonus (intelligence pour la lignée des Mages, dextérité pour celle des Mécaniciens). Le travail sur les premières quêtes de Midgard - celles qui vous accueilleront à votre arrivée à Izlude - commence dès maintenant."
         }
