@@ -4089,7 +4089,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_DOUBLE] = {
 		"TF_DOUBLE",
-		SkillName = "Double Attack",
+		SkillName = "Attaque Double",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -4121,7 +4121,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_MISS] = {
 		"TF_MISS",
-		SkillName = "Improve Dodge",
+		SkillName = "Esquive Améliorée",
 		MaxLv = 10,
 		SpAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 		bSeperateLv = false,
@@ -4137,7 +4137,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_STEAL] = {
 		"TF_STEAL",
-		SkillName = "Steal",
+		SkillName = "Vol",
 		MaxLv = 10,
 		SpAmount = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
 		bSeperateLv = false,
@@ -4145,7 +4145,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_HIDING] = {
 		"TF_HIDING",
-		SkillName = "Hiding",
+		SkillName = "Camouflage",
 		MaxLv = 10,
 		SpAmount = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
 		bSeperateLv = true,
@@ -4156,7 +4156,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_POISON] = {
 		"TF_POISON",
-		SkillName = "Envenom",
+		SkillName = "Envenimation",
 		MaxLv = 10,
 		SpAmount = { 12, 12, 12, 12, 12, 12, 12, 12, 12, 12 },
 		bSeperateLv = false,
@@ -4164,7 +4164,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_DETOXIFY] = {
 		"TF_DETOXIFY",
-		SkillName = "Detoxify",
+		SkillName = "Antidote",
 		MaxLv = 1,
 		SpAmount = { 10 },
 		bSeperateLv = false,
@@ -6628,7 +6628,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_SPRINKLESAND] = {
 		"TF_SPRINKLESAND",
-		SkillName = "Sprinkle Sand",
+		SkillName = "Jet de Sable",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 9 },
@@ -6637,7 +6637,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_BACKSLIDING] = {
 		"TF_BACKSLIDING",
-		SkillName = "Back Slide",
+		SkillName = "Glissade Arrière",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 7 },
@@ -6646,7 +6646,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_PICKSTONE] = {
 		"TF_PICKSTONE",
-		SkillName = "Pick Stone",
+		SkillName = "Ramassage de Pierre",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 2 },
@@ -6677,7 +6677,7 @@ SKILL_INFO_LIST = {
 	},
 	[SKID.TF_THROWSTONE] = {
 		"TF_THROWSTONE",
-		SkillName = "Throw Stone",
+		SkillName = "Jet de Pierre",
 		MaxLv = 1,
 		Type = "Quest",
 		SpAmount = { 2 },
