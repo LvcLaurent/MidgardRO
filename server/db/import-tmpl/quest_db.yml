@@ -136,3 +136,11 @@ Body:
     Targets:
       - Mob: POPORING
         Count: 10
+  # Reign of Midgard — Izlude/Payon, le paquet de Toralf
+  - Id: 91206
+    Title: Un paquet pour la grotte
+  - Id: 91207
+    Title: Ce qui remue au niveau 2
+    Targets:
+      - Mob: MUNAK
+        Count: 15

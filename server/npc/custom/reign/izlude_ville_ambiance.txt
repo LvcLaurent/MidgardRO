@@ -1,0 +1,61 @@
+//===== Reign of Midgard ===================================================
+//= Izlude, la ville - PNJ d'ambiance supplementaires
+//===== Description: =======================================================
+//= Fichier separe : izlude_ville.txt est deja encode en CP1252 (accents
+//= reels), retoucher directement dedans avec les outils texte risquerait de
+//= corrompre les caracteres deja convertis - celui-ci reste en ASCII pur.
+//= Toralf ajoute du lore (Vigdis n'a pas toujours garde l'entree de la
+//= grotte de Payon seule) et lance la quete 91206 (livraison de paquet a
+//= Vigdis, cf. payon_arche.txt), reservee aux personnages ayant clairement
+//= depasse le palier 2 (JobLevel > 20 - pas un verrou strict sur job_tier2,
+//= juste un indicateur d'experience suffisante).
+//===========================================================================
+
+//== Toralf (Izlude) - lore + quete 91206 (paquet pour Vigdis) ==============
+izlude,115,186,3	script	Toralf#reign	4_M_02,{
+	if (JobLevel <= 20) {
+		mes "[Toralf]";
+		mes "*Il aiguise une vieille lame, assis sur une caisse retournee, sans lever les yeux.*";
+		close;
+	}
+	if (isbegin_quest(91206) == 2) {
+		mes "[Toralf]";
+		mes "Le paquet est arrive, alors ? Bien. Un souci de moins.";
+		close;
+	}
+	if (isbegin_quest(91206) == 1) {
+		mes "[Toralf]";
+		mes "Toujours en chemin vers la grotte de Payon ? Elle attendra. Elle a l'habitude d'attendre.";
+		close;
+	}
+	mes "[Toralf]";
+	mes "*Il aiguise une vieille lame, assis sur une caisse retournee.*";
+	next;
+	mes "[Toralf]";
+	mes "J'ai garde l'entree d'une grotte, a Payon, pendant quinze ans. Aux cotes d'une femme qui n'a jamais rate un seul tour de garde en tout ce temps.";
+	next;
+	mes "[Toralf]";
+	mes "Vigdis. Vous la connaissez peut-etre, si vous etes deja alle par la-bas. Moi, une vieille blessure a fini par decider a ma place - je tiens debout, mais plus assez longtemps pour monter la garde.";
+	next;
+	mes "[Toralf]";
+	mes "Je me suis installe ici, a Izlude. Plus calme. Mais je pense encore a cette entree, presque tous les jours.";
+	next;
+	mes "[Toralf]";
+	mes "Vous avez l'air de savoir tenir un metier, maintenant - pas comme les novices qui passent en courant. Ca vous derangerait de porter un paquet jusqu'a elle ? Rien d'urgent. Juste... quelque chose que j'aurais du lui envoyer depuis longtemps.";
+	next;
+	switch (select("Je peux le faire.:Pas le temps.")) {
+	case 1:
+		setquest 91206;
+		mes "[Toralf]";
+		mes "Merci. Dites-lui... non, elle comprendra en l'ouvrant. Elle a toujours mieux compris les objets que les mots, cette femme.";
+		close;
+	case 2:
+		mes "[Toralf]";
+		mes "Comme vous voulez. Je le garderai encore un peu. J'ai eu des annees pour attendre, une de plus ne changera rien.";
+		close;
+	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "JobLevel > 20 && isbegin_quest(91206) == 0";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "JobLevel > 20 && isbegin_quest(91206) == 1";
+	end;
+}

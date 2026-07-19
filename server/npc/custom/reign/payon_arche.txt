@@ -79,6 +79,18 @@ pay_arche,45,150,3	script	Benediction du Village Archer#reign	1_F_MERCHANT_01,{
 //= niveau. Le 3e tour (Poporing) est au meme niveau que le reste, on ne
 //= s'enfonce pas plus loin pour l'instant.
 pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
+	if (isbegin_quest(91206) == 1) {
+		mes "[Vigdis]";
+		mes "Un paquet ? *Elle le prend, le retourne entre ses mains, et un instant, son visage change - reconnaissance, peut-etre, ou quelque chose de plus vieux que ca.*";
+		next;
+		mes "[Vigdis]";
+		mes "Toralf. Ca faisait longtemps. Dites-lui, la prochaine fois que vous le croisez, que la garde tient toujours. Comme avant.";
+		close2;
+		getexp 27070,0;
+		add_reputation_points(REPUTATION_PAYON,50);
+		completequest 91206;
+		end;
+	}
 	if (payon_grotte_stage >= 3) {
 		mes "[Vigdis]";
 		mes "L'entree de la grotte est calme, pour l'instant. Trois tours de garde montes, trois tenus. Ca ne durera pas eternellement - rien ne dure, avec ce qui vit la-dedans.";
@@ -193,6 +205,7 @@ pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
 		}
 	}
 OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91206) == 1";
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 0 && checkquest(91203,HUNTING) == 2";
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 0 && isbegin_quest(91203) == 0";
 	questinfo QTYPE_QUEST2, QMARK_NONE, "payon_grotte_stage == 0 && isbegin_quest(91203) == 1";
@@ -202,5 +215,64 @@ OnInit:
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 2 && checkquest(91205,HUNTING) == 2";
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 2 && isbegin_quest(91205) == 0";
 	questinfo QTYPE_QUEST2, QMARK_NONE, "payon_grotte_stage == 2 && isbegin_quest(91205) == 1";
+	end;
+}
+
+//== Bodil (Village Archer) - chasse aux Munak, niveau 2 du donjon ==========
+//= N'a rien a proposer tant que le paquet de Toralf n'est pas livre a
+//= Vigdis (91206 complete) - Vigdis parle de vous a Bodil une fois que
+//= c'est fait, plutot qu'une simple ouverture mecanique.
+pay_arche,43,124,3	script	Bodil#reign	4_M_02,{
+	if (isbegin_quest(91206) != 2) {
+		mes "[Bodil]";
+		mes "*Une silhouette qui semble attendre quelque chose, ou quelqu'un.*";
+		close;
+	}
+	if (payon_munak == 1) {
+		mes "[Bodil]";
+		mes "Le niveau 2 respire un peu mieux, grace a vous. Ca ne durera pas eternellement, mais on prend ce qu'on peut.";
+		close;
+	}
+	if (checkquest(91207,HUNTING) == 2) {
+		mes "[Bodil]";
+		mes "Quinze Munak de moins. Vigdis avait raison a votre sujet, on dirait.";
+		next;
+		mes "[Bodil]";
+		mes "Tenez. Vous l'avez largement merite.";
+		close2;
+		getexp 32484,0;
+		add_reputation_points(REPUTATION_PAYON,100);
+		erasequest 91207;
+		payon_munak = 1;
+		end;
+	} else if (isbegin_quest(91207) == 1) {
+		mes "[Bodil]";
+		mes "Toujours en chasse ? Les Munak du niveau 2 ne se laissent pas oublier facilement.";
+		close;
+	}
+	mes "[Bodil]";
+	mes "Vigdis m'a parle de vous. Le paquet de Toralf, la grotte... vous commencez a comprendre comment ca fonctionne, par ici.";
+	next;
+	mes "[Bodil]";
+	mes "Elle tient l'entree. Moi, je m'occupe de ce qui remue plus profond - le niveau 2, la ou les Munak se sont installes. Des morts-vivants plus vieux, plus tetus.";
+	next;
+	mes "[Bodil]";
+	mes "Quinze. Pas pour les eliminer tous - juste pour qu'ils se souviennent qu'on regarde encore. Ca vous interesse ?";
+	next;
+	switch (select("Je m'en occupe.:Pas cette fois.")) {
+	case 1:
+		setquest 91207;
+		mes "[Bodil]";
+		mes "Quinze Munak, niveau 2. Ne les sous-estimez pas sous pretexte qu'ils trainent les pieds.";
+		close;
+	case 2:
+		mes "[Bodil]";
+		mes "Comme vous voulez. Le niveau 2 ne va nulle part, lui non plus.";
+		close;
+	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91206) == 2 && payon_munak == 0 && checkquest(91207,HUNTING) == 2";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91206) == 2 && payon_munak == 0 && isbegin_quest(91207) == 0";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "isbegin_quest(91206) == 2 && payon_munak == 0 && isbegin_quest(91207) == 1";
 	end;
 }

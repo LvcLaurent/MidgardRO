@@ -424,3 +424,15 @@ troisième tour sont au même niveau que le reste de la grotte, pas « plus
 bas » — pour l'instant, on ne s'enfonce pas plus loin dans le donjon. Cette
 chaîne sert de mise en place pour un futur event d'invasion de zombies à
 Payon (non encore implémenté).
+
+Vigdis n'a pas toujours gardé cette entrée seule. **Toralf**, installé à
+Izlude après une blessure qui l'a forcé à quitter son poste, a monté la
+garde à ses côtés pendant quinze ans — un lien qui déborde le cadre
+géographique de Payon et rattache Izlude, même discrètement, au sort de la
+grotte. Il confie une quête (réservée aux personnages ayant clairement
+dépassé le palier 2 de métier, Job Level > 20 — un indicateur d'expérience,
+pas un verrou narratif strict) : porter un paquet jusqu'à Vigdis. Une fois
+livré, **Bodil**, posté un peu plus loin au Village Archer, se révèle :
+il s'occupe du **niveau 2** de la grotte, où des Munak se sont installés —
+la garde de Vigdis n'est donc que la première ligne d'un dispositif plus
+large, avec plusieurs personnes qui veillent à des profondeurs différentes.

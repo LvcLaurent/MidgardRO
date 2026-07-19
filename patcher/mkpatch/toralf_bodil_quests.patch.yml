@@ -1,0 +1,11 @@
+# Patch : ajoute les quêtes 91206 (Un paquet pour la grotte, Toralf) et 91207
+# (Ce qui remue au niveau 2, Bodil) au journal de quêtes du client.
+# Invocation (depuis la racine du repo) :
+#   patcher/dist/thorgen.exe -p Client_Reign -o patcher/hosting/patches/data/18_toralf_bodil_quests.thor patcher/mkpatch/toralf_bodil_quests.patch.yml
+# (thorgen.exe = mkpatch, renommé pour éviter l'élévation UAC automatique de Windows
+# sur tout exécutable dont le nom contient "patch" - voir patcher/dist/)
+use_grf_merging: false
+include_checksums: true
+
+entries:
+  - relative_path: System/OngoingQuestInfoList_True_EN.lub
