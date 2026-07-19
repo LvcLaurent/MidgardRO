@@ -19,24 +19,30 @@ pay_arche,41,137,3	script	Kafra Astrid#reign	4_F_KAFRA1,{
 	mes "[Kafra Astrid]";
 	mes "Service Kafra du village archer. Pas de teleportation depuis ce comptoir - on n'a jamais eu assez de passage pour le justifier. Entrepot et point de sauvegarde, en revanche, oui.";
 	next;
-	switch (select("Acceder a l'entrepot.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	switch (select("Retour au point de sauvegarde.:Acceder a l'entrepot.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
 	case 1:
+		mes "[Kafra Astrid]";
+		mes "Direction votre point de sauvegarde, alors.";
+		close2;
+		warp "SavePoint",0,0;
+		end;
+	case 2:
 		mes "[Kafra Astrid]";
 		mes "Bien sur. Voici votre entrepot.";
 		close2;
 		openstorage;
 		end;
-	case 2:
+	case 3:
 		mes "[Kafra Astrid]";
 		mes "C'est fait. Le village archer sera votre port d'attache, desormais.";
 		close2;
 		savepoint "pay_arche",41,137;
 		end;
-	case 3:
+	case 4:
 		mes "[Kafra Astrid]";
 		mes "On m'a propose un comptoir de teleportation, une fois. J'ai refuse - ici, les gens restent. Ils ne font que passer par Payon meme.";
 		close;
-	case 4:
+	case 5:
 		mes "[Kafra Astrid]";
 		mes "Bonne route.";
 		close;

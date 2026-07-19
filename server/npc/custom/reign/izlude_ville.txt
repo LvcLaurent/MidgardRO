@@ -71,7 +71,7 @@ izlude,130,148,3	script	Kafra Elin#reign	4_F_KAFRA1,{
 	mes "[Kafra Elin]";
 	mes "Bienvenue au service Kafra d'Izlude ! Entrepôt, point de sauvegarde... que puis-je pour vous ?";
 	next;
-	switch (select("Service de téléportation.:Accéder à l'entrepôt.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	switch (select("Service de téléportation.:Retour au point de sauvegarde.:Accéder à l'entrepôt.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
 	case 1:
 		mes "[Kafra Elin]";
 		mes "Geffen, Aldebaran, Morroc, Payon... le monde est plus grand qu'Izlude, figurez-vous. Ou voulez-vous aller ?";
@@ -99,24 +99,30 @@ izlude,130,148,3	script	Kafra Elin#reign	4_F_KAFRA1,{
 		end;
 	case 2:
 		mes "[Kafra Elin]";
+		mes "Direction votre point de sauvegarde, alors.";
+		close2;
+		warp "SavePoint",0,0;
+		end;
+	case 3:
+		mes "[Kafra Elin]";
 		mes "Bien sûr. Voici votre entrepôt.";
 		close2;
 		openstorage;
 		end;
-	case 3:
+	case 4:
 		mes "[Kafra Elin]";
 		mes "C'est fait. Izlude sera votre port d'attache, désormais — au sens propre.";
 		close2;
 		savepoint "izlude",130,148;
 		end;
-	case 4:
+	case 5:
 		mes "[Kafra Elin]";
 		mes "On en voit passer, des naufragés, depuis quelque temps. Vous n'êtes pas les premiers, et sûrement pas les derniers.";
 		next;
 		mes "[Kafra Elin]";
 		mes "Kafra ne pose pas de questions sur d'où vous venez. On stocke vos affaires, on retient votre visage, et c'est tout ce qui compte pour nous.";
 		close;
-	case 5:
+	case 6:
 		mes "[Kafra Elin]";
 		mes "Bon vent.";
 		close;

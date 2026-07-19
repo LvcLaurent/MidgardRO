@@ -14,19 +14,25 @@ prontera,160,170,3	script	Kafra Torhild#reign	4_F_KAFRA1,{
 	mes "[Kafra Torhild]";
 	mes "Service Kafra de Prontera. La capitale a beau decliner, on continue d'y faire transiter a peu pres tout le monde. Ou souhaitez-vous aller ?";
 	next;
-	switch (select("Geffen (3000z).:^FF0000Village Orc (3000z).^000000:Morocc (8100z).:Payon (3600z).:Izlude (600z).:Alberta (5400z).:Rien, merci.")) {
-	case 1: .@map$ = "geffen"; .@x = 119; .@y = 59; .@cost = 3000; break;
-	case 2:
+	switch (select("Retour au point de sauvegarde.:Geffen (3000z).:^FF0000Village Orc (3000z).^000000:Morocc (8100z).:Payon (3600z).:Izlude (600z).:Alberta (5400z).:Rien, merci.")) {
+	case 1:
+		mes "[Kafra Torhild]";
+		mes "Direction votre point de sauvegarde, alors.";
+		close2;
+		warp "SavePoint",0,0;
+		end;
+	case 2: .@map$ = "geffen"; .@x = 119; .@y = 59; .@cost = 3000; break;
+	case 3:
 		.@map$ = "gef_fild10"; .@x = 77; .@y = 336; .@cost = 3000;
 		mes "[Kafra Torhild]";
 		mes "Le Village Orc, vraiment ? Ce n'est pas un endroit pour un simple voyage d'agrement - vous savez ce que vous faites, j'espere.";
 		next;
 		break;
-	case 3: .@map$ = "morocc"; .@x = 159; .@y = 93; .@cost = 8100; break;
-	case 4: .@map$ = "payon"; .@x = 162; .@y = 233; .@cost = 3600; break;
-	case 5: .@map$ = "izlude"; .@x = 128; .@y = 246; .@cost = 600; break;
-	case 6: .@map$ = "alberta"; .@x = 192; .@y = 147; .@cost = 5400; break;
-	case 7:
+	case 4: .@map$ = "morocc"; .@x = 159; .@y = 93; .@cost = 8100; break;
+	case 5: .@map$ = "payon"; .@x = 162; .@y = 233; .@cost = 3600; break;
+	case 6: .@map$ = "izlude"; .@x = 128; .@y = 246; .@cost = 600; break;
+	case 7: .@map$ = "alberta"; .@x = 192; .@y = 147; .@cost = 5400; break;
+	case 8:
 		mes "[Kafra Torhild]";
 		mes "Tres bien. Nous serons encore la, la prochaine fois - probablement.";
 		close;

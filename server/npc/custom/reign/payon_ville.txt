@@ -16,7 +16,7 @@ payon,164,233,3	script	Kafra Ragnhild#reign	4_F_KAFRA1,{
 	mes "[Kafra Ragnhild]";
 	mes "Service Kafra de Payon. On ne voit pas beaucoup de monde ici, mais ceux qui passent repartent toujours satisfaits.";
 	next;
-	switch (select("Service de teleportation.:Acceder a l'entrepot.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
+	switch (select("Service de teleportation.:Retour au point de sauvegarde.:Acceder a l'entrepot.:Fixer mon point de sauvegarde ici.:Discuter un peu.:Rien, merci.")) {
 	case 1:
 		mes "[Kafra Ragnhild]";
 		mes "Izlude, Alberta, Morocc... la foret ne mene nulle part toute seule. Ou voulez-vous aller ?";
@@ -43,24 +43,30 @@ payon,164,233,3	script	Kafra Ragnhild#reign	4_F_KAFRA1,{
 		end;
 	case 2:
 		mes "[Kafra Ragnhild]";
+		mes "Direction votre point de sauvegarde, alors.";
+		close2;
+		warp "SavePoint",0,0;
+		end;
+	case 3:
+		mes "[Kafra Ragnhild]";
 		mes "Bien sur. Voici votre entrepot.";
 		close2;
 		openstorage;
 		end;
-	case 3:
+	case 4:
 		mes "[Kafra Ragnhild]";
 		mes "C'est fait. Payon sera votre port d'attache, desormais.";
 		close2;
 		savepoint "payon",164,233;
 		end;
-	case 4:
+	case 5:
 		mes "[Kafra Ragnhild]";
 		mes "Payon n'a jamais vraiment choisi de camp, vous savez. Ni l'Ordre, ni les Forgenoires. Mais on en voit de plus en plus trainer aux abords de la ville, ces derniers temps.";
 		next;
 		mes "[Kafra Ragnhild]";
 		mes "Ca ne nous protegera pas eternellement, je sais. J'ai bien peur qu'on doive finir par choisir, tot ou tard.";
 		close;
-	case 5:
+	case 6:
 		mes "[Kafra Ragnhild]";
 		mes "Bonne route.";
 		close;
