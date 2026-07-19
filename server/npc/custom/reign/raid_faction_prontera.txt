@@ -97,7 +97,7 @@ OnTimer300000:
 		for (.@n = 0; .@n < .@count; .@n++) {
 			.@bx = .BastionX[.@spot%4] + rand(-5,5);
 			.@by = .BastionY[.@spot%4] + rand(-5,5);
-			monster "prontera", .@bx, .@by, callfunc("F_GuardianLabel",.@t), .@mobid, 1, strnpcinfo(0)+"::OnAttackWaveDead";
+			monster "prontera", .@bx, .@by, "", .@mobid, 1, strnpcinfo(0)+"::OnAttackWaveDead";
 			setunitdata $@mobid[0], UMOB_FACTION, .Attacker;
 			.@spot++;
 		}
@@ -321,7 +321,7 @@ function	script	F_RefreshGarnison	{
 			for (.@n = 0; .@n < .@count; .@n++) {
 				.@bx = .@bx0[.@spot%4] + rand(-8,8);
 				.@by = .@by0[.@spot%4] + rand(-8,8);
-				monster "prontera", .@bx, .@by, callfunc("F_GuardianLabel",.@t), .@mobid, 1, "PRC_Prontera#reign::OnGarnisonDead";
+				monster "prontera", .@bx, .@by, "", .@mobid, 1, "PRC_Prontera#reign::OnGarnisonDead";
 				setunitdata $@mobid[0], UMOB_FACTION, .@f;
 				.@spot++;
 			}
@@ -346,7 +346,7 @@ function	script	F_RefreshPoringAmbiance	{
 	if ($TOWN_OWNER_PRONTERA == 0) return;
 	.@mobid = ($TOWN_OWNER_PRONTERA == 1) ? 30000 : 30001; // PORING_ORDRE : PORING_FORGE
 	for (.@i = 0; .@i < 20; .@i++) {
-		monster "prontera", 0, 0, "Poring", .@mobid, 1, "PRC_Prontera#reign::OnPoringDead";
+		monster "prontera", 0, 0, "", .@mobid, 1, "PRC_Prontera#reign::OnPoringDead";
 		setunitdata $@mobid[0], UMOB_FACTION, $TOWN_OWNER_PRONTERA;
 	}
 	return;
@@ -406,7 +406,7 @@ function	script	F_MenuAchatGardiens	{
 			.@spot = rand(0,3);
 			.@bx = .@bx0[.@spot] + rand(-8,8);
 			.@by = .@by0[.@spot] + rand(-8,8);
-			monster "prontera", .@bx, .@by, callfunc("F_GuardianLabel",.@sel), .@mobid, 1, "PRC_Prontera#reign::OnGarnisonDead";
+			monster "prontera", .@bx, .@by, "", .@mobid, 1, "PRC_Prontera#reign::OnGarnisonDead";
 			setunitdata $@mobid[0], UMOB_FACTION, .@faction;
 		}
 	}
