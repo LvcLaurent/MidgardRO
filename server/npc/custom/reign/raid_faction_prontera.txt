@@ -27,6 +27,12 @@
 //= F_RefreshGarnison) - la ville se defend meme sans personne en ligne.
 //= Etat du raid en cours (structures restantes, camps) = variables locales a
 //= ce NPC, ne survit pas a un redemarrage (voulu).
+//=
+//= F_RefreshPoringAmbiance : 20 Poring PORING_ORDRE/PORING_FORGE (mob_db
+//= 30000/30001, deja utilises par la commande GM @spawnfactionmob) spawnes a
+//= des positions aleatoires sur toute la carte, "aux couleurs" du proprietaire
+//= actuel de la ville - purement decoratif, aucun rapport avec la garnison
+//= defensive achetee.
 //===========================================================================
 
 -	script	PRC_Prontera#reign	-1,{
@@ -43,6 +49,7 @@ OnInit:
 	setarray .BastionName$[0], "Bastion Nord","Bastion Ouest","Bastion Est","Coeur de Prontera";
 	callfunc("F_SyncPostesVisibility");
 	callfunc("F_RefreshGarnison");
+	callfunc("F_RefreshPoringAmbiance");
 	end;
 
 // Appele par le poste de garde de la faction attaquante une fois les 5000z
@@ -115,6 +122,11 @@ OnAttackWaveDead:
 OnGarnisonDead:
 	end;
 
+// Poring d'ambiance de la faction proprietaire - purement decoratif, F_RefreshPoringAmbiance
+// (tick periodique, capture ou fin de raid) les repop, rien a faire ici.
+OnPoringDead:
+	end;
+
 OnCaptureResolved:
 	if (!.Active) end;
 	// La ville tombe : possession transferee, la garnison defensive de l'ex-
@@ -150,6 +162,7 @@ OnEndRaid:
 	.EmpLeft = 0;
 	callfunc("F_SyncPostesVisibility");
 	callfunc("F_RefreshGarnison");
+	callfunc("F_RefreshPoringAmbiance");
 	end;
 
 // Toutes les 10 min, s'assure que la garnison defensive du proprietaire actuel
@@ -161,8 +174,10 @@ OnMinute20:
 OnMinute30:
 OnMinute40:
 OnMinute50:
-	if (!.Active)
+	if (!.Active) {
 		callfunc("F_RefreshGarnison");
+		callfunc("F_RefreshPoringAmbiance");
+	}
 	end;
 }
 
@@ -311,6 +326,28 @@ function	script	F_RefreshGarnison	{
 				.@spot++;
 			}
 		}
+	}
+	return;
+}
+
+// (Re)spawn 20 Poring d'ambiance "aux couleurs" de la faction proprietaire
+// actuelle de Prontera (PORING_ORDRE/PORING_FORGE, mob_db 30000/30001, deja
+// utilises par la commande GM @spawnfactionmob - voir atcommand.cpp). Purge
+// d'abord les anciens pour eviter les doublons en cas d'appel repete. Neutre
+// (proprietaire 0) = aucun Poring ne spawne. Purement decoratif : Poring
+// reste passif (pas de mode MD_AGGRESSIVE), donc le bonus de reputation pour
+// avoir tue un mob agressif de la faction adverse (mob_dead(), mob.cpp) ne
+// s'applique jamais ici. Le malus -5 pour avoir tue un mob de SA PROPRE
+// faction, lui, ne depend pas de l'agressivite et s'applique donc toujours -
+// un joueur qui farme distraitement les Poring de sa propre ville peut perdre
+// de la reputation sans le vouloir.
+function	script	F_RefreshPoringAmbiance	{
+	killmonster "prontera", "PRC_Prontera#reign::OnPoringDead";
+	if ($TOWN_OWNER_PRONTERA == 0) return;
+	.@mobid = ($TOWN_OWNER_PRONTERA == 1) ? 30000 : 30001; // PORING_ORDRE : PORING_FORGE
+	for (.@i = 0; .@i < 20; .@i++) {
+		monster "prontera", 0, 0, "Poring", .@mobid, 1, "PRC_Prontera#reign::OnPoringDead";
+		setunitdata $@mobid[0], UMOB_FACTION, $TOWN_OWNER_PRONTERA;
 	}
 	return;
 }
