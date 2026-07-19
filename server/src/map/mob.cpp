@@ -2931,8 +2931,10 @@ map_session_data* mob_data::get_mvp_player(map_session_data* first_sd) {
 // Reign of Midgard: faction reputation on kill (see mob_dead() below).
 // A mob's level counts as "equivalent" to the killer's if it isn't more than this many levels below them.
 #define REP_LEVEL_TOLERANCE 10
-// Max reputation points a character can gain (not lose) from faction kills per calendar day.
-#define REP_DAILY_GAIN_CAP 25
+// Max reputation points a character can gain (not lose) from faction kills per calendar day - tracked
+// separately for passive and aggressive mobs (see mob_reward_faction_reputation_capped's bucket_suffix),
+// so up to REP_DAILY_GAIN_CAP*2 total per day combining both.
+#define REP_DAILY_GAIN_CAP 50
 
 // Applies a reputation delta to one of the character's faction reputations (REPUTATION_ORDRE/
 // REPUTATION_FORGENOIRES), clamped to whatever reputation_db.yml configured as min/max for it.
@@ -2954,25 +2956,31 @@ static void mob_reward_faction_reputation(map_session_data* sd, int32 faction, i
 	clif_reputation_type(*sd, faction, points);
 }
 
-// Same as above, but only for reputation gains - tracks how many points were gained today
-// (own two permanent char variables, reset lazily on day change) and refuses once
-// REP_DAILY_GAIN_CAP is reached. Kill penalties never go through this, only rewards.
-static void mob_reward_faction_reputation_capped(map_session_data* sd, int32 faction, int32 delta)
+// Same as above, but only for reputation gains - tracks how many points were gained today in the
+// given bucket (its own two permanent char variables, reset lazily on day change) and refuses once
+// REP_DAILY_GAIN_CAP is reached for that bucket. Kill penalties never go through this, only rewards.
+// bucket_suffix keeps passive-mob and aggressive-mob gains on independent daily limits, so hitting
+// one cap doesn't block the other (e.g. "passive"/"aggressive").
+static void mob_reward_faction_reputation_capped(map_session_data* sd, int32 faction, int32 delta, const char* bucket_suffix)
 {
+	char date_var[32], gain_var[32];
+	snprintf(date_var, sizeof(date_var), "rep_daily_date_%s", bucket_suffix);
+	snprintf(gain_var, sizeof(gain_var), "rep_daily_gain_%s", bucket_suffix);
+
 	int32 today = date_get(DT_YYYYMMDD);
 
-	if (pc_readreg2(sd, "rep_daily_date") != today) {
-		pc_setreg2(sd, "rep_daily_date", today);
-		pc_setreg2(sd, "rep_daily_gain", 0);
+	if (pc_readreg2(sd, date_var) != today) {
+		pc_setreg2(sd, date_var, today);
+		pc_setreg2(sd, gain_var, 0);
 	}
 
-	int64 gained_today = pc_readreg2(sd, "rep_daily_gain");
+	int64 gained_today = pc_readreg2(sd, gain_var);
 
 	if (gained_today >= REP_DAILY_GAIN_CAP)
 		return;
 
 	mob_reward_faction_reputation(sd, faction, delta);
-	pc_setreg2(sd, "rep_daily_gain", gained_today + delta);
+	pc_setreg2(sd, gain_var, gained_today + delta);
 }
 
 /*==========================================
@@ -3027,11 +3035,15 @@ int32 mob_dead(mob_data *md, block_list *src, int32 type)
 				int32 after = (int32)pc_readreg2(sd, reputation_db.find(reputation_id)->variable.c_str());
 				ShowInfo("REIGN_DEBUG: applied penalty, before=%d after=%d\n", before, after);
 			}
-		}else if( status_has_mode(status, MD_AGGRESSIVE) && level_equivalent ){
-			// Killed a hostile (non-passive) mob of the opposing faction, close enough to
-			// your own level: 1/15 chance of +1, capped at REP_DAILY_GAIN_CAP per day.
-			if( rnd()%15 == 0 )
-				mob_reward_faction_reputation_capped(sd, reputation_id, 1);
+		}else if( level_equivalent ){
+			// Killed a mob of the opposing faction, close enough to your own level: 1/2
+			// chance of +1, whether the mob is passive or aggressive - each tracked
+			// against its own REP_DAILY_GAIN_CAP per day (see bucket_suffix above), so
+			// both together can grant up to REP_DAILY_GAIN_CAP*2 per day.
+			if( rnd()%2 == 0 ){
+				const char* bucket = status_has_mode(status, MD_AGGRESSIVE) ? "aggressive" : "passive";
+				mob_reward_faction_reputation_capped(sd, reputation_id, 1, bucket);
+			}
 		}
 	}
 
