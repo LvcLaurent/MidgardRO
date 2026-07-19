@@ -7,13 +7,14 @@
 //= Toralf ajoute du lore (Vigdis n'a pas toujours garde l'entree de la
 //= grotte de Payon seule) et lance la quete 91206 (livraison de paquet a
 //= Vigdis, cf. payon_arche.txt), reservee aux personnages ayant clairement
-//= depasse le palier 2 (JobLevel > 20 - pas un verrou strict sur job_tier2,
-//= juste un indicateur d'experience suffisante).
+//= depasse le palier 2 (JobLevel >= 20 - pas un verrou strict sur job_tier2,
+//= juste un indicateur d'experience suffisante ; palier 2 monte jusqu'a
+//= job 20 pile, donc ">" au lieu de ">=" excluait tout le monde).
 //===========================================================================
 
 //== Toralf (Izlude) - lore + quete 91206 (paquet pour Vigdis) ==============
 izlude,115,186,3	script	Toralf#reign	4_M_02,{
-	if (JobLevel <= 20) {
+	if (JobLevel < 20) {
 		mes "[Toralf]";
 		mes "*Il aiguise une vieille lame, assis sur une caisse retournee, sans lever les yeux.*";
 		close;
@@ -55,7 +56,7 @@ izlude,115,186,3	script	Toralf#reign	4_M_02,{
 		close;
 	}
 OnInit:
-	questinfo QTYPE_QUEST, QMARK_YELLOW, "JobLevel > 20 && isbegin_quest(91206) == 0";
-	questinfo QTYPE_QUEST2, QMARK_NONE, "JobLevel > 20 && isbegin_quest(91206) == 1";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "JobLevel >= 20 && isbegin_quest(91206) == 0";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "JobLevel >= 20 && isbegin_quest(91206) == 1";
 	end;
 }
