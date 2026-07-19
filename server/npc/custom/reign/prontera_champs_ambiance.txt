@@ -72,18 +72,10 @@ prt_fild08,164,370,3	script	La folle de Prontera#reign	4_F_02,{
 		mes "" + .@feather_needed + " plumes de Lunatic. Reviens quand tu les as, je ne bouge pas d'ici - je n'ai nulle part ou aller, de toute facon.";
 		close;
 	}
-OnQuestIcon:
-	if (isbegin_quest(91008) == 2) {
-		showevent QTYPE_NONE;
-	} else if (isbegin_quest(91008) == 1) {
-		if (countitem(949) >= 15) {
-			showevent QTYPE_QUEST;
-		} else {
-			showevent QTYPE_QUEST2;
-		}
-	} else {
-		showevent QTYPE_QUEST;
-	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91008) == 0";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91008) == 1 && countitem(949) >= 15";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "isbegin_quest(91008) == 1 && countitem(949) < 15";
 	end;
 }
 

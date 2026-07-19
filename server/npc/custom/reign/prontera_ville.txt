@@ -53,12 +53,8 @@ prontera,146,69,3	script	Sigrid#reign	4_F_02,{
 		mes "Merci. Dis-lui... non, rien. Le colis parlera pour moi.";
 		close;
 	}
-OnQuestIcon:
-	if (isbegin_quest(91101) == 0) {
-		showevent QTYPE_QUEST;
-	} else {
-		showevent QTYPE_NONE;
-	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91101) == 0";
 	end;
 }
 
@@ -114,12 +110,8 @@ izlude_in,59,127,3	script	Eskil#reign	4_M_02,{
 	mes "[Eskil]";
 	mes "Voila. Prends-en soin, et prends soin de la route aussi - elle le merite plus qu'on ne le croit.";
 	close;
-OnQuestIcon:
-	if (isbegin_quest(91101) == 1) {
-		showevent QTYPE_QUEST;
-	} else {
-		showevent QTYPE_NONE;
-	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91101) == 1";
 	end;
 }
 
@@ -173,15 +165,9 @@ prontera,166,76,3	script	Villy#reign	4W_KID,{
 		mes "ENFIN quelqu'un qui prend cette tragedie au serieux. Quarante Poring. Vas-y. Venge le gateau.";
 		close;
 	}
-OnQuestIcon:
-	if (isbegin_quest(91102) == 2) {
-		showevent QTYPE_NONE;
-	} else if (checkquest(91102,HUNTING) == 2) {
-		showevent QTYPE_QUEST;
-	} else if (isbegin_quest(91102) == 1) {
-		showevent QTYPE_QUEST2;
-	} else {
-		showevent QTYPE_QUEST;
-	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(91102) == 0";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(91102,HUNTING) == 2";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "isbegin_quest(91102) == 1 && checkquest(91102,HUNTING) != 2";
 	end;
 }

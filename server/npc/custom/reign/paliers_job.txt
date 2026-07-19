@@ -5,9 +5,23 @@
 //= toujours, le Job Level ne monte que par @joblvlup accorde par un PNJ
 //= autorise (Bram/Sunna pour Novice, les 6 formateurs de premiers_metiers.txt
 //= pour le premier changement de metier). Ce fichier comble la suite :
-//= paliers de Job Level lies au Base Level, un par un. Cette passe ne
-//= construit que le palier 1 (Job 10 @ Base 20) - paliers 2-5 suivront le
-//= meme gabarit plus tard (voir job_tier1, verrou sequentiel pour job_tier2).
+//= paliers de Job Level lies au Base Level, un par un. Palier 1 (Job 10 @
+//= Base 20) et palier 2 (Job 20 @ Base 30) sont en place - paliers 3-5
+//= suivront le meme gabarit plus tard (voir job_tier2, verrou sequentiel
+//= pour job_tier3).
+//=
+//= Palier 2 : second echo ouvert par Hakon sur 1@lab (laboratoire), une
+//= fois job_tier1 acquis. Purement narratif, sans combat ni quete trackee -
+//= 4 "paires" de PNJ figes (chacune montrant la meme scene a deux voix,
+//= peu importe lequel des deux on touche) puis une scene finale a 4 voix
+//= dans le laboratoire principal, chainees par teleportation. Pre-Rupture,
+//= sans faction : le Cercle de Gullveig, un petit groupe de hauts
+//= dignitaires de l'ancienne Foi, y a decouvert un fragment du meme pouvoir
+//= qui jaillira plus tard a la Rupture - de quoi rivaliser avec les dieux -
+//= et a choisi de le garder pour lui (longevite, controle) plutot que de le
+//= partager. La Foi elle-meme y est fondee dans la scene finale, comme outil
+//= pense pour detourner le regard du peuple plutot que comme revelation
+//= sincere. Voir lore/reign-of-midgard-lore.md section correspondante.
 //=
 //= UNE seule quete pour ce palier (91100), commune aux 6 premiers metiers
 //= (Swordman, Mage, Acolyte, Archer, Merchant, Thief) - pas de tirage
@@ -38,6 +52,9 @@
 //=   job_tier1_stage  0=pas commence, 1=catacombes, 2=bibliotheque,
 //=                    3=salle du trone, 4=duel invoque en cours
 //=   job_tier1        0/1, passe a 1 une fois le palier complete
+//=   job_tier2_stage  0=pas commence, 1=paire 1 a voir, 2=paire 2,
+//=                    3=paire 3, 4=paire 4, 5=scene finale a voir
+//=   job_tier2        0/1, passe a 1 une fois le palier complete
 //===========================================================================
 
 -	script	PalierJob1#reign	-1,{
@@ -80,7 +97,7 @@ function	script	F_RecompensePalier1	{
 	return;
 }
 
-//== Hakon le Passeur (iz_ac02) - PNJ hub du palier 1 ========================
+//== Hakon le Passeur (iz_ac02) - PNJ hub des paliers 1 et 2 =================
 iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 	if (Class != Job_Swordman && Class != Job_Mage && Class != Job_Acolyte &&
 	    Class != Job_Archer && Class != Job_Merchant && Class != Job_Thief) {
@@ -88,68 +105,107 @@ iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 		mes "Rien pour toi ici. Pas encore, ou plus - selon d'ou tu regardes les choses. Reviens quand tu porteras un vrai metier.";
 		close;
 	}
-	if (job_tier1 >= 1) {
+
+	if (job_tier1 == 0) {
+		if (BaseLevel < 20) {
+			mes "[Hakon le Passeur]";
+			mes "Trop tot. L'echo ne s'ouvre qu'a ceux qui ont deja un peu vecu. Reviens quand tu auras use quelques certitudes de plus.";
+			close;
+		}
+		if (JobLevel >= 10) {
+			mes "[Hakon le Passeur]";
+			mes "Tu portes deja assez d'experience dans ce metier. Inutile de te faire traverser l'echo pour si peu.";
+			close2;
+			job_tier1 = 1;
+			end;
+		}
+		if (job_tier1_stage >= 1) {
+			mes "[Hakon le Passeur]";
+			mes "Tu es deja dedans, quelque part entre ces murs qui n'existent plus vraiment. Termine ce que tu as commence - je ne peux pas t'y renvoyer, seulement t'y avoir laisse entrer une fois.";
+			close;
+		}
+
 		mes "[Hakon le Passeur]";
-		mes "Tu as deja traverse l'echo. Il ne reste plus rien d'autre a y trouver, pour l'instant - la suite viendra en temps voulu.";
-		close;
-	}
-	if (BaseLevel < 20) {
+		mes "*Il ne leve pas les yeux tout de suite, comme s'il t'avait entendu approcher depuis longtemps.*";
+		next;
 		mes "[Hakon le Passeur]";
-		mes "Trop tot. L'echo ne s'ouvre qu'a ceux qui ont deja un peu vecu. Reviens quand tu auras use quelques certitudes de plus.";
-		close;
-	}
-	if (JobLevel >= 10) {
+		mes "J'ai perdu quelque chose pour comprendre ce que je vais te montrer. Je ne te dirai pas quoi. Ce n'est pas la partie interessante de l'histoire.";
+		next;
 		mes "[Hakon le Passeur]";
-		mes "Tu portes deja assez d'experience dans ce metier. Inutile de te faire traverser l'echo pour si peu.";
+		mes "Il existe un palais qui n'existe plus - enfin, plus vraiment. Un juge y a siege, avant l'Ordre, avant les Forgenoires, avant meme que la Faille ne s'ouvre. L'echo s'en souvient encore, alors moi aussi.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Ce que tu y trouveras ne te sera pas confortable. Mais tu en ressortiras capable de tenir ton metier sans qu'on ait besoin de te tenir la main. Es-tu pret" + (Sex ? "" : "e") + " ?";
+		next;
+		if (select("Pas maintenant.", "Oui, montre-moi.") == 1) {
+			mes "[Hakon le Passeur]";
+			mes "L'echo attendra. Il a tout son temps - bien plus que toi.";
+			close;
+		}
+		setquest 91100;
+		job_tier1_stage = 1;
+		mes "[Hakon le Passeur]";
+		mes "Tu vas arriver directement dans les cellules. Il n'y a pas d'autre porte - le palais ne laisse entrer que par le bas.";
 		close2;
-		job_tier1 = 1;
+		warp "1@spa",38,41;
 		end;
 	}
-	if (job_tier1_stage >= 1) {
+
+	// Palier 1 termine - palier 2 (Job 20 @ Base 30)
+	if (job_tier2 >= 1) {
 		mes "[Hakon le Passeur]";
-		mes "Tu es deja dedans, quelque part entre ces murs qui n'existent plus vraiment. Termine ce que tu as commence - je ne peux pas t'y renvoyer, seulement t'y avoir laisse entrer une fois.";
+		mes "Tu as deja traverse ce second echo aussi. Le reste attendra que je sois pret a te le montrer.";
+		close;
+	}
+	if (BaseLevel < 30) {
+		mes "[Hakon le Passeur]";
+		mes "Le premier echo t'a suffi pour l'instant. Le second demande davantage de vecu. Reviens plus fort.";
+		close;
+	}
+	if (JobLevel >= 20) {
+		mes "[Hakon le Passeur]";
+		mes "Tu portes deja assez d'experience pour ce second echo. Inutile de t'y faire passer pour si peu.";
+		close2;
+		job_tier2 = 1;
+		end;
+	}
+	if (job_tier2_stage >= 1) {
+		mes "[Hakon le Passeur]";
+		mes "Tu es deja dans le second echo. Termine ce que tu as commence - je ne peux pas t'y renvoyer, seulement t'y avoir laisse entrer une fois.";
 		close;
 	}
 
 	mes "[Hakon le Passeur]";
-	mes "*Il ne leve pas les yeux tout de suite, comme s'il t'avait entendu approcher depuis longtemps.*";
+	mes "*Il te regarde un long moment, comme s'il soupesait quelque chose.*";
 	next;
 	mes "[Hakon le Passeur]";
-	mes "J'ai perdu quelque chose pour comprendre ce que je vais te montrer. Je ne te dirai pas quoi. Ce n'est pas la partie interessante de l'histoire.";
+	mes "Il existe un second echo. Plus profond, plus ancien que le premier - un lieu sans nom, seulement des couloirs et des portes qui ne se sont pas ouvertes depuis tres, tres longtemps.";
 	next;
 	mes "[Hakon le Passeur]";
-	mes "Il existe un palais qui n'existe plus - enfin, plus vraiment. Un juge y a siege, avant l'Ordre, avant les Forgenoires, avant meme que la Faille ne s'ouvre. L'echo s'en souvient encore, alors moi aussi.";
+	mes "Ce que tu y verras precede l'Ordre, les Forgenoires, la Faille elle-meme - et peut-etre meme la Foi que tout le monde croit eternelle. Je ne peux pas t'en dire plus sans que ca en perde le sens.";
 	next;
 	mes "[Hakon le Passeur]";
-	mes "Ce que tu y trouveras ne te sera pas confortable. Mais tu en ressortiras capable de tenir ton metier sans qu'on ait besoin de te tenir la main. Es-tu pret" + (Sex ? "" : "e") + " ?";
+	mes "Une fois entre, tu ne pourras qu'ecouter. Personne, dans cet echo, ne sait que tu es la. Es-tu pret" + (Sex ? "" : "e") + " ?";
 	next;
 	if (select("Pas maintenant.", "Oui, montre-moi.") == 1) {
 		mes "[Hakon le Passeur]";
-		mes "L'echo attendra. Il a tout son temps - bien plus que toi.";
+		mes "Il attendra. Lui aussi.";
 		close;
 	}
-	setquest 91100;
-	job_tier1_stage = 1;
+	job_tier2_stage = 1;
 	mes "[Hakon le Passeur]";
-	mes "Tu vas arriver directement dans les cellules. Il n'y a pas d'autre porte - le palais ne laisse entrer que par le bas.";
+	mes "Tu vas arriver dans les couloirs d'entree. Avance - les portes s'ouvriront a mesure que tu ecouteras ce qu'elles retiennent.";
 	close2;
-	warp "1@spa",38,41;
+	questinfo_refresh;
+	warp "1@lab",119,29;
 	end;
-OnQuestIcon:
-	if (Class != Job_Swordman && Class != Job_Mage && Class != Job_Acolyte &&
-	    Class != Job_Archer && Class != Job_Merchant && Class != Job_Thief) {
-		showevent QTYPE_NONE;
-	} else if (job_tier1 >= 1) {
-		showevent QTYPE_NONE;
-	} else if (BaseLevel < 20) {
-		showevent QTYPE_NONE;
-	} else if (JobLevel >= 10) {
-		showevent QTYPE_QUEST;
-	} else if (job_tier1_stage >= 1) {
-		showevent QTYPE_QUEST2;
-	} else {
-		showevent QTYPE_QUEST;
-	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "(Class == Job_Swordman || Class == Job_Mage || Class == Job_Acolyte || Class == Job_Archer || Class == Job_Merchant || Class == Job_Thief) && job_tier1 == 0 && BaseLevel >= 20 && job_tier1_stage == 0";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "(Class == Job_Swordman || Class == Job_Mage || Class == Job_Acolyte || Class == Job_Archer || Class == Job_Merchant || Class == Job_Thief) && job_tier1 == 0 && JobLevel >= 10";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "(Class == Job_Swordman || Class == Job_Mage || Class == Job_Acolyte || Class == Job_Archer || Class == Job_Merchant || Class == Job_Thief) && job_tier1 == 0 && job_tier1_stage >= 1";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "(Class == Job_Swordman || Class == Job_Mage || Class == Job_Acolyte || Class == Job_Archer || Class == Job_Merchant || Class == Job_Thief) && job_tier1 >= 1 && job_tier2 == 0 && BaseLevel >= 30 && job_tier2_stage == 0";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "(Class == Job_Swordman || Class == Job_Mage || Class == Job_Acolyte || Class == Job_Archer || Class == Job_Merchant || Class == Job_Thief) && job_tier1 >= 1 && job_tier2 == 0 && JobLevel >= 20";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "(Class == Job_Swordman || Class == Job_Mage || Class == Job_Acolyte || Class == Job_Archer || Class == Job_Merchant || Class == Job_Thief) && job_tier1 >= 1 && job_tier2 == 0 && job_tier2_stage >= 1";
 	end;
 }
 

@@ -1,0 +1,250 @@
+//===== Reign of Midgard ===================================================
+//= Palier de Job 2 (Job 20 @ Base 30) - Le Cercle de Gullveig
+//===== Description: =======================================================
+//= Second echo ouvert par Hakon le Passeur (paliers_job.txt), sur 1@lab.
+//= Purement narratif : pas de combat, pas de quete trackee, juste une
+//= progression lineaire par teleportation entre 4 "paires" de PNJ figes
+//= puis une scene finale a 4 voix. Chaque paire montre EXACTEMENT la meme
+//= scene a deux voix, quel que soit celui des deux PNJ qu'on touche - un
+//= second PNJ (duplicate) est place a cote du premier uniquement pour
+//= l'effet visuel "on tombe sur une vraie conversation".
+//=
+//= Pre-Rupture, sans faction (voir lore/reign-of-midgard-lore.md) : le
+//= Cercle de Gullveig - Eirik, Gunnhild, Bergthor, Asa, Njal, Disa, Orm,
+//= Saga - de hauts dignitaires de l'ancienne Foi, decouvre un fragment du
+//= meme pouvoir qui jaillira plus tard a la Rupture, le garde pour son
+//= propre profit (longevite, controle a l'echelle du divin), et finit par
+//= fonder la Foi elle-meme comme outil pour detourner le regard du peuple
+//= plutot que par conviction sincere.
+//=
+//= Progression : voir job_tier2_stage dans paliers_job.txt. Chaque scene
+//= incremente le stage et televporte vers l'entree de la suivante -
+//= questinfo_refresh apres chaque changement (job_tier2_stage n'est pas
+//= dans la liste des declencheurs automatiques de questinfo, contrairement
+//= a un changement d'etat de quete natif). ASCII pur.
+//===========================================================================
+
+// -- Recompense du palier 2 ----------------------------------------------
+// Meme gabarit que F_RecompensePalier1 (paliers_job.txt) : @joblvlup jusqu'a
+// job 20 pile, zeny doubles (palier superieur), meme repartition de
+// reputation par faction.
+function	script	F_RecompensePalier2	{
+	if (JobLevel < 20)
+		atcommand "@joblvlup " + (20 - JobLevel);
+	Zeny += 20000;
+	if (getfaction() == 1)
+		add_reputation_points(REPUTATION_ORDRE,20);
+	else if (getfaction() == 2)
+		add_reputation_points(REPUTATION_FORGENOIRES,20);
+	else {
+		add_reputation_points(REPUTATION_ORDRE,10);
+		add_reputation_points(REPUTATION_FORGENOIRES,10);
+	}
+	job_tier2 = 1;
+	job_tier2_stage = 0;
+	return;
+}
+
+//== Paire 1 (1@lab) - la decouverte =========================================
+1@lab,107,34,3	script	Eirik#reign	4_M_OLDFRIAR,{
+	if (job_tier2_stage != 1) {
+		mes "[Eirik]";
+		mes "*Une silhouette figee, silencieuse pour l'instant.*";
+		close;
+	}
+	mes "*Vous assistez a une scene du passe, figee dans l'echo. Ils ne vous voient pas, et ne vous verront jamais.*";
+	next;
+	mes "[Eirik]";
+	mes "Regarde. Ca n'a jamais cesse de battre, meme sous des siecles de pierre.";
+	next;
+	mes "[Gunnhild]";
+	mes "C'est... Eirik, c'est de la lumiere qui sort de la roche elle-meme. Ca ne devrait pas etre possible.";
+	next;
+	mes "[Eirik]";
+	mes "Rien de ce que nous enseignons n'aurait du etre possible non plus, avant qu'on ne l'ecrive. Peut-etre que c'est notre tour d'ecrire quelque chose de nouveau.";
+	next;
+	mes "[Gunnhild]";
+	mes "Il faut prevenir le Conclave. Une decouverte comme celle-ci ne nous appartient pas.";
+	next;
+	mes "[Eirik]";
+	mes "Le Conclave a cent mains et une seule bouche prudente. Laisse-moi au moins comprendre ce que c'est, avant qu'on nous l'arrache pour l'enfermer sans meme le regarder.";
+	next;
+	mes "[Gunnhild]";
+	mes "...Une semaine. Pas plus.";
+	next;
+	mes "*L'echo vacille et s'efface.*";
+	close2;
+	job_tier2_stage = 2;
+	questinfo_refresh;
+	warp "1@lab",97,29;
+	end;
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 1";
+	end;
+}
+1@lab,109,34,3	duplicate(Eirik#reign)	Gunnhild#reign	4_F_MONK
+
+//== Paire 2 (1@lab) - la premiere dissimulation ============================
+1@lab,83,35,3	script	Bergthor#reign	4_M_OLDFRIAR,{
+	if (job_tier2_stage != 2) {
+		mes "[Bergthor]";
+		mes "*Une silhouette figee, silencieuse pour l'instant.*";
+		close;
+	}
+	mes "*Vous assistez a une scene du passe, figee dans l'echo. Ils ne vous voient pas, et ne vous verront jamais.*";
+	next;
+	mes "[Bergthor]";
+	mes "Une semaine est devenue une saison, Asa. Et personne au Conclave n'a pose une seule question.";
+	next;
+	mes "[Asa]";
+	mes "Parce que personne ne sait qu'il y a une question a poser. C'est mieux ainsi - pour eux, et pour nous.";
+	next;
+	mes "[Bergthor]";
+	mes "Pour nous, surtout, non ? Regarde tes mains. Elles ne tremblent plus depuis des annees.";
+	next;
+	mes "[Asa]";
+	mes "Et alors ? On ne fait de mal a personne en gardant ca pour nous le temps de comprendre. Le jour ou on saura vraiment ce que c'est, on decidera quoi en faire.";
+	next;
+	mes "[Bergthor]";
+	mes "Tu dis ca depuis dix ans.";
+	next;
+	mes "[Asa]";
+	mes "Et dans dix ans, je le dirai encore. Ferme cette porte derriere toi.";
+	next;
+	mes "*L'echo vacille et s'efface.*";
+	close2;
+	job_tier2_stage = 3;
+	questinfo_refresh;
+	warp "1@lab",76,29;
+	end;
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 2";
+	end;
+}
+1@lab,87,35,3	duplicate(Bergthor#reign)	Asa#reign	4_F_MONK
+
+//== Paire 3 (1@lab) - le desaccord ==========================================
+1@lab,60,34,3	script	Njal#reign	4_M_OLDFRIAR,{
+	if (job_tier2_stage != 3) {
+		mes "[Njal]";
+		mes "*Une silhouette figee, silencieuse pour l'instant.*";
+		close;
+	}
+	mes "*Vous assistez a une scene du passe, figee dans l'echo. Ils ne vous voient pas, et ne vous verront jamais.*";
+	next;
+	mes "[Disa]";
+	mes "On ne joue plus a comprendre, Njal. On joue a garder. Ce n'est pas la meme chose.";
+	next;
+	mes "[Njal]";
+	mes "On a repousse la maladie, la vieillesse, la mort elle-meme, pour ceux d'entre nous qui savent s'en approcher correctement. Tu appelles ca 'jouer' ?";
+	next;
+	mes "[Disa]";
+	mes "J'appelle ca voler quelque chose qui n'a jamais ete a nous. Les dieux eux-memes ont mis des siecles a batir ce qu'on manipule ici en une nuit. Tu ne trouves pas ca... imprudent, au minimum ?";
+	next;
+	mes "[Njal]";
+	mes "Les dieux n'ont jamais eu besoin de se justifier devant nous. Pourquoi devrions-nous nous justifier devant eux, si on ne les derange jamais ?";
+	next;
+	mes "[Disa]";
+	mes "Parce qu'un jour, on les derangera. Et ce jour-la, j'espere qu'on aura autre chose a leur offrir qu'une excuse.";
+	next;
+	mes "*L'echo vacille et s'efface.*";
+	close2;
+	job_tier2_stage = 4;
+	questinfo_refresh;
+	warp "1@lab",53,29;
+	end;
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 3";
+	end;
+}
+1@lab,64,34,3	duplicate(Njal#reign)	Disa#reign	4_F_MONK
+
+//== Paire 4 (1@lab) - l'idee de la religion =================================
+1@lab,37,34,3	script	Orm#reign	4_M_OLDFRIAR,{
+	if (job_tier2_stage != 4) {
+		mes "[Orm]";
+		mes "*Une silhouette figee, silencieuse pour l'instant.*";
+		close;
+	}
+	mes "*Vous assistez a une scene du passe, figee dans l'echo. Ils ne vous voient pas, et ne vous verront jamais.*";
+	next;
+	mes "[Saga]";
+	mes "On ne peut plus se contenter de fermer des portes, Orm. Un secret qui se transmet en silence finit toujours par se transmettre en trop de bouches.";
+	next;
+	mes "[Orm]";
+	mes "Que proposes-tu ? On ne peut pas demander a tout un peuple de se taire sur ce qu'il ignore.";
+	next;
+	mes "[Saga]";
+	mes "Non. Mais on peut lui donner quelque chose d'autre a regarder. Une foi. Des rites, des dieux a prier, un ordre du monde qui n'a jamais besoin qu'on creuse plus profond pour le comprendre.";
+	next;
+	mes "[Orm]";
+	mes "Tu veux batir une religion pour... quoi, occuper les regards ?";
+	next;
+	mes "[Saga]";
+	mes "Je veux batir une religion qui rend la question elle-meme impensable. Personne ne cherche ce qu'on lui a deja explique en entier.";
+	next;
+	mes "[Orm]";
+	mes "...C'est brillant. Et ca me terrifie un peu, venant de toi.";
+	next;
+	mes "[Saga]";
+	mes "Bien. Ca voudra dire que ca marchera sur les autres aussi.";
+	next;
+	mes "*L'echo vacille et s'efface.*";
+	close2;
+	job_tier2_stage = 5;
+	questinfo_refresh;
+	warp "1@lab",56,81;
+	end;
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 4";
+	end;
+}
+1@lab,40,34,3	duplicate(Orm#reign)	Saga#reign	4_F_MONK
+
+//== Scene finale (1@lab, laboratoire principal) - la fondation de la Foi ===
+//= 4 PNJ identiques (Eirik, Asa, Disa, Saga reunis) - n'importe lequel des
+//= quatre declenche la meme scene complete.
+1@lab,76,86,3	script	Eirik le Fondateur#reign	4_M_OLDFRIAR,{
+	if (job_tier2_stage != 5) {
+		mes "[Eirik]";
+		mes "*Une silhouette figee, silencieuse pour l'instant.*";
+		close;
+	}
+	mes "*La derniere scene de l'echo. Ils sont tous les quatre reunis, pour la premiere et derniere fois ensemble.*";
+	next;
+	mes "[Saga]";
+	mes "Alors. Sommes-nous d'accord ?";
+	next;
+	mes "[Eirik]";
+	mes "Une foi. Des rites. Un ordre du monde suffisamment complet pour que personne n'ait jamais besoin d'en chercher un autre.";
+	next;
+	mes "[Asa]";
+	mes "Et un Conclave qui continuera de croire qu'il dirige, pendant que nous continuerons, nous, a veiller sur ce qu'il ne verra jamais.";
+	next;
+	mes "[Disa]";
+	mes "Je le redis une derniere fois, pour que ce soit entendu au moins une fois : on ne referme pas une porte en la peignant. On la referme en la fermant.";
+	next;
+	mes "[Saga]";
+	mes "Cette porte-la ne se fermera plus, Disa. Il ne nous reste qu'a decider ce qu'on met devant.";
+	next;
+	mes "[Disa]";
+	mes "...Alors qu'il soit su, au moins par nous : ce que nous batissons aujourd'hui n'est pas une verite. C'est un mur, avec un joli visage peint dessus.";
+	next;
+	mes "[Eirik]";
+	mes "Un mur suffisamment solide, et personne ne se souvient qu'il y avait quelque chose derriere.";
+	next;
+	mes "[Saga]";
+	mes "Que ce soit dit. La Foi commence ici.";
+	next;
+	mes "*L'echo s'efface pour la derniere fois. Le silence qui suit n'appartient plus au passe.*";
+	close2;
+	callfunc("F_RecompensePalier2");
+	warp "iz_ac02",103,200;
+	end;
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 5";
+	end;
+}
+1@lab,83,86,3	duplicate(Eirik le Fondateur#reign)	Asa la Fondatrice#reign	4_F_MONK
+1@lab,85,83,3	duplicate(Eirik le Fondateur#reign)	Disa la Fondatrice#reign	4_F_MONK
+1@lab,87,88,3	duplicate(Eirik le Fondateur#reign)	Saga la Fondatrice#reign	4_F_MONK

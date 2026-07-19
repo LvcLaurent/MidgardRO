@@ -267,8 +267,8 @@ zone de chasse "post-Académie" pour les novices qui viennent de changer de mét
 Une fois le premier métier choisi (section 8), plus aucun PNJ n'accompagnait la
 progression du Job Level — l'XP de job étant désactivée côté serveur, c'était un
 angle mort. Des **paliers** comblent ce trou, liés au Base Level (Job 10 @ Base 20,
-Job 20 @ Base 30, Job 30 @ Base 40, Job 40 @ Base 50, Job 50 @ Base 55) : à ce
-stade, seul le palier 1 existe.
+Job 20 @ Base 30, Job 30 @ Base 40, Job 40 @ Base 50, Job 50 @ Base 55) : les
+paliers 1 et 2 existent à ce stade.
 
 **Hakon le Passeur**, à l'Académie d'Izlude (même bâtiment que Bram/Sunna, à
 l'étage), ouvre un **écho du passé** — la Rupture n'a pas seulement réveillé des
@@ -291,6 +291,55 @@ d'autorité). Le juge ne se repent pas vraiment — il se justifie, jusqu'au bou
 > majeur de la Foi elle-même — de quoi laisser ouverte la question de savoir si
 > d'autres, plus haut placés, savaient aussi et ont fait le même choix. À
 > recroiser avec la piste Yrsa (section 7) le moment venu.
+
+### Palier 2 — Le Cercle de Gullveig
+
+Second écho, ouvert par Hakon une fois le palier 1 acquis, sur une carte de
+laboratoire (`1@lab`) plutôt que le palais du palier 1 — strictement
+pré-Rupture, sans faction, purement narratif (aucun combat, aucune quête
+trackée). Le joueur y est un pur spectateur : quatre scènes à deux voix,
+rencontrées en marchant dans les couloirs, puis une scène finale à quatre
+voix dans le laboratoire principal.
+
+Ce que l'écho révèle répond directement à la piste ouverte juste au-dessus :
+Kolvar n'était pas seul à savoir. Des siècles avant lui, un petit groupe de
+hauts dignitaires de l'ancienne Foi — **le Cercle de Gullveig** (Eirik,
+Gunnhild, Bergthor, Asa, Njal, Disa, Orm, Saga) — a découvert un fragment du
+même pouvoir qui jaillira bien plus tard, à la Rupture, pour donner
+naissance à l'Ordre de la Faille et aux Forgenoires (voir section 2 :
+« énergie arcanique brute » et « vestiges d'une civilisation antérieure » ne
+sont pas deux découvertes séparées par hasard, mais deux morceaux d'une
+seule chose, cassée en deux le jour de la Rupture).
+
+Le nom du groupe référence **Gullveig**, figure nordique liée à l'or, à la
+cupidité et à la sorcellerie (seiðr), dont la maltraitance par les Ases
+déclenche la toute première guerre entre dieux dans les textes — écho
+volontaire pour un groupe qui découvre un pouvoir et choisit de le garder
+pour lui plutôt que de le partager.
+
+Ce que ce pouvoir leur a apporté : une longévité largement prolongée, et un
+contrôle sur le monde suffisant pour rivaliser avec les dieux eux-mêmes
+(porte ouverte pour introduire de vraies divinités actives dans le lore plus
+tard, plutôt que de les laisser en toile de fond mythologique). Convaincus de
+maîtriser le risque, et conscients qu'une révélation publique aurait
+provoqué une réaction bien au-delà du monde mortel (personne, pas même en
+dehors du Cercle, n'aurait eu envie de défier les dieux), ils choisissent le
+silence plutôt que le partage.
+
+La scène finale montre la **fondation de la Foi elle-même**, décidée par le
+Cercle non par conviction sincère mais comme outil délibéré pour détourner
+le regard du peuple — une doctrine complète, suffisamment satisfaisante pour
+que personne n'ait jamais de raison d'en chercher une autre. Disa, seule
+voix dissidente du groupe, est présente jusqu'au bout mais cède ; sa
+dissidence n'efface rien, elle est simplement ignorée.
+
+> 🔮 Piste future (palier 3) : montrer que la Foi a réellement des choses à
+> cacher, mais que certains de ses membres haut placés — postérieurs au
+> Cercle, jamais mis dans la confidence — agissent malgré tout de bonne foi.
+> Nuance interne à la Foi plutôt qu'un bloc monolithiquement cynique.
+>
+> 🔮 Piste future : des membres originels du Cercle pourraient techniquement
+> être encore en vie aujourd'hui, quelque part.
 
 ## 12. Prontera, la ville
 

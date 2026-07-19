@@ -192,33 +192,15 @@ pay_arche,55,125,3	script	Vigdis#reign	4_F_02,{
 			close;
 		}
 	}
-OnQuestIcon:
-	if (payon_grotte_stage >= 3) {
-		showevent QTYPE_NONE;
-	} else if (payon_grotte_stage == 0) {
-		if (checkquest(91203,HUNTING) == 2) {
-			showevent QTYPE_QUEST;
-		} else if (isbegin_quest(91203) == 1) {
-			showevent QTYPE_QUEST2;
-		} else {
-			showevent QTYPE_QUEST;
-		}
-	} else if (payon_grotte_stage == 1) {
-		if (checkquest(91204,HUNTING) == 2) {
-			showevent QTYPE_QUEST;
-		} else if (isbegin_quest(91204) == 1) {
-			showevent QTYPE_QUEST2;
-		} else {
-			showevent QTYPE_QUEST;
-		}
-	} else {
-		if (checkquest(91205,HUNTING) == 2) {
-			showevent QTYPE_QUEST;
-		} else if (isbegin_quest(91205) == 1) {
-			showevent QTYPE_QUEST2;
-		} else {
-			showevent QTYPE_QUEST;
-		}
-	}
+OnInit:
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 0 && checkquest(91203,HUNTING) == 2";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 0 && isbegin_quest(91203) == 0";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "payon_grotte_stage == 0 && isbegin_quest(91203) == 1";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 1 && checkquest(91204,HUNTING) == 2";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 1 && isbegin_quest(91204) == 0";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "payon_grotte_stage == 1 && isbegin_quest(91204) == 1";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 2 && checkquest(91205,HUNTING) == 2";
+	questinfo QTYPE_QUEST, QMARK_YELLOW, "payon_grotte_stage == 2 && isbegin_quest(91205) == 0";
+	questinfo QTYPE_QUEST2, QMARK_NONE, "payon_grotte_stage == 2 && isbegin_quest(91205) == 1";
 	end;
 }
