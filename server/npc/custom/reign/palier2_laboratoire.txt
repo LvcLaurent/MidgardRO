@@ -46,7 +46,7 @@ function	script	F_RecompensePalier2	{
 }
 
 //== Paire 1 (1@lab) - la decouverte =========================================
-1@lab,107,34,3	script	Eirik#reign	4_M_OLDFRIAR,{
+1@lab,107,34,3	script	Eirik#reign	4_m_sage_a,{
 	if (job_tier2_stage != 1) {
 		mes "[Eirik]";
 		mes "*Une silhouette figee, silencieuse pour l'instant.*";
@@ -82,10 +82,10 @@ OnInit:
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 1";
 	end;
 }
-1@lab,109,34,3	duplicate(Eirik#reign)	Gunnhild#reign	4_F_MONK
+1@lab,109,34,3	duplicate(Eirik#reign)	Gunnhild#reign	4_m_sage_c
 
 //== Paire 2 (1@lab) - la premiere dissimulation ============================
-1@lab,83,35,3	script	Bergthor#reign	4_M_OLDFRIAR,{
+1@lab,83,35,3	script	Bergthor#reign	2_m_alche,{
 	if (job_tier2_stage != 2) {
 		mes "[Bergthor]";
 		mes "*Une silhouette figee, silencieuse pour l'instant.*";
@@ -157,10 +157,10 @@ OnInit:
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 3";
 	end;
 }
-1@lab,64,34,3	duplicate(Njal#reign)	Disa#reign	4_F_MONK
+1@lab,64,34,3	duplicate(Njal#reign)	Disa#reign	4_f_alche
 
 //== Paire 4 (1@lab) - l'idee de la religion =================================
-1@lab,37,34,3	script	Orm#reign	4_M_OLDFRIAR,{
+1@lab,37,34,3	script	Orm#reign	1_m_sign1,{
 	if (job_tier2_stage != 4) {
 		mes "[Orm]";
 		mes "*Une silhouette figee, silencieuse pour l'instant.*";
@@ -199,12 +199,12 @@ OnInit:
 	questinfo QTYPE_QUEST, QMARK_YELLOW, "job_tier2_stage == 4";
 	end;
 }
-1@lab,40,34,3	duplicate(Orm#reign)	Saga#reign	4_F_MONK
+1@lab,40,34,3	duplicate(Orm#reign)	Saga#reign	4_f_chndoctor
 
 //== Scene finale (1@lab, laboratoire principal) - la fondation de la Foi ===
 //= 4 PNJ identiques (Eirik, Asa, Disa, Saga reunis) - n'importe lequel des
 //= quatre declenche la meme scene complete.
-1@lab,76,86,3	script	Eirik le Fondateur#reign	4_M_OLDFRIAR,{
+1@lab,76,86,3	script	Eirik le Fondateur#reign	4_m_sage_c,{
 	if (job_tier2_stage != 5) {
 		mes "[Eirik]";
 		mes "*Une silhouette figee, silencieuse pour l'instant.*";
@@ -246,5 +246,5 @@ OnInit:
 	end;
 }
 1@lab,83,86,3	duplicate(Eirik le Fondateur#reign)	Asa la Fondatrice#reign	4_F_MONK
-1@lab,85,83,3	duplicate(Eirik le Fondateur#reign)	Disa la Fondatrice#reign	4_F_MONK
-1@lab,87,88,3	duplicate(Eirik le Fondateur#reign)	Saga la Fondatrice#reign	4_F_MONK
+1@lab,85,83,3	duplicate(Eirik le Fondateur#reign)	Disa la Fondatrice#reign	4_f_alche
+1@lab,87,88,3	duplicate(Eirik le Fondateur#reign)	Saga la Fondatrice#reign	4_f_chndoctor
