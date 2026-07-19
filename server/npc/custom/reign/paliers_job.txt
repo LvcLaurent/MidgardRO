@@ -154,12 +154,36 @@ iz_ac02,103,200,3	script	Hakon le Passeur#reign	4_M_OLDSCHOLAR,{
 	// Palier 1 termine - palier 2 (Job 20 @ Base 30)
 	if (job_tier2 >= 1) {
 		mes "[Hakon le Passeur]";
-		mes "Tu as deja traverse ce second echo aussi. Le reste attendra que je sois pret a te le montrer.";
+		mes "Tu as traverse le second echo, alors. Le Cercle de Gullveig - Eirik, Gunnhild, et les autres apres eux.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Des siecles avant Kolvar, avant meme l'Ordre et les Forgenoires, ils avaient deja trouve un fragment de ce que la Rupture liberera plus tard pour tout le monde. Et ils l'ont garde pour eux - longevite, controle, de quoi rivaliser avec les dieux eux-memes, a leurs mots.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Et quand garder le secret est devenu trop difficile, ils n'ont pas renonce. Ils ont invente une religion entiere pour que plus personne n'ait jamais l'idee de chercher.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "La Foi que tout le monde tient pour eternelle n'a jamais ete une revelation sincere. C'etait un mur, batit par des gens qui savaient exactement ce qu'ils cachaient derriere.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Voila. Le reste attendra que je sois pret a te le montrer.";
 		close;
 	}
 	if (BaseLevel < 30) {
 		mes "[Hakon le Passeur]";
-		mes "Le premier echo t'a suffi pour l'instant. Le second demande davantage de vecu. Reviens plus fort.";
+		mes "Tu te souviens de Kolvar, j'imagine. Ce juge d'un palais qui n'existe plus, assis sur un trone vide depuis des siecles, encore convaincu d'avoir bien fait.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Il savait. Des annees avant que la Rupture ne survienne, il avait vu les signes, entendu ceux qui les avaient remarques avant lui - et il a choisi de les faire taire plutot que d'alerter qui que ce soit.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Pas par malice, a l'entendre. Juste par lachete, habillee en prudence. C'est souvent comme ca que les catastrophes s'installent - pas par un grand mal, mais par une somme de petits silences.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Garde ca en tete. Le second echo ne t'apprendra rien de plus doux.";
+		next;
+		mes "[Hakon le Passeur]";
+		mes "Mais il demande davantage de vecu. Reviens quand tu auras atteint le niveau de base 30, et je te montrerai la suite.";
 		close;
 	}
 	if (JobLevel >= 20) {
